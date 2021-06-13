@@ -1,0 +1,393 @@
+
+/* var(--white); */
+:root {
+	--blackest:			#000000;
+	--white:				#FFFFFF;
+	--black:				#333333;
+	--grey:					#999999;
+	--grey2:				#EEEEEE;
+	--grey3:				#666666;
+	--green:				#009900;
+	--red:					#FF0000;
+	--pale:					#FFFFDE;
+	--green2:				#00FF00;
+
+	--red_trans:		rgba(255,0,0,0.5);
+	--green2_trans:	rgba(0,255,0,0.5);
+
+	--jim:					url("img/jimmothy.png");
+	--phasmo: 			url("img/phasmo.png");
+	--icons:				url("img/icons.png");
+}
+
+@font-face { font-family: "arial"; src: url("arial.ttf"); }
+@font-face { font-family: "fixed"; src: url("lucon.ttf"); }
+
+body { margin: 0; padding: 1em; overflow-x: hidden; font-family: "arial", sans-serif; font-size: 14px; background-color: var(--grey2); transition: all 0.1s linear 0s; }
+h1, h2, h3 { margin: 0; text-align: center; font-weight: normal; }
+h1 { margin-bottom: 0.5em; line-height: 1em; font-family: "fixed", monospace; font-size: 24px; text-shadow: 2px 2px 1px var(--grey); }
+h2 { font-size: 16px; }
+h3 { font-size: 18px; }
+
+a { text-decoration: none; color: var(--red); }
+a:hover { text-shadow: 0 0 0.5em var(--red_trans); }
+
+body.hidden { opacity: 0; filter: opacity(0%); }
+
+.center { text-align: center; }
+.b { font-weight: bold; }
+table { width: 100%; margin: 0; border-spacing: 0; }
+
+input[type="button"] { box-sizing: border-box; margin: 0 0 0.25em 0; padding: 0.5em 0.25em 0.4em 0.25em; border: 1px solid var(--white); font-family: "fixed", monospace; font-size: 12px; color: var(--white); background: var(--black); cursor: pointer; }
+input[type="button"].current { border-color: var(--black); color: var(--black); background-color: var(--grey2); }
+
+div#body { z-index: 0; box-sizing: border-box; position: relative; width: 100%; margin: 0 auto; padding: 0.5em 1em 1em 1em; border: 1px solid var(--black); background-color: var(--white); }
+
+div#jim { z-index: 1; position: absolute; top: 0.2em; left: 0.2em; width: 32px; height: 32px; margin: 0; padding: 0; background: var(--jim) 50% 0px no-repeat; }
+
+div#top { position: relative; margin-bottom: 0.5em; padding-left: calc(32px - 0.5em); }
+div#top > div { display: inline-block; vertical-align: top; }
+
+/* Keyboard shortcuts */
+div#links { user-select: none; }
+div#links > ul { list-style-type: none; display: inline-block; margin: 0; padding: 0; }
+div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.25em 0 0; border: 1px solid var(--white); border-radius: 0 1em 1em 0; line-height: 1em; font-size: 14px; cursor: pointer; }
+div#links > ul > li > span { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
+html:fullscreen #links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
+
+/* Ghost name & alone marker */
+div#ghost { position: relative; }
+div#ghost > input { width: 12.5em; font-family: "fixed", monospace; }
+div#ghost > label { user-select: none; cursor: pointer; }
+div#ghost > label > input { display: none; }
+div#ghost > label > span { padding: 0.25em 0.5em 0.1em 0.5em; border: 1px solid var(--black); font-size: 12px; font-family: "fixed", monospace; color: var(--white); background-color: var(--black); }
+
+div#ghost > label:nth-of-type(1) { margin-left: 0.25em; }
+div#ghost > label:first-of-type > span { padding-left: 0.25em; padding-right: 0.25em; color: var(--black); background-color: var(--white); }
+div#ghost > label:last-of-type > span { border-radius: 0 0.5em 0.5em 0; }
+
+div#ghost > label > input:checked + span { color: var(--white); background-color: var(--green); }
+
+div#ghost > input:focus + label:before { position: absolute; top: 19px; left: 0; padding: 0.25em 0.5em; border: 1px solid var(--black); font-size: 12px; background-color: var(--pale); content: 'Enter or Esc to exit'; }
+
+/* Last Update */
+div#lastupdate { position: absolute; top: calc(-0.5em - 2px); right: calc(-1em - 4px); padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0 0.5em; font-family: "fixed", monospace; font-size: 0.8em; }
+
+/* Top section */
+div#head { display: flex; flex-flow: row; margin-bottom: 0.5em; }
+div#head > div { flex: 1 1 calc(50% - 1.5em); padding: 0.5em; border: 1px solid var(--black); text-align: center; }
+
+div#head > div:nth-of-type(1) { margin: 0 0.5em 0 0; padding-top: 0.75em; border-radius: 1em 0 0 0; }
+div#head > div:nth-of-type(2) { padding-top: 0.5em; border-radius: 0 1em 0 0; background-color: var(--grey); }
+
+/* Introduction */
+div#head > div:nth-of-type(1) > h1 { margin: 0; }
+div#head > div:nth-of-type(1) > div { display: flex; flex-flow: row; margin-top: 0.25em; }
+div#head > div:nth-of-type(1) > div > div:nth-of-type(1) { flex: 0 1 auto; min-width: 72px; width: 72px; min-height: 128px; margin: 0 0.5em; padding: 0; background: var(--phasmo) 0 50% no-repeat; }
+div#head > div:nth-of-type(1) > div > div:nth-of-type(2) { flex: 1 1 auto; }
+div#head > div:nth-of-type(1) h2 { margin: 0.25em 0 0 0; }
+
+/* Timers */
+div#head > div:nth-of-type(2) > h2 { margin: 0; font-size: 20px; }
+div#head > div:nth-of-type(2) > h3 { display: inline-block; margin: 0.25em 0.1em; padding: 0.1em 0.25em 0 0.25em; border: 1px solid var(--black); vertical-align: bottom; line-height: 1em; font-size: 40px; text-shadow: 1px 1px var(--black); user-select: none; }
+
+div#head > div:nth-of-type(2) > div { font-size: 0; }
+div#head > div:nth-of-type(2) > div > input { width: 20%; margin-left: 0.25em; margin-right: 0.25em; }
+
+div#head > div:nth-of-type(2).flicker { background-color: var(--red); }
+
+h3#timer { width: 2.5em; font-family: "fixed", monospace; background-color: var(--grey2); }
+h3#play { width: 1.5em; color: var(--white); background-color: var(--green); cursor: pointer; }
+
+/* Clue Selection */
+ul#clues { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0 0 0.5em 0; padding: 0 0 0.5em 0; border-bottom: 1px dashed var(--black); user-select: none; }
+ul#clues > li { z-index: 0; position: relative; display: inline-block; box-sizing: border-box; flex: 1 1 15%; margin: 0.25em; padding: 1em 0.5em 1em calc(3em + 30px); border: 2px solid var(--grey); border-radius: 1em 0; text-align: left; white-space: nowrap; font-weight: bold; }
+
+/* Clue hotkey & icon */
+ul#clues > li > span { position: absolute; top: 15%; left: 0.35em; padding: 0; }
+ul#clues > li > span:nth-of-type(1) { font-size: 2em; color: var(--white); text-shadow: 1px 1px 1px var(--black), 0 0 1px var(--black); }
+ul#clues > li > span:nth-of-type(2) { left: 2.25em; width: 30px; height: 30px; background: var(--icons) 0 0 no-repeat; }
+
+ul#clues > li[data-clue="emf"]			> span:nth-of-type(2) { background-position: 0 0; }
+ul#clues > li[data-clue="prints"]		> span:nth-of-type(2) { background-position: -30px 0; }
+ul#clues > li[data-clue="temps"]		> span:nth-of-type(2) { background-position: -60px 0; }
+ul#clues > li[data-clue="orb"]			> span:nth-of-type(2) { background-position: -90px 0; }
+ul#clues > li[data-clue="writing"]	> span:nth-of-type(2) { background-position: -120px 0; }
+ul#clues > li[data-clue="box"]			> span:nth-of-type(2) { background-position: -150px 0; }
+
+/* Clue tick and cross selectors */
+ul#clues > li > label > input { display: none; }
+ul#clues > li > label > input:disabled + span { opacity: 0.25; filter: opacity(25%); }
+ul#clues > li > label > input + span { position: absolute; top: 15%; right: calc(1em + 30px); display: block; width: 30px; height: 30px; padding: 0; border: 1px solid var(--grey); border-radius: 0.5em; background: var(--icons) 0 0 no-repeat; }
+
+ul#clues > li > label > input[name="clue_y[]"] + span { background-position: 0 -30px; }
+ul#clues > li > label > input[name="clue_n[]"] + span { right: 0.5em; background-position: -30px -30px; }
+
+ul#clues > li > label > input[name="clue_y[]"]:checked + span { background-color: var(--green); }
+ul#clues > li > label > input[name="clue_n[]"]:checked + span { background-color: var(--red); }
+
+ul#clues > li > label > input + span:hover { cursor: pointer; }
+ul#clues > li > label > input:disabled + span:hover { cursor: not-allowed; }
+
+ul#clues > li.selected { border-color: var(--green); }
+ul#clues > li.disabled { border-color: rgba(51,51,51,0.25); color: rgba(51,51,51,0.25); }
+
+/* Fade out the disabled clue icon */
+ul#clues > li:before { z-index: 1; display: none; position: absolute; top: 15%; left: 2.25em; width: 30px; height: 30px; background-color: var(--white); content: ''; opacity: 0.75; filter: opacity(75%); }
+ul#clues > li.disabled:before { display: block; }
+
+/* Maps */
+ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
+ul#maps > li { display: inline-block; flex: 1 1 10%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; }
+ul#maps > li > a { display: block; padding: 0.5em 0; }
+ul#maps > li > a:hover, ul#maps > li > a:focus { border-radius: 0.5em; text-shadow: none; color: var(--black); background-color: var(--grey2); }
+
+/* Ghost results */
+ul#ghosts { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0; padding: 0; }
+ul#ghosts > li { flex: 1 1 20%; margin: 0.25em; padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0.5em; /*transition: all 0.25s linear 0s;*/ }
+ul#ghosts > li > h3 { margin: 0; text-align: left; font-weight: bold; text-transform: capitalize; }
+
+ul#ghosts > li.hidden { flex: none; width: 0; height: 0; margin: 0; padding: 0; border: none; overflow: hidden; }
+
+/* Clues applicable to each ghost */
+ul#ghosts > li > h3 > span { float: right; display: block; }
+ul#ghosts > li > h3 > span > span { display: inline-block; width: 20px; height: 20px; margin-left: 0.5em; padding: 0; border-radius: 0.25em; background: var(--icons) 0 0 no-repeat; background-size: 120px 40px; }
+ul#ghosts > li > h3 > span > span.checked { background-color: var(--green); }
+ul#ghosts > li > h3 > span > span:nth-of-type(1) { margin-left: 0; }
+
+ul#ghosts > li > ul { list-style-type: none; margin: 0.3em 0 0 0; padding: 0; }
+ul#ghosts > li > ul > li { position: relative; margin: 0.25em 0; padding: 0 0 0 0.75em; }
+ul#ghosts > li > ul > li:before { position: absolute; top: 0; left: 0; font-weight: bold; font-family: "fixed", monospace; content: '»'; }
+
+/* Ghost clue icons */
+ul#ghosts > li > h3 > span > span[data-type="emf"] {			background-position: 0 0; }
+ul#ghosts > li > h3 > span > span[data-type="prints"] {		background-position: -20px 0; }
+ul#ghosts > li > h3 > span > span[data-type="temps"] {		background-position: -40px 0; }
+ul#ghosts > li > h3 > span > span[data-type="orb"] {			background-position: -60px 0; }
+ul#ghosts > li > h3 > span > span[data-type="writing"] {	background-position: -80px 0; }
+ul#ghosts > li > h3 > span > span[data-type="box"] {			background-position: -100px 0; }
+
+/* Photos */
+div#photos { }
+div#photos > input { display: none; }
+div#photos > input + div { position: fixed; top: 4em; left: calc(-21em - 2px); width: 20em; padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0.5em 0; background-color: var(--white); transition: left 0.2s linear 0s; }
+div#photos > input:checked + div { left: -1px; }
+div#photos > input + div > label { position: absolute; top: -1px; right: -29px; display: block; width: 28px; height: 6em; padding-top: 0.25em; border: 1px solid var(--black); border-left: none; border-radius: 0 0.5em 0.5em 0; text-align: center; font-weight: normal; background-color: var(--white); cursor: pointer; }
+div#photos > input + div > label > span { position: absolute; top: 3em; left: -0.5em; transform: rotate(90deg); margin-right: 0.5em; font-weight: bold; }
+
+/* Photos table */
+div#photos > div > table { width: 100%; }
+div#photos > div > table > thead > tr > th { font-weight: bold; }
+
+div#photos > div > table > thead > tr > th:nth-of-type(1) { width: 1.5em; }
+div#photos > div > table > thead > tr > th:nth-of-type(2) { }
+div#photos > div > table > thead > tr > th:nth-of-type(3) { width: 8em; }
+div#photos > div > table > thead > tr > th:nth-of-type(4) { width: 1em; }
+
+div#photos > div > table th, div#photos > div > table td { padding: 2px; text-align: center; }
+
+div#photos > div > table > tbody td { }
+
+div#photos > div > table > tbody td > select { width: 100%; height: 1.5em; background-color: var(--white); }
+div#photos > div > table > tbody td > input { box-sizing: border-box; width: 100%; height: 1em; }
+
+div#photos > div > h2 { margin-top: 0.25em; font-size: 24px; }
+
+/* Roll */
+div#roll { }
+div#roll > input { display: none; }
+div#roll > input + div { position: fixed; top: 4em; right: calc(-23em - 2px); width: 22em; max-height: calc(100vh - 5.5em); padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0.5em 0; background-color: var(--white); transition: right 0.2s linear 0s; }
+div#roll > input:checked + div { right: -1px; }
+div#roll > input + div > label { position: absolute; top: -1px; left: -29px; display: block; width: 28px; height: 4.5em; padding-top: 0.25em; border: 1px solid var(--black); border-right: none; border-radius: 0.5em 0 0 0.5em; text-align: center; font-weight: normal; background-color: var(--white); cursor: pointer; }
+div#roll > input + div > label > span { position: absolute; top: 2.25em; left: 0.2em; transform: rotate(270deg); margin-right: 0.5em; font-weight: bold; }
+
+div.roll_group:nth-of-type(1) { margin-bottom: 1em; }
+
+div.roll_group > input[type="button"] { display: block; width: 50%; margin: 0 auto; }
+
+/* Roll types */
+div.roll_group > div { user-select: none; }
+div.roll_group > div:nth-of-type(1) { text-align: center; font-size: 12px; }
+div.roll_group > div:nth-of-type(1) > span { display: inline-block; margin: 0 0.25em 0.125em 0.25em; padding: 0.1em 0.25em; border: 1px solid var(--grey); border-radius: 0.25em; line-height: 1em; font-family: "fixed", monospace; cursor: pointer; }
+div.roll_group > div:nth-of-type(1) > span:hover { border-color: var(--black); }
+
+/* Items for the roll */
+div.roll_group > div:nth-of-type(2) { margin: 0.5em 0; text-align: center; font-size: 12px; }
+div.roll_group > div:nth-of-type(2) > input { display: none; }
+div.roll_group > div:nth-of-type(2) > input + label { position: relative; display: inline-block; width: calc(100% / 3 - 1em); height: 2em; margin: 0.1em; padding: 0.25em; border: 1px solid var(--grey2); line-height: 1.1em; font-family: "fixed", monospace; cursor: pointer; }
+div.roll_group > div:nth-of-type(2) > input + label:hover { border-color: var(--grey); }
+div.roll_group > div:nth-of-type(2) > input:checked + label { border-radius: 0.5em; border-color: var(--black); color: var(--black); }
+
+div.roll_group > div:nth-of-type(2) > input + label > span { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 1em; margin: auto 0; text-align: center; }
+div.roll_group > div:nth-of-type(2) > input.selected + label { border-radius: 0.5em; color: var(--white); background-color: var(--green); }
+
+/* Additional height for short-named items */
+div.roll_group > div:nth-of-type(2) > label[data-name="gwb"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="irs"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="par"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="sfl"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="tanglewood"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="ridgeview"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="edgefield"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="grafton"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="bleasdale"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span
+	{ height: 2em; }
+
+/**/
+
+/* Dark Mode */
+body.dark { color: var(--white); background-color: var(--blackest); }
+body.dark div#body { border-color: var(--white); background-color: var(--black); }
+
+body.dark a { color: var(--green2); }
+body.dark a:hover { text-shadow: 0 0 0.5em var(--green2_trans); }
+
+/* Keyboard shortcuts */
+body.dark div#links > ul > li { border-color: var(--black); }
+body.dark div#links > ul > li > span { color: var(--black); background-color: var(--white); }
+
+/* Keyboard shortcut: dark */
+body.dark div#links > ul > li:nth-of-type(1) { border: 1px solid var(--white); }
+
+/* Keyboard shortcut: fullscreen */
+html:fullscreen body.dark div#links > ul > li:nth-of-type(2) { border-color: var(--white); }
+
+/* Last Update */
+body.dark div#lastupdate { border-color: var(--white); }
+
+/* Top section */
+body.dark div#head > div { border-color: var(--white); }
+body.dark div#head > div:nth-of-type(2) { color: var(--black); }
+
+/* Ghost name tooltip */
+body.dark div#ghost > input:focus + label:before { color: var(--black); }
+
+/* Alone marker */
+body.dark div#ghost > label > span { border-color: var(--grey2); color: var(--black); background-color: var(--grey2); }
+body.dark div#ghost > label > input:checked + span { color: var(--white); background-color: var(--green); }
+
+/* Maps */
+body.dark ul#maps > li { border: 1px solid var(--white); }
+body.dark ul#maps > li > a { }
+body.dark ul#maps > li > a:hover { color: var(--white); background-color: var(--grey3); }
+
+/* Clue Selection */
+body.dark ul#clues { border-color: var(--white); }
+body.dark ul#clues > li { border-color: var(--white); }
+body.dark ul#ghosts > li { border-color: var(--white); }
+
+/* Clue hotkey */
+body.dark ul#clues > li > span:nth-of-type(1) { color: var(--black); text-shadow: 1px 1px 1px var(--white), 0 0 1px var(--white); }
+
+/* Disabled clue fade overlay */
+body.dark ul#clues > li:before { background-color: var(--black); }
+
+/* Selected & disabled clues */
+body.dark ul#clues > li.selected { border-color: var(--green); }
+body.dark ul#clues > li.disabled { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.25); }
+
+/* Photos */
+body.dark div#photos > input + div { border-color: var(--white); background-color: var(--black); }
+body.dark div#photos > input + div > label { border-color: var(--white); background-color: var(--black); }
+body.dark div#photos > div > table > tbody td > select { color: var(--white); background-color: var(--black); }
+
+/* Roll */
+body.dark div#roll > input + div { border-color: var(--white); background-color: var(--black); }
+body.dark div#roll > input + div > label { border-color: var(--white); background-color: var(--black); }
+body.dark div#roll > input + div > input[type="button"] { color: var(--black); background-color: var(--grey2); }
+
+/* Roll Types */
+body.dark div.roll_group > div:nth-of-type(1) > span:hover { border-color: var(--white); }
+body.dark div.roll_group > div:nth-of-type(2) > input + label { border-color: var(--grey3); }
+body.dark div.roll_group > div:nth-of-type(2) > input + label:hover { border-color: var(--grey); }
+body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-color: var(--white); color: var(--white); }
+
+/* Small landscape view */
+@media all and (max-height: 600px) {
+
+	div#roll > input + div { right: calc(-47em - 2px); width: 46em; }
+	div.roll_group { display: inline-block; vertical-align: top; }
+	div.roll_group:nth-of-type(1) { margin-right: 0.5em; padding-right: 0.5em; border-right: 1px solid var(--black); }
+	div.roll_group:nth-of-type(2) > div:nth-of-type(2) > input + label { width: calc(100% / 4 - 1em); }
+
+	body.dark div.roll_group:nth-of-type(1) { border-color: var(--white); }
+
+	div.roll_group:nth-of-type(1) > div:nth-of-type(2) > input + label { height: 3em; }
+
+	div.roll_group > div:nth-of-type(2) > label[data-name="ridgeview"] > span
+	{ height: 2em; }
+
+	div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span
+	{ height: 3em; }
+
+	div.roll_group > div:nth-of-type(2) > label[data-name="mos"] > span,
+	div.roll_group > div:nth-of-type(2) > label[data-name="sms"] > span
+	{ height: 2em; }
+
+}
+
+/* Less than 1920px wide */
+@media all and (max-width: 1750px) {
+
+/* Clue selection */
+	ul#clues > li { flex-basis: 30%; }
+	ul#ghosts > li { flex-basis: 30%; }
+
+/* Timers */
+	div#head > div:nth-of-type(2) > div > input { width: auto; }
+
+}
+
+/* Maps flex */
+@media all and (max-width: 1500px) {
+
+	/* Maps */
+	ul#maps > li { flex-basis: 20%; }
+
+}
+
+/* Mobile Horizontal */
+@media all and (max-width: 900px) {
+
+/* Ghost name */
+	div#top > div#ghost { display: block; margin-top: 0.5em; }
+
+/* Timers */
+	div#head > div:nth-of-type(2) > div > input { width: calc(75% - 0.25em); }
+
+	/* Maps */
+	ul#maps > li { flex-basis: 40%; }
+
+/* Clue Selection */
+	ul#clues > li { flex-basis: 40%; }
+
+}
+
+/* Mobile Vertical */
+@media all and (max-width: 630px) {
+
+/* Top sections into one set per row */
+	div#top > div { display: block; }
+
+/* Keyboard Shortcuts */
+	div#links { text-align: center; }
+	div#links > ul { margin: 1.75em 0 0.5em 0; }
+	div#links > ul > li { margin: 0; }
+
+/* Ghost Name */
+	div#ghost { text-align: center; }
+
+/* Headers into one per row */
+	div#head { flex-flow: column; margin: 0; }
+	div#head > div { }
+	div#head > div:nth-of-type(1) { margin: 0 0 0.25em 0; border-radius: 1em 1em 0 0; }
+	div#head > div:nth-of-type(2) { width: auto; margin-bottom: 0.5em; border-radius: 0 0 1em 1em; }
+
+/* Clue Selection */
+	ul#clues > li { flex-basis: 100%; }
+
+/* Ghost results */
+	ul#ghosts > li { flex-basis: 100%; }
+
+}

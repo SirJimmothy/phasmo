@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Phasmophobia Ghost Finder</title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="keywords" content="havenshire, gaming, phasmophobia, ghost finder, ghost checker, phasmophobia ghost finder, phasmophobia ghost checker, phasmophobia randomiser, phasmophobia item randomiser, phasmophobia map randomiser, map randomiser" />
+	<meta name="description" content="The Phasmophobia Ghost Finder allows you to collate your clues to determine which ghost is haunting you. Also includes timers and map and item randomisers for Phasmophobia challenge modes." />
+	<link type="text/css" rel="stylesheet" href="phasmo.css" title="Standard" />
+	<script src="phasmo.js"></script>
+</head>
+<body>
+
+<div id="body">
+
+	<div id="jim" title="Created by Sir_Jimmothy"></div>
+	<div id="top">
+		<div id="lastupdate">Last Updated: 2021-05-11 19:30 GMT</div>
+		<div id="links"><ul><li><span>D</span>Dark</li><li><span>F</span>Fullscreen</li><li><span>#</span>Timer</li><li><span>X</span>Reset</li></ul></div>
+		<div id="ghost"><input type="text" id="ghostname" value="" placeholder="[N] Ghost Name" /><label><input type="radio" name="alone" value="" checked="checked" /><span>[A]</span></label><label><input type="radio" name="alone" value="1" /><span>Alone</span></label><label><input type="radio" name="alone" value="0" /><span>All</span></label></div>
+	</div>
+
+	<div id="head">
+
+		<div>
+			<h1>Phasmophobia Ghost Finder</h1>
+			<div>
+				<div></div>
+				<div>
+					<h2>Select clues or type the numbers to toggle choices, to find the ghost type.</h2>
+					<h2>Hunt timers include the 5s grace period.</h2>
+					<h2>Use &laquo; and &raquo; to select maps.</h2>
+					<h2>&gt; <a href="phasmo.zip">Download to my PC</a> &lt;</h2>
+				</div>
+			</div>
+		</div>
+
+		<div id="timers">
+			<h3 id="timer">25</h3><h3 id="play">&gt;</h3>
+			<div>
+				<input type="button" name="button_01" value="Amateur Start" />
+				<input type="button" name="button_02" value="Intermed. Start" />
+				<input type="button" name="button_03" value="Amateur Hunt" />
+				<input type="button" name="button_04" value="Intermed. Hunt" />
+				<input type="button" name="button_05" value="Pro Hunt" />
+				<input type="button" name="button_06" value="Short Smudge" />
+				<input type="button" name="button_07" value="Spirit Smudge" />
+				<input type="button" name="button_08" value="Post-Hunt" class="current" />
+			</div>
+		</div>
+
+	</div>
+
+	<ul id="maps"></ul>
+	<ul id="clues"></ul>
+	<ul id="ghosts"></ul>
+
+</div>
+
+<div id="photos"><input type="checkbox" name="photos" id="photos_check" value="0" />
+	<div><label for="photos_check">[S]<span>Photos</span></label>
+	<table>
+		<thead><tr><th>&nbsp;</th><th>Type</th><th>Stars (up/down)</th><th>&nbsp;</th></tr></thead>
+		<tbody></tbody>
+	</table>
+	<h2>$0</h2>
+	</div>
+</div>
+
+<div id="roll"><input type="checkbox" name="roll" id="roll_check" value="0" />
+	<div><label for="roll_check">[L]<span>Roll</span></label></div>
+</div>
+
+</body>
+</html>
