@@ -144,6 +144,7 @@ let rolls = {
 		'name':'Maps',
 		'items':{
 			'tanglewood':	'Tanglewood Street',
+			'willow':			'Willow Street',
 			'ridgeview':	'Ridgeview Road',
 			'edgefield':	'Edgefield Street',
 			'grafton':		'Grafton Farmhouse',
@@ -155,7 +156,7 @@ let rolls = {
 		'groups':{
 			'clear':	{'name':'Clear',	'items':[]},
 			'all':		{'name':'All',		'items':[]},
-			'small':	{'name':'Small',	'items':['tanglewood','ridgeview','edgefield','grafton','bleasdale']},
+			'small':	{'name':'Small',	'items':['tanglewood','willow','ridgeview','edgefield','grafton','bleasdale']},
 			'medium':	{'name':'Medium',	'items':['brownstone','prison']},
 			'large':	{'name':'Large',	'items':['asylum']},
 		},
@@ -207,6 +208,7 @@ for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 
 let maps = [
 	{'name':'Tanglewood Street',			'file':'map_tanglewood.png'},
+	{'name':'Willow Street',					'file':'map_willow.png'},
 	{'name':'Ridgeview Road',					'file':'map_ridgeview.png'},
 	{'name':'Edgefield Street',				'file':'map_edgefield.png'},
 	{'name':'Grafton Farmhouse',			'file':'map_grafton.png'},
