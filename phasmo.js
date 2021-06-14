@@ -111,8 +111,8 @@ let ghosts = {
 		"name":					"Yokai",
 		"clues":				['box','orb','writing'],
 		"useful":				[
-			"Talking increases ghost activity",
-			"Can only hear players within 2m during hunts",
+			"Can hunt below 80% when players are talking nearby",
+			"Can only hear players &lt;2m away during hunts",
 		],
 	},
 	"yurei": {
