@@ -98,6 +98,10 @@ div#head > div:nth-of-type(2).flicker { background-color: var(--red); }
 
 h3#timer { width: 2.5em; font-family: "fixed", monospace; background-color: var(--grey2); }
 h3#play { width: 1.5em; color: var(--white); background-color: var(--green); cursor: pointer; }
+div#head > div:nth-of-type(2) > h3#sound { margin-bottom: 0.45em; padding: 0; border: none; }
+h3#sound input { display: none; }
+h3#sound input + span { display: block; width: 30px; height: 30px; background: var(--icons) -90px -30px no-repeat; cursor: pointer; }
+h3#sound input:checked + span { background-position: -60px -30px; }
 
 /* Clue Selection */
 ul#clues { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0 0 0.5em 0; padding: 0 0 0.5em 0; border-bottom: 1px dashed var(--black); user-select: none; }

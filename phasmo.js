@@ -231,6 +231,7 @@ if (document.addEventListener) {
 }
 
 let cookie = 'phasmo_';
+let sound = true;
 
 let timers = {
 	'main':	{'start': 0,	'end': 0,	'current': 0},
@@ -257,6 +258,7 @@ function load() {
 	// Load clues and ghosts into page
 
 	if (parseInt(getcookie('dark').toString())) { toggle_dark(); }
+	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; }
 
 	let clues_ul = document.getElementById('clues');
 
@@ -303,7 +305,7 @@ function load() {
 	}
 
 	// Populate timer hotkeys
-	let timers = document.getElementById('timers').childNodes[4].childNodes;
+	let timers = document.getElementById('timers').childNodes[5].childNodes;
 	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
 	count = 0;
 	for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT') {
@@ -483,6 +485,12 @@ function click(e) {
 					if (target.nodeName === 'SPAN' && parent.nodeName === 'LABEL' && parent.parentNode.nodeName === 'LI') {
 						setTimeout(function() { check_ghosts(); },10); // Give time for the checkbox to self-toggle
 					}
+					if (target.nodeName === 'SPAN' && parent.parentNode.id === 'sound') {
+						setTimeout(() => {
+							sound = (target.previousSibling.checked);
+							setcookie('mute',(sound ? 0 : 1));
+						},50);
+					}
 
 					if (parent_div.id === 'links') {
 						switch (getitem(target,'LI')) {
@@ -628,7 +636,7 @@ function keypress(e) {
 
 		}
 
-		let timers = document.getElementById('timers').childNodes[4].childNodes;
+		let timers = document.getElementById('timers').childNodes[5].childNodes;
 		let hotkey;
 		for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT') {
 			hotkey = timers[x].getAttribute('data-hotkey');
@@ -655,10 +663,15 @@ function do_timer(act,which) {
 					timer.current += modifier;
 					element.innerHTML = timer.current;
 
-					if (timer.current >= 1 && timer.current <= 5) { files['click'].play(); }
+					if (sound) {
+						if (timer.current === 30) { for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); } }
+						if (timer.current === 20) { for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); } }
+						if (timer.current === 10) { for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); } }
+						if (timer.current >= 1 && timer.current <= 5) { files['click'].play(); }
+					}
 
 					if (timer.current === timer.end) {
-						files['alarm'].play();
+						if (sound) { files['alarm'].play(); }
 						clearInterval(clocks[which]);
 						flicker('timers');
 						element.innerHTML = timer.start;
@@ -777,7 +790,7 @@ function reset() {
 	}
 
 	if (clocks['main']) { document.getElementById('play').click(); }
-	let timers = document.getElementById('timers').childNodes[4];
+	let timers = document.getElementById('timers').childNodes[5];
 	for (let x = 0; x < timers.childNodes.length; x++) { if (timers.childNodes[x].nodeName === 'INPUT') {
 		if (in_array('current',timers.childNodes[x].classList)) { timers.childNodes[x].click(); break; }
 	} }
