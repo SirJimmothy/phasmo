@@ -258,7 +258,7 @@ function load() {
 	// Load clues and ghosts into page
 
 	if (parseInt(getcookie('dark').toString())) { toggle_dark(); }
-	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; toggle_sound(); }
+	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; console.log('Muted'); toggle_sound(); }
 
 	let clues_ul = document.getElementById('clues');
 
@@ -488,8 +488,6 @@ function click(e) {
 					if (target.nodeName === 'SPAN' && parent.parentNode.id === 'sound') {
 						setTimeout(() => {
 							toggle_sound();
-							sound = (target.previousSibling.checked);
-							setcookie('mute',(sound ? 0 : 1));
 						},50);
 					}
 
@@ -744,6 +742,8 @@ function toggle_alone() {
 }
 
 function toggle_sound() {
+	sound = !sound;
+	setcookie('mute',(sound ? '0' : '1'));
 	document.getElementById('links').childNodes[0].childNodes[4].classList.toggle('on');
 }
 
