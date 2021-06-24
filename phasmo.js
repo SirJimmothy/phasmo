@@ -258,7 +258,7 @@ function load() {
 	// Load clues and ghosts into page
 
 	if (parseInt(getcookie('dark').toString())) { toggle_dark(); }
-	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; }
+	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; toggle_sound(); }
 
 	let clues_ul = document.getElementById('clues');
 
@@ -487,6 +487,7 @@ function click(e) {
 					}
 					if (target.nodeName === 'SPAN' && parent.parentNode.id === 'sound') {
 						setTimeout(() => {
+							toggle_sound();
 							sound = (target.previousSibling.checked);
 							setcookie('mute',(sound ? 0 : 1));
 						},50);
@@ -588,6 +589,10 @@ function keypress(e) {
 			case 'f':
 				toggle_fullscreen();
 			break;
+			case 'm':
+				toggle_sound();
+				document.getElementById('sound').childNodes[0].childNodes[0].click();
+			break;
 			case 'n':
 				document.getElementById('ghostname').focus();
 				e.preventDefault();
@@ -599,7 +604,7 @@ function keypress(e) {
 			case 'l':
 				document.getElementById('roll').childNodes[0].click();
 				document.activeElement.blur();
-				break;
+			break;
 			case 'x':
 				reset();
 			break;
@@ -736,6 +741,10 @@ function toggle_alone() {
 	} else {
 		alone[0].click();
 	}
+}
+
+function toggle_sound() {
+	document.getElementById('links').childNodes[0].childNodes[4].classList.toggle('on');
 }
 
 function count_points(slider) {

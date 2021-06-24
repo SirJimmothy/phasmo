@@ -55,6 +55,8 @@ div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.2
 div#links > ul > li > span { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
 html:fullscreen #links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
 
+div#links > ul > li.on { border-color: var(--black); }
+
 /* Ghost name & alone marker */
 div#ghost { position: relative; }
 div#ghost > input { width: 12.5em; font-family: "fixed", monospace; }
@@ -352,7 +354,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 }
 
 /* Mobile Horizontal */
-@media all and (max-width: 900px) {
+@media all and (max-width: 960px) {
 
 /* Ghost name */
 	div#top > div#ghost { display: block; margin-top: 0.5em; }
