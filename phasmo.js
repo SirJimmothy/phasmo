@@ -500,8 +500,12 @@ function click(e) {
 								toggle_fullscreen();
 							break;
 							case parent_div.childNodes[0].childNodes[3]:
-								reset();
+								toggle_sound();
+								document.getElementById('sound').childNodes[0].childNodes[0].click();
 							break;
+							case parent_div.childNodes[0].childNodes[4]:
+								reset();
+								break;
 						}
 					}
 
@@ -744,7 +748,7 @@ function toggle_alone() {
 function toggle_sound() {
 	sound = !sound;
 	setcookie('mute',(sound ? '0' : '1'));
-	document.getElementById('links').childNodes[0].childNodes[4].classList.toggle('on');
+	document.getElementById('links').childNodes[0].childNodes[3].classList.toggle('on');
 }
 
 function count_points(slider) {
