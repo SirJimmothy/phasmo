@@ -528,45 +528,49 @@ function keydown(e) {
 		break;
 	}
 
-	if (document.getElementById('photos_check').checked) {
+	if (!in_array(document.activeElement.type,['text'])) {
 
-		let sliders = document.querySelectorAll('input[type=range]');
-		if (in_array(e.which,[38,40])) {
-			let found = false;
-			let active = document.activeElement;
-			for (let x = 0; x < sliders.length; x++) { if (sliders[x] === active) {
-				e.preventDefault();
-				found = true;
-				let item = x;
-				if (e.which === 38) { // Up arrow
-					item = (x ? x  : photo_count) - 1;
-				} else { // Down arrow
-					item = (x === (photo_count - 1) ? 0  : (x + 1));
-				}
-				sliders[item].focus();
-			} }
-			if (!found) { e.preventDefault(); sliders[(e.which === 38 ? photo_count - 1 : 0)].focus(); }
-		}
+		if (document.getElementById('photos_check').checked) {
 
-	} else {
+			let sliders = document.querySelectorAll('input[type=range]');
+			if (in_array(e.which,[38,40])) {
+				let found = false;
+				let active = document.activeElement;
+				for (let x = 0; x < sliders.length; x++) { if (sliders[x] === active) {
+					e.preventDefault();
+					found = true;
+					let item = x;
+					if (e.which === 38) { // Up arrow
+						item = (x ? x  : photo_count) - 1;
+					} else { // Down arrow
+						item = (x === (photo_count - 1) ? 0  : (x + 1));
+					}
+					sliders[item].focus();
+				} }
+				if (!found) { e.preventDefault(); sliders[(e.which === 38 ? photo_count - 1 : 0)].focus(); }
+			}
 
-		let maps_div = document.getElementById('maps');
-		let len = maps_div.childNodes.length;
-		if (in_array(e.which,[37,39])) {
-			let found = false;
-			let active = document.activeElement;
-			for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === active) {
-				e.preventDefault();
-				found = true;
-				let item = x;
-				if (e.which === 37) {
-					item = (x ? x : len) - 1;
-				} else {
-					item = (x === (len - 1) ? 0 : (x + 1));
-				}
-				maps_div.childNodes[item].childNodes[0].focus();
-			} }
-			if (!found) { e.preventDefault(); maps_div.childNodes[(e.which === 37 ? (len - 1) : 0)].childNodes[0].focus(); }
+		} else {
+
+			let maps_div = document.getElementById('maps');
+			let len = maps_div.childNodes.length;
+			if (in_array(e.which,[37,39])) {
+				let found = false;
+				let active = document.activeElement;
+				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === active) {
+					e.preventDefault();
+					found = true;
+					let item = x;
+					if (e.which === 37) {
+						item = (x ? x : len) - 1;
+					} else {
+						item = (x === (len - 1) ? 0 : (x + 1));
+					}
+					maps_div.childNodes[item].childNodes[0].focus();
+				} }
+				if (!found) { e.preventDefault(); maps_div.childNodes[(e.which === 37 ? (len - 1) : 0)].childNodes[0].focus(); }
+			}
+
 		}
 
 	}
