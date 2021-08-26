@@ -1,11 +1,11 @@
 
 let clues = {
-	'dots':			'DOTS Projector',
-	'emf':			'EMF Level 5',
-	'prints':		'Finger Prints',
-	'temps':		'Freezing Temps',
-	'orb':			'Ghost Orbs',
-	'writing':	'Ghost Writing',
+	'dots':			'Dots',
+	'emf':			'EMF 5',
+	'prints':		'Prints',
+	'temps':		'Freezing',
+	'orb':			'Orbs',
+	'writing':	'Writing',
 	'box':			'Spirit Box'
 };
 

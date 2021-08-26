@@ -107,7 +107,7 @@ h3#sound input:checked + span { background-position: -60px -30px; }
 
 /* Clue Selection */
 ul#clues { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0 0 0.5em 0; padding: 0 0 0.5em 0; border-bottom: 1px dashed var(--black); user-select: none; }
-ul#clues > li { z-index: 0; position: relative; display: inline-block; box-sizing: border-box; flex: 1 1 auto; margin: 0.25em; padding: 1em 0.5em 1em calc(3em + 30px); border: 2px solid var(--grey); border-radius: 1em 0; text-align: left; white-space: nowrap; font-weight: bold; }
+ul#clues > li { z-index: 0; position: relative; display: inline-block; box-sizing: border-box; flex: 1 1 15%; margin: 0.25em; padding: 1em 0.5em 1em calc(3em + 30px); border: 2px solid var(--grey); border-radius: 1em 0; text-align: left; white-space: nowrap; font-weight: bold; }
 
 /* Clue hotkey & icon */
 ul#clues > li > span { position: absolute; top: 15%; left: 0.35em; padding: 0; }
@@ -339,7 +339,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 @media all and (max-width: 1750px) {
 
 /* Clue selection */
-	ul#clues > li { flex-basis: 30%; }
+	ul#clues > li { flex-basis: 20%; }
 	ul#ghosts > li { flex-basis: 30%; }
 
 /* Timers */
