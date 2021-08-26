@@ -107,13 +107,14 @@ h3#sound input:checked + span { background-position: -60px -30px; }
 
 /* Clue Selection */
 ul#clues { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0 0 0.5em 0; padding: 0 0 0.5em 0; border-bottom: 1px dashed var(--black); user-select: none; }
-ul#clues > li { z-index: 0; position: relative; display: inline-block; box-sizing: border-box; flex: 1 1 15%; margin: 0.25em; padding: 1em 0.5em 1em calc(3em + 30px); border: 2px solid var(--grey); border-radius: 1em 0; text-align: left; white-space: nowrap; font-weight: bold; }
+ul#clues > li { z-index: 0; position: relative; display: inline-block; box-sizing: border-box; flex: 1 1 auto; margin: 0.25em; padding: 1em 0.5em 1em calc(3em + 30px); border: 2px solid var(--grey); border-radius: 1em 0; text-align: left; white-space: nowrap; font-weight: bold; }
 
 /* Clue hotkey & icon */
 ul#clues > li > span { position: absolute; top: 15%; left: 0.35em; padding: 0; }
 ul#clues > li > span:nth-of-type(1) { font-size: 2em; color: var(--white); text-shadow: 1px 1px 1px var(--black), 0 0 1px var(--black); }
 ul#clues > li > span:nth-of-type(2) { left: 2.25em; width: 30px; height: 30px; background: var(--icons) 0 0 no-repeat; }
 
+ul#clues > li[data-clue="dots"]			> span:nth-of-type(2) { background-position: -180px 0; }
 ul#clues > li[data-clue="emf"]			> span:nth-of-type(2) { background-position: 0 0; }
 ul#clues > li[data-clue="prints"]		> span:nth-of-type(2) { background-position: -30px 0; }
 ul#clues > li[data-clue="temps"]		> span:nth-of-type(2) { background-position: -60px 0; }

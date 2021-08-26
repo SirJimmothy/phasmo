@@ -1,5 +1,6 @@
 
 let clues = {
+	'dots':			'DOTS Projector',
 	'emf':			'EMF Level 5',
 	'prints':		'Finger Prints',
 	'temps':		'Freezing Temps',
@@ -11,7 +12,7 @@ let clues = {
 let ghosts = {
 	"banshee": {
 		"name":					"Banshee",
-		"clues":				['emf','prints','temps'],
+		"clues":				['dots','prints','orb'],
 		"useful":				[
 			"Crucifixes have +2m range",
 			"Can hunt at any sanity level",
@@ -21,22 +22,29 @@ let ghosts = {
 	},
 	"demon": {
 		"name":					"Demon",
-		"clues":				['box','temps','writing'],
+		"clues":				['prints','temps','writing'],
 		"useful":				[
 			"Can hunt at 70% sanity",
 			"Successful ouija board questions cost no sanity",
 		],
 	},
+	"goryo": {
+		"name":					"Goryo",
+		"clues":				['emf','dots','prints'],
+		"useful":				[
+			"To be continued",
+		],
+	},
 	"hantu": {
 		"name":					"Hantu",
-		"clues":				['orb','prints','writing'],
+		"clues":				['orb','prints','temps'],
 		"useful":				[
 			"Moves much faster in colder rooms",
 		],
 	},
 	"jinn": {
 		"name":					"Jinn",
-		"clues":				['box','emf','orb'],
+		"clues":				['emf','prints','temps'],
 		"useful":				[
 			"With breaker on, will be fast unless within 4m of target",
 			"Chance to drop sanity by 25% within 3m",
@@ -44,15 +52,22 @@ let ghosts = {
 	},
 	"mare": {
 		"name":					"Mare",
-		"clues":				['box','temps','orb'],
+		"clues":				['box','orb','writing'],
 		"useful":				[
 			"Room lights on reduces hunt threshold to 40%",
 			"Room lights off increases hunt threshold to 60%",
 		],
 	},
+	"myling": {
+		"name":					"Myling",
+		"clues":				['emf','prints','writing'],
+		"useful":				[
+			"To be continued",
+		],
+	},
 	"oni": {
 		"name":					"Oni",
-		"clues":				['box','emf','writing'],
+		"clues":				['emf','dots','temps'],
 		"useful":				[
 			"More active with >1 people in room",
 			"Can throw items at high speed",
@@ -60,7 +75,7 @@ let ghosts = {
 	},
 	"phantom": {
 		"name":					"Phantom",
-		"clues":				['emf','orb','temps'],
+		"clues":				['box','dots','prints'],
 		"useful":				[
 			"Sanity drops 2x when visible (stops if hidden due to photo)",
 			"Disappears but remains when photo is taken while not hunting",
@@ -70,7 +85,7 @@ let ghosts = {
 	},
 	"poltergeist": {
 		"name":					"Poltergeist",
-		"clues":				['box','orb','prints'],
+		"clues":				['box','prints','writing'],
 		"useful":				[
 			"Can throw several items at once",
 			"Reduces witness sanity by 2x thrown items",
@@ -78,7 +93,7 @@ let ghosts = {
 	},
 	"revenant": {
 		"name":					"Revenant",
-		"clues":				['emf','prints','writing'],
+		"clues":				['orb','temps','writing'],
 		"useful":				[
 			"Travels very fast when it can see a player",
 			"Travels 2/3 speed when not seeing players",
@@ -86,7 +101,7 @@ let ghosts = {
 	},
 	"shade": {
 		"name":					"Shade",
-		"clues":				['emf','orb','writing'],
+		"clues":				['emf','temps','writing'],
 		"useful":				[
 			"Won't try to hunt with &gt;1 person in room",
 		],
@@ -100,7 +115,7 @@ let ghosts = {
 	},
 	"wraith": {
 		"name":					"Wraith",
-		"clues":				['box','prints','temps'],
+		"clues":				['box','emf','dots'],
 		"useful":				[
 			"When loud-stepping after salt, no footprints show",
 			"After stepping in salt, becomes permanently more active",
@@ -109,7 +124,7 @@ let ghosts = {
 	},
 	"yokai": {
 		"name":					"Yokai",
-		"clues":				['box','orb','writing'],
+		"clues":				['box','dots','orb'],
 		"useful":				[
 			"Can hunt below 80% when players are talking nearby",
 			"Can only hear players &lt;2m away during hunts",
@@ -117,7 +132,7 @@ let ghosts = {
 	},
 	"yurei": {
 		"name":					"Yurei",
-		"clues":				['orb','temps','writing'],
+		"clues":				['orb','dots','temps'],
 		"useful":				[
 			"Sanity drops 2x within 10m while visible / hunting",
 			"Cannot roam while smudged",
