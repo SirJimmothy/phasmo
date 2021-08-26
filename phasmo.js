@@ -482,9 +482,9 @@ function click(e) {
 							switch (target.name) {
 								case 'button_01': val = 300; break;
 								case 'button_02': val = 150; break;
-								case 'button_03': val = 30; break;
-								case 'button_04': val = 40; break;
-								case 'button_05': val = 55; break;
+								case 'button_03': val = 28; break;
+								case 'button_04': val = 38; break;
+								case 'button_05': val = 53; break;
 								case 'button_06': val = 90; break;
 								case 'button_07': val = 180; break;
 								case 'button_08': val = 25; break;
