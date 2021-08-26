@@ -108,7 +108,7 @@ let ghosts = {
 	},
 	"spirit": {
 		"name":					"Spirit",
-		"clues":				['box','prints','writing'],
+		"clues":				['emf','prints','writing'],
 		"useful":				[
 			"Smudges last twice as long: 180s",
 		],
