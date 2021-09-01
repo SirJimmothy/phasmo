@@ -32,7 +32,7 @@ let ghosts = {
 		"name":					"Goryo",
 		"clues":				['emf','dots','prints'],
 		"useful":				[
-			"To be continued",
+			"Dots can only be observed through a camera",
 		],
 	},
 	"hantu": {
@@ -62,7 +62,7 @@ let ghosts = {
 		"name":					"Myling",
 		"clues":				['emf','prints','writing'],
 		"useful":				[
-			"To be continued",
+			"Footsteps are Very quiet during hunts",
 		],
 	},
 	"oni": {
