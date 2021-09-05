@@ -63,7 +63,7 @@ let ghosts = {
 		"name":					"Myling",
 		"clues":				['emf','prints','writing'],
 		"useful":				[
-			"Footsteps are Very quiet during hunts",
+			"Footsteps are very quiet during hunts",
 		],
 	},
 	"oni": {
