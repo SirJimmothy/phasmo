@@ -39,7 +39,8 @@ let ghosts = {
 		"name":					"Hantu",
 		"clues":				['orb','prints','temps'],
 		"useful":				[
-			"Moves much faster in colder rooms",
+			"Moves ~15% slower in warmer rooms",
+			"Moves ~15% faster in colder rooms",
 		],
 	},
 	"jinn": {
@@ -479,15 +480,16 @@ function click(e) {
 							for (let x = 0; x < parent.childNodes.length; x++) { if (parent.childNodes[x].nodeName === 'INPUT') {
 								parent.childNodes[x].classList.remove('current');
 							} }
+							let grace = 3;
 							switch (target.name) {
-								case 'button_01': val = 300; break;
-								case 'button_02': val = 150; break;
-								case 'button_03': val = 28; break;
-								case 'button_04': val = 38; break;
-								case 'button_05': val = 53; break;
-								case 'button_06': val = 90; break;
-								case 'button_07': val = 180; break;
-								case 'button_08': val = 25; break;
+								case 'button_01': val = 300;					break;
+								case 'button_02': val = 150;					break;
+								case 'button_03': val = 25 + grace;		break;
+								case 'button_04': val = 35 + grace;		break;
+								case 'button_05': val = 50 + grace;		break;
+								case 'button_06': val = 90;						break;
+								case 'button_07': val = 180;					break;
+								case 'button_08': val = 25;						break;
 							}
 							target.classList.add('current');
 							timer.innerHTML = val.toString();
@@ -532,26 +534,26 @@ function click(e) {
 }
 
 function keydown(e) {
+	let current = document.activeElement;
 	switch (e.which) {
 		case 13: // Enter
-			if (document.activeElement.id === 'ghostname') {
-				document.activeElement.blur();
+			if (current.id === 'ghostname') {
+				current.blur();
 			}
 		break;
 		case 27: // Esc
-			document.activeElement.blur();
+			current.blur();
 		break;
 	}
 
-	if (!in_array(document.activeElement.type,['text'])) {
+	if (!in_array(current.type,['text'])) {
 
 		if (document.getElementById('photos_check').checked) {
 
 			let sliders = document.querySelectorAll('input[type=range]');
 			if (in_array(e.which,[38,40])) {
 				let found = false;
-				let active = document.activeElement;
-				for (let x = 0; x < sliders.length; x++) { if (sliders[x] === active) {
+				for (let x = 0; x < sliders.length; x++) { if (sliders[x] === current) {
 					e.preventDefault();
 					found = true;
 					let item = x;
@@ -571,8 +573,7 @@ function keydown(e) {
 			let len = maps_div.childNodes.length;
 			if (in_array(e.which,[37,39])) {
 				let found = false;
-				let active = document.activeElement;
-				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === active) {
+				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === current) {
 					e.preventDefault();
 					found = true;
 					let item = x;
@@ -594,6 +595,7 @@ function keydown(e) {
 
 function keypress(e) {
 	let keycode = e.key;
+	let current = document.activeElement;
 
 	if (document.activeElement.getAttribute('type') !== 'text') {
 
@@ -620,11 +622,11 @@ function keypress(e) {
 			break;
 			case 's':
 				document.getElementById('photos').childNodes[0].click();
-				document.activeElement.blur();
+				current.blur();
 			break;
 			case 'l':
 				document.getElementById('roll').childNodes[0].click();
-				document.activeElement.blur();
+				current.blur();
 			break;
 			case 'x':
 				reset();
