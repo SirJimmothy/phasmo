@@ -32,6 +32,7 @@ let ghosts = {
 		"name":					"Goryo",
 		"clues":				['emf','dots','prints'],
 		"useful":				[
+			'Rarely roams outside its ghost room',
 			"Dots can only be observed through a camera",
 		],
 	},
