@@ -230,6 +230,7 @@ div.roll_group > div:nth-of-type(2) > input + label > span { position: absolute;
 div.roll_group > div:nth-of-type(2) > input.selected + label { border-radius: 0.5em; color: var(--white); background-color: var(--green); }
 
 /* Additional height for short-named items */
+div.roll_group > div:nth-of-type(2) > label[data-name="dot"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="gwb"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="irs"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="par"] > span,

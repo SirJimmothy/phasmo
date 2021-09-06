@@ -183,11 +183,11 @@ let rolls = {
 		'items':{
 			'can':	'Candle',
 			'cru':	'Crucifix',
+			'dot':	'Dots Projector',
 			'emf':	'EMF Reader',
 			'fla':	'Flashlight',
 			'gwb':	'Ghost Writing Book',
 			'glo':	'Glowstick',
-			'irs':	'Infrared Light Sensor',
 			'lig':	'Lighter',
 			'mos':	'Motion Sensor',
 			'par':	'Parabolic Microphone',
@@ -206,10 +206,10 @@ let rolls = {
 		'groups':{
 			'clear':			{'name':'Clear',			'items':[]},
 			'all':				{'name':'All',				'items':[]},
-			'evidence':		{'name':'Evidence',		'items':['emf','gwb','spb','thm','uvl','vid']},
-			'secondary':	{'name':'Secondary',	'items':['can','cru','fla','glo','irs','lig','mos','par','cam','sal','san','sms','snd','sfl','tri']},
+			'evidence':		{'name':'Evidence',		'items':['emf','dot','gwb','spb','thm','uvl','vid']},
+			'secondary':	{'name':'Secondary',	'items':['can','cru','fla','glo','lig','mos','par','cam','sal','san','sms','snd','sfl','tri']},
 			'lights':			{'name':'Lights',			'items':['can','fla','sfl']},
-			'electric':		{'name':'Electrical',	'items':['emf','fla','irs','mos','par','cam','snd','spb','sfl','thm','uvl','vid']},
+			'electric':		{'name':'Electrical',	'items':['emf','dot','fla','mos','par','cam','snd','spb','sfl','thm','uvl','vid']},
 		},
 	},
 };
