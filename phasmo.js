@@ -56,6 +56,7 @@ let ghosts = {
 		"name":					"Mare",
 		"clues":				['box','orb','writing'],
 		"useful":				[
+			"Cannot turn light switches on",
 			"Room lights on reduces hunt threshold to 40%",
 			"Room lights off increases hunt threshold to 60%",
 		],
