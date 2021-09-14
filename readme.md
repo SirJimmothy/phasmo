@@ -48,6 +48,7 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 | < > | Cycle through the available maps, and press Enter to open. When the Photos tab is pulled out, allows the selection of photo quality |
 | Q-I | Select a timer, and use # to start or stop. Press the letter key again to reset |
 | #   | Start or stop timer |
+| A   | Toggle alone / all players ghost |
 | D   | Toggle dark mode |
 | F   | Toggle fullscreen |
 | S   | Pulls out the Photos tab |
