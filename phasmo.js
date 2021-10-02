@@ -33,6 +33,7 @@ let ghosts = {
 		"clues":				['emf','dots','prints'],
 		"useful":				[
 			'Rarely roams outside its ghost room',
+			"Won\'t show dots with people in the ghost room",
 			"Dots can only be observed through a camera",
 		],
 	},
