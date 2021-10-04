@@ -140,7 +140,7 @@ let ghosts = {
 		"clues":				['orb','dots','temps'],
 		"useful":				[
 			//"Sanity drops 2x within 10m while visible / hunting",
-			"Chance to drop sanity by 25% within 3m",
+			"Chance to drop sanity by 14% within 3m",
 			"Cannot roam while smudged",
 		],
 	}
