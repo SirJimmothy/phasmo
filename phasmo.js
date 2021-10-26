@@ -70,12 +70,27 @@ let ghosts = {
 			"Footsteps are very quiet during hunts",
 		],
 	},
+	"obake": {
+		"name":					"Obake",
+		"clues":				['emf','orb','prints'],
+		"useful":				[
+			"Leaves few traces during interactions",
+			"Can shapeshift",
+		],
+	},
 	"oni": {
 		"name":					"Oni",
 		"clues":				['emf','dots','temps'],
 		"useful":				[
 			"More active with >1 people in room",
 			"Can throw items at high speed",
+		],
+	},
+	"onryo": {
+		"name":					"Onryo",
+		"clues":				['box','orb','temps'],
+		"useful":				[
+			"Extinguishing a flame can trigger hunts",
 		],
 	},
 	"phantom": {
@@ -94,6 +109,13 @@ let ghosts = {
 		"useful":				[
 			"Can throw several items at once",
 			"Reduces witness sanity by 2x thrown items",
+		],
+	},
+	"raiju": {
+		"name":					"Raiju",
+		"clues":				['dots','emf','orb'],
+		"useful":				[
+			"Drains power during hunts to gain speed",
 		],
 	},
 	"revenant": {
@@ -116,6 +138,13 @@ let ghosts = {
 		"clues":				['box','emf','writing'],
 		"useful":				[
 			"Smudges last twice as long: 180s",
+		],
+	},
+	"twins": {
+		"name":					"Twins",
+		"clues":				['box','emf','temps'],
+		"useful":				[
+			"Both twins can interact simultaneously",
 		],
 	},
 	"wraith": {
