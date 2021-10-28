@@ -142,7 +142,7 @@ ul#clues > li.disabled:before { display: block; }
 
 /* Maps */
 ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
-ul#maps > li { display: inline-block; flex: 1 1 10%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; }
+ul#maps > li { display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; }
 ul#maps > li > a { display: block; padding: 0.5em 0; }
 ul#maps > li > a:hover, ul#maps > li > a:focus { border-radius: 0.5em; text-shadow: none; color: var(--black); background-color: var(--grey2); }
 
@@ -346,7 +346,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 @media all and (max-width: 1500px) {
 
 	/* Maps */
-	ul#maps > li { flex-basis: 30%; }
+	ul#maps > li { flex-basis: 20%; }
 
 }
 

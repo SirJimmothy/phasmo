@@ -201,6 +201,7 @@ let rolls = {
 			'grafton':		'Grafton Farmhouse',
 			'bleasdale':	'Bleasdale Farmhouse',
 			'brownstone':	'Brownstone High School',
+			'maple':			'Maple Lodge Campsite',
 			'prison':			'Prison',
 			'asylum':			'Asylum',
 		},
@@ -265,6 +266,7 @@ let maps = [
 	{'name':'Grafton Farmhouse',			'file':'map_grafton.png'},
 	{'name':'Bleasdale Farmhouse',		'file':'map_bleasdale.png'},
 	{'name':'Brownstone High School',	'file':'map_highschool.png'},
+	{'name':'Maple Lodge Campsire',		'file':'map_maple.png'},
 	{'name':'Prison',									'file':'map_prison.png'},
 	{'name':'Asylum',									'file':'map_asylum.png'},
 ];
