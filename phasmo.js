@@ -75,6 +75,7 @@ let ghosts = {
 		"clues":				['emf','orb','prints'],
 		"useful":				[
 			"Leaves few traces during interactions",
+			"Can leave 6-finger fingerprints",
 			"Can shapeshift",
 		],
 	},

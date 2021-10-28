@@ -72,9 +72,6 @@ div#ghost > label > input:checked + span { color: var(--white); background-color
 
 div#ghost > input:focus + label:before { position: absolute; top: 19px; left: 0; padding: 0.25em 0.5em; border: 1px solid var(--black); font-size: 12px; background-color: var(--pale); content: 'Enter or Esc to exit'; }
 
-/* Last Update */
-div#lastupdate { position: absolute; top: calc(-0.5em - 2px); right: calc(-1em - 4px); padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0 0.5em; font-family: "fixed", monospace; font-size: 0.8em; }
-
 /* Top section */
 div#head { display: flex; flex-flow: row; margin-bottom: 0.5em; }
 div#head > div { flex: 1 1 calc(50% - 1.5em); padding: 0.5em; border: 1px solid var(--black); text-align: center; }
@@ -261,9 +258,6 @@ body.dark div#links > ul > li:nth-of-type(1) { border: 1px solid var(--white); }
 
 /* Keyboard shortcut: fullscreen */
 html:fullscreen body.dark div#links > ul > li:nth-of-type(2) { border-color: var(--white); }
-
-/* Last Update */
-body.dark div#lastupdate { border-color: var(--white); }
 
 /* Top section */
 body.dark div#head > div { border-color: var(--white); }
