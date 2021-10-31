@@ -91,6 +91,7 @@ let ghosts = {
 		"name":					"Onryo",
 		"clues":				['box','orb','temps'],
 		"useful":				[
+			"Can hunt above 50% sanity without flame in room",
 			"Extinguishing a flame can trigger hunts",
 		],
 	},
@@ -253,9 +254,6 @@ for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 	for (let key2 in rolls[key].items) { if (rolls[key].items.hasOwnProperty(key2)) {
 		rolls[key].groups.all.items.push(key2);
 	} }
-	//for (let key2 in rolls[key]) { if (rolls[key].hasOwnProperty(key2)) {
-		//rolls[key].groups.all.items.push(key2);
-	//} }
 } }
 
 let maps = [
@@ -517,16 +515,13 @@ function click(e) {
 							for (let x = 0; x < parent.childNodes.length; x++) { if (parent.childNodes[x].nodeName === 'INPUT') {
 								parent.childNodes[x].classList.remove('current');
 							} }
-							let grace = 3;
+							//let grace = 3;
 							switch (target.name) {
 								case 'button_01': val = 300;					break;
 								case 'button_02': val = 150;					break;
-								case 'button_03': val = 25 + grace;		break;
-								case 'button_04': val = 35 + grace;		break;
-								case 'button_05': val = 50 + grace;		break;
-								case 'button_06': val = 90;						break;
-								case 'button_07': val = 180;					break;
-								case 'button_08': val = 25;						break;
+								case 'button_03': val = 90;						break;
+								case 'button_04': val = 180;					break;
+								case 'button_05': val = 25;						break;
 							}
 							target.classList.add('current');
 							timer.innerHTML = val.toString();
