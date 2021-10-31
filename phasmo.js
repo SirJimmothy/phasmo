@@ -512,7 +512,7 @@ function click(e) {
 					if (target.type === 'button' && target.getAttribute('data-hotkey')) {
 						let timer = document.getElementById('timer');
 						let val = 0;
-						if (target.nodeName === 'INPUT' && parseInt(timer.innerHTML) && !clocks['main']) {
+						if (target.nodeName === 'INPUT' && !clocks['main']) {
 							for (let x = 0; x < parent.childNodes.length; x++) { if (parent.childNodes[x].nodeName === 'INPUT') {
 								parent.childNodes[x].classList.remove('current');
 							} }
