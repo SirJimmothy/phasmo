@@ -92,7 +92,8 @@ let ghosts = {
 		"clues":				['box','orb','temps'],
 		"useful":				[
 			"Can hunt above 50% sanity without flame in room",
-			"Extinguishing a flame can trigger hunts",
+			"Extinguishing last room flame can trigger hunts",
+			"Cannot hunt with lit candle in room",
 		],
 	},
 	"phantom": {
@@ -359,7 +360,7 @@ function load() {
 	let timers = document.getElementById('timers').childNodes[5].childNodes;
 	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
 	count = 0;
-	for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT') {
+	for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT' && timers[x].getAttribute('data-hotkey') === 'true') {
 		timers[x].setAttribute('data-hotkey',hotkeys[count]);
 		timers[x].value = '[' + hotkeys[count] + '] ' + timers[x].value;
 		count++;
@@ -515,13 +516,23 @@ function click(e) {
 							for (let x = 0; x < parent.childNodes.length; x++) { if (parent.childNodes[x].nodeName === 'INPUT') {
 								parent.childNodes[x].classList.remove('current');
 							} }
-							//let grace = 3;
+							let grace = 3;
 							switch (target.name) {
 								case 'button_01': val = 300;					break;
 								case 'button_02': val = 150;					break;
 								case 'button_03': val = 90;						break;
 								case 'button_04': val = 180;					break;
 								case 'button_05': val = 25;						break;
+								case 'button_06': val = 0;						break;
+								case 'button_07': val = 20 + grace;		break;
+								case 'button_08': val = 40 + grace;		break;
+								case 'button_09': val = 50 + grace;		break;
+								case 'button_10': val = 23 + grace;		break;
+								case 'button_11': val = 43 + grace;		break;
+								case 'button_12': val = 53 + grace;		break;
+								case 'button_13': val = 33 + grace;		break;
+								case 'button_14': val = 53 + grace;		break;
+								case 'button_15': val = 63 + grace;		break;
 							}
 							target.classList.add('current');
 							timer.innerHTML = val.toString();
@@ -700,7 +711,7 @@ function keypress(e) {
 		let hotkey;
 		for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT') {
 			hotkey = timers[x].getAttribute('data-hotkey');
-			if (keycode.toLowerCase() === hotkey.toLowerCase()) {
+			if (hotkey && keycode.toLowerCase() === hotkey.toLowerCase()) {
 				timers[x].click();
 			} }
 		}
