@@ -20,7 +20,7 @@ When an evidence item is included or disregarded, other evidence items that do n
 
 Various timers have been configured to assist with making sure you're not caught out by an expiring smudge stick, non-professional hunt latency, etc. Simply select the timer you wish to use and hit the green button to start the timer.
 
-The timers for the various hunt durations include the grace period at the start of the hunt, where the ghost appears but is not yet lethal.
+Due to changes making hunts last different times depending on the map size, hotkeys have been removed from hunt duration timers. These timers include the grace period at the start of the hunt, where the ghost appears but is not yet lethal.
 
 The timer will tick three times at 30s remaining, twice at 20s, once at 10s, and once for the final 5 seconds, after which an alarm will sound and the timer panel will flash. Selecting the Mute option will prevent these sounds from playing.
 
