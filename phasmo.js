@@ -148,6 +148,7 @@ let ghosts = {
 		"clues":				['box','emf','temps'],
 		"useful":				[
 			"Both twins can interact simultaneously",
+			"One twin will not provide evidence or trigger sensors",
 		],
 	},
 	"wraith": {
