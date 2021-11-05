@@ -76,6 +76,7 @@ let ghosts = {
 		"useful":				[
 			"Leaves few traces during interactions",
 			"Can leave 6-finger fingerprints",
+			"-25% chance to leave fingerprints",
 		],
 	},
 	"oni": {
