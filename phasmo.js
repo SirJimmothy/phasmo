@@ -77,6 +77,7 @@ let ghosts = {
 			"Leaves few traces during interactions",
 			"Can leave 6-finger fingerprints",
 			"-25% chance to leave fingerprints",
+			"Fingerprints can disappear after 30s",
 		],
 	},
 	"oni": {
