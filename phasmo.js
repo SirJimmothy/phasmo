@@ -35,6 +35,7 @@ let ghosts = {
 			'Rarely roams outside its ghost room',
 			"Won\'t show dots with people in the ghost room",
 			"Dots can only be observed through a camera",
+			"Nightmare mode: dots are guaranteed",
 		],
 	},
 	"hantu": {
@@ -78,6 +79,7 @@ let ghosts = {
 			"Can leave 6-finger fingerprints",
 			"-25% chance to leave fingerprints",
 			"Fingerprints can disappear after 30s",
+			"Nightmare mode: fingerprints are guaranteed",
 		],
 	},
 	"oni": {
