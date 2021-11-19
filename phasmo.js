@@ -95,8 +95,7 @@ let ghosts = {
 		"clues":				['box','orb','temps'],
 		"useful":				[
 			"Can hunt above 50% sanity without flame in room",
-			"Extinguishing last room flame can trigger hunts",
-			"Cannot hunt with lit candle in room",
+			"Lit candles act as crucifixes; 3M hunt blocking range",
 		],
 	},
 	"phantom": {
