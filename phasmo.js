@@ -51,6 +51,7 @@ let ghosts = {
 		"clues":				['emf','prints','temps'],
 		"useful":				[
 			"With breaker on, will be fast unless within 4m of target",
+			"Will not turn off breaker",
 			"Chance to drop sanity by 25% within 3m",
 		],
 	},
