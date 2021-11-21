@@ -52,7 +52,7 @@ let ghosts = {
 		"useful":				[
 			"With breaker on, will be fast unless within 4m of target",
 			"Will not turn off breaker",
-			"Chance to drop sanity by 25% within 3m",
+			"With breaker on, chance to drop sanity by 25% within 3m",
 		],
 	},
 	"mare": {
@@ -76,7 +76,6 @@ let ghosts = {
 		"name":					"Obake",
 		"clues":				['emf','orb','prints'],
 		"useful":				[
-			"Leaves few traces during interactions",
 			"Can leave 6-finger fingerprints",
 			"-25% chance to leave fingerprints",
 			"Fingerprints can disappear after 30s",
@@ -121,7 +120,8 @@ let ghosts = {
 		"name":					"Raiju",
 		"clues":				['dots','emf','orb'],
 		"useful":				[
-			"Drains power during hunts to gain speed",
+			"Can hunt at 70% when near electronics",
+			"Increases speed during hunt when near electronics",
 		],
 	},
 	"revenant": {
@@ -160,7 +160,7 @@ let ghosts = {
 		"useful":				[
 			"When loud-stepping after salt, no footprints show",
 			"After stepping in salt, becomes permanently more active",
-			"Can teleport to random indoor player",
+			"Can teleport near a random indoor player and leave EMF",
 		],
 	},
 	"yokai": {
@@ -175,7 +175,6 @@ let ghosts = {
 		"name":					"Yurei",
 		"clues":				['orb','dots','temps'],
 		"useful":				[
-			//"Sanity drops 2x within 10m while visible / hunting",
 			"Chance to drop sanity by 14% within 3m",
 			"Cannot roam while smudged",
 		],
