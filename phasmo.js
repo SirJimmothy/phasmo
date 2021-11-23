@@ -153,6 +153,7 @@ let ghosts = {
 		"useful":				[
 			"Both twins can interact simultaneously",
 			"One twin will not provide evidence or trigger sensors",
+			"During hunts, main twin moves at -10%, decoy moves at +10%",
 		],
 	},
 	"wraith": {
