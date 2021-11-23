@@ -96,6 +96,7 @@ let ghosts = {
 		"useful":				[
 			"Can hunt above 50% sanity without flame in room",
 			"Flames act as crucifixes; 3M hunt blocking range",
+			"When flame prevents hunt, it is blown out",
 		],
 	},
 	"phantom": {
