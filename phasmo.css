@@ -368,7 +368,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 }
 
 /* Mobile Vertical */
-@media all and (max-width: 710px) {
+@media all and (max-width: 720px) {
 
 /* Top sections into one set per row */
 	div#top > div { display: block; }
