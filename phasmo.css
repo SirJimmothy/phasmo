@@ -354,10 +354,10 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 @media all and (max-width: 960px) {
 
 /* Ghost name */
-	div#top > div#ghost { display: block; margin-top: 0.5em; }
+	div#top > div#ghost { display: block; }
 
 /* Timers */
-	div#head > div:nth-of-type(2) > div > input { width: calc(75% - 0.25em); }
+	div#head > div:nth-of-type(2) > div > input { width: calc(45% - 0.25em); }
 
 	/* Maps */
 	ul#maps > li { flex-basis: 40%; }
@@ -368,7 +368,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 }
 
 /* Mobile Vertical */
-@media all and (max-width: 630px) {
+@media all and (max-width: 710px) {
 
 /* Top sections into one set per row */
 	div#top > div { display: block; }
