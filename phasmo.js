@@ -15,7 +15,7 @@ let gameplay = {
 		'Truck EMF board registers EMF as 1 less than real values, with optional extra +/-1 variation: EMF 3 can show as 1, 2 or 3',
 		'Spirit boxes will work anywhere inside the map, but the ghost will only listen to someone in a room with no lights on, within 3M of the ghost',
 		'DOTS sensors show periodic moving silhouettes of ghosts, if the ghost is in the room',
-		'Video cameras can see ghost orbs in night vision mode. Ghost orbs move around the room and behave like bubbles',
+		'Video and regular cameras can see ghost orbs. Ghost orbs move around the room and behave like bubbles',
 		'When written in, writing books will levitate and the pen will scribble - this can be observed via cameras',
 		],
 	'Non-Evidence Items': [
