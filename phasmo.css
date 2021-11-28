@@ -293,10 +293,6 @@ body.dark ul#clues > li:before { background-color: var(--black); }
 body.dark ul#clues > li.selected { border-color: var(--green); }
 body.dark ul#clues > li.disabled { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.25); }
 
-/* Gameplay */
-body.dark div#gameplay > input + div { border-color: var(--white); background-color: var(--black); }
-body.dark div#gameplay > input + div > label { border-color: var(--white); background-color: var(--black); }
-
 /* Photos */
 body.dark div#photos > input + div { border-color: var(--white); background-color: var(--black); }
 body.dark div#photos > input + div > label { border-color: var(--white); background-color: var(--black); }
@@ -340,14 +336,14 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 /* Less than 1920px wide */
 @media all and (max-width: 1750px) {
 
-	div#gameplay > div { flex-basis: calc(50% - 1em); }
-
 /* Clue selection */
 	ul#clues > li { flex-basis: 20%; }
 	ul#ghosts > li { flex-basis: 30%; }
 
 /* Timers */
 	div#head > div:nth-of-type(2) > div > input { width: auto; }
+
+	div#gameplay > div { flex-basis: calc(50% - 1em); }
 
 }
 
@@ -401,5 +397,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 
 /* Ghost results */
 	ul#ghosts > li { flex-basis: 100%; }
+
+	div#gameplay > div { flex-basis: calc(100% - 1em); }
 
 }
