@@ -15,7 +15,6 @@
 	--red_trans:		rgba(255,0,0,0.5);
 	--green2_trans:	rgba(0,255,0,0.5);
 
-	--jim:					url("img/jimmothy.png");
 	--phasmo: 			url("img/phasmo.png");
 	--icons:				url("img/icons.png");
 }
@@ -41,17 +40,15 @@ table { width: 100%; margin: 0; border-spacing: 0; }
 input[type="button"] { box-sizing: border-box; margin: 0 0 0.25em 0; padding: 0.5em 0.25em 0.4em 0.25em; border: 1px solid var(--white); font-family: "fixed", monospace; font-size: 12px; color: var(--white); background: var(--black); cursor: pointer; }
 input[type="button"].current { border-color: var(--black); color: var(--black); background-color: var(--grey2); }
 
-div#body { z-index: 0; box-sizing: border-box; position: relative; width: 100%; margin: 0 auto; padding: 0.5em 1em 1em 1em; border: 1px solid var(--black); background-color: var(--white); }
+div.body { z-index: 0; box-sizing: border-box; position: relative; width: 100%; margin: 0 auto; padding: 0.5em 1em 1em 1em; border: 1px solid var(--black); background-color: var(--white); }
 
-div#jim { z-index: 1; position: absolute; top: 0.2em; left: 0.2em; width: 32px; height: 32px; margin: 0; padding: 0; background: var(--jim) 50% 0px no-repeat; }
-
-div#top { position: relative; margin-bottom: 0.5em; padding-left: calc(32px - 0.5em); }
+div#top { position: relative; margin-bottom: 0.5em; }
 div#top > div { display: inline-block; vertical-align: top; }
 
 /* Keyboard shortcuts */
 div#links { user-select: none; }
 div#links > ul { list-style-type: none; display: inline-block; margin: 0; padding: 0; }
-div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.25em 0 0; border: 1px solid var(--white); border-radius: 0 1em 1em 0; line-height: 1em; font-size: 14px; cursor: pointer; }
+div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.25em 0 0; border: 1px solid var(--white); line-height: 1em; font-size: 14px; cursor: pointer; }
 div#links > ul > li > span { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
 html:fullscreen #links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
 
@@ -66,7 +63,6 @@ div#ghost > label > span { padding: 0.25em 0.5em 0.1em 0.5em; border: 1px solid 
 
 div#ghost > label:nth-of-type(1) { margin-left: 0.25em; }
 div#ghost > label:first-of-type > span { padding-left: 0.25em; padding-right: 0.25em; color: var(--black); background-color: var(--white); }
-div#ghost > label:last-of-type > span { border-radius: 0 0.5em 0.5em 0; }
 
 div#ghost > label > input:checked + span { color: var(--white); background-color: var(--green); }
 
@@ -173,7 +169,7 @@ ul#ghosts > li > h3 > span > span[data-type="writing"] {	background-position: -8
 ul#ghosts > li > h3 > span > span[data-type="box"] {			background-position: -100px 0; }
 
 /* Photos */
-div#photos { }
+div#photos { position: relative; z-index: 0; }
 div#photos > input { display: none; }
 div#photos > input + div { position: fixed; top: 4em; left: calc(-21em - 2px); width: 20em; padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0.5em 0; background-color: var(--white); transition: left 0.2s linear 0s; }
 div#photos > input:checked + div { left: -1px; }
@@ -199,7 +195,7 @@ div#photos > div > table > tbody td > input { box-sizing: border-box; width: 100
 div#photos > div > h2 { margin-top: 0.25em; font-size: 24px; }
 
 /* Roll */
-div#roll { }
+div#roll { position: relative; z-index: 0; }
 div#roll > input { display: none; }
 div#roll > input + div { position: fixed; top: 4em; right: calc(-23em - 2px); width: 22em; max-height: calc(100vh - 5.5em); padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0.5em 0; background-color: var(--white); transition: right 0.2s linear 0s; }
 div#roll > input:checked + div { right: -1px; }
@@ -240,11 +236,18 @@ div.roll_group > div:nth-of-type(2) > label[data-name="bleasdale"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span
 	{ height: 2em; }
 
+/* Gameplay */
+div#gameplay { display: flex; flex-wrap: wrap; margin: 0.5em -0.5em -0.5em -0.5em; }
+div#gameplay > div { flex: 0 0 calc(25% - 1em); margin: 0.5em; }
+div#gameplay > div > h3 { font-weight: bold; }
+div#gameplay > div > ol { margin: 0; padding: 0 0 0 0.5em; }
+div#gameplay > div > ol > li { margin: 0.5em; padding: 0; text-align: justify; }
+
 /**/
 
 /* Dark Mode */
 body.dark { color: var(--white); background-color: var(--blackest); }
-body.dark div#body { border-color: var(--white); background-color: var(--black); }
+body.dark div.body { border-color: var(--white); background-color: var(--black); }
 
 body.dark a { color: var(--green2); }
 body.dark a:hover { text-shadow: 0 0 0.5em var(--green2_trans); }
@@ -290,6 +293,10 @@ body.dark ul#clues > li:before { background-color: var(--black); }
 body.dark ul#clues > li.selected { border-color: var(--green); }
 body.dark ul#clues > li.disabled { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.25); }
 
+/* Gameplay */
+body.dark div#gameplay > input + div { border-color: var(--white); background-color: var(--black); }
+body.dark div#gameplay > input + div > label { border-color: var(--white); background-color: var(--black); }
+
 /* Photos */
 body.dark div#photos > input + div { border-color: var(--white); background-color: var(--black); }
 body.dark div#photos > input + div > label { border-color: var(--white); background-color: var(--black); }
@@ -332,6 +339,8 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 
 /* Less than 1920px wide */
 @media all and (max-width: 1750px) {
+
+	div#gameplay > div { flex-basis: calc(50% - 1em); }
 
 /* Clue selection */
 	ul#clues > li { flex-basis: 20%; }

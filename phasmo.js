@@ -1,4 +1,53 @@
 
+let gameplay = {
+	'Gameplay': [
+		'Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas',
+		'Sprinting allows movement at 150% for 3.5s with 5s cooldown - scales for partial use',
+		'Ouija boards have a 50% spawn chance',
+		'Failed ouija board questions cost 5 sanity; successful questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions',
+		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
+	],
+	'Evidence items': [
+		'Thermometers update slowly; have patience',
+		'Freezing temps counts as below 0&deg;C or 32&deg;F, or if you see breath mist',
+		'EMF values: 2 for interaction; 3 for throw; 4 for ghost event. 25% chance to become 5 for EMF 5 ghosts',
+		'Truck EMF board registers EMF as 1 less than real values, with optional extra +/-1 variation: EMF 3 can show as 1, 2 or 3',
+		'Spirit boxes will work anywhere inside the map, but the person speaking must be in a room with no lights on, and within 3M of the ghost',
+		'DOTS sensors show periodic moving silhouettes of ghosts, if the ghost is in the room',
+		'Video cameras can see ghost orbs in night vision mode. Ghost orbs move around the room and behave like bubbles',
+		'When written in, writing books will levitate and the pen will scribble - this can be observed via cameras',
+		],
+	'Non-Evidence Items': [
+		'Cameras can be used to take photos of fingerprints, footsteps, ghosts, bones, dead bodies, dirty water, and general interactions',
+		'Photo opportunities last 20s from inception. The closer, the better quality and the more money received',
+		'For dirty water and ghost writing, two photos can be taken: once for the photo itself and another for the interaction event',
+		'Sound sensors reveal room names in the truck, and indicate interactions within an area',
+		'Paramic has 40M range (your ears hear further), but can detect inaudible interactions',
+		'UV lights and glowsticks illuminate fingerprints and footsteps (fingerprints fade after 2m). Glowsticks dim after 1m',
+		'Footsteps are made after the ghost steps in salt; place at chokepoints to increase chance',
+		'Sanity pills raise individual sanity by 40% (amateur), 35% (intermed.), 30% (pro), 25% (nightmare)',
+		'Candles prevent passive sanity loss within a 1M radius (held or placed)',
+		'Crucifixes prevent ghosts from hunting within a 3M radius (held or placed)',
+		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges cannot be stacked',
+	],
+	'Hunts': [
+		'Hunts can occur once the average sanity of the group falls below 50%. The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance',
+		'When a hunt starts, all outer doors become locked and light switches cannot be used',
+		'Grace periods: All difficulties have 3s after hunt commencement before the ghost searches for players. Nightmare difficulty has 1s',
+		'Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted',
+		'In Nightmare difficulty, if a player dies during a hunt, the hunt length will be extended',
+		'Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed',
+		'Ghosts can only hear player microphones - other sounds do not attract the ghost',
+		'Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection',
+		'Doors block line of sight; closing these behind you can prevent the ghost from gaining speed',
+		'Players can hide behind doors while holding them - ghosts may move unheld doors, exposing hidden players',
+		'If a ghost sees a player enter a closet or locker, they will attempt to open them, even if the doors are held. Keep pulling them closed to survive',
+		'Making sound or activating electronics inside a locker will cause the ghost to force open the doors; this is rarely survivable',
+		'Smudge sticks may be used within 6M of a ghost to cause the ghost to wander randomly and forget all targets for 5s. This effect has a 15s cooldown',
+		'Smudge sticks may also be used by a non-chased player, even in the truck, if the ghost is chasing another player',
+	],
+};
+
 let clues = {
 	'dots':			'Dots',
 	'emf':			'EMF 5',
@@ -284,9 +333,9 @@ let media = {
 };
 
 if (document.addEventListener) {
-	document.addEventListener('click',(e) => { click(e); },false);
-	document.addEventListener('keydown',(e) => { keydown(e); },false);
-	document.addEventListener('keypress',(e) => { keypress(e); },false);
+	document.addEventListener('click',		(e) => { click(e); },false);
+	document.addEventListener('keydown',	(e) => { keydown(e); },false);
+	document.addEventListener('keypress',	(e) => { keypress(e); },false);
 }
 
 let cookie = 'phasmo_';
@@ -314,36 +363,40 @@ function page_load(item) {
 }
 
 function load() {
+
+	// Populate gameplay
+	let gameplay_div = document.getElementById('gameplay');
+	for (let key in gameplay) if (gameplay.hasOwnProperty(key)) { {
+		let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
+		let list = document.createElement('OL');
+		for (let x = 0 ; x < gameplay[key].length; x++) {
+			list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: gameplay[key][x]}));
+		}
+		div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: key + ':'}));
+		div.appendChild(list);
+		gameplay_div.appendChild(div);
+	} }
+
 	// Load clues and ghosts into page
 
 	if (parseInt(getcookie('dark').toString())) { toggle_dark(); }
 	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; console.log('Muted'); toggle_sound(); }
 
 	let clues_ul = document.getElementById('clues');
-
 	let count = 0;
-	let li;
-	let label_y;
-	let label_n;
-	let check_y;
-	let check_n;
-	let span_y;
-	let span_n;
-	let span_number;
-	let span_image;
 
 	// Populate clues
 	for (let key in clues) {
 		count++;
-		li					= document.createElement('LI');
-		span_number	= document.createElement('SPAN');
-		span_image	= document.createElement('SPAN');
-		span_y			= document.createElement('SPAN');
-		span_n			= document.createElement('SPAN');
-		label_y			= document.createElement('LABEL');
-		label_n			= document.createElement('LABEL');
-		check_y			= document.createElement('INPUT');
-		check_n			= document.createElement('INPUT');
+		let li					= document.createElement('LI');
+		let span_number	= document.createElement('SPAN');
+		let span_image	= document.createElement('SPAN');
+		let span_y			= document.createElement('SPAN');
+		let span_n			= document.createElement('SPAN');
+		let label_y			= document.createElement('LABEL');
+		let label_n			= document.createElement('LABEL');
+		let check_y			= document.createElement('INPUT');
+		let check_n			= document.createElement('INPUT');
 
 		li.setAttribute('data-clue',key);
 		li.innerHTML = clues[key];
@@ -661,6 +714,10 @@ function keypress(e) {
 			break;
 			case 'f':
 				toggle_fullscreen();
+			break;
+			case 'g':
+				document.getElementById('gameplay').childNodes[0].click();
+				current.blur();
 			break;
 			case 'm':
 				toggle_sound();
