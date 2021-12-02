@@ -75,7 +75,7 @@ let ghosts = {
 		"clues":				['prints','temps','writing'],
 		"useful":				[
 			"Can hunt at 70% sanity",
-			"Successful ouija board questions cost no sanity",
+			"Successful ouija board questions cost no extra sanity",
 		],
 	},
 	"goryo": {
