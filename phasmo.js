@@ -147,7 +147,7 @@ let ghosts = {
 			"Can hunt above 50% sanity without flame in room",
 			"Chance to hunt when flame is extinguished",
 			"The more dead players, the higher hunt chance when flame extinguished",
-			"Flames act as crucifixes; 3M hunt blocking range",
+			"Flames act as crucifixes; 3M hunt blocking range. Has precedence over crucifix",
 			"When flame prevents hunt, it is blown out",
 		],
 	},
@@ -602,7 +602,7 @@ function click(e) {
 				case 'DIV':
 
 					if (in_array('exclude',target.classList)) {
-						target.parentNode.classList.toggle('excluded');
+						parent.classList.toggle('excluded');
 					}
 
 				break;
