@@ -356,10 +356,8 @@ page_load(load);
 
 function page_load(item) {
 	let load = window.onload;
-	if (typeof load == 'function') {
+	if (typeof load != 'function') { window.onload = item; } else {
 		window.onload = function() { if (load) { load(); } item(); };
-	} else {
-		window.onload = item;
 	}
 }
 
@@ -598,6 +596,13 @@ function click(e) {
 							target.classList.add('current');
 							timer.innerHTML = val.toString();
 						}
+					}
+
+				break;
+				case 'DIV':
+
+					if (in_array('exclude',target.classList)) {
+						target.parentNode.classList.toggle('excluded');
 					}
 
 				break;
@@ -915,11 +920,16 @@ function count_points(slider) {
 }
 
 function reset() {
-	let check = [];
-	let clues = document.getElementById('clues');
+	let check			= [];
+	let clues			= document.getElementById('clues');
+	let ghosts_ul	= document.getElementById('ghosts');
 
 	document.body.classList.toggle('hidden');
 	setTimeout(function() { document.body.classList.toggle('hidden'); },200);
+
+	for (let x = 0; x < ghosts_ul.childNodes.length; x++) {
+		ghosts_ul.childNodes[x].classList = [];
+	}
 
 	document.getElementById('ghostname').value = '';
 	document.getElementById('ghost').childNodes[1].childNodes[0].click();
@@ -996,41 +1006,34 @@ function populate_ghosts(ghosts) {
 
 	// Display descriptions of all applicable ghosts
 	let ghosts_ul = document.getElementById('ghosts');
-	let content;
-	let heading;
-	let icons;
-	let icon;
-	let desc;
-	let useful;
 
 	// Remove any entries for re-population
 	while (ghosts_ul.firstChild) { ghosts_ul.removeChild(ghosts_ul.lastChild); }
 
 	for (let key in ghosts) { if (ghosts.hasOwnProperty(key)) {
-		content = document.createElement('LI');
+		let content = document.createElement('LI');
 		content.setAttribute('data-type',key);
-		heading = document.createElement('h3');
-		heading.innerHTML = key;
+		let exclude = Object.assign(document.createElement('DIV'),{classList:['exclude'],title:'Exclude ghost'});
+		let heading = Object.assign(document.createElement('h3'),{innerHTML:key});
 
-		icons = document.createElement('SPAN');
+		let icons = document.createElement('SPAN');
 		for (let x = 0; x < ghosts[key]['clues'].length; x++) {
-			icon = document.createElement('SPAN');
+			let icon = document.createElement('SPAN');
 			icon.setAttribute('data-type',ghosts[key]['clues'][x]);
 			if (in_array(ghosts[key]['clues'][x],checked)) { icon.classList.add('checked'); }
 			icon.title = clues[ghosts[key]['clues'][x]];
 			icons.appendChild(icon);
 		}
 		heading.appendChild(icons);
+		content.appendChild(exclude);
 		content.appendChild(heading);
 
-		desc = document.createElement('P');
+		let desc = document.createElement('P');
 		desc.innerHTML = ghosts[key]['description'];
 
 		let useful_container = document.createElement('UL');
 		for (let x = 0; x < ghosts[key]['useful'].length; x++) {
-			useful = document.createElement('LI');
-			useful.innerHTML = ghosts[key]['useful'][x];
-			useful_container.appendChild(useful);
+			useful_container.appendChild(Object.assign(document.createElement('LI'),{innerHTML: ghosts[key]['useful'][x]}));
 		}
 		content.appendChild(useful_container);
 
@@ -1086,13 +1089,13 @@ function show_ghosts(ghosts) {
 	for (let x = 0; x < ghosts_ul.childNodes.length; x++) {
 		ghost = ghosts_ul.childNodes[x];
 
-		for (let y = 0; y < ghost.childNodes[0].childNodes[1].childNodes.length; y++) {
-			ghost.childNodes[0].childNodes[1].childNodes[y].classList.remove('checked');
+		for (let y = 0; y < ghost.childNodes[1].childNodes[1].childNodes.length; y++) {
+			ghost.childNodes[1].childNodes[1].childNodes[y].classList.remove('checked');
 		}
 
 		if (ghosts.hasOwnProperty(ghost.getAttribute('data-type'))) { // If this ghost is in the valid choices
-			for (let y = 0; y < ghost.childNodes[0].childNodes[1].childNodes.length; y++) {
-				clue = ghost.childNodes[0].childNodes[1].childNodes[y];
+			for (let y = 0; y < ghost.childNodes[1].childNodes[1].childNodes.length; y++) {
+				clue = ghost.childNodes[1].childNodes[1].childNodes[y];
 				clue.classList.remove('checked');
 				if (in_array(ghosts[ghost.getAttribute('data-type')]['clues'][y],checked)) { // EMF, etc is selected
 					if (ghosts[ghost.getAttribute('data-type')]['clues'][y] === clue.getAttribute('data-type')) {
