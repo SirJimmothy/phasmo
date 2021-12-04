@@ -151,7 +151,7 @@ ul#ghosts > li.hidden { flex: none; width: 0; height: 0; margin: 0; padding: 0; 
 ul#ghosts > li.excluded { opacity: 0.5; filter: opacity(50%); }
 
 /* Clues applicable to each ghost */
-ul#ghosts > li > div.exclude { position: absolute; top: -1px; left: -1px; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 0 0 0.5em 0; background: var(--icons) -30px -30px no-repeat; cursor: pointer; }
+ul#ghosts > li > div.exclude { position: absolute; top: -1px; left: -1px; width: 30px; height: 30px; border: 1px solid var(--black); border-width: 0 1px 1px 0; border-radius: 0 0 0.5em 0; background: var(--icons) -30px -30px no-repeat; cursor: pointer; }
 
 ul#ghosts > li > h3 > span { float: right; display: block; }
 ul#ghosts > li > h3 > span > span { display: inline-block; width: 20px; height: 20px; margin-left: 0.5em; padding: 0; border-radius: 0.25em; background: var(--icons) 0 0 no-repeat; background-size: 140px 40px; }
@@ -285,6 +285,7 @@ body.dark ul#maps > li > a:hover { color: var(--white); background-color: var(--
 body.dark ul#clues { border-color: var(--white); }
 body.dark ul#clues > li { border-color: var(--white); }
 body.dark ul#ghosts > li { border-color: var(--white); }
+body.dark ul#ghosts > li > div.exclude { border-color: var(--white); }
 
 /* Clue hotkey */
 body.dark ul#clues > li > span:nth-of-type(1) { color: var(--black); text-shadow: 1px 1px 1px var(--white), 0 0 1px var(--white); }
