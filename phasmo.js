@@ -29,6 +29,7 @@ let gameplay = {
 		'Sanity pills raise individual sanity by 40% (amateur), 35% (intermed.), 30% (pro), 25% (nightmare)',
 		'Candles prevent passive sanity loss within a 1M radius (held or placed)',
 		'Crucifixes prevent ghosts from hunting within a 3M radius (held or placed)',
+		'Once a crucifix prevents a hunt, the ghost may not attempt to hunt for 5s',
 		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges cannot be stacked',
 	],
 	'Hunts': [
