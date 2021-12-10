@@ -311,7 +311,8 @@ let rolls = {
 
 for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 	for (let key2 in rolls[key].items) { if (rolls[key].items.hasOwnProperty(key2)) {
-		rolls[key].groups.all.items.push(key2);
+		let all = rolls[key].groups.all;
+		all.items.push(key2);
 	} }
 } }
 
@@ -323,7 +324,7 @@ let maps = [
 	{'name':'Grafton Farmhouse',			'file':'map_grafton.png'},
 	{'name':'Bleasdale Farmhouse',		'file':'map_bleasdale.png'},
 	{'name':'Brownstone High School',	'file':'map_highschool.png'},
-	{'name':'Maple Lodge Campsire',		'file':'map_maple.png'},
+	{'name':'Maple Lodge Campsite',		'file':'map_maple.png'},
 	{'name':'Prison',									'file':'map_prison.png'},
 	{'name':'Asylum',									'file':'map_asylum.png'},
 ];
@@ -353,15 +354,7 @@ let clocks = {
 
 let checked = []; // Hold list of currently checked clues
 
-page_load(load);
-
-function page_load(item) {
-	let load = window.onload;
-	if (typeof load != 'function') { window.onload = item; } else {
-		window.onload = function() { if (load) { load(); } item(); };
-	}
-}
-
+window.onload = load;
 function load() {
 
 	// Populate gameplay
@@ -380,7 +373,11 @@ function load() {
 	// Load clues and ghosts into page
 
 	if (parseInt(getcookie('dark').toString())) { toggle_dark(); }
-	if (parseInt(getcookie('mute').toString())) { document.getElementById('sound').childNodes[0].childNodes[0].checked = false; console.log('Muted'); toggle_sound(); }
+	if (parseInt(getcookie('mute').toString())) {
+		let sound = document.getElementById('sound').childNodes[0].childNodes[0];
+		sound.checked = false;
+		toggle_sound();
+	}
 
 	let clues_ul = document.getElementById('clues');
 	let count = 0;
@@ -420,11 +417,14 @@ function load() {
 	let timers = document.getElementById('timers').childNodes[5].childNodes;
 	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
 	count = 0;
-	for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT' && timers[x].getAttribute('data-hotkey') === 'true') {
-		timers[x].setAttribute('data-hotkey',hotkeys[count]);
-		timers[x].value = '[' + hotkeys[count] + '] ' + timers[x].value;
-		count++;
-	} }
+	for (let x = 0; x < timers.length; x++) {
+		let timer = timers[x];
+		if (timers[x].nodeName === 'INPUT' && timer.getAttribute('data-hotkey') === 'true') {
+			timer.setAttribute('data-hotkey',hotkeys[count]);
+			timer.value = '[' + hotkeys[count] + '] ' + timer.value;
+			count++;
+		}
+	}
 
 	populate_ghosts(ghosts);
 
@@ -546,8 +546,9 @@ function load() {
 }
 
 function click(e) {
-	let target = e.target;
-	let parent = target.parentNode;
+	let target				= e.target;
+	let parent				= target.parentNode;
+	let parent_parent	= parent.parentNode;
 	switch (e.which) {
 		case 1: // Left click
 
@@ -574,7 +575,8 @@ function click(e) {
 						let val = 0;
 						if (target.nodeName === 'INPUT' && !clocks['main']) {
 							for (let x = 0; x < parent.childNodes.length; x++) { if (parent.childNodes[x].nodeName === 'INPUT') {
-								parent.childNodes[x].classList.remove('current');
+								let child = parent.childNodes[x];
+								child.classList.remove('current');
 							} }
 							let grace = 3;
 							switch (target.name) {
@@ -609,15 +611,16 @@ function click(e) {
 				break;
 				default:
 
-					if (target.nodeName === 'SPAN' && parent.nodeName === 'LABEL' && parent.parentNode.nodeName === 'LI') {
+					if (target.nodeName === 'SPAN' && parent.nodeName === 'LABEL' && parent_parent.nodeName === 'LI') {
 						setTimeout(function() { check_ghosts(); },10); // Give time for the checkbox to self-toggle
 					}
-					if (target.nodeName === 'SPAN' && parent.parentNode.id === 'sound') {
+					if (target.nodeName === 'SPAN' && parent_parent.id === 'sound') {
 						setTimeout(() => {
 							toggle_sound();
 						},50);
 					}
 
+					let item;
 					if (parent_div.id === 'links') {
 						switch (getitem(target,'LI')) {
 							case parent_div.childNodes[0].childNodes[0]:
@@ -628,11 +631,12 @@ function click(e) {
 							break;
 							case parent_div.childNodes[0].childNodes[3]:
 								toggle_sound();
-								document.getElementById('sound').childNodes[0].childNodes[0].click();
+								item = document.getElementById('sound').childNodes[0].childNodes[0];
+								item.click();
 							break;
 							case parent_div.childNodes[0].childNodes[4]:
 								reset();
-								break;
+							break;
 						}
 					}
 
@@ -692,7 +696,8 @@ function keydown(e) {
 					} else {
 						item = (x === (len - 1) ? 0 : (x + 1));
 					}
-					maps_div.childNodes[item].childNodes[0].focus();
+					let map = maps_div.childNodes[item].childNodes[0];
+					map.focus();
 				} }
 				if (!found) { e.preventDefault(); maps_div.childNodes[(e.which === 37 ? (len - 1) : 0)].childNodes[0].focus(); }
 			}
@@ -709,6 +714,7 @@ function keypress(e) {
 
 	if (document.activeElement.getAttribute('type') !== 'text') {
 
+		let item;
 		switch (keycode.toLowerCase()) {
 			case '#':
 				document.getElementById('play').click();
@@ -723,23 +729,27 @@ function keypress(e) {
 				toggle_fullscreen();
 			break;
 			case 'g':
-				document.getElementById('gameplay').childNodes[0].click();
+				item = document.getElementById('gameplay').childNodes[0];
+				item.click();
 				current.blur();
 			break;
 			case 'm':
 				toggle_sound();
-				document.getElementById('sound').childNodes[0].childNodes[0].click();
+				item = document.getElementById('sound').childNodes[0].childNodes[0];
+				item.click();
 			break;
 			case 'n':
 				document.getElementById('ghostname').focus();
 				e.preventDefault();
 			break;
 			case 's':
-				document.getElementById('photos').childNodes[0].click();
+				item = document.getElementById('photos').childNodes[0];
+				item.click();
 				current.blur();
 			break;
 			case 'l':
-				document.getElementById('roll').childNodes[0].click();
+				item = document.getElementById('roll').childNodes[0];
+				item.click();
 				current.blur();
 			break;
 			case 'x':
@@ -763,7 +773,8 @@ function keypress(e) {
 			let clues = document.getElementById('clues');
 			for (let x = 0; x < clues.childNodes.length; x++) {
 				let check = [];
-				if (clues.childNodes[x].childNodes[1].innerHTML === keycode) {
+				let clue = clues.childNodes[x].childNodes[1];
+				if (clue.innerHTML === keycode) {
 					check[0] = clues.childNodes[x].childNodes[3].childNodes[0];
 					check[1] = clues.childNodes[x].childNodes[4].childNodes[0];
 					if (!check[0].checked && !check[1].checked) {
@@ -781,9 +792,10 @@ function keypress(e) {
 		let timers = document.getElementById('timers').childNodes[5].childNodes;
 		let hotkey;
 		for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT') {
-			hotkey = timers[x].getAttribute('data-hotkey');
+			let timer = timers[x];
+			hotkey = timer.getAttribute('data-hotkey');
 			if (hotkey && keycode.toLowerCase() === hotkey.toLowerCase()) {
-				timers[x].click();
+				timer.click();
 			} }
 		}
 
@@ -816,7 +828,7 @@ function do_timer(act,which) {
 						if (sound) { files['alarm'].play(); }
 						clearInterval(clocks[which]);
 						flicker('timers');
-						element.innerHTML = timer.start;
+						element.innerHTML = timer.start.toString();
 						document.getElementById('play').click();
 						setTimeout(() => { do_timer('stop',which); },2000);
 					}
@@ -866,24 +878,23 @@ function toggle_fullscreen() {
 }
 
 function toggle_alone() {
-	let alone = [
-		document.getElementById('ghost').childNodes[1].childNodes[0],
-		document.getElementById('ghost').childNodes[2].childNodes[0],
-		document.getElementById('ghost').childNodes[3].childNodes[0],
-	];
-	if (alone[0].checked) {
-		alone[1].click();
-	} else if (alone[1].checked) {
-		alone[2].click();
+	let alone_0 = document.getElementById('ghost').childNodes[1].childNodes[0];
+	let alone_1 = document.getElementById('ghost').childNodes[2].childNodes[0];
+	let alone_2 = document.getElementById('ghost').childNodes[3].childNodes[0];
+	if (alone_0.checked) {
+		alone_1.click();
+	} else if (alone_1.checked) {
+		alone_2.click();
 	} else {
-		alone[0].click();
+		alone_0.click();
 	}
 }
 
 function toggle_sound() {
 	sound = !sound;
 	setcookie('mute',(sound ? '0' : '1'));
-	document.getElementById('links').childNodes[0].childNodes[3].classList.toggle('on');
+	let link = document.getElementById('links').childNodes[0].childNodes[3];
+	link.classList.toggle('on');
 }
 
 function count_points(slider) {
@@ -929,11 +940,13 @@ function reset() {
 	setTimeout(function() { document.body.classList.toggle('hidden'); },200);
 
 	for (let x = 0; x < ghosts_ul.childNodes.length; x++) {
-		ghosts_ul.childNodes[x].classList = [];
+		let ghost = ghosts_ul.childNodes[x];
+		ghost.classList = [];
 	}
 
 	document.getElementById('ghostname').value = '';
-	document.getElementById('ghost').childNodes[1].childNodes[0].click();
+	let ghost = document.getElementById('ghost').childNodes[1].childNodes[0];
+	ghost.click();
 
 	for (let x = 0; x < clues.childNodes.length; x++) {
 		check[0] = clues.childNodes[x].childNodes[3].childNodes[0];
@@ -945,7 +958,8 @@ function reset() {
 	if (clocks['main']) { document.getElementById('play').click(); }
 	let timers = document.getElementById('timers').childNodes[5];
 	for (let x = 0; x < timers.childNodes.length; x++) { if (timers.childNodes[x].nodeName === 'INPUT') {
-		if (in_array('current',timers.childNodes[x].classList)) { timers.childNodes[x].click(); break; }
+		let timer = timers.childNodes[x];
+		if (in_array('current',timer.classList)) { timer.click(); break; }
 	} }
 
 	for (let x = 0; x <= photos.length; x++) {
@@ -975,10 +989,11 @@ function check_ghosts() {
 	for (x = 0; x < ul_clues.childNodes.length; x++) {
 		checkbox_y = ul_clues.childNodes[x].childNodes[3].childNodes[0];
 		checkbox_n = ul_clues.childNodes[x].childNodes[4].childNodes[0];
-		if (!checkbox_y.checked) { ul_clues.childNodes[x].classList.remove('selected'); } else {
+		let clue = ul_clues.childNodes[x];
+		if (!checkbox_y.checked) { clue.classList.remove('selected'); } else {
 			checked_y.push(checkbox_y.value);
 			checked.push(checkbox_y.value);
-			ul_clues.childNodes[x].classList.add('selected');
+			clue.classList.add('selected');
 		}
 		if (checkbox_n.checked) { checked_n.push(checkbox_n.value); }
 	}
@@ -1060,25 +1075,28 @@ function show_ghosts(ghosts) {
 	let clues_ul = document.getElementById('clues');
 	for (let x = 0; x < clues_ul.childNodes.length; x++) {
 		clue = clues_ul.childNodes[x];
+		let choice_opt_1 = clue.childNodes[3].childNodes[0];
+		let choice_opt_2 = clue.childNodes[4].childNodes[0];
 		if (!in_array(clue.getAttribute('data-clue'),available_clues)) { // If this clue isn't applicable, disable it
 
 			clue.classList.add('disabled');
 
 			// Disable this clue's unchecked choices
-			if (!clue.childNodes[3].childNodes[0].checked) { clue.childNodes[3].childNodes[0].disabled = true; }
-			if (!clue.childNodes[4].childNodes[0].checked) { clue.childNodes[4].childNodes[0].disabled = true; }
+
+			if (!choice_opt_1.checked) { choice_opt_1.disabled = true; }
+			if (!choice_opt_2.checked) { choice_opt_2.disabled = true; }
 
 		} else { // If this clue is applicable, enable its selection
 
 			clue.classList.remove('disabled');
 
 			// Re-enable this clue's positive and negative choices
-			clue.childNodes[3].childNodes[0].disabled = false;
-			clue.childNodes[4].childNodes[0].disabled = false;
+			choice_opt_1.disabled = false;
+			choice_opt_2.disabled = false;
 
 			// When this clue is marked positive, disable its negative option
-			if (clue.childNodes[3].childNodes[0].checked) {
-				clue.childNodes[4].childNodes[0].disabled = true;
+			if (choice_opt_1.checked) {
+				choice_opt_2.disabled = true;
 			}
 
 		}
@@ -1091,14 +1109,15 @@ function show_ghosts(ghosts) {
 		ghost = ghosts_ul.childNodes[x];
 
 		for (let y = 0; y < ghost.childNodes[1].childNodes[1].childNodes.length; y++) {
-			ghost.childNodes[1].childNodes[1].childNodes[y].classList.remove('checked');
+			let ghost_child = ghost.childNodes[1].childNodes[1].childNodes[y];
+			ghost_child.classList.remove('checked');
 		}
 
 		if (ghosts.hasOwnProperty(ghost.getAttribute('data-type'))) { // If this ghost is in the valid choices
 			for (let y = 0; y < ghost.childNodes[1].childNodes[1].childNodes.length; y++) {
 				clue = ghost.childNodes[1].childNodes[1].childNodes[y];
 				clue.classList.remove('checked');
-				if (in_array(ghosts[ghost.getAttribute('data-type')]['clues'][y],checked)) { // EMF, etc is selected
+				if (in_array(ghosts[ghost.getAttribute('data-type')]['clues'][y],checked)) { // EMF, etc. is selected
 					if (ghosts[ghost.getAttribute('data-type')]['clues'][y] === clue.getAttribute('data-type')) {
 						clue.classList.add('checked');
 					}
@@ -1118,9 +1137,8 @@ function roll_select(item) {
 		let roll_groups = document.getElementsByClassName('roll_group');
 		for (let x = 0; x < roll_groups.length; x++) {
 			for (let y = 0; y < roll_groups[x].childNodes[1].childNodes.length; y++) {
-				if (roll_groups[x].childNodes[1].childNodes[y].nodeName === 'INPUT') {
-					roll_groups[x].childNodes[1].childNodes[y].checked = false;
-				}
+				let item = roll_groups[x].childNodes[1].childNodes[y];
+				if (item.nodeName === 'INPUT') { item.checked = false; }
 			}
 		}
 
@@ -1130,12 +1148,13 @@ function roll_select(item) {
 		let roll_items = item.parentNode.nextSibling;
 		for (let x = 0; x < roll_items.childNodes.length; x++) {
 			if (roll_items.childNodes[x].nodeName === 'INPUT') {
-				roll_items.childNodes[x].checked = false;
-				roll_items.childNodes[x].className = '';
+				let item = roll_items.childNodes[x];
+				item.checked = false;
+				item.className = '';
 
-				let check_name = roll_items.childNodes[x].getAttribute('data-name');
+				let check_name = item.getAttribute('data-name');
 				if (in_array(check_name,rolls[roll[0]].groups[roll[1]].items)) {
-					roll_items.childNodes[x].checked = true;
+					item.checked = true;
 				}
 			}
 		}
