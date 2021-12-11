@@ -3,8 +3,6 @@ let gameplay = {
 	'Gameplay': [
 		'Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas',
 		'Sprinting allows movement at 150% for 3.5s with 5s cooldown - scales for partial use',
-		'Ouija boards have a 50% spawn chance',
-		'Failed ouija board questions cost 5 sanity; successful questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions',
 		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
 		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
 	],
@@ -31,6 +29,21 @@ let gameplay = {
 		'Crucifixes prevent ghosts from hunting within a 3M radius (held or placed)',
 		'Once a crucifix prevents a hunt, the ghost may not attempt to hunt for 5s',
 		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges cannot be stacked',
+	],
+	'Cursed Items': [
+		'All maps will contain one cursed item: ouija board, tarot cards, voodoo doll or mirror',
+		'Cursed items will start a hunt when they run out or break',
+		'Cursed hunts cannot be prevented, have a 1s grace period, and make subsequent hunts longer',
+		'Ghosts make no noise during cursed hunts',
+		'Ouija board questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions',
+		'Always say goodbye to the ouija board before walking away - or be hunted!',
+		'Mirrors will show the area of the ghost room, but drain sanity by 7.5% per second',
+		'Music boxes will attract a nearby ghost and make it sing and try to find the box; sanity drops when music is audible',
+		'If the box is &lt;5M from the ghost and the player gets close to the ghost during music, the ghost will spawn, and upon reaching the music box or after 5s spawned, will attempt to hunt',
+		'Using a voodoo doll will make the ghost perform an interaction, at the cost of 10% sanity. The heart pin will trigger a hunt',
+		'Using a voodoo doll at &lt;10% sanity uses all pins and begins a hunt',
+		'Using a summoning circle will cost 80% sanity and trigger a ghost event',
+		'Tarot cards: Tower forces interaction / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit Returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate / Fool repeats previous card',
 	],
 	'Hunts': [
 		'Hunts can occur once the average sanity of the group falls below 50%. The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance',
@@ -113,6 +126,13 @@ let ghosts = {
 			"Cannot turn light switches on",
 			"Room lights on reduces hunt threshold to 40%",
 			"Room lights off increases hunt threshold to 60%",
+		],
+	},
+	"mimic": {
+		"name":					"Mimic",
+		"clues":				['box','prints','temps'],
+		"useful":				[
+			"Can have ghost orbs",
 		],
 	},
 	"myling": {
@@ -239,6 +259,7 @@ let ghosts = {
 let photos = [
 	['--------',			0,0,0],
 	['Bone',					40,55,70],
+	['Cursed Item',		30,45,60],
 	['Dead Body',			10,20,30],
 	['Dirty Water',		15,23,30],
 	['Finger Prints',	15,33,50],
