@@ -79,16 +79,16 @@ let ghosts = {
 		"clues":				['dots','prints','orb'],
 		"useful":				[
 			"Crucifixes have +2m range",
-			"Can hunt at any sanity level",
 			"Hunts only its target, unless target is outside",
 			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
+			"May shriek through paramic",
 		],
 	},
 	"demon": {
 		"name":					"Demon",
 		"clues":				['prints','temps','writing'],
 		"useful":				[
-			"Can hunt at 70% sanity",
+			"Can hunt at any sanity level",
 			"Successful ouija board questions cost no extra sanity",
 		],
 	},
@@ -166,7 +166,7 @@ let ghosts = {
 		"name":					"Onryo",
 		"clues":				['box','orb','temps'],
 		"useful":				[
-			"Can hunt above 50% sanity without flame in room",
+			"Can hunt from 60% sanity without flame in room",
 			"Chance to hunt when flame is extinguished",
 			"The more dead players, the higher hunt chance when flame extinguished",
 			"Flames act as crucifixes; 3M hunt blocking range. Has precedence over crucifix",
