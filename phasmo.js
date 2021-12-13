@@ -6,6 +6,8 @@ let gameplay = {
 		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
 		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
 		'Ghosts can only hear player microphones (and held electronics) in an 8M radius on the same floor',
+		'The breaker will always start on in Amateur difficulty, and off in all others',
+		'Up to 9 lights witches may be on on small maps, 8 on medium, and 7 on large maps, before the breaker will pop',
 	],
 	'Evidence items': [
 		'Thermometers update slowly; have patience',
