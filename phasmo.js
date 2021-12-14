@@ -85,6 +85,7 @@ let ghosts = {
 			"Crucifixes have +2m range",
 			"Hunts only its target, unless target is outside",
 			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
+			'Prefers to sing during ghost events',
 			"May shriek through paramic",
 		],
 	},
