@@ -85,7 +85,7 @@ let ghosts = {
 			"Crucifixes have +2m range",
 			"Hunts only its target, unless target is outside",
 			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
-			'Prefers to sing during ghost events',
+			'Prefers singing during ghost events',
 			"May shriek through paramic",
 		],
 	},
@@ -220,6 +220,9 @@ let ghosts = {
 		"name":					"Shade",
 		"clues":				['emf','temps','writing'],
 		"useful":				[
+			'Very inactive',
+			'Prefers breath ghost events',
+			'Cannot hunt above 35% sanity',
 			"Won't try to hunt with &gt;1 person in room",
 		],
 	},
