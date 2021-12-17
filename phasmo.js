@@ -120,9 +120,9 @@ let ghosts = {
 		"name":					"Jinn",
 		"clues":				['emf','prints','temps'],
 		"useful":				[
-			"With breaker on, will be fast unless within 4m of target",
 			"Will not turn off breaker",
 			"With breaker on, chance to drop sanity by 25% within 3m",
+			"During hunt with breaker on, will be 2.5x player speed until within 2m of target",
 		],
 	},
 	"mare": {
