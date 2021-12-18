@@ -62,7 +62,7 @@ let gameplay = {
 		'Players can hide behind doors while holding them - ghosts may move unheld doors, exposing hidden players',
 		'If a ghost sees a player enter a closet or locker, they will attempt to open them, even if the doors are held. Keep pulling them closed to survive',
 		'Making sound or activating electronics inside a locker will cause the ghost to force open the doors; this is rarely survivable',
-		'Smudge sticks may be used within 6M of a ghost to cause the ghost to wander randomly and forget all targets for 5s. This effect has a 15s cooldown',
+		'Smudge sticks may be used within 6M of a ghost to cause the ghost to wander randomly and forget all targets for 6s',
 		'Smudge sticks may also be used by a non-chased player, even in the truck, if the ghost is chasing another player',
 	],
 };
@@ -265,7 +265,7 @@ let ghosts = {
 		"clues":				['orb','dots','temps'],
 		"useful":				[
 			"Chance to drop sanity by 14% within 3m",
-			'Ability can pretend to be a ghost event',
+			'Ability can pretend to be a ghost event (lights will not turn off)',
 			"Cannot roam while smudged",
 		],
 	}
