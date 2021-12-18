@@ -95,6 +95,7 @@ let ghosts = {
 		"useful":				[
 			"Can hunt at any sanity level",
 			"Successful ouija board questions cost no extra sanity",
+			"Smudges last 2/3 as long: 60s",
 		],
 	},
 	"goryo": {
@@ -620,17 +621,18 @@ function click(e) {
 								case 'button_02': val = 150;					break;
 								case 'button_03': val = 90;						break;
 								case 'button_04': val = 180;					break;
-								case 'button_05': val = 25;						break;
-								case 'button_06': val = 0;						break;
-								case 'button_07': val = 20 + grace;		break;
-								case 'button_08': val = 40 + grace;		break;
-								case 'button_09': val = 50 + grace;		break;
-								case 'button_10': val = 23 + grace;		break;
-								case 'button_11': val = 43 + grace;		break;
-								case 'button_12': val = 53 + grace;		break;
-								case 'button_13': val = 33 + grace;		break;
-								case 'button_14': val = 53 + grace;		break;
-								case 'button_15': val = 63 + grace;		break;
+								case 'button_05': val = 60;						break;
+								case 'button_06': val = 25;						break;
+								case 'button_07': val = 0;						break;
+								case 'button_08': val = 20 + grace;		break;
+								case 'button_09': val = 40 + grace;		break;
+								case 'button_10': val = 50 + grace;		break;
+								case 'button_11': val = 23 + grace;		break;
+								case 'button_12': val = 43 + grace;		break;
+								case 'button_13': val = 53 + grace;		break;
+								case 'button_14': val = 33 + grace;		break;
+								case 'button_15': val = 53 + grace;		break;
+								case 'button_16': val = 63 + grace;		break;
 							}
 							target.classList.add('current');
 							timer.innerHTML = val.toString();
