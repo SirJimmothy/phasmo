@@ -144,7 +144,7 @@ let ghosts = {
 		"clues":				['box','prints','temps'],
 		"useful":				[
 			'Can behave as any other ghost, including hunt behaviour and triggers',
-			"Can have ghost orbs",
+			"Shows false ghost orbs",
 		],
 	},
 	"myling": {
