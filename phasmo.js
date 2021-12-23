@@ -115,7 +115,7 @@ let ghosts = {
 		"useful":				[
 			"Moves ~15% slower in warmer rooms",
 			"Moves ~15% faster in colder rooms",
-			'Can breathe mist when hunting',
+			'Can breathe mist in freezing rooms  when hunting',
 		],
 	},
 	"jinn": {
