@@ -283,7 +283,6 @@ let photos = [
 	['Footsteps',			20,30,40],
 	['Ghost',					70,85,100],
 	['Interaction',		20,30,40],
-	['Ouija Board',		30,45,60],
 ];
 let photo_count = 10;
 let star_count = 3;
