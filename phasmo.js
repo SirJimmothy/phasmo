@@ -240,7 +240,7 @@ let ghosts = {
 		"clues":				['box','emf','temps'],
 		"useful":				[
 			"Both twins can interact simultaneously",
-			"Decoy twin will give no evidence (except EMF) or trigger sensors",
+			"Decoy twin will not trigger sensors or give evidence (except EMF)",
 			"During hunts, main twin moves at -10%, decoy moves at +10%",
 			'Cursed hunts can occur from either twin location',
 		],
