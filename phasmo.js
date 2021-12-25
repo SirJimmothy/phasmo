@@ -117,6 +117,7 @@ let ghosts = {
 			"Moves ~15% slower in warmer rooms",
 			"Moves ~15% faster in colder rooms",
 			'Can breathe mist in freezing rooms  when hunting',
+			"Nightmare mode: freezing is guaranteed",
 		],
 	},
 	"jinn": {
