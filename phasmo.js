@@ -40,6 +40,7 @@ let gameplay = {
 		'Cursed hunts cannot be prevented, have a 1s grace period, are 20s longer, and subsequent hunts follow suit',
 		'Ghosts make no noise during cursed hunts',
 		'Ouija board questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions',
+		'Ouija board will break when interacted with at 0% sanity',
 		'Always say goodbye to the ouija board before walking away - or be hunted!',
 		'Mirrors will show the area of the ghost room, but drain sanity by 7.5% per second',
 		'Music boxes will attract a nearby ghost and make it sing and try to find the box; sanity drops when music is audible',
