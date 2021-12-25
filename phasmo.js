@@ -266,8 +266,7 @@ let ghosts = {
 		"name":					"Yurei",
 		"clues":				['orb','dots','temps'],
 		"useful":				[
-			"Chance to drop sanity by 14% within 3m",
-			'Ability can pretend to be a ghost event (doors close, but lights stay on)',
+			"Chance to drop sanity by 14% within 3m (closes doors; lights stay on)",
 			"Cannot roam while smudged",
 		],
 	}
