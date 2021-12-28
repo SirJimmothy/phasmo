@@ -35,7 +35,7 @@ let gameplay = {
 		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges cannot be stacked',
 	],
 	'Cursed Items': [
-		'All maps will contain one cursed item: ouija board, tarot cards, voodoo doll or mirror',
+		'All maps will contain one cursed item: ouija board, tarot cards, voodoo doll or mirror. Each item has only one spawn point per map',
 		'Cursed items will start a hunt when they run out or break',
 		'Cursed hunts cannot be prevented, have a 1s grace period, are 20s longer, and subsequent hunts follow suit',
 		'Ghosts make no noise during cursed hunts',
