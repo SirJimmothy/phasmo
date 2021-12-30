@@ -80,7 +80,7 @@ div#head > div:nth-of-type(1) > h1 { margin: 0; }
 div#head > div:nth-of-type(1) > div { display: flex; flex-flow: row; margin-top: 0.25em; }
 div#head > div:nth-of-type(1) > div > div:nth-of-type(1) { flex: 0 1 auto; min-width: 72px; width: 72px; min-height: 128px; margin: 0 0.5em; padding: 0; background: var(--phasmo) 0 50% no-repeat; }
 div#head > div:nth-of-type(1) > div > div:nth-of-type(2) { flex: 1 1 auto; }
-div#head > div:nth-of-type(1) h2 { margin: 0.25em 0 0 0; }
+div#head > div:nth-of-type(1) h2, div#head > div:nth-of-type(1) p { margin: 0.25em 0 0 0; }
 
 /* Timers */
 div#head > div:nth-of-type(2) > h2 { margin: 0; font-size: 20px; }
