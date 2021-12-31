@@ -15,4 +15,4 @@ Describe the section that requires changing, e.g. ghost / gameplay / evidence it
 Ideally copy the line(s) that require changes, and specify the recommended change underneath each line, to make each edit clear.
 
 #### Provide citations where applicable
-Avoid specifying changes based on "this happened to me once" - ensure that this issue is known in the community and ideally acknowledged by the developers or respected content creators.
+Avoid requesting changes based on "this happened to me once" - ensure that this issue is known in the community and ideally acknowledged by the developers or respected content creators.
