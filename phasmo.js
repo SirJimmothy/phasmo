@@ -143,7 +143,7 @@ let ghosts = {
 	},
 	"mimic": {
 		"name":					"Mimic",
-		"clues":				['box','prints','temps'],
+		"clues":				['box','orb','prints','temps'],
 		"useful":				[
 			'Can behave as any other ghost, including hunt behaviour and triggers',
 			"Shows false ghost orbs",
