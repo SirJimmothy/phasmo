@@ -32,7 +32,8 @@ let gameplay = {
 		'Candles prevent passive sanity loss within a 1M radius (held or placed)',
 		'Crucifixes prevent ghosts from hunting within a 3M radius (held or placed)',
 		'Once a crucifix prevents a hunt, the ghost may not attempt to hunt for 5s',
-		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges cannot be stacked',
+		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges last for 90s and cannot be stacked',
+		'Smudge sticks used during a hunt also initiate the standard smudge effect in preventing hunts until expiry',
 	],
 	'Cursed Items': [
 		'All maps will contain one cursed item: ouija board, tarot cards, voodoo doll or mirror. Each item has only one spawn point per map',
