@@ -159,8 +159,8 @@ ul#ghosts > li > h3 > span > span.checked { background-color: var(--green); }
 ul#ghosts > li > h3 > span > span:nth-of-type(1) { margin-left: 0; }
 
 ul#ghosts > li > ul { list-style-type: none; margin: 0.3em 0 0 0; padding: 0; }
-ul#ghosts > li > ul > li { position: relative; margin: 0.25em 0; padding: 0 0 0 0.75em; }
-ul#ghosts > li > ul > li:before { position: absolute; top: 0; left: 0; font-weight: bold; font-family: "fixed", monospace; content: '»'; }
+ul#ghosts > li > ul > li { position: relative; margin: 0.25em 0; padding: 0 0 0 0.75em; line-height: calc(1em + 2px); }
+ul#ghosts > li > ul > li::before { position: absolute; top: 0; left: 0; font-weight: bold; font-family: "fixed", monospace; line-height: calc(1em + 2px); content: '»'; }
 
 /* Ghost clue icons */
 ul#ghosts > li > h3 > span > span[data-type="dots"] {			background-position: -120px 0; }
