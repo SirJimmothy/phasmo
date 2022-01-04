@@ -97,7 +97,7 @@ let ghosts = {
 		"clues":				['prints','temps','writing'],
 		"useful":				[
 			"Can hunt at any sanity level",
-			"Successful ouija board questions cost no extra sanity",
+			"Successful ouija board questions cost 20% less sanity",
 			"Smudges last 2/3 as long: 60s",
 		],
 	},
