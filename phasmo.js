@@ -211,6 +211,7 @@ let ghosts = {
 		"useful":				[
 			"Can hunt at 70% when near electronics",
 			"Increases speed during hunt when near electronics",
+			'Has an increased range of electrical disruption',
 		],
 	},
 	"revenant": {
