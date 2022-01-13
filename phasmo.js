@@ -276,6 +276,37 @@ let ghosts = {
 	}
 };
 
+let timers = {
+	'start':					{'name':'Start',					'time':300,	'default':false,	'disabled':true},
+	'hunt':						{'name':'Hunt',						'time':0,		'default':false,	'disabled':true},
+	'cursed':					{'name':'Cursed Hunt',		'time':0,		'default':false,	'disabled':true},
+	'post_hunt':			{'name':'Post-Hunt',			'time':300,	'default':false,	'disabled':false},
+	'smudge':					{'name':'Smudge',					'time':90,	'default':true,		'disabled':false},
+	'smudge_spirit':	{'name':'Spirit Smudge',	'time':180,	'default':false,	'disabled':false},
+	'smudge_demon':		{'name':'Demon Smudge',		'time':60,	'default':false,	'disabled':false},
+};
+
+let maps = {
+	'tanglewood':		{'size':'sml','name':'Tanglewood Street',				'file':'map_tanglewood.png'},
+	'willow':				{'size':'sml','name':'Willow Street',						'file':'map_willow.png'},
+	'ridgeview':		{'size':'sml','name':'Ridgeview Road',					'file':'map_ridgeview.png'},
+	'edgefield':		{'size':'sml','name':'Edgefield Street',				'file':'map_edgefield.png'},
+	'grafton':			{'size':'sml','name':'Grafton Farmhouse',				'file':'map_grafton.png'},
+	'bleasdale':		{'size':'sml','name':'Bleasdale Farmhouse',			'file':'map_bleasdale.png'},
+	'brownstone':		{'size':'med','name':'Brownstone High School',	'file':'map_highschool.png'},
+	'maple':				{'size':'med','name':'Maple Lodge Campsite',		'file':'map_maple.png'},
+	'prison':				{'size':'med','name':'Prison',									'file':'map_prison.png'},
+	'asylum':				{'size':'lar','name':'Asylum',									'file':'map_asylum.png'},
+};
+
+// Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
+let difficulties = {
+	'ama':	{'name':'Amateur',			'timers':{'start':300,	'hunt_sml':20,'hunt_med':35,'hunt_lar':50,'grace':5,'cursed':21}},
+	'int':	{'name':'Intermediate',	'timers':{'start':150,	'hunt_sml':24,'hunt_med':44,'hunt_lar':54,'grace':4,'cursed':21}},
+	'pro':	{'name':'Professional',	'timers':{'start':0,		'hunt_sml':33,'hunt_med':53,'hunt_lar':63,'grace':3,'cursed':21}},
+	'har':	{'name':'Nightmare',		'timers':{'start':0,		'hunt_sml':33,'hunt_med':53,'hunt_lar':63,'grace':2,'cursed':21}},
+};
+
 let photos = [
 	['--------',			0,0,0],
 	['Bone',					40,55,70],
@@ -356,19 +387,6 @@ for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 	} }
 } }
 
-let maps = [
-	{'name':'Tanglewood Street',			'file':'map_tanglewood.png'},
-	{'name':'Willow Street',					'file':'map_willow.png'},
-	{'name':'Ridgeview Road',					'file':'map_ridgeview.png'},
-	{'name':'Edgefield Street',				'file':'map_edgefield.png'},
-	{'name':'Grafton Farmhouse',			'file':'map_grafton.png'},
-	{'name':'Bleasdale Farmhouse',		'file':'map_bleasdale.png'},
-	{'name':'Brownstone High School',	'file':'map_highschool.png'},
-	{'name':'Maple Lodge Campsite',		'file':'map_maple.png'},
-	{'name':'Prison',									'file':'map_prison.png'},
-	{'name':'Asylum',									'file':'map_asylum.png'},
-];
-
 let files = {};
 let media = {
 	'click':	{'type':'audio','file':'click.mp3'},
@@ -381,10 +399,12 @@ if (document.addEventListener) {
 	document.addEventListener('keypress',	(e) => { keypress(e); },false);
 }
 
-let cookie = 'phasmo_';
-let sound = true;
+let cookie		= 'phasmo_';
+let sound			= true;
+let use_map		= '';
+let use_diff	= '';
 
-let timers = {
+let timings = {
 	'main':	{'start': 0,	'end': 0,	'current': 0},
 };
 let clocks = {
@@ -396,19 +416,6 @@ let checked = []; // Hold list of currently checked clues
 
 window.onload = load;
 function load() {
-
-	// Populate gameplay
-	let gameplay_div = document.getElementById('gameplay');
-	for (let key in gameplay) if (gameplay.hasOwnProperty(key)) { {
-		let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
-		let list = document.createElement('OL');
-		for (let x = 0 ; x < gameplay[key].length; x++) {
-			list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: gameplay[key][x]}));
-		}
-		div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: key + ':'}));
-		div.appendChild(list);
-		gameplay_div.appendChild(div);
-	} }
 
 	// Load clues and ghosts into page
 
@@ -453,19 +460,27 @@ function load() {
 		clues_ul.appendChild(li);
 	}
 
-	// Populate timer hotkeys
-	let timers = document.getElementById('timers').childNodes[5].childNodes;
+	// Populate timers
+	let timers_div = document.getElementById('timer_list');
 	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
 	count = 0;
-	for (let x = 0; x < timers.length; x++) {
-		let timer = timers[x];
-		if (timers[x].nodeName === 'INPUT' && timer.getAttribute('data-hotkey') === 'true') {
-			timer.setAttribute('data-hotkey',hotkeys[count]);
-			timer.value = '[' + hotkeys[count] + '] ' + timer.value;
-			count++;
+	for (let key in timers) { if (timers.hasOwnProperty(key)) {
+		let timer = Object.assign(document.createElement('INPUT'),{
+			type:				'button',
+			name:				'timer[]',
+			value:			'[' + hotkeys[count] + '] ' + timers[key].name,
+			disabled:		timers[key].disabled,
+		});
+		timer.setAttribute('data-index',key);
+		timer.setAttribute('data-time',timers[key].time);
+		timer.setAttribute('data-hotkey',hotkeys[count]);
+		if (timers[key].default) {
+			timer.classList.add('current');
+			document.getElementById('timer').innerHTML = timers[key].time.toString();
 		}
-	}
-
+		timers_div.appendChild(timer);
+		count++;
+	} }
 	populate_ghosts(ghosts);
 
 	// Populate photos
@@ -564,18 +579,55 @@ function load() {
 
 	// Populate maps
 	let map_div = document.getElementById('maps');
-	for (let x = 0; x < maps.length; x++) {
+	for (let key in maps) { if (maps.hasOwnProperty(key)) {
 		let map = document.createElement('LI');
+		map.setAttribute('data-map',key);
 
-		let link = document.createElement('A');
-		link.href = 'img/' + maps[x].file;
-		link.target = '_blank';
-		link.innerHTML = maps[x].name;
+		let span = document.createElement('SPAN');
+		let link = Object.assign(document.createElement('A'),{
+			href:			'img/' + maps[key].file,
+			target:		'_blank',
+			innerHTML:	maps[key].name,
+		});
 
+		map.appendChild(span);
 		map.appendChild(link);
 		map_div.appendChild(map);
-	}
+	} }
 	// Populate maps
+
+	// Populate difficulties
+	let difficulties_div = document.getElementById('difficulties');
+	count = 0;
+	for (let key in difficulties) { if (difficulties.hasOwnProperty(key)) {
+		let difficulty = document.createElement('LI');
+		difficulty.setAttribute('data-difficulty',key);
+
+		let span = document.createElement('SPAN');
+		if (!count) { setTimeout(() => { difficulty_select(key); },20); }
+		let name = Object.assign(document.createElement('SPAN'),{
+			innerHTML:	difficulties[key].name,
+		});
+
+		difficulty.appendChild(span);
+		difficulty.appendChild(name);
+		difficulties_div.appendChild(difficulty);
+		count++;
+	} }
+	// Populate difficulties
+
+	// Populate gameplay
+	let gameplay_div = document.getElementById('gameplay');
+	for (let key in gameplay) if (gameplay.hasOwnProperty(key)) { {
+		let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
+		let list = document.createElement('OL');
+		for (let x = 0 ; x < gameplay[key].length; x++) {
+			list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: gameplay[key][x]}));
+		}
+		div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: key + ':'}));
+		div.appendChild(list);
+		gameplay_div.appendChild(div);
+	} }
 
 	// Populate media
 	for (let key in media) { if (media.hasOwnProperty(key)) {
@@ -618,25 +670,7 @@ function click(e) {
 								let child = parent.childNodes[x];
 								child.classList.remove('current');
 							} }
-							let grace = 3;
-							switch (target.name) {
-								case 'button_01': val = 300;					break;
-								case 'button_02': val = 150;					break;
-								case 'button_03': val = 90;						break;
-								case 'button_04': val = 180;					break;
-								case 'button_05': val = 60;						break;
-								case 'button_06': val = 25;						break;
-								case 'button_07': val = 0;						break;
-								case 'button_08': val = 20 + grace;		break;
-								case 'button_09': val = 40 + grace;		break;
-								case 'button_10': val = 50 + grace;		break;
-								case 'button_11': val = 23 + grace;		break;
-								case 'button_12': val = 43 + grace;		break;
-								case 'button_13': val = 53 + grace;		break;
-								case 'button_14': val = 33 + grace;		break;
-								case 'button_15': val = 53 + grace;		break;
-								case 'button_16': val = 63 + grace;		break;
-							}
+							val = parseInt(target.getAttribute('data-time'));
 							target.classList.add('current');
 							timer.innerHTML = val.toString();
 						}
@@ -650,16 +684,24 @@ function click(e) {
 					}
 
 				break;
-				default:
+				case 'SPAN':
 
-					if (target.nodeName === 'SPAN' && parent.nodeName === 'LABEL' && parent_parent.nodeName === 'LI') {
+					let map = parent.getAttribute('data-map');
+					if (map) { map_select(map); }
+
+					let difficulty = parent.getAttribute('data-difficulty');
+					if (difficulty) { difficulty_select(difficulty); }
+
+					if (parent.nodeName === 'LABEL' && parent_parent.nodeName === 'LI') {
 						setTimeout(function() { check_ghosts(); },10); // Give time for the checkbox to self-toggle
 					}
-					if (target.nodeName === 'SPAN' && parent_parent.id === 'sound') {
-						setTimeout(() => {
-							toggle_sound();
-						},50);
+
+					if (parent_parent.id === 'sound') {
+						setTimeout(() => { toggle_sound(); },50);
 					}
+
+				break;
+				default:
 
 					let item;
 					if (parent_div.id === 'links') {
@@ -689,14 +731,15 @@ function click(e) {
 }
 
 function keydown(e) {
-	let current = document.activeElement;
-	switch (e.which) {
-		case 13: // Enter
+	let keycode	= e.key;
+	let current	= document.activeElement;
+	switch (keycode) {
+		case 'Enter':
 			if (current.id === 'ghostname') {
 				current.blur();
 			}
 		break;
-		case 27: // Esc
+		case 'Escape':
 			current.blur();
 		break;
 	}
@@ -706,41 +749,41 @@ function keydown(e) {
 		if (document.getElementById('photos_check').checked) {
 
 			let sliders = document.querySelectorAll('input[type=range]');
-			if (in_array(e.which,[38,40])) {
+			if (in_array(keycode,['ArrowUp','ArrowDown'])) {
 				let found = false;
 				for (let x = 0; x < sliders.length; x++) { if (sliders[x] === current) {
 					e.preventDefault();
 					found = true;
 					let item = x;
-					if (e.which === 38) { // Up arrow
+					if (keycode === 'ArrowUp') { // Up arrow
 						item = (x ? x  : photo_count) - 1;
 					} else { // Down arrow
 						item = (x === (photo_count - 1) ? 0  : (x + 1));
 					}
 					sliders[item].focus();
 				} }
-				if (!found) { e.preventDefault(); sliders[(e.which === 38 ? photo_count - 1 : 0)].focus(); }
+				if (!found) { e.preventDefault(); sliders[(keycode === 'ArrowUp' ? photo_count - 1 : 0)].focus(); }
 			}
 
 		} else {
 
 			let maps_div = document.getElementById('maps');
 			let len = maps_div.childNodes.length;
-			if (in_array(e.which,[37,39])) {
+			if (in_array(keycode,['ArrowLeft','ArrowRight'])) {
 				let found = false;
-				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === current) {
+				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[1] === current) {
 					e.preventDefault();
 					found = true;
 					let item = x;
-					if (e.which === 37) {
+					if (keycode === 'ArrowLeft') {
 						item = (x ? x : len) - 1;
 					} else {
 						item = (x === (len - 1) ? 0 : (x + 1));
 					}
-					let map = maps_div.childNodes[item].childNodes[0];
+					let map = maps_div.childNodes[item].childNodes[1];
 					map.focus();
 				} }
-				if (!found) { e.preventDefault(); maps_div.childNodes[(e.which === 37 ? (len - 1) : 0)].childNodes[0].focus(); }
+				if (!found) { e.preventDefault(); maps_div.childNodes[(keycode === 'ArrowLeft' ? (len - 1) : 0)].childNodes[1].focus(); }
 			}
 
 		}
@@ -750,13 +793,20 @@ function keydown(e) {
 }
 
 function keypress(e) {
-	let keycode = e.key;
-	let current = document.activeElement;
+	let keycode	= e.key;
+	let current	= document.activeElement;
+	let parent	= current.parentNode;
 
 	if (document.activeElement.getAttribute('type') !== 'text') {
 
 		let item;
 		switch (keycode.toLowerCase()) {
+			case '+': case '=':
+				difficulty_select_key(1);
+			break;
+			case '-':
+				difficulty_select_key(-1);
+			break;
 			case '#':
 				document.getElementById('play').click();
 			break;
@@ -795,6 +845,10 @@ function keypress(e) {
 			break;
 			case 'x':
 				reset();
+			break;
+			case ' ':
+				let map = parent.getAttribute('data-map');
+				if (map) { map_select(map); e.preventDefault(); }
 			break;
 		}
 
@@ -844,8 +898,77 @@ function keypress(e) {
 
 }
 
+function map_select(map) {
+	use_map = map;
+	let maps_ul = document.getElementById('maps');
+	for (let x = 0; x < maps_ul.childNodes.length; x++) {
+		let map_li = maps_ul.childNodes[x];
+		let span = map_li.childNodes[0];
+		span.classList.remove('selected');
+		if (map_li.getAttribute('data-map') === map) { span.classList.add('selected'); }
+	}
+	set_timers();
+}
+
+function difficulty_select(difficulty) {
+	use_diff = difficulty;
+	let difficulties_ul = document.getElementById('difficulties');
+	for (let x = 0; x < difficulties_ul.childNodes.length; x++) {
+		let difficulty_li = difficulties_ul.childNodes[x];
+		let span = difficulty_li.childNodes[0];
+		span.classList.remove('selected');
+		if (difficulty_li.getAttribute('data-difficulty') === difficulty) { span.classList.add('selected'); }
+	}
+	set_timers();
+}
+
+function difficulty_select_key(val) {
+	let difficulties_ul = document.getElementById('difficulties');
+	for (let x = 0; x < difficulties_ul.childNodes.length; x++) {
+		let difficulty_li = difficulties_ul.childNodes[x];
+		let span = difficulty_li.childNodes[0];
+		let target;
+		if (in_array('selected',span.classList)) {
+			target = difficulties_ul.childNodes[x + val]
+			if (target) { target.childNodes[1].click(); }
+			break;
+		}
+	}
+	set_timers();
+}
+
+function set_timers() {
+	let map		= maps[use_map];
+	let diff	= difficulties[use_diff];
+
+	let timers_div = document.getElementById('timer_list');
+	for (let x = 0; x < timers_div.childNodes.length; x++) {
+		let timer = timers_div.childNodes[x];
+		let index = timer.getAttribute('data-index');
+		switch (index) {
+			case 'start':
+				timer.setAttribute('data-time',diff.timers['start']);
+				timer.disabled = false;
+			break;
+			case 'hunt':
+				if (map) {
+					timer.setAttribute('data-time',diff.timers['hunt_' + map.size] + diff.timers['grace']);
+					timer.disabled = false;
+				}
+			break;
+			case 'cursed':
+				if (map) {
+					timer.setAttribute('data-time',diff.timers['hunt_' + map.size] + diff.timers['cursed']);
+					timer.disabled = false;
+				}
+			break;
+		}
+		if (in_array('current',timer.classList)) { timer.click(); }
+	}
+}
+
 function do_timer(act,which) {
-	let timer = timers[which];
+	let timer = timings[which];
 	let modifier = (timer.start < timer.end ? 1 : -1); // Determine up or down counter
 	let element = document.getElementById('timer');
 
@@ -869,7 +992,13 @@ function do_timer(act,which) {
 						if (sound) { files['alarm'].play(); }
 						clearInterval(clocks[which]);
 						flicker('timers');
-						element.innerHTML = timer.start.toString();
+						let timers_div = document.getElementById('timer_list');
+						for (let x = 0; x < timers_div.childNodes.length; x++) {
+							let timer = timers_div.childNodes[x];
+							if (in_array('current',timer.classList)) {
+								element.innerHTML = timer.getAttribute('data-time');
+							}
+						}
 						document.getElementById('play').click();
 						setTimeout(() => { do_timer('stop',which); },2000);
 					}
@@ -974,7 +1103,7 @@ function count_points(slider) {
 
 function reset() {
 	let check			= [];
-	let clues			= document.getElementById('clues');
+	let clues_ul	= document.getElementById('clues');
 	let ghosts_ul	= document.getElementById('ghosts');
 
 	document.body.classList.toggle('hidden');
@@ -989,9 +1118,9 @@ function reset() {
 	let ghost = document.getElementById('ghost').childNodes[1].childNodes[0];
 	ghost.click();
 
-	for (let x = 0; x < clues.childNodes.length; x++) {
-		check[0] = clues.childNodes[x].childNodes[3].childNodes[0];
-		check[1] = clues.childNodes[x].childNodes[4].childNodes[0];
+	for (let x = 0; x < clues_ul.childNodes.length; x++) {
+		check[0] = clues_ul.childNodes[x].childNodes[3].childNodes[0];
+		check[1] = clues_ul.childNodes[x].childNodes[4].childNodes[0];
 		if (check[0].checked) { check[0].nextSibling.click(); }
 		if (check[1].checked) { check[1].nextSibling.click(); }
 	}

@@ -12,7 +12,11 @@ The ghost finder has been designed to automatically resize itself to fit many di
 
 ## Maps
 
-All current maps are avalilable directly above the clue selection, which show camera, circuit breaker, ouija board and other item locations. These were all created by third parties and all credits within the images have been maintained.
+All current maps are availlable directly above the clue selection, which show camera, circuit breaker, ouija board and other item locations. These were all created by third parties and all credits within the images have been maintained.
+
+## Difficulty
+
+Upon selecting a difficulty, certain timers will update - selecting a map will also adjust the timers depending on the map size, taking the difficulty into account.
 
 ## Clue selection
 
@@ -28,7 +32,7 @@ Due to changes making hunts last different times depending on the map size, hotk
 
 The timer will tick three times at 30s remaining, twice at 20s, once at 10s, and once for the final 5 seconds, after which an alarm will sound and the timer panel will flash. Selecting the Mute option will prevent these sounds from playing.
 
-Due to the mechanics behind the timer, if it is paused before reaching zero, pressing Play again will resume from the current point, and upon hitting zero, will reset to that paused time. Selecting a new timer option will reset this to default.
+If the timer is paused before reaching zero, pressing Play again will resume from the current point, and upon hitting zero, will reset to its original time.
 
 ## Photo calculator
 
@@ -46,17 +50,18 @@ Clicking an item will surround it with a solid border, and using a "Roll" button
 
 The tool includes built-in support for keyboard shortcuts to make it easier to switch out, hit a key and return to the game.
 
-| Key | Description |
-| --- | ----------- |
-| 0-9 | Toggle each evidence item to either confirm or disregard, to help identify the ghost. When the Photos tab is pulled out, toggles the individual photo types |
-| < > | Cycle through the available maps, and press Enter to open. When the Photos tab is pulled out, allows the selection of photo quality |
-| Q-I | Select a timer, and use # to start or stop. Press the letter key again to reset |
-| #   | Start or stop timer |
-| A   | Toggle alone / all players ghost |
-| D   | Toggle dark mode |
-| F   | Toggle fullscreen |
-| S   | Pulls out the Photos tab |
-| L   | Pulls out the Roll tab |
-| M   | Mute the timer sounds |
-| X   | Reset the ghost finder for the next ghost. Will not change the selected timer | 
+| Key   | Description                                                                                                                                                 |
+|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0-9   | Toggle each evidence item to either confirm or disregard, to help identify the ghost. When the Photos tab is pulled out, toggles the individual photo types |
+| < >   | Cycle through the available maps: press Space to select map; Enter to open. When the Photos tab is pulled out, allows the selection of photo quality        |
+| + / - | Increase or decrease difficulty                                                                                                                             |
+| Q-I   | Select a timer, and use # to start or stop. Press the letter key again to reset                                                                             |
+| #     | Start or stop timer                                                                                                                                         |
+| A     | Toggle alone / all players ghost                                                                                                                            |
+| D     | Toggle dark mode                                                                                                                                            |
+| F     | Toggle fullscreen                                                                                                                                           |
+| S     | Pulls out the Photos tab                                                                                                                                    |
+| L     | Pulls out the Roll tab                                                                                                                                      |
+| M     | Mute the timer sounds                                                                                                                                       |
+| X     | Reset the ghost finder for the next ghost. Will not change the selected timer                                                                               | 
 

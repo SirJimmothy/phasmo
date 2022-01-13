@@ -88,6 +88,8 @@ div#head > div:nth-of-type(2) > h3 { display: inline-block; margin: 0.25em 0.1em
 
 div#head > div:nth-of-type(2) > div { font-size: 0; }
 div#head > div:nth-of-type(2) > div > input { width: 20%; margin-left: 0.25em; margin-right: 0.25em; }
+div#head > div:nth-of-type(2) > div > input:disabled { opacity: 0.5; filter: opacity(50%); }
+div#head > div:nth-of-type(2) > div > p { margin: 0; }
 
 div#head > div:nth-of-type(2).flicker { background-color: var(--red); }
 
@@ -138,9 +140,22 @@ ul#clues > li.disabled:before { display: block; }
 
 /* Maps */
 ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
-ul#maps > li { display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; }
-ul#maps > li > a { display: block; padding: 0.5em 0; }
-ul#maps > li > a:hover, ul#maps > li > a:focus { border-radius: 0.5em; text-shadow: none; color: var(--black); background-color: var(--grey2); }
+ul#maps > li { position: relative; display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; }
+
+ul#maps > li > span { position: absolute; top: 0; left: 0; width: 2em; height: 100%; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; cursor: pointer; }
+ul#maps > li > span > input { display: none; }
+ul#maps > li > span.selected { background-color: var(--grey3); }
+
+ul#maps > li > a { display: block; margin-left: calc(2em + 1px); padding: 0.5em 0; }
+ul#maps > li > a:hover, ul#maps > li > a:focus { border-radius: 0 0.5em 0.5em 0; outline: none; text-shadow: none; color: var(--black); background-color: var(--grey2); }
+
+/* Difficulties */
+ul#difficulties { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
+ul#difficulties > li { position: relative; display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; background-color: var(--grey2); cursor: pointer; user-select: none; }
+ul#difficulties > li > span { display: block; }
+ul#difficulties > li > span:nth-of-type(1) { position: absolute; top: 0; left: 0; width: 2em; height: 100%; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; background-color: var(--white); }
+ul#difficulties > li > span:nth-of-type(2) { margin-left: calc(2em + 1px); padding: 0.5em 0; border-radius: 0 0.5em 0.5em 0; }
+ul#difficulties > li > span:nth-of-type(1).selected { background-color: var(--grey3); }
 
 /* Ghost results */
 ul#ghosts { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0; padding: 0; }
@@ -278,8 +293,17 @@ body.dark div#ghost > label > input:checked + span { color: var(--white); backgr
 
 /* Maps */
 body.dark ul#maps > li { border: 1px solid var(--white); }
+body.dark ul#maps > li > span { border-color: var(--white); }
 body.dark ul#maps > li > a { }
-body.dark ul#maps > li > a:hover { color: var(--white); background-color: var(--grey3); }
+body.dark ul#maps > li > a:hover, body.dark ul#maps > li > a:focus { color: var(--white); background-color: var(--grey3); }
+
+body.dark ul#maps > li > span.selected { background-color: var(--white); }
+
+/* Difficulties */
+body.dark ul#difficulties > li { border-color: var(--white); color: var(--white); }
+body.dark ul#difficulties > li > span:nth-of-type(1) { border-color: var(--white); background-color: var(--grey3); }
+body.dark ul#difficulties > li > span:nth-of-type(2) { background-color: var(--grey3); }
+body.dark ul#difficulties > li > span:nth-of-type(1).selected { background-color: var(--white); }
 
 /* Clue Selection */
 body.dark ul#clues { border-color: var(--white); }
