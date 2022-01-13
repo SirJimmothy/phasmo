@@ -280,7 +280,7 @@ let timers = {
 	'start':					{'name':'Start',					'time':300,	'default':false,	'disabled':true},
 	'hunt':						{'name':'Hunt',						'time':0,		'default':false,	'disabled':true},
 	'cursed':					{'name':'Cursed Hunt',		'time':0,		'default':false,	'disabled':true},
-	'post_hunt':			{'name':'Post-Hunt',			'time':300,	'default':false,	'disabled':false},
+	'post_hunt':			{'name':'Post-Hunt',			'time':25,	'default':false,	'disabled':false},
 	'smudge':					{'name':'Smudge',					'time':90,	'default':true,		'disabled':false},
 	'smudge_spirit':	{'name':'Spirit Smudge',	'time':180,	'default':false,	'disabled':false},
 	'smudge_demon':		{'name':'Demon Smudge',		'time':60,	'default':false,	'disabled':false},
