@@ -301,7 +301,7 @@ body.dark ul#maps > li > span.selected { background-color: var(--white); }
 
 /* Difficulties */
 body.dark ul#difficulties > li { border-color: var(--white); color: var(--white); }
-body.dark ul#difficulties > li > span:nth-of-type(1) { border-color: var(--white); background-color: var(--grey3); }
+body.dark ul#difficulties > li > span:nth-of-type(1) { border-color: var(--white); background-color: var(--black); }
 body.dark ul#difficulties > li > span:nth-of-type(2) { background-color: var(--grey3); }
 body.dark ul#difficulties > li > span:nth-of-type(1).selected { background-color: var(--white); }
 

@@ -579,6 +579,7 @@ function load() {
 
 	// Populate maps
 	let map_div = document.getElementById('maps');
+	count = 0;
 	for (let key in maps) { if (maps.hasOwnProperty(key)) {
 		let map = document.createElement('LI');
 		map.setAttribute('data-map',key);
@@ -593,6 +594,9 @@ function load() {
 		map.appendChild(span);
 		map.appendChild(link);
 		map_div.appendChild(map);
+
+		if (!count) { setTimeout(() => { map_select(key); },20); }
+		count++;
 	} }
 	// Populate maps
 
@@ -604,7 +608,6 @@ function load() {
 		difficulty.setAttribute('data-difficulty',key);
 
 		let span = document.createElement('SPAN');
-		if (!count) { setTimeout(() => { difficulty_select(key); },20); }
 		let name = Object.assign(document.createElement('SPAN'),{
 			innerHTML:	difficulties[key].name,
 		});
@@ -612,6 +615,8 @@ function load() {
 		difficulty.appendChild(span);
 		difficulty.appendChild(name);
 		difficulties_div.appendChild(difficulty);
+
+		if (!count) { setTimeout(() => { difficulty_select(key); },20); }
 		count++;
 	} }
 	// Populate difficulties
