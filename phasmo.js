@@ -115,9 +115,8 @@ let ghosts = {
 		"name":					"Hantu",
 		"clues":				['orb','prints','temps'],
 		"useful":				[
-			"Moves much slower in warmer rooms",
+			"Moves ~15% slower in warmer rooms",
 			"Moves ~15% faster in colder rooms",
-			"Speeds up very slowly during a hunt",
 			'Can breathe mist in freezing rooms  when hunting',
 			"Nightmare mode: freezing is guaranteed",
 		],
