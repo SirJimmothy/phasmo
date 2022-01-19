@@ -287,16 +287,16 @@ let timers = {
 };
 
 let maps = {
-	'tanglewood':		{'size':'sml','name':'Tanglewood Street',				'file':'map_tanglewood.png'},
-	'willow':				{'size':'sml','name':'Willow Street',						'file':'map_willow.png'},
-	'ridgeview':		{'size':'sml','name':'Ridgeview Road',					'file':'map_ridgeview.png'},
-	'edgefield':		{'size':'sml','name':'Edgefield Street',				'file':'map_edgefield.png'},
-	'grafton':			{'size':'sml','name':'Grafton Farmhouse',				'file':'map_grafton.png'},
+	'asylum':				{'size':'lar','name':'Asylum',									'file':'map_asylum.png'},
 	'bleasdale':		{'size':'sml','name':'Bleasdale Farmhouse',			'file':'map_bleasdale.png'},
 	'brownstone':		{'size':'med','name':'Brownstone High School',	'file':'map_highschool.png'},
-	'maple':				{'size':'med','name':'Maple Lodge Campsite',		'file':'map_maple.png'},
+	'edgefield':		{'size':'sml','name':'Edgefield Street',				'file':'map_edgefield.png'},
+	'grafton':			{'size':'sml','name':'Grafton Farmhouse',				'file':'map_grafton.png'},
+	'maple':				{'size':'med','name':'Maple Lodge',							'file':'map_maple.png'},
 	'prison':				{'size':'med','name':'Prison',									'file':'map_prison.png'},
-	'asylum':				{'size':'lar','name':'Asylum',									'file':'map_asylum.png'},
+	'ridgeview':		{'size':'sml','name':'Ridgeview Road',					'file':'map_ridgeview.png'},
+	'tanglewood':		{'size':'sml','name':'Tanglewood Street',				'file':'map_tanglewood.png'},
+	'willow':				{'size':'sml','name':'Willow Street',						'file':'map_willow.png'},
 };
 
 // Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
@@ -325,16 +325,16 @@ let rolls = {
 	'maps':{
 		'name':'Maps',
 		'items':{
-			'tanglewood':	'Tanglewood Street',
-			'willow':			'Willow Street',
-			'ridgeview':	'Ridgeview Road',
-			'edgefield':	'Edgefield Street',
-			'grafton':		'Grafton Farmhouse',
+			'asylum':			'Asylum',
 			'bleasdale':	'Bleasdale Farmhouse',
 			'brownstone':	'Brownstone High School',
+			'edgefield':	'Edgefield Street',
+			'grafton':		'Grafton Farmhouse',
 			'maple':			'Maple Lodge Campsite',
 			'prison':			'Prison',
-			'asylum':			'Asylum',
+			'ridgeview':	'Ridgeview Road',
+			'tanglewood':	'Tanglewood Street',
+			'willow':			'Willow Street',
 		},
 		'groups':{
 			'clear':	{'name':'Clear',	'items':[]},
