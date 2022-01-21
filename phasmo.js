@@ -173,6 +173,7 @@ let ghosts = {
 		"name":					"Oni",
 		"clues":				['emf','dots','temps'],
 		"useful":				[
+			"One of the most active ghost types",
 			"More active with >1 people in room",
 			"Can throw items at high speed",
 		],
