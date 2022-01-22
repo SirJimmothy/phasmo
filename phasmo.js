@@ -48,7 +48,7 @@ let gameplay = {
 		'If the box is &lt;5M from the ghost and the player gets close to the ghost during music, the ghost will spawn, and upon reaching the music box or after 5s spawned, will attempt to hunt',
 		'Using a voodoo doll will make the ghost perform an interaction, at the cost of 10% sanity. The heart pin will trigger a hunt',
 		'Using a voodoo doll at &lt;10% sanity uses all pins and begins a hunt',
-		'Using a summoning circle will cost 80% sanity and trigger a ghost event',
+		'Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt',
 		'Tarot cards: Tower forces interaction / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit Returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate / Fool repeats previous card',
 		'Lighting the summoning circle during a hunt will result in your immediate death',
 	],
