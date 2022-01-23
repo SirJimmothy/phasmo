@@ -117,8 +117,8 @@ let ghosts = {
 		"useful":				[
 			"Moves much slower in warmer rooms",
 			"Moves ~15% faster in colder rooms",
-			"Very slow to speed up during hunt",
-			'Can breathe mist in freezing rooms  when hunting',
+			"Will never speed up during hunt; speed depends on room temperature",
+			'Can breathe mist in freezing rooms when hunting',
 			"Nightmare mode: freezing is guaranteed",
 		],
 	},
