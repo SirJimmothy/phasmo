@@ -7,6 +7,7 @@ let gameplay = {
 		'Ghosts will slowly reduce the temperature of any room they\'re in, including during hunts',
 		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
 		'Ghosts can only hear player microphones (and held electronics) in an 8M radius on the same floor',
+		'A ghost will make the same ambient sound for every hunt; if the ghost makes a different sound, this is a ghost event',
 		'The breaker will always start on in Amateur difficulty, and off in all others',
 		'Up to 9 lights witches may be on on small maps, 8 on medium, and 7 on large maps',
 		'If the breaker is popped by turning on too many lights, all lights will be switched off',
@@ -249,6 +250,7 @@ let ghosts = {
 			"Both twins can interact one after the other",
 			"Decoy twin will not trigger sensors or give evidence (except EMF)",
 			"During hunts, main twin moves at -10%, decoy moves at +10%",
+			"Each twin has its own hunting sound (rumoured)",
 		],
 	},
 	"wraith": {
