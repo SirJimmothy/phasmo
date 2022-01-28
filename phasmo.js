@@ -99,6 +99,7 @@ let ghosts = {
 		"clues":				['prints','temps','writing'],
 		"useful":				[
 			"Low chance to hunt at any sanity level",
+			"Delay between hunts is reduced to 20s",
 			"Can hunt at 75% sanity",
 			"Sanity loss triggers cost 20% less sanity",
 			"Smudges last 2/3 as long: 60s",
@@ -179,6 +180,7 @@ let ghosts = {
 			"One of the most active ghost types",
 			"More active with >1 people in room",
 			"Can throw items at high speed",
+			"Will not perform the breath mist ghost event",
 		],
 	},
 	"onryo": {
@@ -186,7 +188,7 @@ let ghosts = {
 		"clues":				['box','orb','temps'],
 		"useful":				[
 			"Can hunt from 60% sanity without flame in room",
-			"Chance to hunt when flame is extinguished",
+			"Chance to hunt when flame is extinguished, regardless of sanity",
 			"The more dead players, the higher hunt chance when flame extinguished",
 			"Flames act as crucifixes; 3M hunt blocking range. Has precedence over crucifix",
 			"When flame prevents hunt, it is blown out",
@@ -214,7 +216,7 @@ let ghosts = {
 		"name":					"Raiju",
 		"clues":				['dots','emf','orb'],
 		"useful":				[
-			"Can hunt at 70% when near electronics",
+			"Can hunt at 65% when near electronics",
 			"Increases speed during hunt when near electronics",
 			'Has an increased range of electrical disruption',
 		],
