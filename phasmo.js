@@ -100,7 +100,7 @@ let ghosts = {
 		"useful":				[
 			"Low chance to hunt at any sanity level",
 			"Can hunt at 75% sanity",
-			"Successful ouija board questions cost 20% less sanity",
+			"Sanity loss triggers cost 20% less sanity",
 			"Smudges last 2/3 as long: 60s",
 		],
 	},
@@ -837,7 +837,7 @@ function keypress(e) {
 			break;
 			case 'm':
 				toggle_sound();
-				item = document.getElementById('sound').childNodes[0].childNodes[0];
+				item = document.getElementById('sound').childNodes[1].childNodes[0];
 				item.click();
 			break;
 			case 'n':
@@ -952,29 +952,31 @@ function set_timers() {
 	let map		= maps[use_map];
 	let diff	= difficulties[use_diff];
 
-	let timers_div = document.getElementById('timer_list');
-	for (let x = 0; x < timers_div.childNodes.length; x++) {
-		let timer = timers_div.childNodes[x];
-		let index = timer.getAttribute('data-index');
-		switch (index) {
-			case 'start':
-				timer.setAttribute('data-time',diff.timers['start']);
-				timer.disabled = false;
-			break;
-			case 'hunt':
-				if (map) {
-					timer.setAttribute('data-time',diff.timers['hunt_' + map.size] + diff.timers['grace']);
+	if (diff) {
+		let timers_div = document.getElementById('timer_list');
+		for (let x = 0; x < timers_div.childNodes.length; x++) {
+			let timer = timers_div.childNodes[x];
+			let index = timer.getAttribute('data-index');
+			switch (index) {
+				case 'start':
+					timer.setAttribute('data-time',diff.timers['start']);
 					timer.disabled = false;
-				}
-			break;
-			case 'cursed':
-				if (map) {
-					timer.setAttribute('data-time',diff.timers['hunt_' + map.size] + diff.timers['cursed']);
-					timer.disabled = false;
-				}
-			break;
+				break;
+				case 'hunt':
+					if (map) {
+						timer.setAttribute('data-time',diff.timers['hunt_' + map.size] + diff.timers['grace']);
+						timer.disabled = false;
+					}
+				break;
+				case 'cursed':
+					if (map) {
+						timer.setAttribute('data-time',diff.timers['hunt_' + map.size] + diff.timers['cursed']);
+						timer.disabled = false;
+					}
+				break;
+			}
+			if (in_array('current',timer.classList)) { timer.click(); }
 		}
-		if (in_array('current',timer.classList)) { timer.click(); }
 	}
 }
 
