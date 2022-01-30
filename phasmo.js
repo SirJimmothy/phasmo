@@ -197,8 +197,8 @@ let ghosts = {
 		"name":					"Phantom",
 		"clues":				['box','dots','prints'],
 		"useful":				[
-			"Sanity drops 2x when visible (stops if hidden due to photo)",
 			"Disappears but remains when photo is taken while not hunting",
+			"Sanity drops 2x when visible (stops if hidden due to photo)",
 			"Can wander to indoor player",
 			"Blinks very slowly during hunt",
 		],
