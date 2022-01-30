@@ -315,15 +315,16 @@ let difficulties = {
 };
 
 let photos = [
-	['--------',			0,0,0],
-	['Bone',					40,55,70],
-	['Cursed Item',		30,45,60],
-	['Dead Body',			10,20,30],
-	['Dirty Water',		15,23,30],
-	['Finger Prints',	15,33,50],
-	['Footsteps',			20,30,40],
-	['Ghost',					70,85,100],
-	['Interaction',		20,30,40],
+	// ['name'				1 star,	2 star,	3 star,	limit]
+	['--------',			0,			0,			0,			0],
+	['Bone',					40,			55,			70,			0],
+	['Cursed Item',		30,			45,			60,			1],
+	['Dead Body',			10,			20,			30,			0],
+	['Dirty Water',		15,			23,			30,			0],
+	['Finger Prints',	15,			33,			50,			0],
+	['Footsteps',			20,			30,			40,			0],
+	['Ghost',					70,			85,			100,		1],
+	['Interaction',		20,			30,			40,			0],
 ];
 let photo_count = 10;
 let star_count = 3;
@@ -1087,11 +1088,15 @@ function count_points(slider) {
 	let result = 0;
 	let points = 0;
 
+	let counts = {};
 	for (let x = 0; x < photo_count; x++) {
 		let type = parseInt(document.getElementsByName('photo_' + x)[0].value);
 		let slider = parseInt(document.getElementsByName('slider_' + x)[0].value);
 		if (type && slider) {
-			points += photos[type][slider];
+			counts[type] = (counts[type] ? counts[type] : 0) + 1;
+			if (!photos[type][4] || (photos[type][4] && photos[type][4] >= counts[type])) {
+				points += photos[type][slider];
+			}
 		}
 	}
 
@@ -1112,7 +1117,7 @@ function count_points(slider) {
 	} else if (points >= 500) {
 		result = 40;
 	}
-	document.querySelector('div#photos > div > h2').innerHTML = '$' + result;
+	document.querySelector('div#photos > div > h2').innerHTML = points + ' points = $' + result;
 }
 
 function reset() {
