@@ -160,7 +160,7 @@ let ghosts = {
 		"clues":				['emf','prints','writing'],
 		"useful":				[
 			"Speaks more often to the paramic",
-			"Footsteps are very quiet during hunts",
+			"Footsteps are very quiet during hunts; equipment malfunctions before footsteps are heard",
 		],
 	},
 	"obake": {
