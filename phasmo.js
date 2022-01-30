@@ -189,8 +189,8 @@ let ghosts = {
 		"clues":				['box','orb','temps'],
 		"useful":				[
 			"50% chance to hunt when flame is extinguished, regardless of sanity (except first three blowouts)",
+			'+25% hunt chance per dead player',
 			"Can hunt from 60% sanity without flame in room",
-			"The more dead players, the higher hunt chance when flame extinguished",
 			"Flames act as crucifixes; 3M hunt blocking range. Has precedence over crucifix",
 			"When flame prevents hunt, it is blown out",
 		],
