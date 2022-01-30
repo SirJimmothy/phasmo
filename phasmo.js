@@ -183,7 +183,7 @@ let ghosts = {
 			"One of the most active ghost types",
 			"Can throw items at high speed",
 			"Will not perform the breath mist ghost event",
-			"Prefers the physical form for ghost events",
+			"Prefers physical form for ghost events",
 		],
 	},
 	"onryo": {
