@@ -229,7 +229,7 @@ let ghosts = {
 		"clues":				['orb','temps','writing'],
 		"useful":				[
 			"Travels very fast when it can see a player",
-			"Travels 2/3 speed when not seeing players",
+			"Travels very slowly when not seeing players",
 		],
 	},
 	"shade": {
