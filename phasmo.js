@@ -172,7 +172,7 @@ let ghosts = {
 		"useful":				[
 			"Can leave 6-finger fingerprints",
 			"-25% chance to leave fingerprints",
-			"Fingerprints can disappear after 30s",
+			"Fingerprints can disappear after 50% of normal time",
 			"Nightmare mode: fingerprints are guaranteed",
 		],
 	},
