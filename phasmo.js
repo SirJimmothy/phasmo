@@ -155,6 +155,7 @@ let ghosts = {
 		"clues":				['box','orb','prints','temps'],
 		"useful":				[
 			'Can behave as any other ghost, including hunt behaviour and triggers',
+			"Will change behaviour no more than once per-minute",
 			"Shows false ghost orbs",
 		],
 	},
