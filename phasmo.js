@@ -59,6 +59,7 @@ let gameplay = {
 	'Hunts': [
 		'Hunts can occur once the average sanity of the group falls below 50%. The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance',
 		'When a hunt starts, all outer doors become locked and light switches cannot be used',
+		'A ghost\'s speed can be determined by listening for its footsteps; slower ghosts will step much less often',
 		'Grace periods: All difficulties have 3s after hunt commencement before the ghost searches for players. Nightmare difficulty has 1s',
 		'Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted',
 		'In Nightmare difficulty, if a player dies during a hunt, the hunt length will be extended',
