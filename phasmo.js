@@ -188,8 +188,9 @@ let ghosts = {
 		"name":					"Onryo",
 		"clues":				['box','orb','temps'],
 		"useful":				[
+			"Will blow out candles more often than other ghosts",
 			"50% chance to hunt when flame is extinguished, regardless of sanity (except first three blowouts)",
-			'+25% hunt chance per dead player',
+			"+25% hunt chance per dead player",
 			"Can hunt from 60% sanity without flame in room",
 			"Flames act as crucifixes; 3M hunt blocking range. Has precedence over crucifix",
 			"When flame prevents hunt, it is blown out",
