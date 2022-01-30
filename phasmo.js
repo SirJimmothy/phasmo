@@ -144,6 +144,7 @@ let ghosts = {
 			"Prefers to turn off lights as interactions",
 			"Can instantly turn off switches as they are turned on",
 			'Prefers to blow up lights during ghost events',
+			"Will attempt long roams to escape lit rooms",
 			"Room lights on reduces hunt threshold to 40%",
 			"Room lights off increases hunt threshold to 60%",
 		],
