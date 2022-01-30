@@ -181,9 +181,9 @@ let ghosts = {
 		"clues":				['emf','dots','temps'],
 		"useful":				[
 			"One of the most active ghost types",
-			"More active with >1 people in room",
 			"Can throw items at high speed",
 			"Will not perform the breath mist ghost event",
+			"Prefers the physical form for ghost events",
 		],
 	},
 	"onryo": {
