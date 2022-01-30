@@ -220,7 +220,7 @@ let ghosts = {
 		"clues":				['dots','emf','orb'],
 		"useful":				[
 			"Can hunt at 65% when near electronics",
-			"Increases speed during hunt when near electronics",
+			"Greatly increased speed during hunt when near electronics",
 			'Has an increased range of electrical disruption',
 		],
 	},
