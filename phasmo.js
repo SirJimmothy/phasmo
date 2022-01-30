@@ -11,6 +11,7 @@ let gameplay = {
 		'The breaker will always start on in Amateur difficulty, and off in all others',
 		'Up to 9 lights witches may be on on small maps, 8 on medium, and 7 on large maps',
 		'If the breaker is popped by turning on too many lights, all lights will be switched off',
+		'All ghosts will occasionally roam from their room: small roams are common, large roams are rare',
 	],
 	'Evidence items': [
 		'Thermometers update slowly; have patience',
@@ -109,7 +110,7 @@ let ghosts = {
 		"name":					"Goryo",
 		"clues":				['emf','dots','prints'],
 		"useful":				[
-			'Rarely roams outside its ghost room',
+			'Will never perform a long roam from the ghost room',
 			"Won\'t show dots with people in the ghost room",
 			"Dots can only be observed through a camera",
 			"Nightmare mode: dots are guaranteed",
