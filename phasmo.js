@@ -101,11 +101,11 @@ let ghosts = {
 		"name":					"Demon",
 		"clues":				['prints','temps','writing'],
 		"useful":				[
+			"Can hunt at 70% sanity",
 			"Low chance to hunt at any sanity level",
 			"Delay between hunts is reduced to 20s",
-			"Can hunt at 75% sanity",
-			"Sanity loss triggers cost 20% less sanity",
 			"Smudges last 2/3 as long: 60s",
+			"Sanity loss triggers cost 20% less sanity",
 		],
 	},
 	"goryo": {
