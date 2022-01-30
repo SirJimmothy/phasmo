@@ -239,6 +239,7 @@ let ghosts = {
 		"useful":				[
 			'Very inactive',
 			'Prefers breath ghost events',
+			"Prefers shadow form during ghost events",
 			'Cannot hunt above 35% sanity',
 			"Won't try to hunt with &gt;1 person in room",
 		],
