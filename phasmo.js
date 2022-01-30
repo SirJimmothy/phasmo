@@ -133,7 +133,7 @@ let ghosts = {
 		"useful":				[
 			"Will never turn off breaker",
 			"With breaker on, chance to drop sanity by 25% within 3m",
-			"During hunt with breaker on, will be 2.5x player speed until within 2m of target",
+			"During hunt with breaker on, will be 2.5x player speed when chasing, until within 2m of target",
 		],
 	},
 	"mare": {
