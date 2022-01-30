@@ -255,6 +255,7 @@ let ghosts = {
 			"Both twins can interact one after the other",
 			"Decoy twin will not trigger sensors or give evidence (except EMF)",
 			"During hunts, main twin moves at -10%, decoy moves at +10%",
+			"Decoy hunts will start immediately after a decoy interaction",
 			"Each twin has its own hunting sound (rumoured)",
 		],
 	},
