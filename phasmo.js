@@ -22,6 +22,7 @@ let gameplay = {
 		'DOTS sensors show periodic moving silhouettes of ghosts, if the ghost is in the room',
 		'Video and regular cameras can see ghost orbs. Ghost orbs move around the room and behave like bubbles',
 		'When written in, writing books will levitate and the pen will scribble - this can be observed via cameras',
+		'A writing ghost will always write in the book if it throws it; if the book has moved and is empty, writing can be excluded',
 		],
 	'Non-Evidence Items': [
 		'Cameras can be used to take photos of fingerprints, footsteps, ghosts, bones, dead bodies, dirty water, and general interactions',
