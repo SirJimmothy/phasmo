@@ -27,7 +27,7 @@ let gameplay = {
 	'Non-Evidence Items': [
 		'Cameras can be used to take photos of fingerprints, footsteps, ghosts, bones, dead bodies, dirty water, and general interactions',
 		'Photo opportunities last 20s from inception. The closer, the better quality and the more money received',
-		'For dirty water and ghost writing, two photos can be taken: once for the photo itself and another for the interaction event',
+		'For dirty water and ghost writing, two photos can be taken: once for the interaction event and another for the photo itself',
 		'Sound sensors reveal room names in the truck, and indicate interactions within an area',
 		'Paramic has 40M range (your ears hear further), but can detect inaudible interactions',
 		'UV lights and glowsticks illuminate fingerprints and footsteps (fingerprints fade after 2m). Glowsticks dim after 1m',
