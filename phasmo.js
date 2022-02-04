@@ -12,6 +12,7 @@ let gameplay = {
 		'Up to 9 lights witches may be on on small maps, 8 on medium, and 7 on large maps',
 		'If the breaker is popped by turning on too many lights, all lights will be switched off',
 		'All ghosts will occasionally roam from their room: small roams are common, large roams are rare',
+		'Ghost can blink lights when near a light switch',
 	],
 	'Evidence items': [
 		'Thermometers update slowly; have patience',
