@@ -6,6 +6,7 @@ let gameplay = {
 		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
 		'Ghosts will slowly reduce the temperature of any room they\'re in, including during hunts',
 		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
+		"Mist ball ghost events will not teleport the ghost",
 		'Ghosts can only hear player microphones (and held electronics) in an 8M radius on the same floor',
 		'A ghost will make the same ambient sound for every hunt; if the ghost makes a different sound, this is a ghost event',
 		'The breaker will always start on in Amateur difficulty, and off in all others',
@@ -184,7 +185,7 @@ let ghosts = {
 		"useful":				[
 			"One of the most active ghost types",
 			"Can throw items at high speed",
-			"Will not perform the breath mist ghost event",
+			"Will not perform the mist ball ghost event",
 			"Prefers physical form for ghost events",
 		],
 	},
