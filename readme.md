@@ -53,5 +53,5 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 | S     | Pulls out the Photos tab                                                                                                                                    |
 | L     | Pulls out the Roll tab                                                                                                                                      |
 | M     | Mute timer sounds                                                                                                                                           |
-| X     | Reset the ghost finder for the next ghost. Will not change the selected timer                                                                               | 
+| X     | Reset the ghost finder for the next ghost. Will not change the selected map, difficulty or timer                                                            | 
 
