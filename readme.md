@@ -2,7 +2,7 @@
 A tool to be used alongside the game Phasmophobia, to help with identifying the ghost, as well as calculating photograph value, randomising items for challenges, and maps to help you find your way.
 
 ## General gameplay assistance
-At the bottom of the page, under the ghost types, several lists of useful gameplay information are available, including hints on evidence and non-evidence items, and hunts.
+At the bottom of the page, under the ghost types, several lists of useful gameplay information are available, including hints on evidence and non-evidence items, cursed items, hunts, and more detailed information for technical players.
 
 ## Screen flexibility
 The ghost finder has been designed to automatically resize itself to fit many different screen sizes, from 1920x1080 to the smallest mobile screen.
