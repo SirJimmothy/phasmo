@@ -2,11 +2,11 @@
 let gameplay = {
 	'Gameplay': [
 		'Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas',
-		"Basic player speed is around 1.65m/s",
-		'Sprinting allows movement at 3m/s for 3.5s with 5s cooldown - scales for partial use',
+		'Sprinting allows movement at ~1.8x for 3.5s with 5s cooldown - scales for partial use',
 		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
 		'Ghosts will slowly reduce the temperature of any room they\'re in, including during hunts',
 		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
+		"While a ghost is manifested (ghost event or hunt), all players within the map lose 0.2% sanity per-second",
 		"Mist ball ghost events will not teleport the ghost",
 		'Ghosts can only hear player microphones (and held electronics) in an 8M radius on the same floor',
 		'A ghost will make the same ambient sound for every hunt; if the ghost makes a different sound, this is a ghost event',
@@ -15,6 +15,8 @@ let gameplay = {
 		'If the breaker is popped by turning on too many lights, all lights will be switched off',
 		'All ghosts will occasionally roam from their room: small roams are common, large roams are rare',
 		'Ghost can blink lights when near a light switch',
+		"Player sanity will not drop below 50% during setup phase",
+		"Every party member loses 15% sanity per player death",
 	],
 	'Evidence items': [
 		'Thermometers update slowly; have patience',
@@ -53,7 +55,7 @@ let gameplay = {
 		'Mirrors will show the area of the ghost room, but drain sanity by 7.5% per second',
 		'Music boxes will attract a nearby ghost and make it sing and try to find the box; sanity drops when music is audible',
 		'If the box is &lt;5M from the ghost and the player gets close to the ghost during music, the ghost will spawn, and upon reaching the music box or after 5s spawned, will attempt to hunt',
-		'Using a voodoo doll will make the ghost perform an interaction, at the cost of 10% sanity. The heart pin will trigger a hunt',
+		'Using a voodoo doll will make the ghost perform an interaction or give evidence, at the cost of 10% sanity. The heart pin will trigger a hunt',
 		'Using a voodoo doll at &lt;10% sanity uses all pins and begins a hunt',
 		'Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt',
 		'Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit Returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool repeats previous card',
@@ -75,6 +77,14 @@ let gameplay = {
 		'Making sound or activating electronics inside a locker will cause the ghost to force open the doors; this is rarely survivable',
 		'Smudge sticks may be used within 6M of a ghost to cause the ghost to wander randomly and forget all targets for 6s',
 		'Smudge sticks may also be used by a non-chased player, even in the truck, if the ghost is chasing another player',
+	],
+	"Nerd information": [
+		"Basic player speed is around 1.65m/s; sprint at 3m/s",
+		"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.5m/s at 12&deg;C / 1.65m/s at 9&deg;C / 1.8m/s at 6&deg;C / 2.2m/s at 3&deg;C / 2.5m/s at 0&deg;C",
+		"Sanity drains passively in unlit areas (even dark spots in lit rooms) at 0.12% per-second on small maps, 0.08% on medium maps, 0.05% on large maps",
+		"During setup phase, passive sanity drain is reduced: 0.09% on small maps, 0.05% on medium maps, 0.03% on large maps",
+		"Passive sanity drains multiply depending on the difficulty: Intermediate is 1.5x, Professional is 2x",
+		"If playing solo, all passive sanity drains are halved",
 	],
 };
 
