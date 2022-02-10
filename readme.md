@@ -45,13 +45,13 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 | 0-9   | Toggle each evidence item to either confirm or disregard, to help identify the ghost. When the Photos tab is pulled out, toggles the individual photo types |
 | < >   | Cycle through the available maps: press Space to select map; Enter to open. When the Photos tab is pulled out, allows the selection of photo quality        |
 | + / - | Increase or decrease difficulty                                                                                                                             |
-| Q-I   | Select a timer, and use # to start or stop. Press the letter key again to reset                                                                             |
+| Q-U   | Select a timer, and use # to start or stop. Press the letter key again to reset                                                                             |
 | #     | Start or stop timer                                                                                                                                         |
 | A     | Toggle alone / all players ghost                                                                                                                            |
 | D     | Toggle dark mode                                                                                                                                            |
 | F     | Toggle fullscreen                                                                                                                                           |
 | S     | Pulls out the Photos tab                                                                                                                                    |
 | L     | Pulls out the Roll tab                                                                                                                                      |
-| M     | Mute the timer sounds                                                                                                                                       |
+| M     | Mute timer sounds                                                                                                                                           |
 | X     | Reset the ghost finder for the next ghost. Will not change the selected timer                                                                               | 
 
