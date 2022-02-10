@@ -2,7 +2,8 @@
 let gameplay = {
 	'Gameplay': [
 		'Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas',
-		'Sprinting allows movement at 150% for 3.5s with 5s cooldown - scales for partial use',
+		"Basic player speed is around 1.65m/s",
+		'Sprinting allows movement at 3m/s for 3.5s with 5s cooldown - scales for partial use',
 		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
 		'Ghosts will slowly reduce the temperature of any room they\'re in, including during hunts',
 		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
@@ -55,7 +56,7 @@ let gameplay = {
 		'Using a voodoo doll will make the ghost perform an interaction, at the cost of 10% sanity. The heart pin will trigger a hunt',
 		'Using a voodoo doll at &lt;10% sanity uses all pins and begins a hunt',
 		'Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt',
-		'Tarot cards: Tower forces interaction / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit Returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate / Fool repeats previous card',
+		'Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit Returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool repeats previous card',
 		'Lighting the summoning circle during a hunt will result in your immediate death',
 	],
 	'Hunts': [
@@ -92,10 +93,10 @@ let ghosts = {
 		"name":					"Banshee",
 		"clues":				["dots","prints","orb"],
 		"useful":				[
-			"Crucifixes have +2m range",
-			"Hunts only its target, unless target is outside",
+			"Hunts only its target and only checks target sanity before hunting, unless target is outside",
 			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
-			"Prefers singing during ghost events",
+			"Will more often wander near their target during a hunt",
+			"Prefers singing during ghost events; these drain +5% sanity",
 			"May shriek through paramic"
 		]
 	},
@@ -103,6 +104,7 @@ let ghosts = {
 		"name":					"Demon",
 		"clues":				["prints","temps","writing"],
 		"useful":				[
+			"Crucifixes have +2m range",
 			"Can hunt at 70% sanity",
 			"Low chance to hunt at any sanity level",
 			"Delay between hunts is reduced to 20s",
@@ -124,9 +126,10 @@ let ghosts = {
 		"name":					"Hantu",
 		"clues":				["orb","prints","temps"],
 		"useful":				[
-			"Will never speed up during hunt; speed depends on room temperature",
-			"Moves much slower in warmer rooms; faster in colder rooms",
-			"Can breathe mist in freezing rooms when hunting",
+			"+50% chance to turn off breaker",
+			"Speed never ramps during hunt; moves slower in warm rooms, faster in cold",
+			"Moves at player speed at 9&deg;C; speed changes every 3&deg;C (37.4&deg;F) up to 150% player at 0&deg;C, and 85% player at 15&deg;C",
+			"Can breathe mist in rooms below 3&deg;C (37.4&deg;F) when hunting",
 			"Nightmare mode: freezing is guaranteed"
 		]
 	},
@@ -241,6 +244,7 @@ let ghosts = {
 		"clues":				["emf","temps","writing"],
 		"useful":				[
 			"Very inactive",
+			"Ghost event chance linked to sanity loss; normal chances below 50%",
 			"Prefers breath ghost events",
 			"Prefers shadow form during ghost events",
 			"Cannot hunt above 35% sanity",
