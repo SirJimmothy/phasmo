@@ -110,7 +110,7 @@ let ghosts = {
 		"useful":				[
 			"Hunts only its target and only checks target sanity before hunting, unless target is outside",
 			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
-			"Will more often wander near their target during a hunt",
+			"Will often wander to target",
 			"Prefers singing during ghost events; these drain +5% sanity",
 			"May shriek through paramic"
 		]
