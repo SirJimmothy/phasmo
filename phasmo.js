@@ -107,6 +107,7 @@ let ghosts = {
 	"banshee": {
 		"name":					"Banshee",
 		"clues":				["dots","prints","orb"],
+		"clues_always":			[],
 		"useful":				[
 			"Hunts only its target and only checks target sanity before hunting, unless target is outside",
 			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
@@ -118,6 +119,7 @@ let ghosts = {
 	"demon": {
 		"name":					"Demon",
 		"clues":				["prints","temps","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Crucifixes have +2m range",
 			"Can hunt at 70% sanity",
@@ -130,6 +132,7 @@ let ghosts = {
 	"goryo": {
 		"name":					"Goryo",
 		"clues":				["emf","dots","prints"],
+		"clues_always":			["dots"],
 		"useful":				[
 			"Will never perform a long roam from the ghost room",
 			"Won't show dots with people in the ghost room",
@@ -140,6 +143,7 @@ let ghosts = {
 	"hantu": {
 		"name":					"Hantu",
 		"clues":				["orb","prints","temps"],
+		"clues_always":			["temps"],
 		"useful":				[
 			"+50% chance to turn off breaker",
 			"Speed never ramps during hunt; moves slower in warm rooms, faster in cold",
@@ -151,6 +155,7 @@ let ghosts = {
 	"jinn": {
 		"name":					"Jinn",
 		"clues":				["emf","prints","temps"],
+		"clues_always":			[],
 		"useful":				[
 			"Will never turn off breaker",
 			"With breaker on, chance to drop sanity by 25% within 3m",
@@ -160,6 +165,7 @@ let ghosts = {
 	"mare": {
 		"name":					"Mare",
 		"clues":				["box","orb","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Cannot turn light switches on",
 			"Prefers to turn off lights as interactions",
@@ -173,6 +179,7 @@ let ghosts = {
 	"mimic": {
 		"name":					"Mimic",
 		"clues":				["box","orb","prints","temps"],
+		"clues_always":			["orb"],
 		"useful":				[
 			"Can behave as any other ghost, including hunt behaviour and triggers",
 			"Will change behaviour no more than once per-minute",
@@ -182,6 +189,7 @@ let ghosts = {
 	"myling": {
 		"name":					"Myling",
 		"clues":				["emf","prints","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Speaks more often to the paramic",
 			"Footsteps are very quiet during hunts; equipment malfunctions before footsteps are heard"
@@ -190,6 +198,7 @@ let ghosts = {
 	"obake": {
 		"name":					"Obake",
 		"clues":				["emf","orb","prints"],
+		"clues_always":			["prints"],
 		"useful":				[
 			"Can leave 6-finger fingerprints",
 			"-25% chance to leave fingerprints",
@@ -200,6 +209,7 @@ let ghosts = {
 	"oni": {
 		"name":					"Oni",
 		"clues":				["emf","dots","temps"],
+		"clues_always":			[],
 		"useful":				[
 			"One of the most active ghost types",
 			"Can throw items at high speed",
@@ -210,6 +220,7 @@ let ghosts = {
 	"onryo": {
 		"name":					"Onryo",
 		"clues":				["box","orb","temps"],
+		"clues_always":			[],
 		"useful":				[
 			"Will blow out candles more often than other ghosts",
 			"50% chance to hunt when flame is extinguished below 80% sanity (except first three blowouts)",
@@ -222,6 +233,7 @@ let ghosts = {
 	"phantom": {
 		"name":					"Phantom",
 		"clues":				["box","dots","prints"],
+		"clues_always":			[],
 		"useful":				[
 			"Disappears but remains when photo is taken while not hunting",
 			"Sanity drops 2x when visible (stops if hidden due to photo)",
@@ -232,6 +244,7 @@ let ghosts = {
 	"poltergeist": {
 		"name":					"Poltergeist",
 		"clues":				["box","prints","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Can throw several items at once",
 			"Reduces witness sanity by 2x thrown items"
@@ -240,6 +253,7 @@ let ghosts = {
 	"raiju": {
 		"name":					"Raiju",
 		"clues":				["dots","emf","orb"],
+		"clues_always":			[],
 		"useful":				[
 			"Can hunt at 65% when near electronics",
 			"Greatly increased speed during hunt when near electronics",
@@ -249,6 +263,7 @@ let ghosts = {
 	"revenant": {
 		"name":					"Revenant",
 		"clues":				["orb","temps","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Travels very fast when it can see a player",
 			"Travels very slowly when not seeing players"
@@ -257,6 +272,7 @@ let ghosts = {
 	"shade": {
 		"name":					"Shade",
 		"clues":				["emf","temps","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Very inactive",
 			"Ghost event chance linked to sanity loss; normal chances below 50%",
@@ -269,6 +285,7 @@ let ghosts = {
 	"spirit": {
 		"name":					"Spirit",
 		"clues":				["box","emf","writing"],
+		"clues_always":			[],
 		"useful":				[
 			"Smudges last twice as long: 180s"
 		]
@@ -276,6 +293,7 @@ let ghosts = {
 	"twins": {
 		"name":					"Twins",
 		"clues":				["box","emf","temps"],
+		"clues_always":			[],
 		"useful":				[
 			"Both twins can interact one after the other",
 			"Decoy twin will not trigger sensors or give evidence (except EMF)",
@@ -287,6 +305,7 @@ let ghosts = {
 	"wraith": {
 		"name":					"Wraith",
 		"clues":				["box","emf","dots"],
+		"clues_always":			[],
 		"useful":				[
 			"When loud-stepping after salt, no footprints show",
 			"After stepping in salt, becomes permanently more active",
@@ -296,6 +315,7 @@ let ghosts = {
 	"yokai": {
 		"name":					"Yokai",
 		"clues":				["box","dots","orb"],
+		"clues_always":			[],
 		"useful":				[
 			"Increased activity when speaking near the ghost",
 			"Can hunt below 80% when players are talking nearby",
@@ -305,6 +325,7 @@ let ghosts = {
 	"yurei": {
 		"name":					"Yurei",
 		"clues":				["orb","dots","temps"],
+		"clues_always":			[],
 		"useful":				[
 			"Chance to drop sanity by 13% within 3m (closes a nearby door)",
 			"Cannot roam while smudged"
@@ -337,10 +358,10 @@ let maps = {
 
 // Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
 let difficulties = {
-	'ama':	{'name':'Amateur',			'timers':{'start':300,	'hunt_sml':20,'hunt_med':35,'hunt_lar':50,'grace':5,'cursed':21}},
-	'int':	{'name':'Intermediate',	'timers':{'start':150,	'hunt_sml':24,'hunt_med':44,'hunt_lar':54,'grace':4,'cursed':21}},
-	'pro':	{'name':'Professional',	'timers':{'start':0,		'hunt_sml':33,'hunt_med':53,'hunt_lar':63,'grace':3,'cursed':21}},
-	'har':	{'name':'Nightmare',		'timers':{'start':0,		'hunt_sml':33,'hunt_med':53,'hunt_lar':63,'grace':2,'cursed':21}},
+	'ama': { 'name': 'Amateur',			'timers': { 'start': 300, 'hunt_sml': 20, 'hunt_med': 35, 'hunt_lar': 50, 'grace': 5, 'cursed': 21 },	'hidden_clues': 0},
+	'int': { 'name': 'Intermediate',	'timers': { 'start': 150, 'hunt_sml': 24, 'hunt_med': 44, 'hunt_lar': 54, 'grace': 4, 'cursed': 21 },	'hidden_clues': 0},
+	'pro': { 'name': 'Professional',	'timers': { 'start': 0,   'hunt_sml': 33, 'hunt_med': 53, 'hunt_lar': 63, 'grace': 3, 'cursed': 21 },	'hidden_clues': 0},
+	'har': { 'name': 'Nightmare',		'timers': { 'start': 0,   'hunt_sml': 33, 'hunt_med': 53, 'hunt_lar': 63, 'grace': 2, 'cursed': 21 },	'hidden_clues': 1},
 };
 
 let photos = [
@@ -961,6 +982,7 @@ function difficulty_select(difficulty) {
 		span.classList.remove('selected');
 		if (difficulty_li.getAttribute('data-difficulty') === difficulty) { span.classList.add('selected'); }
 	}
+	check_ghosts();
 	set_timers();
 }
 
@@ -1194,6 +1216,7 @@ function reset() {
 function check_ghosts() {
 	let checked_y = [];
 	let checked_n = [];
+	let diff = difficulties[use_diff];
 	let ul_clues = document.getElementById('clues');
 	let x; // Counter
 	let key; // General key
@@ -1225,12 +1248,18 @@ function check_ghosts() {
 	} }
 
 	// Eliminate ghosts based on negative selection
-	for (let key in possible) { if (possible.hasOwnProperty(key)) {
-		for (x = 0; x < checked_n.length; x++) {
-			if (in_array(checked_n[x],possible[key]['clues'])) { delete possible[key]; break }
+	for (let key in possible) {
+		if (possible.hasOwnProperty(key)) {
+			let n = 0;
+			let del = 0;
+			for (x = 0; x < checked_n.length; x++) {
+				if (in_array(checked_n[x], possible[key]['clues_always'])) { del = 1; break }
+				if (in_array(checked_n[x], possible[key]['clues'])) { n = n + 1; }
+			}
+			if (n > diff.hidden_clues) { del = 1; }
+			if (del) { delete possible[key] }// may try to delete an already deleted ghost
 		}
-	} }
-
+	}
 	show_ghosts(possible);
 
 }
