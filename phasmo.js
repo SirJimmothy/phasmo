@@ -1241,10 +1241,17 @@ function check_ghosts() {
 
 	// Eliminate ghosts based on positive selection
 	let possible = clone(ghosts);
-	for (key in possible) { if (possible.hasOwnProperty(key)) {
-		for (x = 0; x < checked_y.length; x++) {
-			if (!in_array(checked_y[x],possible[key]['clues'])) { delete possible[key]; break }
-		}
+	for (key in possible) {
+		if (possible.hasOwnProperty(key)) {
+			let n = 0;
+			let del = 0;
+			let max_nonealways = possible[key]['clues'].length - (diff.hidden_clues + possible[key]['clues_always'].length);
+			for (x = 0; x < checked_y.length; x++) {
+				if (!in_array(checked_y[x], possible[key]['clues'])) { del = 1; break }
+				if (!in_array(checked_y[x], possible[key]['clues_always'])){ n = n + 1 }
+			}
+			if (n > max_nonealways) { del = 1; }
+			if (del) { delete possible[key] }
 	} }
 
 	// Eliminate ghosts based on negative selection
@@ -1257,7 +1264,7 @@ function check_ghosts() {
 				if (in_array(checked_n[x], possible[key]['clues'])) { n = n + 1; }
 			}
 			if (n > diff.hidden_clues) { del = 1; }
-			if (del) { delete possible[key] }// may try to delete an already deleted ghost
+			if (del) { delete possible[key] }
 		}
 	}
 	show_ghosts(possible);
