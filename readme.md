@@ -45,7 +45,7 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 | Key   | Description                                                                                                                                                 |
 |-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 0-9   | Toggle each evidence item to either confirm or disregard, to help identify the ghost. When the Photos tab is pulled out, toggles the individual photo types |
-| < >   | Cycle through the available maps: press Space to select map; Enter to open. When the Photos tab is pulled out, allows the selection of photo quality        |
+| [ / ] | Cycle through the available maps: press Space to select map; Enter to open. When the Photos tab is pulled out, allows the selection of photo quality        |
 | + / - | Increase or decrease difficulty                                                                                                                             |
 | Q-U   | Select a timer, and use # to start or stop. Press the letter key again to reset                                                                             |
 | #     | Start or stop timer                                                                                                                                         |

@@ -832,13 +832,13 @@ function keydown(e) {
 
 			let maps_div = document.getElementById('maps');
 			let len = maps_div.childNodes.length;
-			if (in_array(keycode,['ArrowLeft','ArrowRight'])) {
+			if (in_array(keycode,['[',']'])) {
 				let found = false;
 				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[1] === current) {
 					e.preventDefault();
 					found = true;
 					let item = x;
-					if (keycode === 'ArrowLeft') {
+					if (keycode === '[') {
 						item = (x ? x : len) - 1;
 					} else {
 						item = (x === (len - 1) ? 0 : (x + 1));
@@ -846,7 +846,7 @@ function keydown(e) {
 					let map = maps_div.childNodes[item].childNodes[1];
 					map.focus();
 				} }
-				if (!found) { e.preventDefault(); maps_div.childNodes[(keycode === 'ArrowLeft' ? (len - 1) : 0)].childNodes[1].focus(); }
+				if (!found) { e.preventDefault(); maps_div.childNodes[(keycode === '[' ? (len - 1) : 0)].childNodes[1].focus(); }
 			}
 
 		}
