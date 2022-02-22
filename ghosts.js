@@ -1,5 +1,5 @@
 let ghosts =
-	{
+{
 	"banshee": {
 		"name":					"Banshee",
 		"clues":				["dots","prints","orb"],
