@@ -72,7 +72,7 @@ let gameplay = {
 		'A ghost\'s speed can be determined by listening for its footsteps; slower ghosts will step much less often',
 		'Grace periods: All difficulties have 3s after hunt commencement before the ghost searches for players. Nightmare difficulty has 1s',
 		'Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted',
-		'In Nightmare difficulty, if a player dies during a hunt, the hunt length will be extended',
+		'In Nightmare difficulty, if a player dies during a hunt, the hunt duration will be extended by 12s',
 		'Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed',
 		'Ghosts can only hear player microphones - other sounds do not attract the ghost',
 		'Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection',
