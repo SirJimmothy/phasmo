@@ -43,7 +43,7 @@ let ghosts =
 		"useful":				[
 			"2x as likely to turn off breaker",
 			"Speed never ramps during hunt; moves slower in warm rooms, faster in cold",
-			"Moves at player speed at 9&deg;C; speed changes every 3&deg;C (37.4&deg;F) up to 150% player at 0&deg;C, and 85% player at 15&deg;C",
+			"Moves just slower than player speed at 15&deg;C; speed increases every -3&deg;C (37.4&deg;F) up to 1.7x player speed at 0&deg;C",
 			"Can breathe mist in rooms below 3&deg;C (37.4&deg;F) when hunting",
 			"Nightmare mode: freezing is guaranteed"
 		]

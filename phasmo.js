@@ -85,7 +85,7 @@ let gameplay = {
 	],
 	"Nerd information": [
 		"Basic player speed is around 1.65m/s; sprint at 3m/s",
-		"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.5m/s at 12&deg;C / 1.65m/s at 9&deg;C / 1.8m/s at 6&deg;C / 2.2m/s at 3&deg;C / 2.5m/s at 0&deg;C",
+		"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.75m/s at 12&deg;C / 2.1m/s at 9&deg;C / 2.3m/s at 6&deg;C / 2.5m/s at 3&deg;C / 2.7m/s at 0&deg;C",
 		"Sanity drains passively in unlit areas (even dark spots in lit rooms) at 0.12% per-second on small maps, 0.08% on medium maps, 0.05% on large maps",
 		"During setup phase, passive sanity drain is reduced: 0.09% on small maps, 0.05% on medium maps, 0.03% on large maps",
 		"Passive sanity drains multiply depending on the difficulty: Intermediate is 1.5x, Professional is 2x",
