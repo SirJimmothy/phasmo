@@ -74,8 +74,8 @@ let ghosts =
 	},
 	"mimic": {
 		"name":					"Mimic",
-		"clues":				["box","prints","temps"],
-		"clues_always":	[],
+		"clues":				["box","orb","prints","temps"],
+		"clues_always":	["orb"],
 		"useful":				[
 			"Can behave as any other ghost, including hunt behaviour and triggers",
 			"Will change behaviour no more than once per-minute",
