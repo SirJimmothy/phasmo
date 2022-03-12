@@ -88,7 +88,7 @@ let ghosts =
 		"clues_always":	[],
 		"useful":				[
 			"Speaks more often to the paramic",
-			"Footsteps are very quiet during hunts; equipment malfunctions before footsteps are heard"
+			"Footsteps are very quiet during hunts; equipment may malfunction before footsteps are heard"
 		]
 	},
 	"obake": {
