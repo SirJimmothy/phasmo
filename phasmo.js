@@ -995,12 +995,10 @@ function check_ghosts() {
 	// Structure: 'text','number','image','tick','cross'
 
 	// Determine current state
-	let checkbox_y;
-	let checkbox_n;
 	checked = []; // Clear global checklist
 	for (x = 0; x < ul_clues.childNodes.length; x++) {
-		checkbox_y = ul_clues.childNodes[x].childNodes[3].childNodes[0];
-		checkbox_n = ul_clues.childNodes[x].childNodes[4].childNodes[0];
+		let checkbox_y = ul_clues.childNodes[x].childNodes[3].childNodes[0];
+		let checkbox_n = ul_clues.childNodes[x].childNodes[4].childNodes[0];
 		let clue = ul_clues.childNodes[x];
 		if (!checkbox_y.checked) { clue.classList.remove('selected'); } else {
 			checked_y.push(checkbox_y.value);
@@ -1020,12 +1018,34 @@ function check_ghosts() {
 		}
 	} }
 
+	/*
 	// Eliminate ghosts based on non-selected "always" clues
 	if (diff.use_always_clues && checked_y.length === 2) {
 		for (let key in possible) { if (possible.hasOwnProperty(key)) {
 			for (let x = 0; x < possible[key]['clues_always'].length; x++) {
 				if (!in_array(possible[key]['clues_always'][x],checked_y)) { delete possible[key]; break; }
 			}
+		} }
+	}
+	*/
+
+	// Eliminate ghosts based on non-selected "always" clues
+	if (diff.use_always_clues) {
+		for (let key in possible) { if (possible.hasOwnProperty(key)) {
+
+			// Get the number of clues matched per ghost
+			let matched = [];
+			for (let x = 0; x < checked_y.length; x++) {
+				if (in_array(checked_y[x],possible[key]['clues'])) { matched.push(checked_y[x]); }
+			}
+
+			// If all but one clue is matched for a particular ghost, and a required clue isn't one of them, exclude the ghost
+			if (possible[key]['clues'].length - matched.length === 1) {
+				for (let x = 0; x < possible[key]['clues_always'].length; x++) {
+					if (!in_array(possible[key]['clues_always'][x],checked_y)) { delete possible[key]; break; }
+				}
+			}
+
 		} }
 	}
 
@@ -1091,35 +1111,34 @@ function show_ghosts(ghosts) {
 			clue = ghosts[key]['clues'][x];
 			if (!in_array(clue,available_clues)) { available_clues.push(clue); }
 		}
-
 	} }
 
 	// Disable impossible clues
 	let clues_ul = document.getElementById('clues');
 	for (let x = 0; x < clues_ul.childNodes.length; x++) {
 		clue = clues_ul.childNodes[x];
-		let choice_opt_1 = clue.childNodes[3].childNodes[0];
-		let choice_opt_2 = clue.childNodes[4].childNodes[0];
+		let choice_opt_y = clue.childNodes[3].childNodes[0];
+		let choice_opt_n = clue.childNodes[4].childNodes[0];
 		if (!in_array(clue.getAttribute('data-clue'),available_clues)) { // If this clue isn't applicable, disable it
 
 			clue.classList.add('disabled');
 
 			// Disable this clue's unchecked choices
 
-			if (!choice_opt_1.checked) { choice_opt_1.disabled = true; }
-			if (!choice_opt_2.checked) { choice_opt_2.disabled = true; }
+			if (!choice_opt_y.checked) { choice_opt_y.disabled = true; }
+			if (!choice_opt_n.checked) { choice_opt_n.disabled = true; }
 
 		} else { // If this clue is applicable, enable its selection
 
 			clue.classList.remove('disabled');
 
 			// Re-enable this clue's positive and negative choices
-			choice_opt_1.disabled = false;
-			choice_opt_2.disabled = false;
+			choice_opt_y.disabled = false;
+			choice_opt_n.disabled = false;
 
 			// When this clue is marked positive, disable its negative option
-			if (choice_opt_1.checked) {
-				choice_opt_2.disabled = true;
+			if (choice_opt_y.checked) {
+				choice_opt_n.disabled = true;
 			}
 
 		}
