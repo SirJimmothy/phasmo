@@ -987,6 +987,9 @@ function reset() {
 
 }
 
+// Modify this to check based on supplied evidence, difficulty and such, and return array of possible ghosts
+// This will let us determine whether a given combination can be ruled out
+
 function check_ghosts() {
 	let diff			= difficulties[use_diff];
 	let checked_y = [];

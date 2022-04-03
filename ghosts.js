@@ -171,6 +171,7 @@ let ghosts =
 		"clues_always":	[],
 		"useful":				[
 			"Very inactive",
+			"Won't throw anything with anyone in the ghost room",
 			"Ghost event chance linked to sanity loss; normal chances below 50%",
 			"Prefers breath ghost events",
 			"Prefers shadow form during ghost events",
