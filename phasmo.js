@@ -66,7 +66,7 @@ let gameplay = {
 		'Using a voodoo doll will make the ghost perform an interaction or give evidence, at the cost of 10% sanity. The heart pin will trigger a hunt',
 		'Using a voodoo doll at &lt;10% sanity uses all pins and begins a hunt',
 		'Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt',
-		'Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit Returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool does nothing',
+		'Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool does nothing',
 		'Lighting the summoning circle during a hunt will result in your immediate death',
 	],
 	'Hunts': [
