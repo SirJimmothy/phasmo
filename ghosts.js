@@ -109,7 +109,7 @@ let ghosts =
 		"useful":				[
 			"One of the most active ghost types",
 			"Can throw items at high speed",
-			"Will not perform the mist ball ghost event",
+			"Will not perform the mist ball (single gasp) ghost event",
 			"Prefers physical form for ghost events"
 		]
 	},
