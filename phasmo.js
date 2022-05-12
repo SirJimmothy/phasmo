@@ -63,23 +63,12 @@ function load() {
 		toggle_sound();
 	}
 
-	// Populate phrases
 	populate_phrases();
-
-	// Populate clues
 	populate_clues();
-
-	// Populate timers
 	populate_timers();
 	set_timers();
-
-	// Populate ghosts
 	populate_ghosts(ghosts);
-
-	// Populate photos
 	populate_photos();
-
-	// Populate roll
 	populate_roll();
 
 	// Populate maps
@@ -386,13 +375,13 @@ function select_lang(e) {
 
 	populate_phrases();
 	populate_clues();
-	populate_ghosts(langs[lang_use]["ghosts"]);
+	populate_timers();
+	set_timers();
+	populate_ghosts(ghosts);
 	populate_photos();
 	populate_roll();
 	populate_difficulties();
 	populate_gameplay();
-	populate_timers();
-	set_timers();
 }
 
 function map_select(map) {
