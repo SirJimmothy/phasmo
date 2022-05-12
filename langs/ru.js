@@ -8,7 +8,7 @@ langs.ru = { // Property here should match this language name
 		alone:										"Alone",
 		all:											"All",
 		title:										"Phasmophobia Ghost Finder",
-		line1:										"Выбирайте или убирайте улики(можно с помощью чисел на клавиатуре), чтобы определить тип прозрака. ",
+		line1:										"Выбирайте или убирайте улики(можно с помощью чисел на клавиатуре), чтобы определить тип призрака. ",
 		line2:										"Используйте [ и ] чтобы выбрать карту: Пробел чтобы выбрать; Enter чтобы открыть карту. +/- чтобы изменить сложность.",
 		line3:										"Карты бессовестно сворованы из",
 		gameplay:									"Геймплей и ионформация о расходниках",
@@ -45,7 +45,7 @@ langs.ru = { // Property here should match this language name
 		// Photos tab
 		photos:										"Фото",
 		type:											"Тип",
-		stars:										"Звезды (вниз/вверх)",
+		stars:										"Звезды (меньше/больше)",
 		photo_none:								"--------",
 		photo_bone:								"Кость",
 		photo_cursed_item:				"Проклятый предмет",
@@ -100,16 +100,16 @@ langs.ru = { // Property here should match this language name
 		roll_thm:									'Термометр',
 		roll_tri:									'Штатив',
 		roll_uvl:									'УФ-фонарик',
-		roll_vid:									'Видео-камера',
+		roll_vid:									'Видеокамера',
 
 		// Clues
 		clue_dots:								'Проектор',
 		clue_emf:									'ЭМП 5',
 		clue_prints:							'Отпечатки рук',
-		clue_temps:								'Минусовая',
+		clue_temps:								'Холод',
 		clue_orb:									'Огонек',
 		clue_writing:							'Записи',
-		clue_box:									'Ридоприемник',
+		clue_box:									'Радиоприемник',
 
 		// Ghost useful info
 		ghost_banshee:						'Банши',
