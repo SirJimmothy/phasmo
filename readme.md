@@ -68,7 +68,7 @@ langs.en = { // Property here should match this language name
 ```
 
 - Change any phrases as required to the designated language - do not change the property names as these are pointers the tool uses to find the various phrases
-- Add a new JavaScript include into index.html `<head>` tag, as shown:
+- Add your new language file into the `<head>` tag of index.html, as shown:
 
 ```html
 <!-- Language files here -->
