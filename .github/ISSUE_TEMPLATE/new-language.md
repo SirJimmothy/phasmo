@@ -8,4 +8,6 @@ assignees: SirJimmothy
 ---
 
 #### Specify the language prefix
-For example: en, fr, de
+A new language template using the English phrases will be created with the code specified.
+
+Examples: en, fr, de
