@@ -1,216 +1,4 @@
 
-let gameplay = {
-	'Gameplay': [
-		'Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas',
-		'Sprinting allows movement at ~1.8x for 3.5s with 5s cooldown - scales for partial use',
-		'Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets',
-		"All ghosts have a favourite room, but the &quot;ghost room&quot; refers only to the room the ghost is currently in",
-		'Ghosts will slowly reduce the temperature of any room they\'re in, including during hunts',
-		'Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\'s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event',
-		"While a ghost is manifested (ghost event or hunt), all players within the map lose 0.2% sanity per-second",
-		"Mist ball ghost events will not teleport the ghost",
-		'Ghosts can only hear player microphones (and held electronics) in an 8M radius on the same floor',
-		"Speaking a ghost's name will increase their activity level for a short time",
-		'A ghost will make the same ambient sound for every hunt; if the ghost makes a different sound, this is a ghost event',
-		"Ghost events will turn off the light in the ghost room and close all adjacent doors (including exit doors)",
-		'The breaker will always start on in Amateur difficulty, and off in all others',
-		'Up to 9 lights witches may be on on small maps, 8 on medium, and 7 on large maps',
-		'If the breaker is popped by turning on too many lights, all lights will be switched off',
-		'All ghosts will occasionally roam from their room: small roams are common, large roams are rare',
-		'Ghost can blink lights when near a light switch',
-		"Player sanity will not drop below 50% during setup phase",
-		"Every party member loses 15% sanity per player death",
-	],
-	'Evidence items': [
-		'Thermometers update slowly; have patience',
-		'Freezing temps counts as below 0&deg;C or 32&deg;F, or if you see breath mist',
-		'EMF values: 2 for interaction; 3 for throw; 4 for ghost event. 25% chance to become 5 for EMF 5 ghosts',
-		'Truck EMF board registers EMF as 1 less than real values, with optional extra +/-1 variation: EMF 3 can show as 1, 2 or 3',
-		'Spirit boxes will work anywhere inside the map, but the ghost will only listen to someone in a room with no lights on, within 3M of the ghost',
-		"Ghost orbs only appear in the favourite room",
-		'DOTS sensors show periodic moving silhouettes of ghosts, if the ghost is in the room',
-		'Video and regular cameras can see ghost orbs. Ghost orbs move around the room and behave like bubbles',
-		"Ghost writing books are considered by the ghost as standard interaction and throwable items, like random clutter. Removing clutter can increase the chances of the ghost interacting with a book",
-		'When written in, ghost writing books will levitate and the pen will scribble - this can be observed via cameras',
-		'A writing ghost will always write in the book if it throws it; if the book has moved and is empty, writing can be excluded',
-		],
-	'Non-Evidence Items': [
-		'Cameras can be used to take photos of fingerprints, footsteps, ghosts, bones, dead bodies, dirty water, and general interactions',
-		'Photo opportunities last 20s from inception. The closer, the better quality and the more money received',
-		'For dirty water and ghost writing, two photos can be taken: once for the interaction event and another for the photo itself',
-		'Sound sensors reveal room names in the truck, and indicate interactions within an area',
-		'Paramic has 40M range (your ears hear further), but can detect inaudible interactions',
-		'UV lights and glowsticks illuminate fingerprints and footsteps (fingerprints fade after 2m). Glowsticks dim after 1m',
-		'Footsteps are made after the ghost steps in salt; place at chokepoints to increase chance',
-		'Sanity pills raise individual sanity by 40% (amateur), 35% (intermed.), 30% (pro), 25% (nightmare)',
-		'Candles prevent passive sanity loss within a 1M radius (held or placed)',
-		'Crucifixes prevent ghosts from hunting within a 3M radius (held or placed)',
-		'Once a crucifix prevents a hunt, the ghost may not attempt to hunt for 5s',
-		'Smudge sticks prevent hunts within 6M range twice; at the start and 6s later. Smudges last for 90s and cannot be stacked',
-		'Smudge sticks used during a hunt also initiate the standard smudge effect in preventing hunts until expiry',
-	],
-	'Cursed Items': [
-		'All maps will contain one cursed item: ouija board, tarot cards, voodoo doll or mirror. Each item has only one spawn point per map',
-		'Cursed items will start a hunt when they run out or break',
-		'Cursed hunts cannot be prevented, have a 1s grace period, are 20s longer, and subsequent hunts follow suit',
-		'Ghosts make no noise during cursed hunts',
-		'Ouija board questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions',
-		'Ouija board will break when interacted with at 0% sanity',
-		'Always say goodbye to the ouija board before walking away - or be hunted!',
-		'Ouija board &quot;what is my sanity&quot; responses: Healthy &gt;80% / Good &gt; 60 / Avg &gt; 40 / Bad &gt; 20% / Awful &lt;20%',
-		'Ouija board &quot;How insane am I&quot; responses: Not very &gt; 50% / Very &gt; 25% / Insane: &lt;25%',
-		'Ouija board &quot;Am I insane&quot; responses: No &gt; 90% / Maybe &gt; 20% / Yes &lt; 20%',
-		'Mirrors will show the area of the ghost room, but drain sanity by 7.5% per second',
-		'Music boxes will attract a nearby ghost and make it sing and try to find the box; sanity drops when music is audible',
-		'If the box is &lt;5M from the ghost and the player gets close to the ghost during music, the ghost will spawn, and upon reaching the music box or after 5s spawned, will attempt to hunt',
-		'Using a voodoo doll will make the ghost perform an interaction or give evidence, at the cost of 10% sanity. The heart pin will trigger a hunt',
-		'Using a voodoo doll at &lt;10% sanity uses all pins and begins a hunt',
-		'Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt',
-		'Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool does nothing',
-		'Lighting the summoning circle during a hunt will result in your immediate death',
-	],
-	'Hunts': [
-		'Hunts can occur once the average sanity of the group falls below 50%. The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance',
-		'When a hunt starts, all outer doors become locked and light switches cannot be used',
-		'A ghost\'s speed can be determined by listening for its footsteps; slower ghosts will step much less often',
-		'Grace periods: All difficulties have 3s after hunt commencement before the ghost searches for players. Nightmare difficulty has 1s',
-		'Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted',
-		'In Nightmare difficulty, if a player dies during a hunt, the hunt duration will be extended by 12s',
-		'Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed',
-		'Ghosts can only hear player microphones - other sounds do not attract the ghost',
-		'Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection',
-		'Doors block line of sight; closing these behind you can prevent the ghost from gaining speed',
-		'Players can hide behind doors while holding them - ghosts may move unheld doors, exposing hidden players',
-		'If a ghost sees a player enter a closet or locker, they will attempt to open them, even if the doors are held. Keep pulling them closed to survive',
-		'Making sound or activating electronics inside a locker will cause the ghost to force open the doors; this is rarely survivable',
-		'Smudge sticks may be used within 6M of a ghost to cause the ghost to wander randomly and forget all targets for 6s',
-		'Smudge sticks may also be used by a non-chased player, even in the truck, if the ghost is chasing another player',
-	],
-	"Nerd information": [
-		"Basic player speed is around 1.65m/s; sprint at 3m/s",
-		"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.75m/s at 12&deg;C / 2.1m/s at 9&deg;C / 2.3m/s at 6&deg;C / 2.5m/s at 3&deg;C / 2.7m/s at 0&deg;C",
-		"Sanity drains passively in unlit areas (even dark spots in lit rooms) at 0.12% per-second on small maps, 0.08% on medium maps, 0.05% on large maps",
-		"During setup phase, passive sanity drain is reduced: 0.09% on small maps, 0.05% on medium maps, 0.03% on large maps",
-		"Passive sanity drains multiply depending on the difficulty: Intermediate is 1.5x, Professional is 2x",
-		"If playing solo, all passive sanity drains are halved",
-	],
-};
-
-let clues = {
-	'dots':			'Dots',
-	'emf':			'EMF 5',
-	'prints':		'Prints',
-	'temps':		'Freezing',
-	'orb':			'Orbs',
-	'writing':	'Writing',
-	'box':			'Spirit Box'
-};
-
-let timers = {
-	'start':					{'name':'Start',					'time':300,	'default':false,	'disabled':true},
-	'hunt':						{'name':'Hunt',						'time':0,		'default':false,	'disabled':true},
-	'cursed':					{'name':'Cursed Hunt',		'time':0,		'default':false,	'disabled':true},
-	'post_hunt':			{'name':'Post-Hunt',			'time':25,	'default':false,	'disabled':false},
-	'smudge':					{'name':'Smudge',					'time':90,	'default':true,		'disabled':false},
-	'smudge_spirit':	{'name':'Spirit Smudge',	'time':180,	'default':false,	'disabled':false},
-	'smudge_demon':		{'name':'Demon Smudge',		'time':60,	'default':false,	'disabled':false},
-};
-
-let maps = {
-	'asylum':				{'size':'lar','name':'Asylum',									'file':'map_asylum.png'},
-	'bleasdale':		{'size':'sml','name':'Bleasdale Farmhouse',			'file':'map_bleasdale.png'},
-	'brownstone':		{'size':'med','name':'Brownstone High School',	'file':'map_highschool.png'},
-	'edgefield':		{'size':'sml','name':'Edgefield Street',				'file':'map_edgefield.png'},
-	'grafton':			{'size':'sml','name':'Grafton Farmhouse',				'file':'map_grafton.png'},
-	'maple':				{'size':'med','name':'Maple Lodge',							'file':'map_maple.png'},
-	'prison':				{'size':'med','name':'Prison',									'file':'map_prison.png'},
-	'ridgeview':		{'size':'sml','name':'Ridgeview Road',					'file':'map_ridgeview.png'},
-	'tanglewood':		{'size':'sml','name':'Tanglewood Street',				'file':'map_tanglewood.png'},
-	'willow':				{'size':'sml','name':'Willow Street',						'file':'map_willow.png'},
-};
-
-// Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
-let difficulties = {
-	'ama':	{'name':'Amateur',			'timers':{'start':300,	'hunt_sml':20,'hunt_med':35,'hunt_lar':50,'grace':5,'cursed':21},'use_always_clues':0},
-	'int':	{'name':'Intermediate',	'timers':{'start':150,	'hunt_sml':24,'hunt_med':44,'hunt_lar':54,'grace':4,'cursed':21},'use_always_clues':0},
-	'pro':	{'name':'Professional',	'timers':{'start':0,		'hunt_sml':33,'hunt_med':53,'hunt_lar':63,'grace':3,'cursed':21},'use_always_clues':0},
-	'har':	{'name':'Nightmare',		'timers':{'start':0,		'hunt_sml':33,'hunt_med':53,'hunt_lar':63,'grace':2,'cursed':21},'use_always_clues':1},
-};
-
-let photos = [
-	// ['name'				1 star,	2 star,	3 star,	limit]
-	['--------',			0,			0,			0,			0],
-	['Bone',					40,			55,			70,			0],
-	['Cursed Item',		30,			45,			60,			1],
-	['Dead Body',			10,			20,			30,			0],
-	['Dirty Water',		15,			23,			30,			0],
-	['Finger Prints',	15,			33,			50,			0],
-	['Footsteps',			20,			30,			40,			0],
-	['Ghost',					70,			85,			100,		1],
-	['Interaction',		20,			30,			40,			0],
-];
-let photo_count = 10;
-let star_count = 3;
-
-let rolls = {
-	'maps':{
-		'name':'Maps',
-		'items':{
-			'asylum':			'Asylum',
-			'bleasdale':	'Bleasdale Farmhouse',
-			'brownstone':	'Brownstone High School',
-			'edgefield':	'Edgefield Street',
-			'grafton':		'Grafton Farmhouse',
-			'maple':			'Maple Lodge Campsite',
-			'prison':			'Prison',
-			'ridgeview':	'Ridgeview Road',
-			'tanglewood':	'Tanglewood Street',
-			'willow':			'Willow Street',
-		},
-		'groups':{
-			'clear':	{'name':'Clear',	'items':[]},
-			'all':		{'name':'All',		'items':[]},
-			'small':	{'name':'Small',	'items':['tanglewood','willow','ridgeview','edgefield','grafton','bleasdale']},
-			'medium':	{'name':'Medium',	'items':['brownstone','prison']},
-			'large':	{'name':'Large',	'items':['asylum']},
-		},
-	},
-	'items':{
-		'name':'Items',
-		'items':{
-			'can':	'Candle',
-			'cru':	'Crucifix',
-			'dot':	'Dots Projector',
-			'emf':	'EMF Reader',
-			'fla':	'Flashlight',
-			'gwb':	'Ghost Writing Book',
-			'glo':	'Glowstick',
-			'lig':	'Lighter',
-			'mos':	'Motion Sensor',
-			'par':	'Parabolic Microphone',
-			'cam':	'Photo Camera',
-			'sal':	'Salt',
-			'san':	'Sanity Pills',
-			'sms':	'Smudge Sticks',
-			'snd':	'Sound Sensor',
-			'spb':	'Spirit Box',
-			'sfl':	'Strong Flashlight',
-			'thm':	'Thermometer',
-			'tri':	'Tripod',
-			'uvl':	'UV Light',
-			'vid':	'Video Camera',
-		},
-		'groups':{
-			'clear':			{'name':'Clear',			'items':[]},
-			'all':				{'name':'All',				'items':[]},
-			'evidence':		{'name':'Evidence',		'items':['emf','dot','gwb','spb','thm','uvl','vid']},
-			'secondary':	{'name':'Secondary',	'items':['can','cru','fla','glo','lig','mos','par','cam','sal','san','sms','snd','sfl','tri']},
-			'lights':			{'name':'Lights',			'items':['can','fla','sfl']},
-			'electric':		{'name':'Electrical',	'items':['emf','dot','fla','mos','par','cam','snd','spb','sfl','thm','uvl','vid']},
-		},
-	},
-};
-
 for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 	for (let key2 in rolls[key].items) { if (rolls[key].items.hasOwnProperty(key2)) {
 		let all = rolls[key].groups.all;
@@ -220,206 +8,92 @@ for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 
 let files = {};
 let media = {
-	'click':	{'type':'audio','file':'click.mp3'},
-	'alarm':	{'type':'audio','file':'alarm.mp3'},
+	"click":	{"type":"audio","file":"click.mp3"},
+	"alarm":	{"type":"audio","file":"alarm.mp3"},
 };
 
-if (document.addEventListener) {
-	document.addEventListener('click',		(e) => { click(e); },false);
-	document.addEventListener('keydown',	(e) => { keydown(e); },false);
-	document.addEventListener('keypress',	(e) => { keypress(e); },false);
-}
-
-let cookie		= 'phasmo_';
+let prefix		= "phasmo_";
 let sound			= true;
-let use_map		= '';
-let use_diff	= '';
+let use_map		= "";
+let use_diff	= "";
+let lang_use	= "en";
 
 let timings = {
-	'main':	{'start': 0,	'end': 0,	'current': 0},
+	"main":	{"start": 0,	"end": 0,	"current": 0},
 };
 let clocks = {
-	'hunt':		null,
-	'smudge':	null,
+	"hunt":		null,
+	"smudge":	null,
 };
+
+let gameplay = ["general","evidence","non_evidence","cursed_items","hunts","nerd_info"];
 
 let checked = []; // Hold list of currently checked clues
 
 window.onload = load;
 function load() {
 
-	// Load clues and ghosts into page
+	// Add event listeners
+	if (document.addEventListener) {
+		document.addEventListener('click',		(e) => { click(e); },false);
+		document.addEventListener('keydown',	(e) => { keydown(e); },false);
+		document.addEventListener('keypress',	(e) => { keypress(e); },false);
+		document.getElementById('lang').childNodes[0].addEventListener('change',(e) => { select_lang(e); });
+	}
 
-	if (parseInt(getcookie('dark').toString())) { toggle_dark(); }
-	if (parseInt(getcookie('mute').toString())) {
+	// Load languages
+	let lang_stored = do_storage('get','lang');
+	if (lang_stored) { lang_use = lang_stored; }
+
+	let lang_select = Object.assign(document.getElementById('lang').childNodes[0],{innerHTML:''});
+	for (let key in langs) { if (langs.hasOwnProperty(key)) {
+		let opt = Object.assign(document.createElement('OPTION'),{
+			value:			key,
+			innerHTML:	key,
+			selected:		(key === lang_stored),
+		});
+		lang_select.appendChild(opt);
+	} }
+
+	// Load clues and ghosts into page
+	if (parseInt(do_storage('get','dark').toString())) { toggle_dark(); }
+	if (parseInt(do_storage('get','mute').toString())) {
 		let sound = document.getElementById('sound').childNodes[0].childNodes[0];
 		sound.checked = false;
 		toggle_sound();
 	}
 
-	let clues_ul = document.getElementById('clues');
-	let count = 0;
+	// Populate phrases
+	populate_phrases();
 
 	// Populate clues
-	for (let key in clues) {
-		count++;
-		let li					= document.createElement('LI');
-		let span_number	= document.createElement('SPAN');
-		let span_image	= document.createElement('SPAN');
-		let span_y			= document.createElement('SPAN');
-		let span_n			= document.createElement('SPAN');
-		let label_y			= document.createElement('LABEL');
-		let label_n			= document.createElement('LABEL');
-		let check_y			= document.createElement('INPUT');
-		let check_n			= document.createElement('INPUT');
-
-		li.setAttribute('data-clue',key);
-		li.innerHTML = clues[key];
-		check_y.name = 'clue_y[]'; check_y.type = 'checkbox'; check_y.value = key;
-		check_n.name = 'clue_n[]'; check_n.type = 'checkbox'; check_n.value = key;
-
-		span_number.innerHTML = count.toString();
-
-		label_y.appendChild(check_y); label_y.appendChild(span_y);
-		label_n.appendChild(check_n); label_n.appendChild(span_n);
-		li.appendChild(span_number);
-		li.appendChild(span_image);
-		li.appendChild(label_y); li.appendChild(label_n);
-
-		// Structure: 'text','number','image','tick','cross'
-
-		clues_ul.appendChild(li);
-	}
+	populate_clues();
 
 	// Populate timers
-	let timers_div = document.getElementById('timer_list');
-	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
-	count = 0;
-	for (let key in timers) { if (timers.hasOwnProperty(key)) {
-		let timer = Object.assign(document.createElement('INPUT'),{
-			type:				'button',
-			name:				'timer[]',
-			value:			'[' + hotkeys[count] + '] ' + timers[key].name,
-			disabled:		timers[key].disabled,
-		});
-		timer.setAttribute('data-index',key);
-		timer.setAttribute('data-time',timers[key].time);
-		timer.setAttribute('data-hotkey',hotkeys[count]);
-		if (timers[key].default) {
-			timer.classList.add('current');
-			document.getElementById('timer').innerHTML = timers[key].time.toString();
-		}
-		timers_div.appendChild(timer);
-		count++;
-	} }
+	populate_timers();
+	set_timers();
+
+	// Populate ghosts
 	populate_ghosts(ghosts);
 
 	// Populate photos
-	let tbody = document.querySelector('div#photos tbody');
-	for (let x = 0; x < photo_count; x++) {
-		let tr = document.createElement('TR');
-
-		let td = document.createElement('TD');
-		td.innerHTML = '[' + (x < photos.length ? (x + 1) : 0 ) + ']';
-		tr.appendChild(td);
-
-		td = document.createElement('TD');
-		let select = document.createElement('SELECT');
-		select.name = 'photo_' + x;
-		select.onchange = function() { count_points() };
-
-		for (let y = 0; y < photos.length; y++) {
-			let opt = document.createElement('OPTION');
-			opt.innerHTML = photos[y][0];
-			opt.value = y;
-			select.appendChild(opt);
-		}
-		td.appendChild(select);
-		tr.appendChild(td);
-
-		td = document.createElement('TD');
-		let slider = document.createElement('INPUT');
-		slider.type = 'range';
-		slider.min = 0; slider.max = star_count;
-		slider.value = 0;
-		slider.name = 'slider_' + x;
-		slider.oninput = function() { count_points(slider); };
-
-		td.appendChild(slider);
-		tr.appendChild(td);
-
-		td = document.createElement('TD');
-		td.innerHTML = '0';
-		tr.appendChild(td);
-
-		tbody.appendChild(tr);
-	}
-	// Populate photos
+	populate_photos();
 
 	// Populate roll
-	let roll_container = document.querySelectorAll('div#roll > div')[0];
-	for (let roll in rolls) { if (rolls.hasOwnProperty(roll)) {
-
-		let div = document.createElement('DIV');
-		div.className = 'roll_group';
-
-		let div_groups = document.createElement('DIV');
-		for (let group in rolls[roll].groups) { if (rolls[roll].groups.hasOwnProperty(group)) {
-			let item = document.createElement('SPAN');
-			item.setAttribute('data-name',roll + '_' + group);
-			item.innerHTML = rolls[roll].groups[group].name;
-			div_groups.appendChild(item);
-			item.addEventListener('click',() => { roll_select(item); });
-		} }
-		div.appendChild(div_groups);
-
-		let div_items = document.createElement('DIV');
-		for (let item in rolls[roll].items) { if (rolls[roll].items.hasOwnProperty(item)) {
-
-			let prefix = 'item_' + roll + '_';
-			let check = document.createElement('INPUT');
-			check.type = 'checkbox';
-			check.id = prefix + item;
-			check.name = 'item[]';
-			check.setAttribute('data-name',item);
-
-			let label = document.createElement('LABEL');
-			label.setAttribute('for',prefix + item);
-			label.setAttribute('data-name',item);
-
-			let span = document.createElement('SPAN');
-			span.innerHTML = rolls[roll].items[item];
-
-			label.appendChild(span);
-			div_items.appendChild(check);
-			div_items.appendChild(label);
-
-		} }
-		div.appendChild(div_items);
-
-		let input = document.createElement('INPUT');
-		input.type = 'button';
-		input.value = 'Roll ' + rolls[roll].name;
-		div.appendChild(input);
-		input.addEventListener('click',() => { roll_submit(div); });
-
-		roll_container.appendChild(div);
-
-	} }
-	// Populate roll
+	populate_roll();
 
 	// Populate maps
-	let map_div = document.getElementById('maps');
-	count = 0;
+	let map_div = Object.assign(document.getElementById('maps'),{innerHTML:''});
+	let count = 0;
 	for (let key in maps) { if (maps.hasOwnProperty(key)) {
 		let map = document.createElement('LI');
 		map.setAttribute('data-map',key);
 
 		let span = document.createElement('SPAN');
 		let link = Object.assign(document.createElement('A'),{
-			href:			'img/' + maps[key].file,
+			href:			'inc/' + maps[key].file,
 			target:		'_blank',
-			innerHTML:	maps[key].name,
+			innerHTML:	langs[lang_use].phrases['map_' + key],
 		});
 
 		map.appendChild(span);
@@ -432,42 +106,14 @@ function load() {
 	// Populate maps
 
 	// Populate difficulties
-	let difficulties_div = document.getElementById('difficulties');
-	count = 0;
-	for (let key in difficulties) { if (difficulties.hasOwnProperty(key)) {
-		let difficulty = document.createElement('LI');
-		difficulty.setAttribute('data-difficulty',key);
-
-		let span = document.createElement('SPAN');
-		let name = Object.assign(document.createElement('SPAN'),{
-			innerHTML:	difficulties[key].name,
-		});
-
-		difficulty.appendChild(span);
-		difficulty.appendChild(name);
-		difficulties_div.appendChild(difficulty);
-
-		if (!count) { setTimeout(() => { difficulty_select(key); },20); }
-		count++;
-	} }
-	// Populate difficulties
+	populate_difficulties();
 
 	// Populate gameplay
-	let gameplay_div = document.getElementById('gameplay');
-	for (let key in gameplay) if (gameplay.hasOwnProperty(key)) { {
-		let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
-		let list = document.createElement('OL');
-		for (let x = 0 ; x < gameplay[key].length; x++) {
-			list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: gameplay[key][x]}));
-		}
-		div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: key + ':'}));
-		div.appendChild(list);
-		gameplay_div.appendChild(div);
-	} }
+	populate_gameplay(lang_use);
 
 	// Populate media
 	for (let key in media) { if (media.hasOwnProperty(key)) {
-		files[key] = new Audio('media/' + media[key].file);
+		files[key] = new Audio('inc/' + media[key].file);
 	} }
 	// Populate media
 
@@ -734,6 +380,21 @@ function keypress(e) {
 
 }
 
+function select_lang(e) {
+	lang_use = e.target.value;
+	do_storage('set','lang',lang_use);
+
+	populate_phrases();
+	populate_clues();
+	populate_ghosts(langs[lang_use]["ghosts"]);
+	populate_photos();
+	populate_roll();
+	populate_difficulties();
+	populate_gameplay();
+	populate_timers();
+	set_timers();
+}
+
 function map_select(map) {
 	use_map = map;
 	let maps_ul = document.getElementById('maps');
@@ -869,13 +530,13 @@ function flicker(elem) {
 	}
 }
 
-function toggle_dark(set_cookie = false) {
+function toggle_dark(persistent = false) {
 	if (!in_array('dark',document.body.classList)) {
 		document.body.classList.add('dark');
-		if (set_cookie) { setcookie('dark',1); }
+		if (persistent) { do_storage('set','dark',1); }
 	} else {
 		document.body.classList.remove('dark');
-		if (set_cookie) { setcookie('dark',0); }
+		if (persistent) { do_storage('set','dark',0); }
 	}
 }
 
@@ -902,7 +563,7 @@ function toggle_alone() {
 
 function toggle_sound() {
 	sound = !sound;
-	setcookie('mute',(sound ? '0' : '1'));
+	do_storage('set','mute',(sound ? '0' : '1'));
 	let link = document.getElementById('links').childNodes[0].childNodes[3];
 	link.classList.toggle('on');
 }
@@ -919,7 +580,7 @@ function count_points(slider) {
 		let slider = parseInt(document.getElementsByName('slider_' + x)[0].value);
 		if (type && slider) {
 			counts[type] = (counts[type] ? counts[type] : 0) + 1;
-			if (!photos[type][4] || (photos[type][4] && photos[type][4] >= counts[type])) {
+			if (!photos[type][5] || (photos[type][5] && photos[type][5] >= counts[type])) {
 				points += photos[type][slider];
 			}
 		}
@@ -942,7 +603,7 @@ function count_points(slider) {
 	} else if (points >= 500) {
 		result = 40;
 	}
-	document.querySelector('div#photos > div > h2').innerHTML = points + ' points = $' + result;
+	document.querySelector('div#photos > div > h2').innerHTML = points + 'P = $' + result;
 }
 
 function reset() {
@@ -984,7 +645,6 @@ function reset() {
 	}
 
 	roll_select('clear');
-
 }
 
 // Modify this to check based on supplied evidence, difficulty and such, and return array of possible ghosts
@@ -1063,7 +723,79 @@ function check_ghosts() {
 	} }
 
 	show_ghosts(possible);
+}
 
+function populate_phrases() {
+	let phrases = document.querySelectorAll('*[data-phrase]');
+	for (let x = 0; x < phrases.length; x++) {
+		let attr = phrases[x].getAttribute('data-phrase');
+		let string = langs[lang_use].phrases[attr];
+		if (string) {
+			if (phrases[x].nodeName === 'INPUT') {
+				phrases[x].value = string;
+			} else {
+				phrases[x].innerHTML = string;
+			}
+		}
+	}
+}
+
+function populate_clues() {
+	let clues_ul = Object.assign(document.getElementById('clues'),{innerHTML:''});
+	let count = 0;
+	for (let x = 0; x < clues.length; x++) {
+		count++;
+		let li					= document.createElement('LI');
+		let span_number	= document.createElement('SPAN');
+		let span_image	= document.createElement('SPAN');
+		let span_y			= document.createElement('SPAN');
+		let span_n			= document.createElement('SPAN');
+		let label_y			= document.createElement('LABEL');
+		let label_n			= document.createElement('LABEL');
+		let check_y			= document.createElement('INPUT');
+		let check_n			= document.createElement('INPUT');
+
+		li.setAttribute('data-clue',clues[x]);
+		li.innerHTML = langs[lang_use].phrases['clue_' + clues[x]];
+		check_y.name = 'clue_y[]'; check_y.type = 'checkbox'; check_y.value = clues[x];
+		check_n.name = 'clue_n[]'; check_n.type = 'checkbox'; check_n.value = clues[x];
+
+		span_number.innerHTML = count.toString();
+
+		label_y.appendChild(check_y); label_y.appendChild(span_y);
+		label_n.appendChild(check_n); label_n.appendChild(span_n);
+		li.appendChild(span_number);
+		li.appendChild(span_image);
+		li.appendChild(label_y); li.appendChild(label_n);
+
+		// Structure: 'text','number','image','tick','cross'
+
+		clues_ul.appendChild(li);
+	}
+}
+
+function populate_timers() {
+	let timers_div = Object.assign(document.getElementById('timer_list'),{innerHTML:''});
+	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
+	let count = 0;
+	for (let key in timers) { if (timers.hasOwnProperty(key)) {
+		let timer = Object.assign(document.createElement('INPUT'),{
+			type:				'button',
+			name:				'timer[]',
+			disabled:		timers[key].disabled,
+		});
+		timer.setAttribute('data-index',key);
+		timer.setAttribute('data-time',timers[key].time);
+		timer.setAttribute('data-hotkey',hotkeys[count]);
+		timer.setAttribute('data-phrase','timer_' + key);
+		timer.setAttribute('value','[' + hotkeys[count] + '] ' + langs[lang_use].phrases['timer_' + key]);
+		if (timers[key].default) {
+			timer.classList.add('current');
+			document.getElementById('timer').innerHTML = timers[key].time.toString();
+		}
+		timers_div.appendChild(timer);
+		count++;
+	} }
 }
 
 function populate_ghosts(ghosts) {
@@ -1079,14 +811,14 @@ function populate_ghosts(ghosts) {
 		let content = document.createElement('LI');
 		content.setAttribute('data-type',key);
 		let exclude = Object.assign(document.createElement('DIV'),{classList:['exclude'],title:'Exclude ghost'});
-		let heading = Object.assign(document.createElement('h3'),{innerHTML:key});
+		let heading = Object.assign(document.createElement('h3'),{innerHTML:langs[lang_use].phrases['ghost_' + key]});
 
 		let icons = document.createElement('SPAN');
 		for (let x = 0; x < ghosts[key]['clues'].length; x++) {
 			let icon = document.createElement('SPAN');
 			icon.setAttribute('data-type',ghosts[key]['clues'][x]);
 			if (in_array(ghosts[key]['clues'][x],checked)) { icon.classList.add('checked'); }
-			icon.title = clues[ghosts[key]['clues'][x]];
+			icon.title = langs[lang_use].phrases['clue_' + ghosts[key]['clues'][x]];
 			icons.appendChild(icon);
 		}
 		heading.appendChild(icons);
@@ -1097,14 +829,150 @@ function populate_ghosts(ghosts) {
 		desc.innerHTML = ghosts[key]['description'];
 
 		let useful_container = document.createElement('UL');
-		for (let x = 0; x < ghosts[key]['useful'].length; x++) {
-			useful_container.appendChild(Object.assign(document.createElement('LI'),{innerHTML: ghosts[key]['useful'][x]}));
+		let useful = langs[lang_use].phrases['ghost_' + key + '_useful'];
+		for (let x = 0; x < useful.length; x++) {
+			useful_container.appendChild(Object.assign(document.createElement('LI'),{innerHTML: useful[x]}));
 		}
 		content.appendChild(useful_container);
 
 		ghosts_ul.appendChild(content);
 	} }
 
+}
+
+function populate_photos() {
+	let tbody = Object.assign(document.querySelector('div#photos tbody'),{innerHTML:''});
+	for (let x = 0; x < photo_count; x++) {
+		let tr = document.createElement('TR');
+
+		let td = document.createElement('TD');
+		td.innerHTML = '[' + (x < photos.length ? (x + 1) : 0 ) + ']';
+		tr.appendChild(td);
+
+		td = document.createElement('TD');
+		let select = document.createElement('SELECT');
+		select.name = 'photo_' + x;
+		select.onchange = function() { count_points() };
+
+		for (let y = 0; y < photos.length; y++) {
+			let opt = document.createElement('OPTION');
+			opt.innerHTML = langs[lang_use].phrases['photo_' + photos[y][0]];
+			opt.value = y;
+			select.appendChild(opt);
+		}
+		td.appendChild(select);
+		tr.appendChild(td);
+
+		td = document.createElement('TD');
+		let slider = document.createElement('INPUT');
+		slider.type = 'range';
+		slider.min = 0; slider.max = star_count;
+		slider.value = 0;
+		slider.name = 'slider_' + x;
+		slider.oninput = function() { count_points(slider); };
+
+		td.appendChild(slider);
+		tr.appendChild(td);
+
+		td = document.createElement('TD');
+		td.innerHTML = '0';
+		tr.appendChild(td);
+
+		tbody.appendChild(tr);
+	}
+}
+
+function populate_roll() {
+	let roll_container = document.querySelector('div#roll > div');
+	let count = 1; // Child element to start with
+	for (let roll in rolls) { if (rolls.hasOwnProperty(roll)) {
+		console.log(count);
+
+		let div = Object.assign(roll_container.childNodes[count],{innerHTML:'',className:'roll_group'});
+
+		let div_groups = document.createElement('DIV');
+		for (let group in rolls[roll].groups) { if (rolls[roll].groups.hasOwnProperty(group)) {
+			let item = document.createElement('SPAN');
+			item.setAttribute('data-name',roll + '_' + group);
+			item.innerHTML = langs[lang_use].phrases['roll_cat_' + group];
+			div_groups.appendChild(item);
+			item.addEventListener('click',() => { roll_select(item); });
+		} }
+		div.appendChild(div_groups);
+
+		let div_items = document.createElement('DIV');
+		for (let x = 0; x < rolls[roll].items.length; x++) {
+			let item = rolls[roll].items[x];
+
+			let item_prefix = 'item_' + roll + '_';
+			let check		= document.createElement('INPUT');
+			check.type	= 'checkbox';
+			check.id		= item_prefix + item;
+			check.name	= 'item[]';
+			check.setAttribute('data-name',item);
+
+			let label = document.createElement('LABEL');
+			label.setAttribute('for',item_prefix + item);
+			label.setAttribute('data-name',item);
+
+			let span				= document.createElement('SPAN');
+			span.innerHTML	= langs[lang_use].phrases['roll_' + item];
+
+			label.appendChild(span);
+			div_items.appendChild(check);
+			div_items.appendChild(label);
+
+		}
+		div.appendChild(div_items);
+
+		let input = Object.assign(document.createElement('INPUT'),{
+			type:		'button',
+			value:	'Roll ' + langs[lang_use].phrases['roll_cat_' + roll],
+		});
+		div.appendChild(input);
+		input.addEventListener('click',() => { roll_submit(div); });
+
+		count++; // Move to next child element
+
+	} }
+}
+
+function populate_difficulties() {
+	let difficulties_div = Object.assign(document.getElementById('difficulties'),{innerHTML:''});
+	let count = 0;
+	for (let key in difficulties) { if (difficulties.hasOwnProperty(key)) {
+		let difficulty = document.createElement('LI');
+		difficulty.setAttribute('data-difficulty',key);
+
+		let span = document.createElement('SPAN');
+		let name = Object.assign(document.createElement('SPAN'),{
+			innerHTML:	langs[lang_use].phrases['diff_' + key],
+		});
+
+		difficulty.appendChild(span);
+		difficulty.appendChild(name);
+		difficulties_div.appendChild(difficulty);
+
+		if (!count) { setTimeout(() => { difficulty_select(key); },20); }
+		count++;
+	} }
+}
+
+function populate_gameplay() {
+	let gameplay_div = Object.assign(document.getElementById('gameplay'),{innerHTML:''});
+	for (let x = 0; x < gameplay.length; x++) {
+		let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
+		let list = document.createElement('OL');
+
+		let phrases = langs[lang_use].phrases['gameplay_' + gameplay[x] + '_items'];
+		for (let x = 0 ; x < phrases.length; x++) {
+			list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: phrases[x]}));
+		}
+
+		div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: langs[lang_use].phrases['gameplay_' + gameplay[x]] + ':'}));
+		div.appendChild(list);
+		gameplay_div.appendChild(div);
+	}
 }
 
 function show_ghosts(ghosts) {
@@ -1241,7 +1109,7 @@ function in_array(needle,haystack,separator = ' ') {
 }
 
 function clone(obj) {
-	if (null == obj || "object" != typeof obj) return obj;
+	if (obj == null || typeof obj != 'object') { return obj; }
 	let copy = obj.constructor();
 	for (let attr in obj) { if (obj.hasOwnProperty(attr)) { copy[attr] = obj[attr]; } }
 	return copy;
@@ -1256,20 +1124,13 @@ function getitem(e,item_type = 'TR') {
 	return (e && e.nodeName === item_type ? e : false);
 }
 
-function setcookie(name,value) {
-	name = cookie + name;
-	let d = new Date(); d.setTime(d.getTime() + (24 * 3600 * 1000));
-	document.cookie = name + '=' + value + '; expires=' + d.toUTCString() + '; SameSite=None; Secure; path=/';
-}
-
-function getcookie(name) {
-	name = cookie + name;
-	let output = 0;
-	let data = document.cookie.split('; ');
-	let item;
-	for (let x = 0; x < data.length; x++) {
-		item = data[x]; item = item.split('=');
-		if (item[0] === name) { output = item[1]; }
+function do_storage(act,name,value = '') {
+	name = prefix + name;
+	let result = '';
+	switch (act) {
+		case 'set': localStorage.setItem(name,value); break;
+		case 'get': result = localStorage.getItem(name); if (result === null) { result = ''; } break;
+		case 'del': localStorage.removeItem(name); break;
 	}
-	return output;
+	return result;
 }

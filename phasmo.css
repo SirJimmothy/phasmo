@@ -15,12 +15,12 @@
 	--red_trans:		rgba(255,0,0,0.5);
 	--green2_trans:	rgba(0,255,0,0.5);
 
-	--phasmo: 			url("img/phasmo.png");
-	--icons:				url("img/icons.png");
+	--phasmo: 			url("inc/phasmo.png");
+	--icons:				url("inc/icons.png");
 }
 
-@font-face { font-family: "arial"; src: url("arial.ttf"); }
-@font-face { font-family: "fixed"; src: url("lucon.ttf"); }
+@font-face { font-family: "arial"; src: url("inc/arial.ttf"); }
+@font-face { font-family: "fixed"; src: url("inc/lucon.ttf"); }
 
 body { margin: 0; padding: 1em; overflow-x: hidden; font-family: "arial", sans-serif; font-size: 14px; background-color: var(--grey2); transition: all 0.1s linear 0s; }
 h1, h2, h3 { margin: 0; text-align: center; font-weight: normal; }
@@ -47,15 +47,15 @@ div#top > div { display: inline-block; vertical-align: top; }
 
 /* Keyboard shortcuts */
 div#links { user-select: none; }
-div#links > ul { list-style-type: none; display: inline-block; margin: 0; padding: 0; }
+div#links > ul { list-style-type: none; display: inline-block; margin: 0; padding: 0; font-size: 0; }
 div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.25em 0 0; border: 1px solid var(--white); line-height: 1em; font-size: 14px; cursor: pointer; }
-div#links > ul > li > span { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
+div#links > ul > li > span:nth-of-type(1) { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
 html:fullscreen #links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
 
 div#links > ul > li.on { border-color: var(--black); }
 
 /* Ghost name & alone marker */
-div#ghost { position: absolute; top: 0; right: 0; }
+div#ghost { position: absolute; top: 0; right: 6em; }
 div#ghost > input { width: 12.5em; font-family: "fixed", monospace; }
 div#ghost > label { user-select: none; cursor: pointer; }
 div#ghost > label > input { display: none; }
@@ -67,6 +67,10 @@ div#ghost > label:first-of-type > span { padding-left: 0.25em; padding-right: 0.
 div#ghost > label > input:checked + span { color: var(--white); background-color: var(--green); }
 
 div#ghost > input:focus + label:before { position: absolute; top: 19px; left: 0; padding: 0.25em 0.5em; border: 1px solid var(--black); font-size: 12px; background-color: var(--pale); content: 'Enter or Esc to exit'; }
+
+div#lang { position: absolute; top: 0; right: 0; }
+div#lang > select { width: 5em; line-height: 1em; border: 1px solid var(--black); border-radius: 0.5em; color: var(--black); background-color: var(--grey2); }
+div#lang > select > option { }
 
 /* Top section */
 div#head { display: flex; flex-flow: row; margin-bottom: 0.5em; }
@@ -251,7 +255,8 @@ div.roll_group > div:nth-of-type(2) > label[data-name="ridgeview"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="edgefield"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="grafton"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="bleasdale"] > span,
-div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span
+div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="maple"] > span
 	{ height: 2em; }
 
 /* Gameplay */
@@ -272,7 +277,7 @@ body.dark a:hover { text-shadow: 0 0 0.5em var(--green2_trans); }
 
 /* Keyboard shortcuts */
 body.dark div#links > ul > li { border-color: var(--black); }
-body.dark div#links > ul > li > span { color: var(--black); background-color: var(--white); }
+body.dark div#links > ul > li > span:nth-of-type(1) { color: var(--black); background-color: var(--white); }
 
 /* Keyboard shortcut: dark */
 body.dark div#links > ul > li:nth-of-type(1) { border: 1px solid var(--white); }
@@ -352,7 +357,8 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 	div.roll_group > div:nth-of-type(2) > label[data-name="ridgeview"] > span
 	{ height: 2em; }
 
-	div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span
+	div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span,
+	div.roll_group > div:nth-of-type(2) > label[data-name="maple"] > span
 	{ height: 3em; }
 
 	div.roll_group > div:nth-of-type(2) > label[data-name="mos"] > span,
