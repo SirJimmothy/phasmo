@@ -64,7 +64,7 @@ To add another language to the tool, you will need to do the following:
 - Modify the first line to change the array element used, using the same short code as the key
 
 ```javascript
-langs["en"] = { // Property here should match this language name
+langs.en = { // Property here should match this language name
 ```
 
 - Change any phrases as required to the designated language - do not change the property names as these are pointers the tool uses to find the various phrases
