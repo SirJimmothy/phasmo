@@ -11,7 +11,6 @@ assignees: SirJimmothy
 Describe the section that requires changing, e.g. ghost / gameplay / evidence items / non-evidence items / cursed items / hunts
 
 #### Clearly state the suggested changes
-
 Ideally copy the line(s) that require changes, and specify the recommended change underneath each line, to make each edit clear.
 
 #### Provide citations where applicable
