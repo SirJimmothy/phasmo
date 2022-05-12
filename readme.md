@@ -60,8 +60,8 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 ## Multi-language functionality
 To add another language to the tool, you will need to do the following:
 
-- Copy langs/en.js to a new file, named with the short code you wish to use
-- Modify the first line to change the array element used, using the same short code as the key
+- Copy ```langs/en.js``` to a new file, named with the language code you wish to use
+- Modify the first line to match the property to the filename
 
 ```javascript
 langs.en = { // Property here should match this language name
