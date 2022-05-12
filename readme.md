@@ -60,7 +60,7 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 ## Multi-language functionality
 To add another language to the tool, you will need to do the following:
 
-- Copy ```langs/en.js``` to a new file, named with the language code you wish to use
+- Copy `langs/en.js` to a new file, named with the language code you wish to use
 - Modify the first line to match the property to the filename
 
 ```javascript
@@ -68,7 +68,7 @@ langs.en = { // Property here should match this language name
 ```
 
 - Change any phrases as required to the designated language - do not change the property names as these are pointers the tool uses to find the various phrases
-- Add a new JavaScript include into index.html ```<head>``` tag, as shown:
+- Add a new JavaScript include into index.html `<head>` tag, as shown:
 
 ```html
 <!-- Language files here -->
