@@ -287,7 +287,7 @@ langs.en = { // Property here should match this language name
 			'EMF values: 2 for interaction; 3 for throw; 4 for ghost event. 25% chance to become 5 for EMF 5 ghosts',
 			'Truck EMF board registers EMF as 1 less than real values, with optional extra +/-1 variation: EMF 3 can show as 1, 2 or 3',
 			'Spirit boxes will work anywhere inside the map, but the ghost will only listen to someone in a room with no lights on, within 3M of the ghost',
-			"Ghost orbs only appear in the favourite room",
+			"Ghost orbs only appear in the ghost's current room, and as such can be used to track ghost movement",
 			'DOTS sensors show periodic moving silhouettes of ghosts, if the ghost is in the room',
 			'Video and regular cameras can see ghost orbs. Ghost orbs move around the room and behave like bubbles',
 			"Ghost writing books are considered by the ghost as standard interaction and throwable items, like random clutter. Removing clutter can increase the chances of the ghost interacting with a book",
