@@ -106,7 +106,7 @@ langs.ru = { // Property here should match this language name
 		clue_dots:								'Проектор',
 		clue_emf:									'ЭМП 5',
 		clue_prints:							'Отпечатки рук',
-		clue_temps:								'Холод',
+		clue_temps:								'Мороз',
 		clue_orb:									'Огонек',
 		clue_writing:							'Записи',
 		clue_box:									'Радиоприемник',
