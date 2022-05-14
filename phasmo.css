@@ -410,7 +410,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 @media all and (max-width: 720px) {
 
 /* Top sections into one set per row */
-	div#top > div { display: block; }
+	div#top > div { position: relative; top: 0; left: 0; display: block; text-align: center; }
 
 /* Keyboard Shortcuts */
 	div#links { text-align: center; }
@@ -425,6 +425,9 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 	div#head > div { }
 	div#head > div:nth-of-type(1) { margin: 0 0 0.25em 0; border-radius: 1em 1em 0 0; }
 	div#head > div:nth-of-type(2) { width: auto; margin-bottom: 0.5em; border-radius: 0 0 1em 1em; }
+
+/* Difficulty selection */
+	ul#difficulties > li { flex-basis: 40%; }
 
 /* Clue Selection */
 	ul#clues > li { flex-basis: 100%; }
