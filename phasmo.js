@@ -58,7 +58,7 @@ function load() {
 	// Load clues and ghosts into page
 	if (parseInt(do_storage('get','dark').toString())) { toggle_dark(); }
 	if (parseInt(do_storage('get','mute').toString())) {
-		let sound = document.getElementById('sound').childNodes[0].childNodes[0];
+		let sound = document.getElementById('sound').childNodes[1].childNodes[0];
 		sound.checked = false;
 		toggle_sound();
 	}
@@ -171,9 +171,6 @@ function click(e) {
 						setTimeout(() => { toggle_sound(); },50);
 					}
 
-				break;
-				default:
-
 					let item;
 					if (parent_div.id === 'links') {
 						switch (getitem(target,'LI')) {
@@ -185,7 +182,7 @@ function click(e) {
 							break;
 							case parent_div.childNodes[0].childNodes[3]:
 								toggle_sound();
-								item = document.getElementById('sound').childNodes[0].childNodes[0];
+								item = document.getElementById('sound').childNodes[1].childNodes[0];
 								item.click();
 							break;
 							case parent_div.childNodes[0].childNodes[4]:
@@ -193,6 +190,9 @@ function click(e) {
 							break;
 						}
 					}
+
+				break;
+				default:
 
 				break;
 			}
@@ -875,7 +875,6 @@ function populate_roll() {
 	let roll_container = document.querySelector('div#roll > div');
 	let count = 1; // Child element to start with
 	for (let roll in rolls) { if (rolls.hasOwnProperty(roll)) {
-		console.log(count);
 
 		let div = Object.assign(roll_container.childNodes[count],{innerHTML:'',className:'roll_group'});
 
