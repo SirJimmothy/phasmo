@@ -115,7 +115,6 @@ langs.en = { // Property here should match this language name
 		ghost_banshee:						'Banshee',
 		ghost_banshee_useful:			[
 			"Hunts only its target and only checks target sanity before hunting, unless target is outside",
-			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
 			"Will often wander to target",
 			"Prefers singing during ghost events; these drain +5% sanity",
 			"May shriek through paramic",
@@ -123,6 +122,7 @@ langs.en = { // Property here should match this language name
 		ghost_demon:							'Demon',
 		ghost_demon_useful:				[
 			"Crucifixes have +2m range",
+			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
 			"Can hunt at 70% sanity",
 			"Low chance to hunt at any sanity level",
 			"Delay between hunts is reduced to 20s",
