@@ -225,7 +225,7 @@ langs.en = { // Property here should match this language name
 			"Prefers breath ghost events",
 			"Prefers shadow form during ghost events",
 			"Cannot hunt above 35% sanity",
-			"Won't try to hunt with &gt;1 person in room",
+			"Won't try to hunt with anyone in room",
 		],
 		ghost_spirit:							'Spirit',
 		ghost_spirit_useful:			[
