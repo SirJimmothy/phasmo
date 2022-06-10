@@ -134,6 +134,7 @@ langs.en = { // Property here should match this language name
 		ghost_deogen_useful:			[
 			"Can detect player locations during hunt; players cannot hide",
 			"Moves at max speed when out of LoS, but very slowly when seen",
+			"Can see through doors",
 		],
 		ghost_goryo:							'Goryo',
 		ghost_goryo_useful:				[
