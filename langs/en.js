@@ -176,7 +176,7 @@ langs.en = { // Property here should match this language name
 		ghost_moroi_useful:				[
 			//"Moves faster as average sanity drops",
 			"Drains sanity more quickly on random nearby player",
-			//"Smudge stick targeting grace period lasts half as long (3s)",
+			"Smudge stick targeting grace period lasts 1.5x as long (9s)",
 		],
 		ghost_myling:							'Myling',
 		ghost_myling_useful:			[
