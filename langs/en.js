@@ -14,6 +14,7 @@ langs.en = { // Property here should match this language name
 		gameplay:									"Gameplay &amp; item info",
 		github:										"Visit on GitHub",
 		hunt_timers:							"Hunt timers include the various grace periods",
+		no_info:									"No information yet",
 
 		// Timers
 		timer_start:							"Start",
@@ -129,6 +130,11 @@ langs.en = { // Property here should match this language name
 			"Smudges last 2/3 as long: 60s",
 			"Sanity loss triggers cost 20% less sanity",
 		],
+		ghost_deogen:							'Deogen',
+		ghost_deogen_useful:			[
+			"Can detect player locations during hunt; do not hide",
+			"Moves quickly when out of LoS, but slowly when seen",
+		],
 		ghost_goryo:							'Goryo',
 		ghost_goryo_useful:				[
 			"Will never perform a long roam from the ghost room",
@@ -165,6 +171,9 @@ langs.en = { // Property here should match this language name
 			"Can behave as any other ghost, including hunt behaviour and triggers",
 			"Will change behaviour no more than once per-minute",
 			"Shows false ghost orbs",
+		],
+		ghost_moroi:							'Moroi',
+		ghost_moroi_useful:				[
 		],
 		ghost_myling:							'Myling',
 		ghost_myling_useful:			[
@@ -230,6 +239,9 @@ langs.en = { // Property here should match this language name
 		ghost_spirit:							'Spirit',
 		ghost_spirit_useful:			[
 			"Smudges last twice as long: 180s",
+		],
+		ghost_thaye:							'Thaye',
+		ghost_thaye_useful:				[
 		],
 		ghost_twins:							'Twins',
 		ghost_twins_useful:				[

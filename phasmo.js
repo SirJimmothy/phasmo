@@ -819,8 +819,12 @@ function populate_ghosts(ghosts) {
 
 		let useful_container = document.createElement('UL');
 		let useful = langs[lang_use].phrases['ghost_' + key + '_useful'];
-		for (let x = 0; x < useful.length; x++) {
-			useful_container.appendChild(Object.assign(document.createElement('LI'),{innerHTML: useful[x]}));
+		if (!useful.length) {
+			useful_container.appendChild(Object.assign(document.createElement('LI'),{innerHTML: langs[lang_use].phrases.no_info}));
+		} else {
+			for (let x = 0; x < useful.length; x++) {
+				useful_container.appendChild(Object.assign(document.createElement('LI'),{innerHTML: useful[x]}));
+			}
 		}
 		content.appendChild(useful_container);
 
