@@ -245,6 +245,7 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_thaye:							'Thaye',
 		ghost_thaye_useful:				[
+			"Starts active and becomes less active over time",
 		],
 		ghost_twins:							'Twins',
 		ghost_twins_useful:				[
