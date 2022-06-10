@@ -246,6 +246,7 @@ langs.en = { // Property here should match this language name
 		ghost_thaye:							'Thaye',
 		ghost_thaye_useful:				[
 			"Starts active and becomes less active over time",
+			"Slows down the longer the game continues",
 		],
 		ghost_twins:							'Twins',
 		ghost_twins_useful:				[
