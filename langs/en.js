@@ -174,6 +174,7 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_moroi:							'Moroi',
 		ghost_moroi_useful:				[
+			"Moves faster as average sanity drops",
 		],
 		ghost_myling:							'Myling',
 		ghost_myling_useful:			[
