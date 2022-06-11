@@ -78,15 +78,27 @@ function load() {
 		let map = document.createElement('LI');
 		map.setAttribute('data-map',key);
 
+		/*
 		let span = document.createElement('SPAN');
 		let link = Object.assign(document.createElement('A'),{
 			href:			'inc/' + maps[key].file,
 			target:		'_blank',
 			innerHTML:	langs[lang_use].phrases['map_' + key],
 		});
+		*/
 
-		map.appendChild(span);
+		let link = Object.assign(document.createElement('A'),{
+			href:			'inc/' + maps[key].file,
+			target:		'_blank',
+			title:		langs[lang_use].phrases.open_map,
+		});
+		let span = Object.assign(document.createElement('SPAN'),{
+			tabIndex:		0,
+			innerHTML:	langs[lang_use].phrases['map_' + key],
+		});
+
 		map.appendChild(link);
+		map.appendChild(span);
 		map_div.appendChild(map);
 
 		if (!count) { setTimeout(() => { map_select(key); },20); }

@@ -15,6 +15,7 @@ langs.en = { // Property here should match this language name
 		github:										"Visit on GitHub",
 		hunt_timers:							"Hunt timers include the various grace periods",
 		no_info:									"No information yet",
+		open_map:									"Open Map",
 
 		// Timers
 		timer_start:							"Start",
@@ -175,8 +176,9 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_moroi:							'Moroi',
 		ghost_moroi_useful:				[
-			"Curses random nearby player; increases sanity loss until pills taken or far away",
-			"Smudge stick targeting grace period lasts 1.5x as long (9s)",
+			"Curses random nearby player; increases sanity loss until outside, far away, or pills taken",
+			"Moves faster at lower average sanity",
+			"Smudge stick targeting grace period lasts 2x as long (12s)",
 		],
 		ghost_myling:							'Myling',
 		ghost_myling_useful:			[
