@@ -48,7 +48,8 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 | [ / ] | Cycle through the available maps: press Space to select map; Enter to open. When the Photos tab is pulled out, allows the selection of photo quality        |
 | + / - | Increase or decrease difficulty                                                                                                                             |
 | Q-U   | Select a timer, and use # to start or stop. Press the letter key again to reset                                                                             |
-| #     | Start or stop timer                                                                                                                                         |
+| .     | Start or stop default step timer, to check against ghost step speed                                                                                         |
+| #     | Start or stop selected timer                                                                                                                                |
 | A     | Toggle alone / all players ghost                                                                                                                            |
 | D     | Toggle dark mode                                                                                                                                            |
 | F     | Toggle fullscreen                                                                                                                                           |

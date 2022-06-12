@@ -2,7 +2,7 @@ langs.en = { // Property here should match this language name
 	"phrases": {
 		dark:											"Dark",
 		fullscreen:								"Fullscreen",
-		timer:										"Timer",
+		steps:										"Steps",
 		mute:											"Mute",
 		reset:										"Reset",
 		alone:										"Alone",
@@ -176,7 +176,8 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_moroi:							'Moroi',
 		ghost_moroi_useful:				[
-			"Curses random user; increases sanity loss rate until pills taken",
+			"Curses spirit box user; increases sanity loss rate until pills taken",
+			"Candles do not prevent sanity loss while cursed",
 			"Moves faster at lower average sanity",
 			"Smudge stick targeting grace period lasts 2x as long (12s)",
 		],
@@ -279,6 +280,22 @@ langs.en = { // Property here should match this language name
 		],
 
 		// Gameplay info
+		gameplay_hotkeys:							'Hotkeys',
+		gameplay_hotkeys_items:				[
+			"0-9	Toggle each evidence item to either confirm or disregard, to help identify the ghost. When the Photos tab is pulled out, toggles the individual photo types",
+			"[ / ]	Cycle through the available maps: press Space to select map; Enter to open. When the Photos tab is pulled out, allows the selection of photo quality",
+			"+ / -	Increase or decrease difficulty",
+			"Q-U		Select a timer, and use # to start or stop. Press the letter key again to reset",
+			".	Start or stop default step timer, to check against ghost step speed",
+			"#		Start or stop selected timer",
+			"A	Toggle alone / all players ghost",
+			"D	Toggle dark mode",
+			"F	Toggle fullscreen",
+			"S	Pulls out the Photos tab",
+			"L	Pulls out the Roll tab",
+			"M	Mute timer sounds",
+			"X	Reset the ghost finder for the next ghost. Will not change the selected map, difficulty or timer",
+		],
 		gameplay_general:							'General',
 		gameplay_general_items:				[
 			'Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas',

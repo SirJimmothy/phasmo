@@ -9,6 +9,7 @@ for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
 let files = {};
 let media = {
 	"click":	{"type":"audio","file":"click.mp3"},
+	"tick":		{"type":"audio","file":"tick.mp3"},
 	"alarm":	{"type":"audio","file":"alarm.mp3"},
 };
 
@@ -20,13 +21,14 @@ let lang_use	= "en";
 
 let timings = {
 	"main":	{"start": 0,	"end": 0,	"current": 0},
+	"step":	null,
 };
 let clocks = {
 	"hunt":		null,
 	"smudge":	null,
 };
 
-let gameplay = ["general","evidence","non_evidence","cursed_items","hunts","nerd_info"];
+let gameplay = ["hotkeys","general","evidence","non_evidence","cursed_items","hunts","nerd_info"];
 
 let checked = []; // Hold list of currently checked clues
 
@@ -77,15 +79,6 @@ function load() {
 	for (let key in maps) { if (maps.hasOwnProperty(key)) {
 		let map = document.createElement('LI');
 		map.setAttribute('data-map',key);
-
-		/*
-		let span = document.createElement('SPAN');
-		let link = Object.assign(document.createElement('A'),{
-			href:			'inc/' + maps[key].file,
-			target:		'_blank',
-			innerHTML:	langs[lang_use].phrases['map_' + key],
-		});
-		*/
 
 		let link = Object.assign(document.createElement('A'),{
 			href:			'inc/' + maps[key].file,
@@ -186,18 +179,21 @@ function click(e) {
 					let item;
 					if (parent_div.id === 'links') {
 						switch (getitem(target,'LI')) {
-							case parent_div.childNodes[0].childNodes[0]:
+							case parent_div.children[0].children[0]:
 								toggle_dark(true);
 							break;
-							case parent_div.childNodes[0].childNodes[1]:
+							case parent_div.children[0].children[1]:
 								toggle_fullscreen();
 							break;
-							case parent_div.childNodes[0].childNodes[3]:
+							case parent_div.children[0].children[2]:
+								toggle_steps();
+								break;
+							case parent_div.children[0].children[3]:
 								toggle_sound();
-								item = document.getElementById('sound').childNodes[1].childNodes[0];
+								item = document.getElementById('sound').children[1].children[0];
 								item.click();
 							break;
-							case parent_div.childNodes[0].childNodes[4]:
+							case parent_div.children[0].children[4]:
 								reset();
 							break;
 						}
@@ -292,6 +288,9 @@ function keypress(e) {
 			break;
 			case '#':
 				document.getElementById('play').click();
+			break;
+			case '.':
+				toggle_steps();
 			break;
 			case 'a':
 				toggle_alone();
@@ -549,6 +548,17 @@ function toggle_fullscreen() {
 	}
 }
 
+function toggle_steps() {
+	let elem = document.getElementById('links').children[0].children[2];
+	elem.classList.toggle('on');
+	if (timings.step) {
+		clearInterval(timings.step); timings.step = null;
+	} else {
+		files.tick.play();
+		timings.step = setInterval(() => { files.tick.play(); },600);
+	}
+}
+
 function toggle_alone() {
 	let alone_0 = document.getElementById('ghost').childNodes[1].childNodes[0];
 	let alone_1 = document.getElementById('ghost').childNodes[2].childNodes[0];
@@ -565,7 +575,7 @@ function toggle_alone() {
 function toggle_sound() {
 	sound = !sound;
 	do_storage('set','mute',(sound ? '0' : '1'));
-	let link = document.getElementById('links').childNodes[0].childNodes[3];
+	let link = document.getElementById('links').children[0].children[3];
 	link.classList.toggle('on');
 }
 
@@ -965,17 +975,19 @@ function populate_difficulties() {
 function populate_gameplay() {
 	let gameplay_div = Object.assign(document.getElementById('gameplay'),{innerHTML:''});
 	for (let x = 0; x < gameplay.length; x++) {
-		let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
-		let list = document.createElement('OL');
+		if (langs[lang_use].phrases['gameplay_' + gameplay[x]]) {
+			let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
+			let list = document.createElement('OL');
 
-		let phrases = langs[lang_use].phrases['gameplay_' + gameplay[x] + '_items'];
-		for (let x = 0 ; x < phrases.length; x++) {
-			list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: phrases[x]}));
+			let phrases = langs[lang_use].phrases['gameplay_' + gameplay[x] + '_items'];
+			for (let x = 0 ; x < phrases.length; x++) {
+				list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: phrases[x]}));
+			}
+
+			div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: langs[lang_use].phrases['gameplay_' + gameplay[x]] + ':'}));
+			div.appendChild(list);
+			gameplay_div.appendChild(div);
 		}
-
-		div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: langs[lang_use].phrases['gameplay_' + gameplay[x]] + ':'}));
-		div.appendChild(list);
-		gameplay_div.appendChild(div);
 	}
 }
 
