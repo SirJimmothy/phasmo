@@ -176,7 +176,7 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_moroi:							'Moroi',
 		ghost_moroi_useful:				[
-			"Curses random nearby player; increases sanity loss until outside, far away, or pills taken",
+			"Curses random user; increases sanity loss rate until pills taken",
 			"Moves faster at lower average sanity",
 			"Smudge stick targeting grace period lasts 2x as long (12s)",
 		],
