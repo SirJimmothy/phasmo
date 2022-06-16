@@ -79,7 +79,7 @@ let rolls = {
 		items:["asylum","bleasdale","brownstone","edgefield","grafton","maple","prison","ridgeview","tanglewood","willow"],
 		groups:{
 			clear:	{items:[]},
-			all:		{items:[]},
+			all:		{items:["asylum","bleasdale","brownstone","edgefield","grafton","maple","prison","ridgeview","tanglewood","willow"]},
 			small:	{items:["tanglewood","willow","ridgeview","edgefield","grafton","bleasdale"]},
 			medium:	{items:["brownstone","maple","prison"]},
 			large:	{items:["asylum"]},
@@ -89,7 +89,7 @@ let rolls = {
 		items:["can","cru","dot","emf","fla","gwb","glo","lig","mos","par","cam","sal","san","sms","snd","spb","sfl","thm","tri","uvl","vid"],
 		groups:{
 			clear:			{items:[]},
-			all:				{items:[]},
+			all:				{items:["can","cru","dot","emf","fla","gwb","glo","lig","mos","par","cam","sal","san","sms","snd","spb","sfl","thm","tri","uvl","vid"]},
 			evidence:		{items:["emf","dot","gwb","spb","thm","uvl","vid"]},
 			secondary:	{items:["can","cru","fla","glo","lig","mos","par","cam","sal","san","sms","snd","sfl","tri"]},
 			lights:			{items:["can","fla","sfl"]},
