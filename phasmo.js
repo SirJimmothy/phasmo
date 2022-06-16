@@ -250,7 +250,7 @@ function keydown(e) {
 			let len = maps_div.childNodes.length;
 			if (in_array(keycode,['[',']'])) {
 				let found = false;
-				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[1] === current) {
+				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === current) {
 					e.preventDefault();
 					found = true;
 					let item = x;
@@ -259,10 +259,10 @@ function keydown(e) {
 					} else {
 						item = (x === (len - 1) ? 0 : (x + 1));
 					}
-					let map = maps_div.childNodes[item].childNodes[1];
+					let map = maps_div.childNodes[item].childNodes[0];
 					map.focus();
 				} }
-				if (!found) { e.preventDefault(); maps_div.childNodes[(keycode === '[' ? (len - 1) : 0)].childNodes[1].focus(); }
+				if (!found) { e.preventDefault(); maps_div.childNodes[(keycode === '[' ? (len - 1) : 0)].childNodes[0].focus(); }
 			}
 
 		}

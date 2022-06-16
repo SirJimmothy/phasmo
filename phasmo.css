@@ -146,11 +146,11 @@ ul#clues > li.disabled:before { display: block; }
 ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
 ul#maps > li { position: relative; display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; }
 
-ul#maps > li > a { position: absolute; top: 0; left: 0; width: 2em; height: 100%; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; background: var(--icons) -120px -30px no-repeat; cursor: pointer; }
+ul#maps > li > a { position: absolute; top: 0; left: 0; width: 2em; height: 100%; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; outline: none; background: var(--icons) -120px -30px no-repeat; cursor: pointer; }
 ul#maps > li > a.selected { background-color: var(--grey3); }
 
 ul#maps > li > span { display: block; margin-left: calc(2em + 1px); padding: 0.5em 0; cursor: pointer; }
-ul#maps > li > span:hover, ul#maps > li > span:focus { border-radius: 0 0.5em 0.5em 0; outline: none; text-shadow: none; color: var(--black); background-color: var(--grey2); }
+ul#maps > li > span:hover, ul#maps > li > a:focus + span { border-radius: 0 0.5em 0.5em 0; outline: none; text-shadow: none; color: var(--black); background-color: var(--grey2); }
 
 /* Difficulties */
 ul#difficulties { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
