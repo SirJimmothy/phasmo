@@ -1080,13 +1080,13 @@ function roll_select(item) {
 		let roll_items = item.parentNode.nextSibling;
 		for (let x = 0; x < roll_items.childNodes.length; x++) {
 			if (roll_items.childNodes[x].nodeName === 'INPUT') {
-				let item = roll_items.childNodes[x];
-				item.checked = false;
-				item.className = '';
+				let roll_item = roll_items.childNodes[x];
+				roll_item.checked = false;
+				roll_item.className = '';
 
-				let check_name = item.getAttribute('data-name');
-				if (in_array(check_name,rolls[roll[0]].groups[roll[1]].items)) {
-					item.checked = true;
+				let check_name = roll_item.getAttribute('data-name');
+				if (roll[1] === 'all' || in_array(check_name,rolls[roll[0]].groups[roll[1]].items)) {
+					roll_item.checked = true;
 				}
 			}
 		}
