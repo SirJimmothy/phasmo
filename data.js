@@ -8,7 +8,7 @@ let ghosts = {
 	jinn:					{clues: ["emf","prints","temps"],				clues_always: []},
 	mare: 				{clues: ["box","orb","writing"],				clues_always: []},
 	mimic:				{clues: ["box","orb","prints","temps"],	clues_always: ["orb"]},
-	moroi:				{clues: ["box","temps","writing"],			clues_always: []},
+	moroi:				{clues: ["box","temps","writing"],			clues_always: ['box']},
 	myling:				{clues: ["emf","prints","writing"],			clues_always: []},
 	obake:				{clues: ["emf","orb","prints"],					clues_always: ["prints"]},
 	oni:					{clues: ["emf","dots","temps"],					clues_always: []},
