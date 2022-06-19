@@ -180,6 +180,7 @@ langs.en = { // Property here should match this language name
 			"Candles do not prevent sanity loss while cursed",
 			"Moves faster at lower average sanity",
 			"Smudge stick targeting grace period lasts 2x as long (12s)",
+			"Nightmare mode: spirit box is guaranteed",
 		],
 		ghost_myling:							'Myling',
 		ghost_myling_useful:			[
