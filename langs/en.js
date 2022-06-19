@@ -178,7 +178,7 @@ langs.en = { // Property here should match this language name
 		ghost_moroi_useful:				[
 			"Curses spirit box user; increases sanity loss rate until pills taken",
 			"Candles do not prevent sanity loss while cursed",
-			"Moves faster at lower average sanity",
+			"Moves faster at lower average sanity; does not otherwise speed up during hunts",
 			"Smudge stick targeting grace period lasts 2x as long (12s)",
 			"Nightmare mode: spirit box is guaranteed",
 		],
