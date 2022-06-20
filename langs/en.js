@@ -251,7 +251,7 @@ langs.en = { // Property here should match this language name
 		ghost_thaye_useful:				[
 			"Starts very active and fast; becomes less active and slower every 5 minutes of player proximity",
 			"While very active, can hunt at 70% sanity",
-			"While less active, can hunt at 15% sanity",
+			"While less active, can hunt at 20% sanity",
 			"While less active, won't try to hunt with anyone in room",
 		],
 		ghost_twins:							'Twins',
