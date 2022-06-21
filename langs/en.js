@@ -176,8 +176,9 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_moroi:							'Moroi',
 		ghost_moroi_useful:				[
-			"Curses spirit box user; increases sanity loss rate until pills taken",
-			"Candles do not prevent sanity loss while cursed",
+			"Curses spirit box user; sanity drops while indoors until pills taken",
+			"Also curses paramic users upon hearing footsteps or whispers",
+			"Sanity drop rate: 0.25/s in single player, 0.5/s in multiplayer",
 			"Moves faster at lower average sanity; does not otherwise speed up during hunts",
 			"Smudge stick targeting grace period lasts 2x as long (12s)",
 			"Nightmare mode: spirit box is guaranteed",
