@@ -50,7 +50,9 @@ div#links { user-select: none; }
 div#links > ul { list-style-type: none; display: inline-block; margin: 0; padding: 0; font-size: 0; }
 div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.25em 0 0; border: 1px solid var(--white); line-height: 1em; font-size: 14px; cursor: pointer; }
 div#links > ul > li > span:nth-of-type(1) { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
-html:fullscreen #links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
+
+html:fullscreen div#links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
+body.compact div#links > ul > li:nth-of-type(5) { border: 1px solid var(--black); }
 
 div#links > ul > li.on { border-color: var(--black); }
 
@@ -179,6 +181,9 @@ ul#ghosts > li > h3 > span > span:nth-of-type(1) { margin-left: 0; }
 ul#ghosts > li > ul { list-style-type: none; margin: 0.3em 0 0 0; padding: 0; }
 ul#ghosts > li > ul > li { position: relative; margin: 0.25em 0; padding: 0 0 0 0.75em; line-height: calc(1em + 2px); }
 ul#ghosts > li > ul > li::before { position: absolute; top: 0; left: 0; font-weight: bold; font-family: "fixed", monospace; line-height: calc(1em + 2px); content: '»'; }
+
+body.compact ul#ghosts > li { padding-bottom: 0.25em; }
+body.compact ul#ghosts > li > ul { display: none; }
 
 /* Ghost clue icons */
 ul#ghosts > li > h3 > span > span[data-type="dots"] {			background-position: -120px 0; }

@@ -51,6 +51,7 @@ The tool includes built-in support for keyboard shortcuts to make it easier to s
 | .     | Start or stop default step timer, to check against ghost step speed                                                                                         |
 | #     | Start or stop selected timer                                                                                                                                |
 | A     | Toggle alone / all players ghost                                                                                                                            |
+| C     | Toggle compact mode (ghost hints hidden)                                                                                                                    |
 | D     | Toggle dark mode                                                                                                                                            |
 | F     | Toggle fullscreen                                                                                                                                           |
 | S     | Pulls out the Photos tab                                                                                                                                    |

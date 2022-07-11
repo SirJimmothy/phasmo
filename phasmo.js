@@ -59,6 +59,7 @@ function load() {
 
 	// Load clues and ghosts into page
 	if (parseInt(do_storage('get','dark').toString())) { toggle_dark(); }
+	if (parseInt(do_storage('get','compact').toString())) { toggle_compact(); }
 	if (parseInt(do_storage('get','mute').toString())) {
 		let sound = document.getElementById('sound').childNodes[1].childNodes[0];
 		sound.checked = false;
@@ -194,6 +195,9 @@ function click(e) {
 								item.click();
 							break;
 							case parent_div.children[0].children[4]:
+								toggle_compact();
+							break;
+							case parent_div.children[0].children[5]:
 								reset();
 							break;
 						}
@@ -295,9 +299,12 @@ function keypress(e) {
 			case 'a':
 				toggle_alone();
 			break;
+			case 'c':
+				toggle_compact(true);
+			break;
 			case 'd':
 				toggle_dark(true);
-			break;
+				break;
 			case 'f':
 				toggle_fullscreen();
 			break;
@@ -537,6 +544,16 @@ function toggle_dark(persistent = false) {
 	} else {
 		document.body.classList.remove('dark');
 		if (persistent) { do_storage('set','dark',0); }
+	}
+}
+
+function toggle_compact(persistent = false) {
+	if (!in_array('compact',document.body.classList)) {
+		document.body.classList.add('compact');
+		if (persistent) { do_storage('set','compact',1); }
+	} else {
+		document.body.classList.remove('compact');
+		if (persistent) { do_storage('set','compact',0); }
 	}
 }
 
