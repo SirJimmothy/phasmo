@@ -55,6 +55,7 @@ html:fullscreen div#links > ul > li:nth-of-type(2) { border: 1px solid var(--bla
 body.compact div#links > ul > li:nth-of-type(5) { border: 1px solid var(--black); }
 
 div#links > ul > li.on { border-color: var(--black); }
+div#links > ul li.highlight { color: var(--white); background-color: var(--black); }
 
 /* Ghost name & alone marker */
 div#ghost { position: absolute; top: 0; right: 6em; }

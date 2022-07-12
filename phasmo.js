@@ -571,8 +571,15 @@ function toggle_steps() {
 	if (timings.step) {
 		clearInterval(timings.step); timings.step = null;
 	} else {
-		files.tick.play();
-		timings.step = setInterval(() => { files.tick.play(); },600);
+		console.log(sound);
+		if (sound) { files.tick.play(); }
+		elem.classList.toggle('highlight');
+		setTimeout(() => { elem.classList.toggle('highlight'); },100);
+		timings.step = setInterval(() => {
+			if (sound) { files.tick.play(); }
+			elem.classList.toggle('highlight');
+			setTimeout(() => { elem.classList.toggle('highlight'); },100);
+			},600);
 	}
 }
 
