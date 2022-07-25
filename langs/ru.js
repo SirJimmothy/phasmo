@@ -4,6 +4,7 @@ langs.ru = { // Property here should match this language name
 		fullscreen:								"Полный экран",
 		steps:										"Шаги",
 		mute:											"Заглушить",
+		compact:									"Compact",
 		reset:										"Сбросить",
 		alone:										"Alone",
 		all:											"All",
@@ -14,11 +15,9 @@ langs.ru = { // Property here should match this language name
 		gameplay:									"Геймплей и ионформация о расходниках",
 		github:										"Посмотреть на GitHub",
 		hunt_timers:							"Кроме охоты есть таймеры других периодов.",
+		no_info:									"No information yet",
+		open_map:									"Open Map",
 
-		////////////////////////////////
-		//check hotkeys pls
-		///////////////////////////////
-		
 		// Timers
 		timer_start:							"Подготовка",
 		timer_hunt:								"Охота",
@@ -178,6 +177,7 @@ langs.ru = { // Property here should match this language name
 			"Может вести себя как любой другой призрак, включая поведение при охоте и триггеры",
 			"Меняет свое поведение не чаще чем 1 раз в минуту",
 			"Всегда имеет призрачный огонек как ложную улику",
+			"When mimicking Thaye, chooses random starting age; will change ghosts when ageing stage occurs",
 		],
 		ghost_moroi:							'Морой',
 		ghost_moroi_useful:				[
@@ -299,7 +299,8 @@ langs.ru = { // Property here should match this language name
 			"Q-U		Выбрать таймер, # чтобы запустить. Нажмите на ту же клавишу опять чтобы сбросить",
 			".	Запустить или остановить метроном скорости шагов, позволяет сравнить вашего призрака с базовым",
 			"#		Запустить или остановить выбранный таймер",
-			"A	Toggle alone / all players ghost", //explain me pls what is this and how it works
+			"A	Toggle alone / all players ghost", // Some ghosts will only talk when a player is alone
+			"C	Toggle compact mode (ghost hints hidden)",
 			"D	Темный режим",
 			"F	Полный экран",
 			"S	Открывает вкладку Фото",
