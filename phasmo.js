@@ -579,7 +579,7 @@ function toggle_steps() {
 			if (sound) { files.tick.play(); }
 			elem.classList.toggle('highlight');
 			setTimeout(() => { elem.classList.toggle('highlight'); },100);
-			},600);
+			},520);
 	}
 }
 
