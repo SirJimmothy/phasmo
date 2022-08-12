@@ -195,7 +195,7 @@ function click(e) {
 								item.click();
 							break;
 							case parent_div.children[0].children[4]:
-								toggle_compact();
+								toggle_compact(true);
 							break;
 							case parent_div.children[0].children[5]:
 								reset();
