@@ -412,6 +412,19 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 }
 
 /* Mobile Vertical */
+@media all and (max-width: 850px) {
+
+/* Top sections into one set per row */
+	div#top { text-align: center; }
+	div#top > div { position: relative; top: 0; left: 0; display: block; }
+
+	div#top > div#ghost, div#top > div#lang { display: inline-block; }
+
+	div#links > ul > li { margin: 0 0 2px 0; }
+
+}
+
+/* Mobile Vertical */
 @media all and (max-width: 720px) {
 
 /* Top sections into one set per row */
@@ -420,7 +433,6 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 /* Keyboard Shortcuts */
 	div#links { text-align: center; }
 	div#links > ul { margin: 1.75em 0 0.5em 0; }
-	div#links > ul > li { margin: 0; }
 
 /* Ghost Name */
 	div#ghost { text-align: center; }
