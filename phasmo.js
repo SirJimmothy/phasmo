@@ -86,7 +86,7 @@ function load() {
 			target:		'_blank',
 			title:		langs[lang_use].phrases.open_map,
 		});
-		let span = Object.assign(document.createElement('SPAN'),{
+		let span = Object.assign(document.createElement('DIV'),{
 			tabIndex:		0,
 			innerHTML:	langs[lang_use].phrases['map_' + key],
 		});
@@ -160,11 +160,11 @@ function click(e) {
 						parent.classList.toggle('excluded');
 					}
 
-				break;
-				case 'SPAN':
-
 					let map = parent.getAttribute('data-map');
 					if (map) { map_select(map); }
+
+				break;
+				case 'SPAN':
 
 					let difficulty = parent.getAttribute('data-difficulty');
 					if (difficulty) { difficulty_select(difficulty); }
