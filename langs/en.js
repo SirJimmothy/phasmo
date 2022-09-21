@@ -324,7 +324,7 @@ langs.en = { // Property here should match this language name
 			'A ghost will make the same ambient sound for every hunt; if the ghost makes a different sound, this is a ghost event',
 			"Ghost events will turn off the light in the ghost room and close all adjacent doors (including exit doors)",
 			'The breaker will always start on in Amateur difficulty, and off in all others',
-			'Up to 9 lights witches may be on on small maps, 8 on medium, and 7 on large maps',
+			'Up to 9 light switches may be on on small maps, 8 on medium, and 7 on large maps',
 			'If the breaker is popped by turning on too many lights, all lights will be switched off',
 			'All ghosts will occasionally roam from their room: small roams are common, large roams are rare',
 			'Ghost can blink lights when near a light switch',
