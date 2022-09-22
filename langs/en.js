@@ -30,15 +30,15 @@ langs.en = { // Property here should match this language name
 
 		// Maps
 		map_asylum:								"Asylum",
-		map_bleasdale:						"Bleasdale Farmhouse",
-		map_brownstone:						"Brownstone High School",
-		map_edgefield:						"Edgefield Street",
-		map_grafton:							"Grafton Farmhouse",
+		map_bleasdale:						"Bleasdale",
+		map_brownstone:						"High School",
+		map_edgefield:						"Edgefield",
+		map_grafton:							"Grafton",
 		map_maple:								"Maple Lodge",
 		map_prison:								"Prison",
-		map_ridgeview:						"Ridgeview Road",
-		map_tanglewood:						"Tanglewood Street",
-		map_willow:								"Willow Street",
+		map_ridgeview:						"Ridgeview",
+		map_tanglewood:						"Tanglewood",
+		map_willow:								"Willow",
 
 		// Difficulties
 		diff_ama:									"Amateur",

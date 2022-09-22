@@ -76,7 +76,7 @@ div#lang > select { width: 5em; line-height: 1em; border: 1px solid var(--black)
 div#lang > select > option { }
 
 /* Top section */
-div#head { display: flex; flex-flow: row; margin-bottom: 0.5em; }
+div#head { display: flex; flex-flow: row; }
 div#head > div { flex: 1 1 calc(50% - 1.5em); padding: 0.5em; border: 1px solid var(--black); text-align: center; }
 
 div#head > div:nth-of-type(1) { margin: 0 0.5em 0 0; padding-top: 0.75em; border-radius: 1em 0 0 0; }
@@ -106,6 +106,17 @@ div#head > div:nth-of-type(2) > h3#sound { margin-bottom: 0.45em; padding: 0; bo
 h3#sound input { display: none; }
 h3#sound input + span { position: relative; top: -18px; display: block; width: 30px; height: 30px; background: var(--icons) -90px -30px no-repeat; cursor: pointer; }
 h3#sound input:checked + span { background-position: -60px -30px; }
+
+/* Maps */
+ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0.25em 0; padding: 0; }
+ul#maps > li { position: relative; display: flex; flex-flow: row; flex: 1 1 calc((100% / 5) - 0.5em - 2px); margin: 0.25em; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; cursor: pointer; }
+
+ul#maps > li > * { outline: none; }
+ul#maps > li > a { flex: 0 0 2em; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; background: var(--icons) -120px -30px no-repeat; }
+ul#maps > li > div { flex: 1 1 auto; padding: 0.5em; border-radius: 0 0.5em 0.5em 0; }
+
+ul#maps > li > a.selected { background-color: var(--grey3); }
+ul#maps > li > span:hover, ul#maps > li > a:focus + div { text-shadow: none; color: var(--black); background-color: var(--grey2); }
 
 /* Clue Selection */
 ul#clues { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0 0 0.5em 0; padding: 0 0 0.5em 0; border-bottom: 1px dashed var(--black); user-select: none; }
@@ -144,17 +155,6 @@ ul#clues > li.disabled { border-color: rgba(51,51,51,0.25); color: rgba(51,51,51
 /* Fade out the disabled clue icon */
 ul#clues > li:before { z-index: 1; display: none; position: absolute; top: 15%; left: 2.25em; width: 30px; height: 30px; background-color: var(--white); content: ''; opacity: 0.75; filter: opacity(75%); }
 ul#clues > li.disabled:before { display: block; }
-
-/* Maps */
-ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
-ul#maps > li { position: relative; display: flex; flex-flow: row; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; cursor: pointer; }
-
-ul#maps > li > * { outline: none; }
-ul#maps > li > a { flex: 0 0 2em; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; background: var(--icons) -120px -30px no-repeat; }
-ul#maps > li > div { flex: 1 1 auto; padding: 0.5em; border-radius: 0 0.5em 0.5em 0; }
-
-ul#maps > li > a.selected { background-color: var(--grey3); }
-ul#maps > li > span:hover, ul#maps > li > a:focus + div { text-shadow: none; color: var(--black); background-color: var(--grey2); }
 
 /* Difficulties */
 ul#difficulties { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
@@ -387,14 +387,6 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 
 }
 
-/* Maps flex */
-@media all and (max-width: 1500px) {
-
-	/* Maps */
-	ul#maps > li { flex-basis: 20%; }
-
-}
-
 /* Mobile Horizontal */
 @media all and (max-width: 960px) {
 
@@ -405,7 +397,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 	div#head > div:nth-of-type(2) > div > input { width: calc(45% - 0.25em); }
 
 	/* Maps */
-	ul#maps > li { flex-basis: 40%; }
+	ul#maps > li { flex-basis: calc((100% / 4) - 0.5em - 2px); }
 
 /* Clue Selection */
 	ul#clues > li { flex-basis: 40%; }
@@ -447,6 +439,9 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 /* Difficulty selection */
 	ul#difficulties > li { flex-basis: 40%; }
 
+	/* Maps */
+	ul#maps > li { flex-basis: calc((100% / 3) - 0.5em - 2px); }
+
 /* Clue Selection */
 	ul#clues > li { flex-basis: 100%; }
 
@@ -454,5 +449,13 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 	ul#ghosts > li { flex-basis: 100%; }
 
 	div#gameplay > div { flex-basis: calc(100% - 1em); }
+
+}
+
+/* Slim Mobile Vertical */
+@media all and (max-width: 530px) {
+
+	/* Maps */
+	ul#maps > li { flex-basis: calc((100% / 2) - 0.5em - 2px); }
 
 }
