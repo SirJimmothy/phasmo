@@ -161,7 +161,7 @@ langs.en = { // Property here should match this language name
 		ghost_jinn_useful:				[
 			"Will never turn off breaker",
 			"With breaker on, chance to drop sanity by 25% within 3m",
-			"During hunt with breaker on, will be 2.5x player speed when chasing, until within 2m of target",
+			"During hunt with breaker on, will be 1.5x player speed (2.5m/s) when chasing, until within 2m of target",
 		],
 		ghost_mare:								'Mare',
 		ghost_mare_useful:				[
