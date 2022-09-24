@@ -131,7 +131,6 @@ langs.en = { // Property here should match this language name
 			"Low chance to hunt at any sanity level",
 			"Delay between hunts is reduced to 20s",
 			"Smudges last 2/3 as long: 60s",
-			"Sanity loss triggers cost 20% less sanity",
 		],
 		ghost_deogen:							'Deogen',
 		ghost_deogen_useful:			[
