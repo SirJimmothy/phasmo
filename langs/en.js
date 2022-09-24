@@ -338,7 +338,7 @@ langs.en = { // Property here should match this language name
 			'Truck EMF board registers EMF as 1 less than real values, with optional extra +/-1 variation: EMF 3 can show as 1, 2 or 3',
 			'Spirit boxes will work anywhere inside the map, but the ghost will only listen to someone in a room with no lights on, within 3M of the ghost',
 			"Ghost orbs only appear in the ghost's current room, and as such can be used to track ghost movement",
-			'DOTS sensors show periodic moving silhouettes of ghosts, if the ghost is in the room',
+			'DOTS sensors are periodically activated by ghosts within 7m and show moving silhouettes. Usually activates every 30s or less',
 			'Video and regular cameras can see ghost orbs. Ghost orbs move around the room and behave like bubbles',
 			"Ghost writing books are considered by the ghost as standard interaction and throwable items, like random clutter. Removing clutter can increase the chances of the ghost interacting with a book",
 			'When written in, ghost writing books will levitate and the pen will scribble - this can be observed via cameras',
