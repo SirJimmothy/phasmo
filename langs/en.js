@@ -184,7 +184,7 @@ langs.en = { // Property here should match this language name
 			"Curses spirit box user; sanity drops while indoors until pills taken",
 			"Also curses paramic users upon hearing footsteps or whispers",
 			"Cursed players' sanity drop rate doubled",
-			"Moves faster at lower average sanity; 90% player speed at 50% sanity, 115% at 25% sanity, 135% at 0% sanity",
+			"Base hunting speed is faster at lower average sanity; 90% player speed at 50% sanity, 115% at 25% sanity, 135% at 0% sanity",
 			"Smudge stick targeting grace period lasts 2x as long (12s)",
 			"Nightmare mode: spirit box is guaranteed",
 		],
