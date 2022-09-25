@@ -384,7 +384,7 @@ langs.en = { // Property here should match this language name
 		gameplay_hunts_items:					[
 			"Hunts can occur once the average sanity of the group falls below 50%. The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance",
 			"When a hunt starts, all outer doors become locked and light switches cannot be used",
-			"When a hunt ends, the ghost teleports back to their favourite room",
+			"When a hunt ends, the ghost teleports back to their favourite room and all lights turn off",
 			"A ghost\"s speed can be determined by listening for its footsteps; slower ghosts will step much less often",
 			"Grace periods: Amateur: 5s, Intermediate: 4s, Professional: 3s, Nightmare: 2s. Cursed hunts: 1s",
 			"Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted",
