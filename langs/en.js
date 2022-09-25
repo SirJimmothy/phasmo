@@ -353,7 +353,7 @@ langs.en = { // Property here should match this language name
 			"Paramic has 40m range (your ears hear further), but can detect inaudible interactions",
 			"UV lights and glowsticks illuminate fingerprints and footsteps (fingerprints fade after 2m). Glowsticks dim after 1m",
 			"Footsteps are made after the ghost steps in salt; place at chokepoints to increase chance",
-			"Sanity pills raise individual sanity by 40% (amateur), 35% (intermed.), 30% (pro), 25% (nightmare)",
+			"Sanity pills raise individual sanity by 40% (amateur), 35% (intermed.), 30% (pro), 25% (nightmare). Cannot be taken above 95% sanity",
 			"Candles prevent passive sanity loss within a 1m radius (held or placed)",
 			"Crucifixes prevent ghosts from hunting within a 3m radius (held or placed)",
 			"Once a crucifix prevents a hunt, the ghost may not attempt to hunt for 5s",
