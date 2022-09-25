@@ -118,7 +118,7 @@ langs.en = { // Property here should match this language name
 		// Ghost useful info
 		ghost_banshee:						"Banshee",
 		ghost_banshee_useful:			[
-			"Hunts only its target and only checks target sanity before hunting, unless target is outside",
+			"Hunts are based on target sanity; will only hunt its target unless target is outside",
 			"Will often wander to target",
 			"Prefers singing during ghost events; these drain +5% sanity",
 			"May shriek through paramic",
@@ -282,7 +282,7 @@ langs.en = { // Property here should match this language name
 		ghost_yokai_useful:				[
 			"Increased activity when speaking near the ghost",
 			"Can hunt below 80% when players are talking nearby",
-			"Can only hear players &lt;2m away during hunts",
+			"Can only hear players and detect held electronics &lt;2m away during hunts",
 		],
 		ghost_yurei:							"Yurei",
 		ghost_yurei_useful:				[
@@ -367,7 +367,6 @@ langs.en = { // Property here should match this language name
 			"Cursed hunts cannot be prevented, have a 1s grace period, are 20s longer, and subsequent hunts follow suit",
 			"Ouija board questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions",
 			"Ouija board's ghost location will always refer to the ghost's current location rather than their favourite room",
-			"Ouija board will break when interacted with at 0% sanity",
 			"Always say goodbye to the ouija board before walking away - or be hunted!",
 			"Ouija board &quot;what is my sanity&quot; responses: Healthy &gt;80% / Good &gt; 60 / Avg &gt; 40 / Bad &gt; 20% / Awful &lt;20%",
 			"Ouija board &quot;How insane am I&quot; responses: Not very &gt; 50% / Very &gt; 25% / Insane: &lt;25%",
@@ -376,7 +375,7 @@ langs.en = { // Property here should match this language name
 			"Music boxes will attract a nearby ghost and make it sing and try to find the box; sanity drops when music is audible",
 			"If the music box is &lt;5m from the ghost while playing, the ghost will spawn, and upon reaching the music box or after 5s spawned, will attempt to hunt. It's possible to leave the area before this occurs to prevent the hunt",
 			"Using a voodoo doll will make the ghost perform an interaction or give evidence, at the cost of 5% sanity. The heart pin will trigger a hunt for 10% sanity",
-			"If using a voodoo doll would take more sanity than the user has, all pins are pushed and a hunt begins",
+			"If using a voodoo doll or ouija board would take more sanity than the user has, the item is consumed and a cursed hunt begins",
 			"Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt",
 			"Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool does nothing",
 			"Lighting the summoning circle during a hunt will result in your immediate death",
