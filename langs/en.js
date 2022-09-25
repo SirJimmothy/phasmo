@@ -268,10 +268,9 @@ langs.en = { // Property here should match this language name
 		ghost_twins_useful:				[
 			"Both twins occupy the same location, however the decoy has a 16m interaction radius",
 			"Both twins can interact one after the other",
-			"Decoy twin will not trigger sensors or give evidence (except EMF)",
-			"During hunts, main twin moves at -10%, decoy moves at +10%",
+			"Either twin may begin a hunt; main twin moves at -10%, decoy moves at +10%",
 			"Decoy hunts will start immediately after a decoy interaction",
-			"Each twin has its own hunting sound (rumoured)",
+			"Each twin may have its own hunting sound (rumoured)",
 		],
 		ghost_wraith:							"Wraith",
 		ghost_wraith_useful:			[
