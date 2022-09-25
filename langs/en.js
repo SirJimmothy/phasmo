@@ -191,7 +191,7 @@ langs.en = { // Property here should match this language name
 		ghost_myling:							"Myling",
 		ghost_myling_useful:			[
 			"Speaks more often to the paramic",
-			"Footsteps are very quiet during hunts; equipment may malfunction before footsteps are heard",
+			"Footstep volume drops off quickly with distance, becoming silent at 9m; equipment may malfunction before footsteps are heard",
 		],
 		ghost_obake:							"Obake",
 		ghost_obake_useful:				[
