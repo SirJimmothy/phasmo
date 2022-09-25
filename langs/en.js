@@ -195,8 +195,8 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_obake:							"Obake",
 		ghost_obake_useful:				[
-			"Can leave 6-finger fingerprints",
-			"-25% chance to leave fingerprints",
+			"75% chance to leave fingerprints",
+			"25% chance for fingerprints to have 6 fingers",
 			"Fingerprints can disappear after 50% of normal time",
 			"Nightmare mode: fingerprints are guaranteed",
 		],
