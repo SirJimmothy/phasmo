@@ -37,7 +37,6 @@ let timers = {
 };
 
 let maps = {
-	asylum:			{size:"lar",file:"map_asylum.png"},
 	bleasdale:	{size:"sml",file:"map_bleasdale.png"},
 	brownstone:	{size:"med",file:"map_highschool.png"},
 	edgefield:	{size:"sml",file:"map_edgefield.png"},
@@ -45,8 +44,10 @@ let maps = {
 	maple:			{size:"med",file:"map_maple.png"},
 	prison:			{size:"med",file:"map_prison.png"},
 	ridgeview:	{size:"sml",file:"map_ridgeview.png"},
+	sunny:			{size:"lar",file:"../"},
 	tanglewood:	{size:"sml",file:"map_tanglewood.png"},
 	willow:			{size:"sml",file:"map_willow.png"},
+	woodwind:		{size:"sml",file:"../"},
 };
 
 // Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
@@ -62,13 +63,13 @@ let clues = ["dots","emf","prints","temps","orb","writing","box"];
 let photos = [
 	// ["phrase",			1 star,	2 star,	3 star,	limit]
 	["none",					0,			0,			0,			0],
-	["bone",					40,			55,			70,			1],
+	["bone",					50,			60,			70,			1],
 	["cursed_item",		30,			45,			60,			1],
-	["dead_body",			10,			20,			30,			0],
+	["dead_body",			15,			25,			35,			0],
 	["dirty_water",		15,			23,			30,			0],
-	["finger_prints",	15,			33,			50,			0],
+	["finger_prints",	15,			35,			50,			0],
 	["footsteps",			20,			30,			40,			0],
-	["ghost",					70,			85,			100,		1],
+	["ghost",					80,			90,			100,		1],
 	["interaction",		20,			30,			40,			0],
 ];
 let photo_count = 10;
@@ -76,13 +77,13 @@ let star_count = 3;
 
 let rolls = {
 	maps:{
-		items:["asylum","bleasdale","brownstone","edgefield","grafton","maple","prison","ridgeview","tanglewood","willow"],
+		items:["bleasdale","brownstone","edgefield","grafton","maple","prison","ridgeview","sunny","tanglewood","willow","woodwind"],
 		groups:{
 			clear:	{items:[]},
 			all:		{items:[]},
-			small:	{items:["tanglewood","willow","ridgeview","edgefield","grafton","bleasdale"]},
+			small:	{items:["bleasdale","edgefield","grafton","ridgeview","tanglewood","willow","woodwind"]},
 			medium:	{items:["brownstone","maple","prison"]},
-			large:	{items:["asylum"]},
+			large:	{items:["sunny"]},
 		},
 	},
 	items:{

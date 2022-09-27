@@ -109,7 +109,7 @@ h3#sound input:checked + span { background-position: -60px -30px; }
 
 /* Maps */
 ul#maps { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0.25em 0; padding: 0; }
-ul#maps > li { position: relative; display: flex; flex-flow: row; flex: 1 1 calc((100% / 5) - 0.5em - 2px); margin: 0.25em; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; cursor: pointer; }
+ul#maps > li { position: relative; display: flex; flex-flow: row; flex: 1 1 calc((100% / 4) - 0.5em - 2px); margin: 0.25em; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; cursor: pointer; }
 
 ul#maps > li > * { outline: none; }
 ul#maps > li > a { flex: 0 0 2em; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; background: var(--icons) -120px -30px no-repeat; }

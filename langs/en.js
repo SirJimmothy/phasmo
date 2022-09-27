@@ -29,7 +29,6 @@ langs.en = { // Property here should match this language name
 		timer_smudge_demon:				"Demon Smudge",
 
 		// Maps
-		map_asylum:								"Asylum",
 		map_bleasdale:						"Bleasdale",
 		map_brownstone:						"High School",
 		map_edgefield:						"Edgefield",
@@ -37,8 +36,10 @@ langs.en = { // Property here should match this language name
 		map_maple:								"Maple Lodge",
 		map_prison:								"Prison",
 		map_ridgeview:						"Ridgeview",
+		map_sunny:								"Sunny Meadows",
 		map_tanglewood:						"Tanglewood",
 		map_willow:								"Willow",
+		map_woodwind:							"Woodwind",
 
 		// Difficulties
 		diff_ama:									"Amateur",
@@ -74,7 +75,6 @@ langs.en = { // Property here should match this language name
 		roll_cat_electric:				"Electrical",
 
 		// Rolls tab
-		roll_asylum:							"Asylum",
 		roll_bleasdale:						"Bleasdale Farmhouse",
 		roll_brownstone:					"Brownstone High School",
 		roll_edgefield:						"Edgefield Street",
@@ -82,8 +82,10 @@ langs.en = { // Property here should match this language name
 		roll_maple:								"Maple Lodge Campsite",
 		roll_prison:							"Prison",
 		roll_ridgeview:						"Ridgeview Road",
+		roll_sunny:								"Sunny Meadows",
 		roll_tanglewood:					"Tanglewood Street",
 		roll_willow:							"Willow Street",
+		roll_woodwind:						"Camp Woodwind",
 		roll_can:									"Candle",
 		roll_cru:									"Crucifix",
 		roll_dot:									"DOTS Projector",
@@ -159,7 +161,7 @@ langs.en = { // Property here should match this language name
 		ghost_jinn:								"Jinn",
 		ghost_jinn_useful:				[
 			"Will never turn off breaker",
-			"With breaker on, chance to drop sanity by 25% within 3m; triggers EMF at breaker",
+			"With breaker on, chance to drop sanity by 25% within 3m or same room; triggers EMF at breaker",
 			"During hunt with breaker on, will be 1.5x player speed (2.5m/s) when chasing, until within 2m of target",
 		],
 		ghost_mare:								"Mare",
@@ -203,9 +205,10 @@ langs.en = { // Property here should match this language name
 		ghost_oni:								"Oni",
 		ghost_oni_useful:					[
 			"One of the most active ghost types",
-			"Can throw items at high speed",
 			"Will not perform the mist ball (single gasp) ghost event",
 			"Prefers physical form for ghost events",
+			"Sanity drops 2x when visible",
+			"Visible for longer during hunts",
 		],
 		ghost_onryo:							"Onryo",
 		ghost_onryo_useful:				[
@@ -225,8 +228,10 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_poltergeist:				"Poltergeist",
 		ghost_poltergeist_useful:	[
+			"Can throw items at high speed",
 			"Can throw several items at once",
 			"Reduces witness sanity by 2x thrown items",
+			"100% chance to throw objects during hunts",
 		],
 		ghost_raiju:							"Raiju",
 		ghost_raiju_useful:				[
@@ -317,6 +322,7 @@ langs.en = { // Property here should match this language name
 			"Ghosts will slowly reduce the temperature of any room they\"re in, including during hunts",
 			"Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\"s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event",
 			"While a ghost is manifested (ghost event or hunt), all players within the map lose 0.2% sanity per-second",
+			"All hunting and event sound effects drop off with distance, to 0% at 20m. This includes the music box",
 			"Mist ball ghost events will not teleport the ghost",
 			"Ghosts can only hear player microphones (and held electronics) in an 8m radius on the same floor",
 			"Speaking a ghost's name will increase their activity level for a short time",
@@ -356,7 +362,7 @@ langs.en = { // Property here should match this language name
 			"Sanity pills raise individual sanity by 40% (amateur), 35% (intermed.), 30% (pro), 25% (nightmare). Cannot be taken above 95% sanity",
 			"Candles prevent passive sanity loss within a 1m radius (held or placed)",
 			"Crucifixes prevent ghosts from hunting within a 3m radius (held or placed)",
-			"Once a crucifix prevents a hunt, the ghost may not attempt to hunt for 5s",
+			"Once a crucifix prevents a hunt, EMF 2 will be generated and the ghost may not attempt to hunt for 5s",
 			"Smudge sticks prevent hunts within 6m range twice; at the start and 6s later. Smudges last for 90s and cannot be stacked",
 			"Smudge sticks used during a hunt also initiate the standard smudge effect in preventing hunts until expiry",
 		],
@@ -390,6 +396,7 @@ langs.en = { // Property here should match this language name
 			"Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted",
 			"In Nightmare difficulty, if a player dies during a hunt, the hunt duration will be extended by 12s",
 			"Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed",
+			"Ghosts have a 50% chance to throw an object in range every 0.5s",
 			"Ghosts can only hear player microphones - other sounds do not attract the ghost",
 			"Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection",
 			"Doors block line of sight; closing these behind you can prevent the ghost from gaining speed",

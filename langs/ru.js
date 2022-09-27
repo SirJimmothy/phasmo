@@ -29,7 +29,6 @@ langs.ru = { // Property here should match this language name
 		timer_smudge_demon:				"Благовоние (демон)",
 
 		// Maps
-		map_asylum:								"Asylum",
 		map_bleasdale:						"Bleasdale Farmhouse",
 		map_brownstone:						"Brownstone High School",
 		map_edgefield:						"Edgefield Street",
@@ -37,8 +36,10 @@ langs.ru = { // Property here should match this language name
 		map_maple:								"Maple Lodge",
 		map_prison:								"Prison",
 		map_ridgeview:						"Ridgeview Road",
+		map_sunny:								"Sunny Meadows",
 		map_tanglewood:						"Tanglewood Street",
 		map_willow:								"Willow Street",
+		map_woodwind:							"Camp Woodwind",
 
 		// Difficulties
 		diff_ama:									"Любитель",
@@ -74,7 +75,6 @@ langs.ru = { // Property here should match this language name
 		roll_cat_electric:				"Электро-приборы",
 
 		// Rolls tab
-		roll_asylum:							"Asylum",
 		roll_bleasdale:						"Bleasdale Farmhouse",
 		roll_brownstone:					"Brownstone High School",
 		roll_edgefield:						"Edgefield Street",
@@ -82,8 +82,10 @@ langs.ru = { // Property here should match this language name
 		roll_maple:								"Maple Lodge Campsite",
 		roll_prison:							"Prison",
 		roll_ridgeview:						"Ridgeview Road",
+		roll_sunny:								"Sunny Meadows",
 		roll_tanglewood:					"Tanglewood Street",
 		roll_willow:							"Willow Street",
+		roll_woodwind:						"Camp Woodwind",
 		roll_can:									"Свеча",
 		roll_cru:									"Распятие",
 		roll_dot:									"Лазерный проектор",
