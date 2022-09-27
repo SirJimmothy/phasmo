@@ -145,7 +145,7 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_goryo:							"Goryo",
 		ghost_goryo_useful:				[
-			"Will never perform a long roam from the ghost room",
+			"50% of normal chance to perform a long roam from the ghost room",
 			"Won't show DOTS with people in the ghost room",
 			"DOTS can only be observed through a camera",
 			"Nightmare mode: DOTS are guaranteed",
@@ -193,7 +193,7 @@ langs.en = { // Property here should match this language name
 		ghost_myling:							"Myling",
 		ghost_myling_useful:			[
 			"Speaks more often to the paramic",
-			"Footstep volume drops off quickly with distance, becoming silent at 9m; equipment may malfunction before footsteps are heard",
+			"Hunt audio and footstep volume drops off quickly with distance, becoming silent at 9m; equipment may malfunction before footsteps are heard",
 		],
 		ghost_obake:							"Obake",
 		ghost_obake_useful:				[
