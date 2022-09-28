@@ -606,7 +606,6 @@ function toggle_sound() {
 function count_points(slider) {
 	if (typeof slider !== 'undefined') { slider.parentNode.nextSibling.innerHTML = slider.value; }
 
-	let result = 0;
 	let money = 0;
 
 	let counts = {};
