@@ -367,8 +367,8 @@ langs.en = { // Property here should match this language name
 			"Candles prevent passive sanity loss within a 1m radius (held or placed)",
 			"Crucifixes prevent ghosts from hunting within a 3m radius (held or placed)",
 			"Once a crucifix prevents a hunt, EMF 2 will be generated and the ghost may not attempt to hunt for 5s",
-			"Smudge sticks prevent hunts for ghosts within 6m range. Smudges last for 90s and while multiple can be used, smudge timers cannot be stacked",
-			"Smudge sticks used during a hunt also initiate the standard smudge effect of preventing hunts until expiry",
+			"Smudge sticks prevent hunts for ghosts within 6m. Smudges last for 90s and while multiple can be used, smudge timers cannot be stacked. Also applies during hunts",
+			"Smudge sticks used during a hunt make the ghost forget all players for 6s; this effect applies to all players even from outside the play area",
 		],
 		gameplay_cursed_items:				"Cursed Items",
 		gameplay_cursed_items_items:	[
