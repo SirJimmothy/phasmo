@@ -607,7 +607,7 @@ function count_points(slider) {
 	if (typeof slider !== 'undefined') { slider.parentNode.nextSibling.innerHTML = slider.value; }
 
 	let result = 0;
-	let points = 0;
+	let money = 0;
 
 	let counts = {};
 	for (let x = 0; x < photo_count; x++) {
@@ -616,29 +616,11 @@ function count_points(slider) {
 		if (type && slider) {
 			counts[type] = (counts[type] ? counts[type] : 0) + 1;
 			if (!photos[type][5] || (photos[type][5] && photos[type][5] >= counts[type])) {
-				points += photos[type][slider];
+				money += photos[type][slider];
 			}
 		}
 	}
-
-	if (!points) {
-		result = 0;
-	} else if (points < 50) {
-		result = 10;
-	} else if (points < 100) {
-		result = 15;
-	} else if (points < 200) {
-		result = 20;
-	} else if (points < 300) {
-		result = 25;
-	} else if (points < 400) {
-		result = 30;
-	} else if (points < 500) {
-		result = 35;
-	} else if (points >= 500) {
-		result = 40;
-	}
-	document.querySelector('div#photos > div > h2').innerHTML = points + 'P = $' + result;
+	document.querySelector('div#photos > div > h2').innerHTML = '$' + money;
 }
 
 function reset() {

@@ -61,16 +61,20 @@ let difficulties = {
 let clues = ["dots","emf","prints","temps","orb","writing","box"];
 
 let photos = [
-	// ["phrase",			1 star,	2 star,	3 star,	limit]
-	["none",					0,			0,			0,			0],
-	["bone",					50,			60,			70,			1],
-	["cursed_item",		30,			45,			60,			1],
-	["dead_body",			15,			25,			35,			0],
-	["dirty_water",		15,			23,			30,			0],
-	["finger_prints",	15,			35,			50,			0],
-	["footsteps",			20,			30,			40,			0],
-	["ghost",					80,			90,			100,		1],
-	["interaction",		20,			30,			40,			0],
+	// ["phrase",			1st,2st,3st,limit]
+	["none",					0,	0,	0,	0],
+	["bone",					2,	5,	10,	1],
+	["cursed_item",		1,	2,	5,	1],
+	["dead_body",			1,	2,	5,	0],
+	["dots_ghost",		1,	2,	5,	0],
+	["dirty_water",		2,	5,	10,	0],
+	["finger_prints",	1,	2,	5,	0],
+	["footsteps",			1,	2,	5,	0],
+	["ghost",					5,	10,	20,	1],
+	["ghost_writing",	1,	2,	5,	0],
+	["interaction",		1,	2,	5,	0],
+	["stepped_salt",	1,	2,	5,	0],
+	["used_crucifix",	2,	5,	10,	0],
 ];
 let photo_count = 10;
 let star_count = 3;
