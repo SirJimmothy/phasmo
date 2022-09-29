@@ -368,7 +368,8 @@ langs.en = { // Property here should match this language name
 			"Crucifixes prevent ghosts from hunting within a 3m radius (held or placed)",
 			"Once a crucifix prevents a hunt, EMF 2 will be generated and the ghost may not attempt to hunt for 5s",
 			"Smudge sticks prevent hunts for ghosts within 6m. Smudges last for 90s and while multiple can be used, smudge timers cannot be stacked. Also applies during hunts",
-			"Smudge sticks used during a hunt make the ghost forget all players for 6s; this effect applies to all players even from outside the play area",
+			"Smudge sticks used during a hunt make the ghost forget all players for 6s; this effect applies to all players even when used from outside the play area",
+			"Smudge stick repel effects apply once every second for 6s, the duration of the smudge stick burn, but do not stack",
 		],
 		gameplay_cursed_items:				"Cursed Items",
 		gameplay_cursed_items_items:	[
