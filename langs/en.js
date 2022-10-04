@@ -226,6 +226,7 @@ langs.en = { // Property here should match this language name
 		ghost_phantom:						"Phantom",
 		ghost_phantom_useful:			[
 			"Disappears but remains when photo is taken while not hunting",
+			"Ghost photo contains no ghost, and no distortion",
 			"Sanity drops 2x when visible (stops if hidden due to photo)",
 			"Can wander to indoor player",
 			"Blinks very slowly during hunt",
