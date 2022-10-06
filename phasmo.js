@@ -14,6 +14,7 @@ let media = {
 };
 
 let prefix		= "phasmo_";
+let fast			= false;
 let sound			= true;
 let use_map		= "";
 let use_diff	= "";
@@ -60,6 +61,7 @@ function load() {
 	// Load clues and ghosts into page
 	if (parseInt(do_storage('get','dark').toString())) { toggle_dark(); }
 	if (parseInt(do_storage('get','compact').toString())) { toggle_compact(); }
+	if (parseInt(do_storage('get','fast').toString())) { toggle_fast(); }
 	if (parseInt(do_storage('get','mute').toString())) {
 		let sound = document.getElementById('sound').childNodes[1].childNodes[0];
 		sound.checked = false;
@@ -179,25 +181,28 @@ function click(e) {
 
 					let item;
 					if (parent_div.id === 'links') {
-						switch (getitem(target,'LI')) {
-							case parent_div.children[0].children[0]:
+						switch (target.parentNode.children[1].getAttribute('data-phrase')) {
+							case 'dark':
 								toggle_dark(true);
 							break;
-							case parent_div.children[0].children[1]:
+							case 'fullscreen':
 								toggle_fullscreen();
 							break;
-							case parent_div.children[0].children[2]:
+							case 'fast':
+								toggle_fast();
+							break;
+							case 'steps':
 								toggle_steps();
-								break;
-							case parent_div.children[0].children[3]:
+							break;
+							case 'mute':
 								toggle_sound();
-								item = document.getElementById('sound').children[1].children[0];
+								item = document.getElementById('sound').children[0].children[0];
 								item.click();
 							break;
-							case parent_div.children[0].children[4]:
+							case 'compact':
 								toggle_compact(true);
 							break;
-							case parent_div.children[0].children[5]:
+							case 'reset':
 								reset();
 							break;
 						}
@@ -292,6 +297,9 @@ function keypress(e) {
 			break;
 			case '#':
 				document.getElementById('play').click();
+			break;
+			case ',':
+				toggle_fast();
 			break;
 			case '.':
 				toggle_steps();
@@ -565,13 +573,19 @@ function toggle_fullscreen() {
 	}
 }
 
+function toggle_fast() {
+	fast = !fast;
+	do_storage('set','fast',(fast ? '1' : '0'));
+	let link = document.querySelector('[data-phrase="fast"]').parentNode;
+	link.classList.toggle('on');
+}
+
 function toggle_steps() {
-	let elem = document.getElementById('links').children[0].children[2];
+	let elem = document.querySelector('[data-phrase="steps"]').parentNode;
 	elem.classList.toggle('on');
 	if (timings.step) {
 		clearInterval(timings.step); timings.step = null;
 	} else {
-		console.log(sound);
 		if (sound) { files.tick.play(); }
 		elem.classList.toggle('highlight');
 		setTimeout(() => { elem.classList.toggle('highlight'); },100);
@@ -579,7 +593,7 @@ function toggle_steps() {
 			if (sound) { files.tick.play(); }
 			elem.classList.toggle('highlight');
 			setTimeout(() => { elem.classList.toggle('highlight'); },100);
-			},520);
+			},(fast ? 345 : 520));
 	}
 }
 
@@ -599,7 +613,7 @@ function toggle_alone() {
 function toggle_sound() {
 	sound = !sound;
 	do_storage('set','mute',(sound ? '0' : '1'));
-	let link = document.getElementById('links').children[0].children[3];
+	let link = document.querySelector('[data-phrase="mute"]').parentNode;
 	link.classList.toggle('on');
 }
 

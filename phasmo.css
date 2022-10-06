@@ -52,7 +52,7 @@ div#links > ul > li { display: inline-block; margin: 0 0.1em 0 0; padding: 0 0.2
 div#links > ul > li > span:nth-of-type(1) { display: inline-block; margin-right: 0.25em; padding: 0.1em 0.25em; font-weight: bold; color: var(--white); background-color: var(--black); }
 
 html:fullscreen div#links > ul > li:nth-of-type(2) { border: 1px solid var(--black); }
-body.compact div#links > ul > li:nth-of-type(5) { border: 1px solid var(--black); }
+body.compact div#links > ul > li:nth-of-type(6) { border: 1px solid var(--black); }
 
 div#links > ul > li.on { border-color: var(--black); }
 div#links > ul li.highlight { color: var(--white); background-color: var(--black); }
@@ -405,7 +405,7 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 }
 
 /* Mobile Vertical */
-@media all and (max-width: 850px) {
+@media all and (max-width: 910px) {
 
 /* Top sections into one set per row */
 	div#top { text-align: center; }

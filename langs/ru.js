@@ -2,6 +2,7 @@ langs.ru = { // Property here should match this language name
 	"phrases": {
 		dark:											"Темная тема",
 		fullscreen:								"Полный экран",
+		fast:											"Fast",
 		steps:										"Шаги",
 		mute:											"Заглушить",
 		compact:									"Compact",

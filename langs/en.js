@@ -2,6 +2,7 @@ langs.en = { // Property here should match this language name
 	"phrases": {
 		dark:											"Dark",
 		fullscreen:								"Fullscreen",
+		fast:											"Fast",
 		steps:										"Steps",
 		mute:											"Mute",
 		compact:									"Compact",
