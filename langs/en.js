@@ -394,6 +394,7 @@ langs.en = { // Property here should match this language name
 			"If using a voodoo doll or ouija board would take more sanity than the user has, the item is consumed and a cursed hunt begins",
 			"Using a summoning circle will cost 16% sanity per candle lit, and triggers a ghost event and subsequent cursed hunt",
 			"Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool does nothing",
+			"Tarot cards always become Fool cards when pulled during hunts",
 			"Lighting the summoning circle during a hunt will result in your immediate death",
 		],
 		gameplay_hunts:								"Hunts",
