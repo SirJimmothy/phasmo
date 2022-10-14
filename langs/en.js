@@ -147,6 +147,7 @@ langs.en = { // Property here should match this language name
 			"Can hunt at 40% sanity",
 			"Increased chance for DOTS and Ghost Writing",
 			"33% for unique spirit box sound (breathing). Must be within 1m of ghost",
+			"Nightmare mode: spirit box is guaranteed",
 		],
 		ghost_goryo:							"Goryo",
 		ghost_goryo_useful:				[

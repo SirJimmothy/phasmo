@@ -2,7 +2,7 @@
 let ghosts = {
 	banshee:			{clues: ["dots","prints","orb"],				clues_always: []},
 	demon:				{clues: ["prints","temps","writing"],		clues_always: []},
-	deogen:				{clues: ["box","dots","writing"],				clues_always: []},
+	deogen:				{clues: ["box","dots","writing"],				clues_always: ['box']},
 	goryo:				{clues: ["emf","dots","prints"],				clues_always:	["dots"]},
 	hantu:				{clues: ["orb","prints","temps"],				clues_always: ["temps"]},
 	jinn:					{clues: ["emf","prints","temps"],				clues_always: []},
