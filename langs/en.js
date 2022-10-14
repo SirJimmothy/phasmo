@@ -276,6 +276,7 @@ langs.en = { // Property here should match this language name
 			"Speed reduced by 10% player speed per ageing stage, from 166% player speed to 60%; does not speed up during hunts",
 			"While old, can hunt at 15% sanity",
 			"While old, won't try to hunt with anyone in room",
+			"Age changes are reflected in Ouija board answers",
 		],
 		ghost_twins:							"Twins",
 		ghost_twins_useful:				[
