@@ -159,6 +159,7 @@ langs.en = { // Property here should match this language name
 		ghost_hantu:							"Hantu",
 		ghost_hantu_useful:				[
 			"2x as likely to turn off breaker",
+			"Cannot turn on breaker",
 			"Speed never ramps during hunt; moves slower in warm rooms, faster in cold",
 			"Moves just slower than player speed at 15&deg;C; speed increases every -3&deg;C (37.4&deg;F) up to 1.7x player speed at 0&deg;C",
 			"Can breathe mist in rooms below 3&deg;C (37.4&deg;F) when hunting",
@@ -406,7 +407,7 @@ langs.en = { // Property here should match this language name
 			"Grace periods: Amateur: 5s, Intermediate: 4s, Professional: 3s, Nightmare: 2s. Cursed hunts: 1s",
 			"Once a hunt ends, there is a 25s cooldown after which another hunt may be attempted",
 			"In Nightmare difficulty, if a player dies during a hunt, the hunt duration will be extended by 12s",
-			"Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed",
+			"Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed. This does not apply to Revenant or Deogen",
 			"Ghosts have a 50% chance to throw an object in range every 0.5s",
 			"Ghosts can only hear player microphones - other sounds do not attract the ghost",
 			"Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection",
@@ -421,6 +422,7 @@ langs.en = { // Property here should match this language name
 		gameplay_nerd_info_items:			[
 			"Basic player speed is around 1.65m/s; sprint at 3m/s",
 			"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.75m/s at 12&deg;C / 2.1m/s at 9&deg;C / 2.3m/s at 6&deg;C / 2.5m/s at 3&deg;C / 2.7m/s at 0&deg;C",
+			"Revenant exact hunting speeds: 1m/s when not chasing a player, and 3m/s when chasing",
 			"Sanity drains passively in unlit areas (even dark spots in lit rooms) at 0.12% per-second on small maps, 0.08% on medium maps, 0.05% on large maps",
 			"During setup phase, passive sanity drain is reduced: 0.09% on small maps, 0.05% on medium maps, 0.03% on large maps",
 			"Passive sanity drains multiply depending on the difficulty: Intermediate is 1.5x, Professional is 2x",
