@@ -363,7 +363,8 @@ langs.en = { // Property here should match this language name
 		],
 		gameplay_non_evidence:				"Non-Evidence Items",
 		gameplay_non_evidence_items:	[
-			"Cameras can be used to take photos of ghosts, bones, dirty water, used crucifixes, cursed objects, written books, DOTS silhouettes, fingerprints, footsteps, dead bodies, and general interactions",
+			"Cameras can be used to take photos of the following (greatest money first): ghosts, bones, dirty water, used crucifixes, cursed objects, written books, DOTS silhouettes, fingerprints, footsteps, dead bodies, and general interactions",
+			"Ghost photos always take priority, and interactions take priority over fingerprints; all other photos are scored by distance and distance from the middle of the frame",
 			"Photo opportunities last 20s from inception. The closer, the better quality and the more money received",
 			"For dirty water and ghost writing, two photos can be taken: once for the dirty water and another for the interaction event",
 			"Sound sensors reveal room names in the truck, and indicate interactions within an area",
