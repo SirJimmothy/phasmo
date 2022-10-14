@@ -381,7 +381,7 @@ langs.en = { // Property here should match this language name
 			"All maps will contain one cursed item: ouija board, tarot cards, voodoo doll or mirror. Each item has only one spawn point per map",
 			"Cursed items will start a hunt when they run out or break",
 			"Cursed hunts cannot be prevented, have a 1s grace period, are 20s longer, and subsequent hunts follow suit",
-			"Ouija board questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions. Demons take 20% less sanity for successful questions",
+			"Ouija board questions cost 5% for sanity, age, and length of death questions, 20% number of people in room questions, and 40% for location questions",
 			"Ouija board's ghost location will always refer to the ghost's current location rather than their favourite room",
 			"Always say goodbye to the ouija board before walking away - or be hunted!",
 			"Ouija board &quot;what is my sanity&quot; responses: Healthy &gt;80% / Good &gt; 60 / Avg &gt; 40 / Bad &gt; 20% / Awful &lt;20%",
