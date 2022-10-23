@@ -296,7 +296,7 @@ langs.en = { // Property here should match this language name
 		ghost_yokai_useful:				[
 			"Increased activity when speaking near the ghost",
 			"Can hunt below 80% when players are talking nearby",
-			"Can only hear players and detect held electronics &lt;2m away during hunts",
+			"Can only hear players and detect held electronics &lt;2.5m away during hunts",
 		],
 		ghost_yurei:							"Yurei",
 		ghost_yurei_useful:				[
