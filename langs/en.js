@@ -422,7 +422,7 @@ langs.en = { // Property here should match this language name
 		],
 		gameplay_nerd_info:						"Nerd Info",
 		gameplay_nerd_info_items:			[
-			"Basic player speed is around 1.65m/s; sprint at 3m/s",
+			"Basic player speed is 1.6m/s; sprint at 3m/s",
 			"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.75m/s at 12&deg;C / 2.1m/s at 9&deg;C / 2.3m/s at 6&deg;C / 2.5m/s at 3&deg;C / 2.7m/s at 0&deg;C",
 			"Revenant exact hunting speeds: 1m/s when not chasing a player, and 3m/s when chasing",
 			"Sanity drains passively in unlit areas (even dark spots in lit rooms) at 0.12% per-second on small maps, 0.08% on medium maps, 0.05% on large maps",
