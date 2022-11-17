@@ -284,7 +284,6 @@ langs.en = { // Property here should match this language name
 			"Both twins can interact one after the other",
 			"Either twin may begin a hunt; main twin moves at -10%, decoy moves at +10%",
 			"Decoy hunts will start immediately after a decoy interaction",
-			"Each twin may have its own hunting sound (rumoured)",
 		],
 		ghost_wraith:							"Wraith",
 		ghost_wraith_useful:			[
