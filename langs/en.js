@@ -219,12 +219,11 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_onryo:							"Onryo",
 		ghost_onryo_useful:				[
-			"Will blow out candles more often than other ghosts",
-			"50% chance to hunt when flame is extinguished (starting on third blowout)",
+			"Will blow out flames more often than other ghosts",
+			"Candles act as crucifixes with 4m hunt blocking range. Has precedence over crucifix",
+			"Will hunt for every third flame extinguished",
 			"+25% hunt chance per dead player",
 			"Can hunt from 60% sanity without flame in room",
-			"Candles act as crucifixes with 4m hunt blocking range. Has precedence over crucifix",
-			"When candle prevents hunt, it is blown out",
 		],
 		ghost_phantom:						"Phantom",
 		ghost_phantom_useful:			[
