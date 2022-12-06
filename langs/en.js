@@ -222,7 +222,6 @@ langs.en = { // Property here should match this language name
 			"Will blow out flames more often than other ghosts",
 			"Candles act as crucifixes with 4m hunt blocking range. Has precedence over crucifix",
 			"Will hunt for every third flame extinguished",
-			"+25% hunt chance per dead player",
 			"Can hunt from 60% sanity without flame in room",
 		],
 		ghost_phantom:						"Phantom",
@@ -231,7 +230,7 @@ langs.en = { // Property here should match this language name
 			"Ghost photo contains no ghost, and no distortion",
 			"Sanity drops 2x when visible (stops if hidden due to photo)",
 			"Can wander to indoor player",
-			"Blinks very slowly during hunt",
+			"Visible for less time during hunt",
 		],
 		ghost_poltergeist:				"Poltergeist",
 		ghost_poltergeist_useful:	[
