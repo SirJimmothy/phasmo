@@ -285,7 +285,7 @@ langs.en = { // Property here should match this language name
 		ghost_wraith:							"Wraith",
 		ghost_wraith_useful:			[
 			"When loud-stepping after salt, no footprints show",
-			"After stepping in salt, becomes permanently more active",
+			"After stepping in salt, becomes more active for a time",
 			"Can teleport near a random indoor player and leave EMF",
 		],
 		ghost_yokai:							"Yokai",
