@@ -133,7 +133,7 @@ langs.en = { // Property here should match this language name
 		ghost_demon:							"Demon",
 		ghost_demon_useful:				[
 			"Crucifixes have +2m range",
-			"Can teleport to target at start of hunt, if they had ghost LoS within 20s",
+			//"Can teleport to target at start of hunt, if they had ghost LoS within 20s", // Potentially removed
 			"Can hunt at 70% sanity",
 			"Low chance to hunt at any sanity level",
 			"Delay between hunts is reduced to 20s",
