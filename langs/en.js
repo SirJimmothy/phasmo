@@ -184,7 +184,7 @@ langs.en = { // Property here should match this language name
 		ghost_mimic:							"Mimic",
 		ghost_mimic_useful:				[
 			"Can behave as any other ghost, including hunt behaviour and triggers",
-			"Will change behaviour no more than once per-minute",
+			"Will change behaviour every 30-120s",
 			"Shows false ghost orbs",
 			"When mimicking Thaye, chooses random starting age; will change ghosts when ageing stage occurs",
 		],
@@ -200,7 +200,7 @@ langs.en = { // Property here should match this language name
 		ghost_myling:							"Myling",
 		ghost_myling_useful:			[
 			"Speaks more often to the paramic",
-			"Hunt audio and footstep volume drops off quickly with distance, becoming silent at 9m; equipment may malfunction before footsteps are heard",
+			"Hunt audio and footstep volume drops off quickly with distance, becoming silent at 12m; equipment may malfunction before footsteps are heard",
 		],
 		ghost_obake:							"Obake",
 		ghost_obake_useful:				[
@@ -214,12 +214,11 @@ langs.en = { // Property here should match this language name
 			"One of the most active ghost types",
 			"Will not perform the mist ball (single gasp) ghost event",
 			"Prefers physical form for ghost events",
-			"Sanity drops 2x when visible",
+			"Sanity drops 2x during player collision ghost events",
 			"Visible for longer during hunts",
 		],
 		ghost_onryo:							"Onryo",
 		ghost_onryo_useful:				[
-			"Will blow out flames more often than other ghosts",
 			"Candles act as crucifixes with 4m hunt blocking range. Has precedence over crucifix",
 			"Will hunt for every third flame extinguished",
 			"Can hunt from 60% sanity without flame in room",
@@ -236,7 +235,7 @@ langs.en = { // Property here should match this language name
 		ghost_poltergeist_useful:	[
 			"Can throw items at high speed",
 			"Can throw several items at once",
-			"Reduces witness sanity by 2x thrown items",
+			"For mass throws, witness sanity reduced by 2% per thrown item",
 			"100% chance to throw objects during hunts",
 		],
 		ghost_raiju:							"Raiju",
