@@ -398,7 +398,7 @@ langs.en = { // Property here should match this language name
 		],
 		gameplay_hunts:								"Hunts",
 		gameplay_hunts_items:					[
-			"Hunts can occur once the average sanity of the group falls below 50%. The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance",
+			"Hunts can occur once the average sanity of the group falls below the ghost's sanity threshold (usually 50%). The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance",
 			"When a hunt starts, all outer doors become locked and light switches cannot be used",
 			"When a hunt ends, the ghost teleports back to their favourite room and all lights turn off",
 			"A ghost\"s speed can be determined by listening for its footsteps; slower ghosts will step much less often",
@@ -418,7 +418,7 @@ langs.en = { // Property here should match this language name
 		],
 		gameplay_nerd_info:						"Nerd Info",
 		gameplay_nerd_info_items:			[
-			"Basic player speed is 1.7m/s; sprint at 3m/s",
+			"Basic player speed is 1.6m/s; sprint at 3m/s",
 			"Hantu exact hunting speed temperature intervals: 1.4m/s at 15&deg;C / 1.75m/s at 12&deg;C / 2.1m/s at 9&deg;C / 2.3m/s at 6&deg;C / 2.5m/s at 3&deg;C / 2.7m/s at 0&deg;C",
 			"Revenant exact hunting speeds: 1m/s when not chasing a player, and 3m/s when chasing",
 			"Sanity drains passively in unlit areas (even dark spots in lit rooms) at 0.12% per-second on small maps, 0.08% on medium maps, 0.05% on large maps",
