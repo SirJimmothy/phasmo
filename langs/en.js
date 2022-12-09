@@ -410,7 +410,7 @@ langs.en = { // Property here should match this language name
 			"Ghosts can only hear player microphones - other sounds do not attract the ghost",
 			"Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection",
 			"Doors block line of sight; closing these behind you can prevent the ghost from gaining speed",
-			"Players can hide behind locker and closet doors while holding them - ghosts may move all unheld doors, exposing hidden players. Ghosts will, however, forcibly open ordinary held doors to expose players",
+			"Players can hide behind locker and closet doors while holding them - ghosts may move all unheld doors, exposing hidden players. Ghosts will, however, forcibly open room doors being held, to expose players",
 			"If a ghost sees a player enter a closet or locker, they will attempt to open them, even if the doors are held. Keep pulling them closed to survive",
 			"Making sound or activating electronics inside a locker will cause the ghost to force open the doors; this is rarely survivable",
 			"Smudge sticks may be used within 6m of a ghost to cause the ghost to wander randomly and forget all targets for 6s",
