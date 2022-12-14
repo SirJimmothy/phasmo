@@ -162,7 +162,7 @@ langs.en = { // Property here should match this language name
 			"Cannot turn on breaker",
 			"Speed never ramps during hunt; moves slower in warm rooms, faster in cold",
 			"Moves just slower than player speed at 15&deg;C; speed increases every -3&deg;C (37.4&deg;F) up to 1.7x player speed at 0&deg;C",
-			"Can breathe mist in rooms below 3&deg;C (37.4&deg;F) when hunting",
+			"Can breathe mist during hunts in rooms below 3&deg;C (37.4&deg;F), or everywhere with breaker off",
 			"Nightmare mode: freezing is guaranteed",
 		],
 		ghost_jinn:								"Jinn",
