@@ -248,6 +248,7 @@ langs.en = { // Property here should match this language name
 		ghost_revenant_useful:		[
 			"Travels very fast when it can see a player",
 			"Travels very slowly when not seeing players",
+			"When LoS is lost while chasing, will only slow down once it's reached the player's last seen position",
 		],
 		ghost_shade:							"Shade",
 		ghost_shade_useful:				[
