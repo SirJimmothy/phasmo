@@ -151,9 +151,9 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_goryo:							"Goryo",
 		ghost_goryo_useful:				[
-			"50% of normal chance to perform a long roam from the ghost room",
 			"Won't show DOTS with people in the ghost room",
 			"DOTS can only be observed through a camera",
+      "Cannot change favourite room or roam long distances",
 			"Nightmare mode: DOTS are guaranteed",
 		],
 		ghost_hantu:							"Hantu",
@@ -207,6 +207,7 @@ langs.en = { // Property here should match this language name
 			"75% chance to leave fingerprints",
 			"25% chance for fingerprints to have 6 fingers",
 			"Fingerprints can disappear after 50% of normal time",
+      "During a hunt, has a 6.66% chance each time it flickers to shapeshift into a different ghost model, and then return back to its original form. Guaranteed to occur at least once per hunt",
 			"Nightmare mode: fingerprints are guaranteed",
 		],
 		ghost_oni:								"Oni",
@@ -285,8 +286,7 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_wraith:							"Wraith",
 		ghost_wraith_useful:			[
-			"When loud-stepping after salt, no footprints show",
-			"After stepping in salt, becomes more active for a time",
+			"Will never step in salt",
 			"Can teleport near a random indoor player and leave EMF",
 		],
 		ghost_yokai:							"Yokai",
