@@ -16,6 +16,7 @@ langs.en = { // Property here should match this language name
 		gameplay:									"Gameplay &amp; item info",
 		github:										"Visit on GitHub",
 		discord:									"Discord",
+		support_me:								"Support Me",
 		hunt_timers:							"Hunt timers include the various grace periods",
 		no_info:									"No information yet",
 		open_map:									"Open Map",

@@ -16,6 +16,7 @@ langs.ru = { // Property here should match this language name
 		gameplay:									"Геймплей и ионформация о расходниках",
 		github:										"Посмотреть на GitHub",
 		discord:									"Discord",
+		support_me:								"Support Me",
 		hunt_timers:							"Кроме охоты есть таймеры других периодов.",
 		no_info:									"Еще нет информации",
 		open_map:									"Открыть карту",
