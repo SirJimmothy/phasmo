@@ -1,29 +1,29 @@
 
 let ghosts = {
-	banshee:			{clues: ["dots","prints","orb"],				clues_always: []},
-	demon:				{clues: ["prints","temps","writing"],		clues_always: []},
-	deogen:				{clues: ["box","dots","writing"],				clues_always: ['box']},
-	goryo:				{clues: ["emf","dots","prints"],				clues_always:	["dots"]},
-	hantu:				{clues: ["orb","prints","temps"],				clues_always: ["temps"]},
-	jinn:					{clues: ["emf","prints","temps"],				clues_always: []},
-	mare: 				{clues: ["box","orb","writing"],				clues_always: []},
-	mimic:				{clues: ["box","orb","prints","temps"],	clues_always: ["orb"]},
-	moroi:				{clues: ["box","temps","writing"],			clues_always: ['box']},
-	myling:				{clues: ["emf","prints","writing"],			clues_always: []},
-	obake:				{clues: ["emf","orb","prints"],					clues_always: ["prints"]},
-	oni:					{clues: ["emf","dots","temps"],					clues_always: []},
-	onryo:				{clues: ["box","orb","temps"],					clues_always: []},
-	phantom:			{clues: ["box","dots","prints"],				clues_always: []},
-	poltergeist:	{clues: ["box","prints","writing"],			clues_always: []},
-	raiju:				{clues: ["dots","emf","orb"],						clues_always: []},
-	revenant:			{clues: ["orb","temps","writing"],			clues_always: []},
-	shade:				{clues: ["emf","temps","writing"],			clues_always: []},
-	spirit:				{clues: ["box","emf","writing"],				clues_always: []},
-	thaye:				{clues: ["dots","orb","writing"],				clues_always: []},
-	twins:				{clues: ["box","emf","temps"],					clues_always: []},
-	wraith:				{clues: ["box","emf","dots"],						clues_always: []},
-	yokai:				{clues: ["box","dots","orb"],						clues_always: []},
-	yurei:				{clues: ["orb","dots","temps"],					clues_always: []},
+	banshee:			{clues: ["dots","prints","orb"],				clues_always: [],         clues_fake: []},
+	demon:				{clues: ["prints","temps","writing"],		clues_always: [],         clues_fake: []},
+	deogen:				{clues: ["box","dots","writing"],				clues_always: ['box'],    clues_fake: []},
+	goryo:				{clues: ["emf","dots","prints"],				clues_always:	["dots"],   clues_fake: []},
+	hantu:				{clues: ["orb","prints","temps"],				clues_always: ["temps"],  clues_fake: []},
+	jinn:					{clues: ["emf","prints","temps"],				clues_always: [],         clues_fake: []},
+	mare: 				{clues: ["box","orb","writing"],				clues_always: [],         clues_fake: []},
+	mimic:				{clues: ["box","orb","prints","temps"],	clues_always: ["orb"],    clues_fake: ["orb"]},
+	moroi:				{clues: ["box","temps","writing"],			clues_always: ['box'],    clues_fake: []},
+	myling:				{clues: ["emf","prints","writing"],			clues_always: [],         clues_fake: []},
+	obake:				{clues: ["emf","orb","prints"],					clues_always: ["prints"], clues_fake: []},
+	oni:					{clues: ["emf","dots","temps"],					clues_always: [],         clues_fake: []},
+	onryo:				{clues: ["box","orb","temps"],					clues_always: [],         clues_fake: []},
+	phantom:			{clues: ["box","dots","prints"],				clues_always: [],         clues_fake: []},
+	poltergeist:	{clues: ["box","prints","writing"],			clues_always: [],         clues_fake: []},
+	raiju:				{clues: ["dots","emf","orb"],						clues_always: [],         clues_fake: []},
+	revenant:			{clues: ["orb","temps","writing"],			clues_always: [],         clues_fake: []},
+	shade:				{clues: ["emf","temps","writing"],			clues_always: [],         clues_fake: []},
+	spirit:				{clues: ["box","emf","writing"],				clues_always: [],         clues_fake: []},
+	thaye:				{clues: ["dots","orb","writing"],				clues_always: [],         clues_fake: []},
+	twins:				{clues: ["box","emf","temps"],					clues_always: [],         clues_fake: []},
+	wraith:				{clues: ["box","emf","dots"],						clues_always: [],         clues_fake: []},
+	yokai:				{clues: ["box","dots","orb"],						clues_always: [],         clues_fake: []},
+	yurei:				{clues: ["orb","dots","temps"],					clues_always: [],         clues_fake: []},
 };
 
 let timers = {
@@ -52,10 +52,10 @@ let maps = {
 
 // Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
 let difficulties = {
-	ama:	{timers:{start:300,	hunt_sml:20,hunt_med:35,hunt_lar:50,grace:5,cursed:21},use_always_clues:0},
-	int:	{timers:{start:150,	hunt_sml:24,hunt_med:44,hunt_lar:54,grace:4,cursed:21},use_always_clues:0},
-	pro:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:3,cursed:21},use_always_clues:0},
-	har:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:2,cursed:21},use_always_clues:1},
+	ama:	{timers:{start:300,	hunt_sml:20,hunt_med:35,hunt_lar:50,grace:5,cursed:21},hidden_clues:0},
+	int:	{timers:{start:150,	hunt_sml:24,hunt_med:44,hunt_lar:54,grace:4,cursed:21},hidden_clues:0},
+	pro:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:3,cursed:21},hidden_clues:0},
+	har:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:2,cursed:21},hidden_clues:1},
 };
 
 let clues = ["dots","emf","prints","temps","orb","writing","box"];
