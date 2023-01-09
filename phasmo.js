@@ -714,43 +714,67 @@ function check_ghosts() {
 		}
 	} }
 
-	/*
-	// Eliminate ghosts based on non-selected "always" clues
-	if (diff.use_always_clues && checked_y.length === 2) {
-		for (let key in possible) { if (possible.hasOwnProperty(key)) {
-			for (let x = 0; x < possible[key]['clues_always'].length; x++) {
-				if (!in_array(possible[key]['clues_always'][x],checked_y)) { delete possible[key]; break; }
-			}
-		} }
-	}
-	*/
+  if (diff.hidden_clues == 0) {
+    // Eliminate ghosts based on negative selection
+    for (let key in possible) { if (possible.hasOwnProperty(key)) {
+      for (x = 0; x < checked_n.length; x++) {
+        if (in_array(checked_n[x],possible[key]['clues'])) { delete possible[key]; break }
+      }
+    } }
+  } else if (diff.hidden_clues > 0) {
+    // Eliminate ghosts based on number of hidden clues and always clues
+    for (let key in possible) { if (possible.hasOwnProperty(key)) {
+      // Get the number of clues matched per ghost
+      let matched = 0;
+      for (let x = 0; x < checked_y.length; x++) {
+        if (in_array(checked_y[x],possible[key]['clues']) && !in_array(checked_y[x],possible[key]['clues_fake'])) {
+          matched++;
+        }
+      }
 
-	// Eliminate ghosts based on non-selected "always" clues
-	if (diff.use_always_clues) {
-		for (let key in possible) { if (possible.hasOwnProperty(key)) {
+      // Get the number of negative clues matched per ghost
+      let matched_n = 0;
+      for (let x = 0; x < checked_n.length; x++) {
+        if (in_array(checked_n[x],possible[key]['clues']) && !in_array(checked_n[x],possible[key]['clues_fake'])) {
+          matched_n++;
+        }
+      }
 
-			// Get the number of clues matched per ghost
-			let matched = [];
-			for (let x = 0; x < checked_y.length; x++) {
-				if (in_array(checked_y[x],possible[key]['clues'])) { matched.push(checked_y[x]); }
-			}
+      let to_delete = false;
 
-			// If all but one clue is matched for a particular ghost, and a required clue isn't one of them, exclude the ghost
-			if (possible[key]['clues'].length - matched.length === 1) {
-				for (let x = 0; x < possible[key]['clues_always'].length; x++) {
-					if (!in_array(possible[key]['clues_always'][x],checked_y)) { delete possible[key]; break; }
-				}
-			}
+      // If the ghost is not hiding enough or too many clues, eliminate it
+      let real_clues_count = possible[key]['clues'].length - possible[key]['clues_fake'].length;
+      if (real_clues_count < (matched + diff.hidden_clues)
+       || real_clues_count <= (matched_n + diff.hidden_clues)) {
+        to_delete = true;
+      }
 
-		} }
-	}
+      // If ghost has some always present clues
+      if (!to_delete && possible[key]['clues_always'].length > 0) {
+        // If any of the negatively selected clues is always present for the ghost, eliminate it
+        for (let x = 0; x < possible[key]['clues_always'].length; x++) {
+          if (in_array(possible[key]['clues_always'][x],checked_n)) {
+            to_delete = true;
+            break;
+          }
+        }
 
-	// Eliminate ghosts based on negative selection
-	for (let key in possible) { if (possible.hasOwnProperty(key)) {
-		for (x = 0; x < checked_n.length; x++) {
-			if (in_array(checked_n[x],possible[key]['clues'])) { delete possible[key]; break }
-		}
-	} }
+        // If the maximum amount of clues has been found for the ghost but not all of its always clues, eliminate it
+        if (!to_delete && (real_clues_count == matched + diff.hidden_clues)) {
+          for (let x = 0; x < possible[key]['clues_always'].length; x++) {
+            if (!in_array(possible[key]['clues_always'][x],checked_y)) {
+              to_delete = true;
+              break;
+            }
+          }
+        }
+      }
+
+      if (to_delete) {
+        delete possible[key];
+      }
+    } }
+  }
 
 	show_ghosts(possible);
 }
