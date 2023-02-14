@@ -222,7 +222,7 @@ langs.en = { // Property here should match this language name
 		ghost_onryo:							"Onryo",
 		ghost_onryo_useful:				[
 			"Candles act as crucifixes with 4m hunt blocking range. Has precedence over crucifix",
-			"Will hunt for every third flame extinguished",
+			"Will hunt for every third flame extinguished, unless blocked by another lit candle",
 			"Can hunt from 60% sanity without flame in room",
 		],
 		ghost_phantom:						"Phantom",
@@ -230,7 +230,7 @@ langs.en = { // Property here should match this language name
 			"Disappears but remains when photo is taken while not hunting",
 			"Ghost photo contains no ghost, and no distortion",
 			"Sanity drops 2x when visible (stops if hidden due to photo)",
-			"Can wander to indoor player",
+			"Can wander to indoor player; leaves EMF at starting location",
 			"Visible for less time during hunt",
 		],
 		ghost_poltergeist:				"Poltergeist",
@@ -238,13 +238,13 @@ langs.en = { // Property here should match this language name
 			"Can throw items at high speed",
 			"Can throw several items at once",
 			"For mass throws, witness sanity reduced by 2% per thrown item",
-			"100% chance to throw objects during hunts",
+			"100% chance to throw objects every 0.5s during hunts",
 		],
 		ghost_raiju:							"Raiju",
 		ghost_raiju_useful:				[
 			"Can hunt at 65% when near electronics",
-			"Greatly increased speed during hunt when near electronics",
-			"Has an increased range of electrical disruption",
+			"Approx. 1.5x speed increase during hunt when near electronics",
+			"Has 1.5x range of electrical disruption",
 		],
 		ghost_revenant:						"Revenant",
 		ghost_revenant_useful:		[
@@ -300,7 +300,7 @@ langs.en = { // Property here should match this language name
 		ghost_yurei:							"Yurei",
 		ghost_yurei_useful:				[
 			"Prefers door interactions to other kinds",
-			"Chance to drop sanity by 13% within 3m (closes a nearby door)",
+			"Chance to drop sanity by 15% within 3m (closes a nearby door)",
 			"Cannot roam while smudged",
 		],
 
@@ -410,6 +410,7 @@ langs.en = { // Property here should match this language name
 			"In Nightmare difficulty, if a player dies during a hunt, the hunt duration will be extended by 12s",
 			"Ghosts move at base player speed, which rapidly increases whenever chasing a player, up to 150%. When LoS is lost, ghost maintains current speed until they reach last LoS point, after which they slowly reduce to base speed. This does not apply to Revenant or Deogen",
 			"Ghosts have a 50% chance to throw an object in range every 0.5s",
+			"Ghosts disrupt electronics in a 10m radius",
 			"Ghosts can only hear player microphones - other sounds do not attract the ghost",
 			"Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headcams) within their hearing range; turn off or toggle away from these to avoid detection",
 			"Doors block line of sight; closing these behind you can prevent the ghost from gaining speed",
