@@ -48,6 +48,7 @@ langs.en = { // Property here should match this language name
 		diff_int:									"Intermediate",
 		diff_pro:									"Professional",
 		diff_har:									"Nightmare",
+		diff_san:									"Insanity", 
 
 		// Photos tab
 		photos:										"Photos",

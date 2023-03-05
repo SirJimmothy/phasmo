@@ -48,6 +48,7 @@ langs.ru = { // Property here should match this language name
 		diff_int:									"Средняя",
 		diff_pro:									"Профессионал",
 		diff_har:									"Кошмар",
+		diff_san:									"безумие",
 
 		// Photos tab
 		photos:										"Фото",
