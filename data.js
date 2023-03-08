@@ -56,7 +56,7 @@ let difficulties = {
 	int:	{timers:{start:150,	hunt_sml:24,hunt_med:44,hunt_lar:54,grace:4,cursed:21},hidden_clues:0},
 	pro:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:3,cursed:21},hidden_clues:0},
 	har:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:2,cursed:21},hidden_clues:1},
-	san:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:1,cursed:21},hidden_clues:2},
+	san:	{timers:{start:0,		hunt_sml:33,hunt_med:53,hunt_lar:63,grace:2,cursed:21},hidden_clues:2},
 };
 
 let clues = ["dots","emf","prints","temps","orb","writing","box"];
