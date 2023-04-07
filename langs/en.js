@@ -400,7 +400,27 @@ langs.en = { // Property here should match this language name
 			"Tarot cards: Tower forces interaction or evidence / Devil forces ghost event / Death forces hunt / Fortune gives +/- 25% sanity / Sun gives 100% sanity / Moon takes 100% sanity / Hermit returns ghost to their room / Hanged Man kills the player / Priestess revives dead teammate or banks an extra party life / Fool does nothing",
 			"Tarot cards always become Fool cards when pulled during hunts",
 			"Lighting the summoning circle during a hunt will result in your immediate death",
+			"Monkey Paw is always active when held; be careful of triggering voice recognition",
+			"Monkey Paw grants wishes based on difficulty multiplier: &lt;2x = 5 wishes, &lt;3x = 4 wishes, &gt;3x = 3 wishes",
+			"Monkey paw vision loss is significant and reduces visibility to 1M; recommend guarding affected players",
+			"Vision and hearing loss is removed upon death and does not come back on resurrection",
 		],
+		gameplay_monkey_paw:					"Monkey Paw Wishes",
+		gameplay_monkey_paw_items:		[
+			"&quot;I wish to see the ghost&quot;: All outer doors lock, ghost event in front of player, after which a hunt starts. Player vision is reduced for hunt duration",
+			"&quot;I wish for activity&quot; / &quot;I wish the ghost would do something&quot;: All activity doubled for 2 mins, after which breaker breaks and outer doors are locked for 2 mins",
+			"&quot;I wish to trap the ghost&quot; / &quot;I wish the ghost was trapped&quot;: Teleports ghost to favourite room and locks ghost and player room doors for 1 min. Ghost will be inactive for this period, after which a hunt will start. 25% chance for doors to only unlock after grace period",
+			"&quot;I wish to be sane&quot; / &quot;I wish for sanity&quot;: All players set to 50% sanity. Passive drain set to 1.5x, and ghost favourite room is randomised",
+			"&quot;I wish to be safe&quot;: Nearest hiding spot unlocked. Room lights will break and ghost will be able to find player for round duration",
+			"&quot;I wish to leave&quot;: All outer doors permanently unlocked, even during hunts. Player speed is slowed, slowly returning over 5s, with reduced vision",
+			"&quot;I wish to revive my friend&quot; / &quot;I wish for life&quot;: Revives dead player, with 50% chance to kill wisher",
+			"&quot;I wish for knowledge&quot;: Removes 1 incorrect evidence and applicable ghosts from journal. Hunt is initiated and the wisher has reduced hearing and sight for round duration",
+			"&quot;I wish for Sun / Rain / Clear Sky / Fog / Snow / Wind&quot;: Weather changes, temporarily blinding players. Wisher's sanity reduced by 25%. Rain may grant either light or heavy rain",
+			"&quot;I wish for anything&quot;: Grants random unused wish",
+		],
+
+
+
 		gameplay_hunts:								"Hunts",
 		gameplay_hunts_items:					[
 			"Hunts can occur once the average sanity of the group falls below the ghost's sanity threshold (usually 50%). The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance",

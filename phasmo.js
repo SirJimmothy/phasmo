@@ -29,7 +29,7 @@ let clocks = {
 	"smudge":	null,
 };
 
-let gameplay = ["hotkeys","general","evidence","non_evidence","cursed_items","hunts","nerd_info"];
+let gameplay = ["hotkeys","general","evidence","non_evidence","cursed_items","monkey_paw","hunts","nerd_info"];
 
 let checked = []; // Hold list of currently checked clues
 
