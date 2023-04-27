@@ -18,7 +18,7 @@ let fast			= false;
 let sound			= true;
 let use_map		= "";
 let use_diff	= "";
-let lang_use	= "en";
+let lang_use	= "fr";
 
 let timings = {
 	"main":	{"start": 0,	"end": 0,	"current": 0},
