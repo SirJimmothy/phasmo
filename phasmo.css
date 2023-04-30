@@ -202,7 +202,7 @@ div#photos > input { display: none; }
 div#photos > input + div { position: fixed; top: 4em; left: calc(-21em - 2px); width: 20em; padding: 0.5em; border: 1px solid var(--black); border-radius: 0 0 0.5em 0; background-color: var(--white); transition: left 0.2s linear 0s; }
 div#photos > input:checked + div { left: -1px; }
 div#photos > input + div > label { position: absolute; top: -1px; right: -29px; display: block; width: 28px; height: 6em; padding-top: 0.25em; border: 1px solid var(--black); border-left: none; border-radius: 0 0.5em 0.5em 0; text-align: center; font-weight: normal; background-color: var(--white); cursor: pointer; }
-div#photos > input + div > label > span { position: absolute; top: 3em; left: -0.5em; transform: rotate(90deg); margin-right: 0.5em; font-weight: bold; }
+div#photos > input + div > label > span { position: absolute; top: 0.8em; left: 0.4em; transform: rotate(90deg); transform-origin: 0 100%; margin-right: 0.5em; font-weight: bold; }
 
 /* Photos table */
 div#photos > div > table { width: 100%; }
