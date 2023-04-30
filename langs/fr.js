@@ -1,35 +1,34 @@
 langs.fr = { // Property here should match this language name
 	"phrases": {
-		dark: "Sombre",
-		fullscreen: "Plein écran",
-		fast: "Rapide",
-		steps: "Pas",
-		mute: "Muet",
-		compact: "Compact",
-		reset: "Réinitialiser",
-		alone: "Seul",
-		all: "Tous",
-		title: "Phasmophobia Ghost Finder",
-		line1: "Sélectionnez des indices ou tapez les numéros pour basculer entre les choix afin de trouver le type de fantôme.",
-		line2: "Utilisez [ et ] pour les cartes : Espace pour sélectionner ; Entrée pour ouvrir la carte. +/- pour changer la difficulté",
-		line3: "Cartes volées sans pitié à",
-		gameplay: "Jeu et informations sur les objets",
-		github: "GitHub",
-		github_original_creator: "GitHub (Créateur original)",
-		discord: "Discord",
-		support_me: "Soutenez-moi",
-		hunt_timers: "Les minuteries de chasse incluent les différents délais de grâce",
-		no_info: "Aucune information pour l'instant",
-		open_map: "Ouvrir la carte",
+		dark:											"Sombre",
+		fullscreen:								"Plein écran",
+		fast:											"Rapide",
+		steps:										"Pas",
+		mute:											"Muet",
+		compact:									"Compact",
+		reset:										"Réinitialiser",
+		alone:										"Seul",
+		all:											"Tous",
+		title:										"Phasmophobia Ghost Finder",
+		line1:										"Sélectionnez des indices ou tapez les numéros pour basculer entre les choix afin de trouver le type de fantôme.",
+		line2:										"Utilisez [ et ] pour les cartes : Espace pour sélectionner ; Entrée pour ouvrir la carte. +/- pour changer la difficulté",
+		line3:										"Cartes volées sans pitié à",
+		gameplay:									"Jeu et informations sur les objets",
+		github:										"GitHub",
+		discord:									"Discord",
+		support_me:								"Soutenez-moi",
+		hunt_timers:							"Les minuteries de chasse incluent les différents délais de grâce",
+		no_info:									"Aucune information pour l'instant",
+		open_map:									"Ouvrir la carte",
 
 		// Minuteries
-		timer_start: "Démarrer",
-		timer_hunt: "Chasse",
-		timer_cursed: "Chasse maudite",
-		timer_post_hunt: "Après la chasse",
-		timer_smudge: "Test Encens classique",
-		timer_smudge_spirit: "Test Encens d'esprit",
-		timer_smudge_demon: "Test Encens de démon",
+		timer_start:							"Démarrer",
+		timer_hunt:								"Chasse",
+		timer_cursed:							"Chasse maudite",
+		timer_post_hunt:					"Après la chasse",
+		timer_smudge:							"Test Encens classique",
+		timer_smudge_spirit:			"Test Encens d'esprit",
+		timer_smudge_demon:				"Test Encens de démon",
 
 		// Cartes
 		map_bleasdale:						"Bleasdale",
@@ -45,42 +44,42 @@ langs.fr = { // Property here should match this language name
 		map_woodwind:							"Woodwind",
 
 		// Difficultés
-		diff_ama: "Amateur",
-		diff_int: "Intermédiaire",
-		diff_pro: "Professionnel",
-		diff_har: "Cauchemar",
-		diff_san: "Démence",
+		diff_ama:									"Amateur",
+		diff_int:									"Intermédiaire",
+		diff_pro:									"Professionnel",
+		diff_har:									"Cauchemar",
+		diff_san:									"Démence",
 
 		// Onglet photos
-		photos: "Photos",
-		type: "Type",
-		stars: "Étoiles (plus/moins)",
-		photo_none: "--------",
-		photo_bone: "Os",
-		photo_cursed_item: "Objet maudit",
-		photo_dead_body: "Cadavre",
-		photo_dots_ghost: "Fantôme DOTS",
-		photo_dirty_water: "Eau sale",
-		photo_finger_prints: "Empreintes digitales",
-		photo_footsteps: "Empreintes de pas",
-		photo_ghost: "Fantôme",
-		photo_ghost_writing: "Écritures fantômatique",
-		photo_interaction: "Interaction",
-		photo_stepped_salt: "Sel piétiné",
-		photo_used_crucifix: "Crucifix utilisé",
-		roll: "Lancer",
+		photos:										"Photos",
+		type:											"Type",
+		stars:										"Étoiles (plus/moins)",
+		photo_none:								"--------",
+		photo_bone:								"Os",
+		photo_cursed_item:				"Objet maudit",
+		photo_dead_body:					"Cadavre",
+		photo_dots_ghost:					"Fantôme DOTS",
+		photo_dirty_water:				"Eau sale",
+		photo_finger_prints:			"Empreintes digitales",
+		photo_footsteps:					"Empreintes de pas",
+		photo_ghost:							"Fantôme",
+		photo_ghost_writing:			"Écritures fantômatique",
+		photo_interaction:				"Interaction",
+		photo_stepped_salt:				"Sel piétiné",
+		photo_used_crucifix:			"Crucifix utilisé",
+		roll:											"Lancer",
 
-		roll_cat_maps : "Cartes",
-		roll_cat_items : "Objets",
-		roll_cat_clear : "Effacer",
-		roll_cat_all : "Tous",
-		roll_cat_small : "Petit",
-		roll_cat_medium : "Moyen",
-		roll_cat_large : "Grand",
-		roll_cat_evidence : "Preuves",
-		roll_cat_secondary : "Secondaire",
-		roll_cat_lights : "Lumières",
-		roll_cat_electric : "Électrique",
+		roll_cat_maps :						"Cartes",
+		roll_cat_items :					"Objets",
+		roll_cat_clear :					"Effacer",
+		roll_cat_all :						"Tous",
+		roll_cat_small :					"Petit",
+		roll_cat_medium :					"Moyen",
+		roll_cat_large :					"Grand",
+		roll_cat_evidence :				"Preuves",
+		roll_cat_secondary :			"Secondaire",
+		roll_cat_lights :					"Lumières",
+		roll_cat_electric :				"Électrique",
 
 		// Rolls tab
 		roll_bleasdale:						"Bleasdale Farmhouse",
@@ -117,12 +116,12 @@ langs.fr = { // Property here should match this language name
 		roll_vid:									"Caméra vidéo",
 
 		// Indices
-		clue_dots: 									"DOTS",
-		clue_emf: 									"EMF 5",
-		clue_prints: 								"Empreintes dig.",
-		clue_temps: 								"Temp. glaciales",
-		clue_orb: 									"Orbes",
-		clue_writing: 								"Ecritures fant.",
+		clue_dots: 								"DOTS",
+		clue_emf: 								"EMF 5",
+		clue_prints: 							"Empreintes dig.",
+		clue_temps: 							"Temp. glaciales",
+		clue_orb: 								"Orbes",
+		clue_writing: 						"Ecritures fant.",
 		clue_box:									"Spirit Box",
 
 		// Ghost useful info
@@ -308,7 +307,7 @@ langs.fr = { // Property here should match this language name
 		],
 
 		// Gameplay info
-		gameplay_hotkeys: "Raccourcis clavier",
+		gameplay_hotkeys:	"Raccourcis clavier",
 		gameplay_hotkeys_items: [
 			"0-9	Basculer chaque élément de preuve pour confirmer ou rejeter, pour aider à identifier le fantôme. Lorsque l'onglet Photos est sorti, bascule les types de photo individuels",
 			"[ / ]	Parcourir les cartes disponibles : appuyer sur Espace pour sélectionner la carte ; Entrée pour ouvrir. Lorsque l'onglet Photos est sorti, permet de sélectionner la qualité des photos",
@@ -381,7 +380,7 @@ langs.fr = { // Property here should match this language name
 			"Les bâtons d'encens utilisés pendant une chasse font oublier tous les joueurs au fantôme pendant 6s ; cet effet s'applique à tous les joueurs, même lorsqu'il est utilisé depuis l'extérieur de la zone de jeu.",
 			"Les effets de répulsion des bâtons d'encens s'appliquent une fois par seconde pendant 6s, la durée de la combustion du bâton d'encens, mais ne s'additionne pas"
 		],
-		gameplay_cursed_items: "Objets Maudits",
+		gameplay_cursed_items:	"Objets Maudits",
 		gameplay_cursed_items_items: [
 			"Toutes les cartes contiennent un objet maudit : une planche Ouija, des cartes de tarot, une poupée vaudou ou un miroir. Chaque objet n'a qu'un seul point d'apparition par carte.",
 			"Les objets maudits déclenchent une chasse lorsque leur utilisation est terminée ou qu'ils sont cassés.",
@@ -419,10 +418,7 @@ langs.fr = { // Property here should match this language name
 			"&quot;Je souhaite du soleil / de la pluie / un ciel dégagé / du brouillard / de la neige / du vent&quot;: Les conditions météorologiques changent, aveuglant temporairement les joueurs. La santé mentale du joueur ayant fait le vœu est réduite de 25%. La pluie peut donner soit une pluie légère ou forte",
 			"&quot;Je souhaite n'importe quoi&quot;: Accorde un vœu aléatoire inutilisé",
 		],
-
-
-
-		gameplay_hunts: "Chasses",
+		gameplay_hunts:	"Chasses",
 		gameplay_hunts_items: [
 			"Les chasses peuvent se produire une fois que la santé mentale moyenne du groupe est inférieure au seuil de santé mentale du fantôme (généralement 50%). La fréquence des tentatives de chasse dépend du fantôme individuel, cependant plus la santé mentale moyenne est basse, plus la chance de chasse est élevée",
 			"Lorsqu'une chasse commence, toutes les portes extérieures sont verrouillées et les interrupteurs de lumière ne peuvent pas être utilisés",
@@ -443,7 +439,7 @@ langs.fr = { // Property here should match this language name
 			"Les bâtons d'encens peuvent être utilisés dans un rayon de 6 mètres d'un fantôme pour le faire errer au hasard et oublier toutes les cibles pendant 6 secondes.",
 			"Les bâtons d'encens peuvent également être utilisés par un joueur non poursuivi, même dans le camion, si le fantôme poursuit un autre joueur.",
 		],
-		gameplay_nerd_info: "Infos pour les geeks",
+		gameplay_nerd_info:	"Infos pour les geeks",
 		gameplay_nerd_info_items: [
 			"La vitesse de base du joueur est de 1,6 m/s ; en courant, elle est de 3 m/s",
 			"Intervalle de température pour la vitesse de chasse exact pour le fantôme Hantu : 1,4 m/s à 15°C / 1,75 m/s à 12°C / 2,1 m/s à 9°C / 2,3 m/s à 6°C / 2,5 m/s à 3°C / 2,7 m/s à 0°C",
@@ -453,10 +449,5 @@ langs.fr = { // Property here should match this language name
 			"La diminution passive de la santé mentale est multipliée selon la difficulté : Intermediate est de 1,5x, Professional est de 2x",
 			"Si vous jouez en solo, toutes les diminutions passives de santé mentale sont réduites de moitié",
 		],
-
-
-
-
-
 	},
 };

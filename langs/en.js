@@ -418,9 +418,6 @@ langs.en = { // Property here should match this language name
 			"&quot;I wish for Sun / Rain / Clear Sky / Fog / Snow / Wind&quot;: Weather changes, temporarily blinding players. Wisher's sanity reduced by 25%. Rain may grant either light or heavy rain",
 			"&quot;I wish for anything&quot;: Grants random unused wish",
 		],
-
-
-
 		gameplay_hunts:								"Hunts",
 		gameplay_hunts_items:					[
 			"Hunts can occur once the average sanity of the group falls below the ghost's sanity threshold (usually 50%). The frequency of hunt attempts depends on the individual ghost, however the lower the average sanity, the higher the hunt chance",
