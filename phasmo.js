@@ -705,7 +705,7 @@ function check_ghosts() {
 	}
 
 	// Take a copy of the ghost object for us to eliminate ghosts
-	let possible = clone(ghosts);
+	let possible = Object.assign({},ghosts);
 
 	// Eliminate ghosts based on positive selection
 	for (key in possible) { if (possible.hasOwnProperty(key)) {
@@ -786,9 +786,9 @@ function populate_phrases() {
 		let string = langs[lang_use].phrases[attr];
 		if (string) {
 			if (phrases[x].nodeName === 'INPUT') {
-				phrases[x].value = string;
+				phrases[x].value = html_ents(string);
 			} else {
-				phrases[x].innerHTML = string;
+				phrases[x].innerHTML = html_ents(string);
 			}
 		}
 	}
@@ -1167,11 +1167,13 @@ function in_array(needle,haystack,separator = ' ') {
 	return output;
 }
 
-function clone(obj) {
-	if (obj == null || typeof obj != 'object') { return obj; }
-	let copy = obj.constructor();
-	for (let attr in obj) { if (obj.hasOwnProperty(attr)) { copy[attr] = obj[attr]; } }
-	return copy;
+/**
+ * Use a dummy text area to convert text to HTML entities
+ */
+function html_ents(text) {
+	let dummy = document.createElement('TEXTAREA');
+	dummy.innerText = text;
+	return dummy.innerHTML;
 }
 
 function getitem(e,item_type = 'TR') {
