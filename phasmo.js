@@ -1170,10 +1170,10 @@ function in_array(needle,haystack,separator = ' ') {
 /**
  * Use a dummy text area to convert text to HTML entities
  */
+let dummy_textarea = document.createElement('TEXTAREA');
 function html_ents(text) {
-	let dummy = document.createElement('TEXTAREA');
-	dummy.innerText = text;
-	return dummy.innerHTML;
+	dummy_textarea.innerText = text;
+	return dummy_textarea.innerHTML;
 }
 
 function getitem(e,item_type = 'TR') {
