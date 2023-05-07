@@ -151,6 +151,7 @@ langs.fr = { // Property here should match this language name
 			"33% de chance d'entendre un son unique de la spirit box (respiration). Doit être à moins de 1m du fantôme",
 			"Mode cauchemar : la spirit box est garantie",
 			"Lorsqu'il est sous l'effet de l'encens, le fantôme conserve sa vitesse actuelle, sauf s'il se déplace à plus de 3m/s, auquel cas il ralentit à la vitesse de base du joueur pour la durée de la purification.",
+			"visible plus longtemps pendant les chasses",
 		],
 		ghost_goryo:							"Goryo",
 		ghost_goryo_useful:				[

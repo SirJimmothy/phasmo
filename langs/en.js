@@ -151,6 +151,7 @@ langs.en = { // Property here should match this language name
 			"33% for unique spirit box sound (breathing). Must be within 1m of ghost",
 			"Nightmare mode: spirit box is guaranteed",
 			"When smudged, ghost retains current speed, unless moving at over 3m/s, where it slows to base player speed for smudge duration",
+			"Visible for longer during hunts",
 		],
 		ghost_goryo:							"Goryo",
 		ghost_goryo_useful:				[
