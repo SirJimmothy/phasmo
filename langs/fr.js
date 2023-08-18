@@ -1,3 +1,4 @@
+
 langs.fr = { // Property here should match this language name
 	"phrases": {
 		dark:											"Sombre",
@@ -60,8 +61,8 @@ langs.fr = { // Property here should match this language name
 		photo_dead_body:					"Cadavre",
 		photo_dots_ghost:					"Fantôme DOTS",
 		photo_dirty_water:				"Eau sale",
-		photo_finger_prints:			"Empreintes digitales",
-		photo_footsteps:					"Empreintes de pas",
+		photo_ultraviolet:				"Empreintes digitales",
+		photo_footprints:					"Empreintes de pas",
 		photo_ghost:							"Fantôme",
 		photo_ghost_writing:			"Écritures fantômatique",
 		photo_interaction:				"Interaction",
@@ -109,7 +110,6 @@ langs.fr = { // Property here should match this language name
 		roll_sms:									"Bâton d'encens",
 		roll_snd:									"Détecteur sonore",
 		roll_spb:									"Spirit box",
-		roll_sfl:									"Lampe torche puissante",
 		roll_thm:									"Thermomètre",
 		roll_tri:									"Trépied",
 		roll_uvl:									"Lampe UV",
@@ -118,7 +118,7 @@ langs.fr = { // Property here should match this language name
 		// Indices
 		clue_dots: 								"DOTS",
 		clue_emf: 								"EMF 5",
-		clue_prints: 							"Empreintes dig.",
+		clue_ultraviolet: 				"Empreintes dig.",
 		clue_temps: 							"Temp. glaciales",
 		clue_orb: 								"Orbes",
 		clue_writing: 						"Ecritures fant.",

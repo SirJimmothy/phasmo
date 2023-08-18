@@ -21,7 +21,7 @@ When an evidence item is included or disregarded, other evidence items that do n
 Additionally, when a ghost has a guaranteed evidence item on a particular difficulty, and this evidence item is not included, the ghost in question will be disregarded.
 
 ## Timers
-Various timers have been configured to assist with making sure you're not caught out by an expiring smudge stick, non-professional hunt latency, etc. Simply select the timer you wish to use and hit the green button to start the timer.
+Various timers have been configured to assist with making sure you're not caught out by an expiring incense, non-professional hunt latency, etc. Simply select the timer you wish to use and hit the green button to start the timer.
 
 Hunt timers include the grace period at the start of the hunt, where the ghost appears but is not yet lethal.
 

@@ -1,29 +1,29 @@
 
 let ghosts = {
-	banshee:			{clues: ["dots","prints","orb"],				clues_always: [],         clues_fake: []},
-	demon:				{clues: ["prints","temps","writing"],		clues_always: [],         clues_fake: []},
-	deogen:				{clues: ["box","dots","writing"],				clues_always: ["box"],    clues_fake: []},
-	goryo:				{clues: ["emf","dots","prints"],				clues_always:	["dots"],   clues_fake: []},
-	hantu:				{clues: ["orb","prints","temps"],				clues_always: ["temps"],  clues_fake: []},
-	jinn:					{clues: ["emf","prints","temps"],				clues_always: [],         clues_fake: []},
-	mare: 				{clues: ["box","orb","writing"],				clues_always: [],         clues_fake: []},
-	mimic:				{clues: ["box","orb","prints","temps"],	clues_always: ["orb"],    clues_fake: ["orb"]},
-	moroi:				{clues: ["box","temps","writing"],			clues_always: ["box"],    clues_fake: []},
-	myling:				{clues: ["emf","prints","writing"],			clues_always: [],         clues_fake: []},
-	obake:				{clues: ["emf","orb","prints"],					clues_always: ["prints"], clues_fake: []},
-	oni:					{clues: ["emf","dots","temps"],					clues_always: [],         clues_fake: []},
-	onryo:				{clues: ["box","orb","temps"],					clues_always: [],         clues_fake: []},
-	phantom:			{clues: ["box","dots","prints"],				clues_always: [],         clues_fake: []},
-	poltergeist:	{clues: ["box","prints","writing"],			clues_always: [],         clues_fake: []},
-	raiju:				{clues: ["dots","emf","orb"],						clues_always: [],         clues_fake: []},
-	revenant:			{clues: ["orb","temps","writing"],			clues_always: [],         clues_fake: []},
-	shade:				{clues: ["emf","temps","writing"],			clues_always: [],         clues_fake: []},
-	spirit:				{clues: ["box","emf","writing"],				clues_always: [],         clues_fake: []},
-	thaye:				{clues: ["dots","orb","writing"],				clues_always: [],         clues_fake: []},
-	twins:				{clues: ["box","emf","temps"],					clues_always: [],         clues_fake: []},
-	wraith:				{clues: ["box","emf","dots"],						clues_always: [],         clues_fake: []},
-	yokai:				{clues: ["box","dots","orb"],						clues_always: [],         clues_fake: []},
-	yurei:				{clues: ["orb","dots","temps"],					clues_always: [],         clues_fake: []},
+	banshee:			{clues: ["dots","ultraviolet","orb"],					clues_always: [],								clues_fake: []},
+	demon:				{clues: ["ultraviolet","temps","writing"],		clues_always: [],								clues_fake: []},
+	deogen:				{clues: ["box","dots","writing"],							clues_always: ["box"],					clues_fake: []},
+	goryo:				{clues: ["emf","dots","ultraviolet"],					clues_always:	["dots"],					clues_fake: []},
+	hantu:				{clues: ["orb","ultraviolet","temps"],				clues_always: ["temps"],				clues_fake: []},
+	jinn:					{clues: ["emf","ultraviolet","temps"],				clues_always: [],								clues_fake: []},
+	mare: 				{clues: ["box","orb","writing"],							clues_always: [],								clues_fake: []},
+	mimic:				{clues: ["box","orb","ultraviolet","temps"],	clues_always: ["orb"],					clues_fake: ["orb"]},
+	moroi:				{clues: ["box","temps","writing"],						clues_always: ["box"],					clues_fake: []},
+	myling:				{clues: ["emf","ultraviolet","writing"],			clues_always: [],								clues_fake: []},
+	obake:				{clues: ["emf","orb","ultraviolet"],					clues_always: ["ultraviolet"],	clues_fake: []},
+	oni:					{clues: ["emf","dots","temps"],								clues_always: [],								clues_fake: []},
+	onryo:				{clues: ["box","orb","temps"],								clues_always: [],								clues_fake: []},
+	phantom:			{clues: ["box","dots","ultraviolet"],					clues_always: [],								clues_fake: []},
+	poltergeist:	{clues: ["box","ultraviolet","writing"],			clues_always: [],								clues_fake: []},
+	raiju:				{clues: ["dots","emf","orb"],									clues_always: [],								clues_fake: []},
+	revenant:			{clues: ["orb","temps","writing"],						clues_always: [],								clues_fake: []},
+	shade:				{clues: ["emf","temps","writing"],						clues_always: [],								clues_fake: []},
+	spirit:				{clues: ["box","emf","writing"],							clues_always: [],								clues_fake: []},
+	thaye:				{clues: ["dots","orb","writing"],							clues_always: [],								clues_fake: []},
+	twins:				{clues: ["box","emf","temps"],								clues_always: [],								clues_fake: []},
+	wraith:				{clues: ["box","emf","dots"],									clues_always: [],								clues_fake: []},
+	yokai:				{clues: ["box","dots","orb"],									clues_always: [],								clues_fake: []},
+	yurei:				{clues: ["orb","dots","temps"],								clues_always: [],								clues_fake: []},
 };
 
 let timers = {
@@ -31,9 +31,9 @@ let timers = {
 	hunt:						{name:"Hunt",						time:0,		default:false,	disabled:true},
 	cursed:					{name:"Cursed Hunt",		time:0,		default:false,	disabled:true},
 	post_hunt:			{name:"Post-Hunt",			time:25,	default:false,	disabled:false},
-	smudge:					{name:"Smudge",					time:90,	default:true,		disabled:false},
-	smudge_spirit:	{name:"Spirit Smudge",	time:180,	default:false,	disabled:false},
-	smudge_demon:		{name:"Demon Smudge",		time:60,	default:false,	disabled:false},
+	smudge:					{name:"Incense",				time:90,	default:true,		disabled:false},
+	smudge_spirit:	{name:"Spirit Incense",	time:180,	default:false,	disabled:false},
+	smudge_demon:		{name:"Demon Incense",	time:60,	default:false,	disabled:false},
 };
 
 let maps = {
@@ -59,7 +59,7 @@ let difficulties = {
 	san:	{timers:{start:0,		hunt_sml:30,hunt_med:50,hunt_lar:60,grace:2,cursed:21},hidden_clues:2},
 };
 
-let clues = ["dots","emf","prints","temps","orb","writing","box"];
+let clues = ["dots","emf","ultraviolet","temps","orb","writing","box"];
 
 let photos = [
 	// ["phrase",			1st,2st,3st,limit]
@@ -69,8 +69,8 @@ let photos = [
 	["dead_body",			1,	2,	5,	0],
 	["dots_ghost",		1,	2,	5,	0],
 	["dirty_water",		2,	5,	10,	0],
-	["finger_prints",	1,	2,	5,	0],
-	["footsteps",			1,	2,	5,	0],
+	["ultraviolet"	,	1,	2,	5,	0],
+	["footprints",		1,	2,	5,	0],
 	["ghost",					5,	10,	20,	1],
 	["ghost_writing",	1,	2,	5,	0],
 	["interaction",		1,	2,	5,	0],
@@ -92,14 +92,14 @@ let rolls = {
 		},
 	},
 	items:{
-		items:["can","cru","dot","emf","fla","gwb","glo","lig","mos","par","cam","sal","san","sms","snd","spb","sfl","thm","tri","uvl","vid"],
+		items:["can","cru","dot","emf","fla","gwb","glo","lig","mos","par","cam","sal","san","sms","snd","spb","thm","tri","uvl","vid"],
 		groups:{
 			clear:			{items:[]},
 			all:				{items:[]},
 			evidence:		{items:["emf","dot","gwb","spb","thm","uvl","vid"]},
-			secondary:	{items:["can","cru","fla","glo","lig","mos","par","cam","sal","san","sms","snd","sfl","tri"]},
-			lights:			{items:["can","fla","sfl"]},
-			electric:		{items:["emf","dot","fla","mos","par","cam","snd","spb","sfl","thm","uvl","vid"]},
+			secondary:	{items:["can","cru","fla","glo","lig","mos","par","cam","sal","san","sms","snd","tri"]},
+			lights:			{items:["can","fla"]},
+			electric:		{items:["emf","dot","fla","mos","par","cam","snd","spb","thm","uvl","vid"]},
 		},
 	},
 };

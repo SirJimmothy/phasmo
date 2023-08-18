@@ -1,3 +1,4 @@
+
 langs.ru = { // Property here should match this language name
 	"phrases": {
 		dark:											"Темная тема",
@@ -60,8 +61,8 @@ langs.ru = { // Property here should match this language name
 		photo_dead_body:					"Мертвое тело",
 		photo_dots_ghost:					"Призрак на лазерном проекторе",
 		photo_dirty_water:				"Грязная вода",
-		photo_finger_prints:			"Отпечатки рук",
-		photo_footsteps:					"Отпечатки ног",
+		photo_ultraviolet:				"Отпечатки рук",
+		photo_footprints:					"Отпечатки ног",
 		photo_ghost:							"Призрак",
 		photo_ghost_writing:			"Записи в блокноте",
 		photo_interaction:				"Взаимодействие",
@@ -109,7 +110,6 @@ langs.ru = { // Property here should match this language name
 		roll_sms:									"Благовония",
 		roll_snd:									"Датчик звука",
 		roll_spb:									"Радиоприемник",
-		roll_sfl:									"Мощный фонарь",
 		roll_thm:									"Термометр",
 		roll_tri:									"Штатив",
 		roll_uvl:									"УФ-фонарик",
@@ -118,7 +118,7 @@ langs.ru = { // Property here should match this language name
 		// Clues
 		clue_dots:								"Проектор",
 		clue_emf:									"ЭМП 5",
-		clue_prints:							"Отпечатки",
+		clue_ultraviolet:					"Отпечатки",
 		clue_temps:								"Мороз",
 		clue_orb:									"Огонек",
 		clue_writing:							"Блокнот",
