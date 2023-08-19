@@ -359,11 +359,12 @@ langs.en = { // Property here should match this language name
 			"Truck EMF board registers EMF as 1 less than real values, with optional extra +/-1 variation: EMF 3 can show as 1, 2 or 3",
 			"Spirit boxes will work anywhere inside the map, but the ghost will only listen to someone in a room with no lights on, within 3m of the ghost",
 			"Ghost orbs only appear in the ghost's favourite room, and as such can be used to track the ghost's likely location",
-			"DOTS ghosts enter short &quot;DOTS states&quot; and can be seen with infrared light. They wander towards the nearest player (or target for banshee) and disappear",
+			"DOTS ghosts enter short &quot;DOTS states&quot; and can be seen with infrared light. They wander towards the nearest player (or banshee target) within the same room before disappearing",
 			"Video cameras can see ghost orbs. Ghost orbs move around the room and behave like bubbles",
 			"Ghost writing books are considered by the ghost as standard interaction and throwable items, like random clutter. Removing clutter can increase the chances of the ghost interacting with a book",
 			"When written in, ghost writing books will levitate and the pen will scribble - this can be observed via cameras",
 			"A writing ghost will always write in the book if it throws it; if the book has moved and is empty, writing can be excluded",
+			"Ultraviolet evidence can be &quot;charged&quot; by using a UV light near it, and a photo can then be taken. Ultraviolet photos cannot be taken without charged evidence.",
 		],
 		gameplay_non_evidence:				"Non-Evidence Items",
 		gameplay_non_evidence_items:	[
