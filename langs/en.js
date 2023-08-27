@@ -384,7 +384,8 @@ langs.en = { // Property here should match this language name
 			"Once a crucifix prevents a hunt, EMF 2 will be generated and the ghost may not attempt to hunt for 5s",
 			"Incense prevents hunts for ghosts within 6m. Incense lasts for 90s and while multiple can be used, Incense timers cannot be stacked. Also applies during hunts",
 			"Incense used during a hunt make the ghost forget all players for 6s",
-			"Incense repel effects apply once every second for 6s, the duration of the incense burn, but do not stack",
+			"Incense repel effects apply once every second for 6s (the duration of the incense burn), but do not stack",
+			"Incense tier 2 slows the ghost, and tier 3 stops the ghost, in addition to other effects",
 		],
 		gameplay_cursed_items:				"Cursed Items",
 		gameplay_cursed_items_items:	[
