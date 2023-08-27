@@ -439,7 +439,7 @@ langs.en = { // Property here should match this language name
 			"Ghosts have a 50% chance to throw an object in range every 0.5s",
 			"Ghosts disrupt electronics in a 10m radius",
 			"Ghosts can only hear player microphones - other sounds do not attract the ghost",
-			"Ghosts can detect powered-on player-held electronics (incl. flashlights, but not headgear) within their hearing range; turn off or toggle away from these to avoid detection",
+			"Ghosts can detect powered-on player-held electronics (incl. flashlights and headgear) within their hearing range; turn off or toggle away from these to avoid detection",
 			"Doors block line of sight; closing these behind you can prevent the ghost from gaining speed",
 			"Players can hide behind locker and closet doors while holding them - ghosts may move all unheld doors, exposing hidden players. Ghosts will, however, forcibly open room doors being held, to expose players",
 			"If a ghost sees a player enter a closet or locker, they will attempt to open them, even if the doors are held. Keep pulling them closed to survive",
