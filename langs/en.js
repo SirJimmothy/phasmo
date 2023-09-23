@@ -331,6 +331,7 @@ langs.en = { // Property here should match this language name
 			"Crouching reduces your visible area to the ghost, and allows you to see the floor in dark areas",
 			"Sprinting allows movement at ~1.8x for 3.5s with 5s cooldown - scales for partial use",
 			"Bones can spawn in any unenclosed locations; will not spawn in cabinets, but can spawn inside raised door frames, towels, and carpets",
+			"Ghosts can interact with many items, including light switches, breakers, and electronics, such as radios and TVs. Each of these interactions leaves an EMF reading behind,. which can be interpreted using the information in the [Evidence Items] category",
 			"All ghosts have a favourite room, but the &quot;ghost room&quot; refers only to the room the ghost is currently in. Ghosts on Professional and Nightmare difficulties, when roaming, will sometimes choose their current location as a new favourite room",
 			"Ghosts will slowly reduce the temperature of any room they\"re in, including during hunts",
 			"Ghost events (ghost appearance, walking to a player, mist balls, and loud breaths) reduce the target\"s sanity by 10%. All ghost events target a single player, and the ghost can teleport near a player in order to perform an event",
