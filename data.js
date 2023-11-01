@@ -37,6 +37,7 @@ let timers = {
 };
 
 let maps = {
+	training:		{size:"sml",file:"map_training.png"},
 	bleasdale:	{size:"sml",file:"map_bleasdale.png"},
 	brownstone:	{size:"med",file:"map_highschool.png"},
 	edgefield:	{size:"sml",file:"map_edgefield.png"},

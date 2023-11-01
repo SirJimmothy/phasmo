@@ -32,6 +32,7 @@ langs.en = { // Property here should match this language name
 		timer_smudge_demon:				"Demon Incense",
 
 		// Maps
+		map_training:							"Training",
 		map_bleasdale:						"Bleasdale",
 		map_brownstone:						"High School",
 		map_edgefield:						"Edgefield",
