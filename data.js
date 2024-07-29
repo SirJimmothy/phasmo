@@ -43,6 +43,7 @@ let maps = {
 	edgefield:	{size:"sml",file:"map_edgefield.png"},
 	grafton:		{size:"sml",file:"map_grafton.png"},
 	maple:			{size:"med",file:"map_maple.png"},
+	pointhope:	{size:"sml",file:"map_pointhope.png"},
 	prison:			{size:"med",file:"map_prison.png"},
 	ridgeview:	{size:"sml",file:"map_ridgeview.png"},
 	sunny:			{size:"lar",file:"map_sunny_meadows.png"},
@@ -83,11 +84,11 @@ let star_count = 3;
 
 let rolls = {
 	maps:{
-		items:["bleasdale","brownstone","edgefield","grafton","maple","prison","ridgeview","sunny","tanglewood","willow","woodwind"],
+		items:["bleasdale","brownstone","edgefield","grafton","pointhope","maple","prison","ridgeview","sunny","tanglewood","willow","woodwind"],
 		groups:{
 			clear:	{items:[]},
 			all:		{items:[]},
-			small:	{items:["bleasdale","edgefield","grafton","ridgeview","tanglewood","willow","woodwind"]},
+			small:	{items:["bleasdale","edgefield","grafton","pointhope","ridgeview","tanglewood","willow","woodwind"]},
 			medium:	{items:["brownstone","maple","prison"]},
 			large:	{items:["sunny"]},
 		},

@@ -38,6 +38,7 @@ langs.en = { // Property here should match this language name
 		map_edgefield:						"Edgefield",
 		map_grafton:							"Grafton",
 		map_maple:								"Maple Lodge",
+		map_pointhope:						"Point Hope",
 		map_prison:								"Prison",
 		map_ridgeview:						"Ridgeview",
 		map_sunny:								"Sunny Meadows",
