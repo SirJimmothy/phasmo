@@ -261,7 +261,7 @@ langs.en = { // Property here should match this language name
 		ghost_shade:							"Shade",
 		ghost_shade_useful:				[
 			"Very inactive",
-			"Won't throw anything with anyone in the ghost room",
+			"Won't throw anything or blow out candles with anyone in the ghost room",
 			"Ghost event chance linked to sanity loss; normal chances below 50%",
 			"Prefers breath ghost events",
 			"Prefers shadow form during ghost events",

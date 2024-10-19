@@ -41,6 +41,7 @@ function load() {
 		document.addEventListener('click',		(e) => { click(e); },false);
 		document.addEventListener('keydown',	(e) => { keydown(e); },false);
 		document.addEventListener('keypress',	(e) => { keypress(e); },false);
+		document.addEventListener('change',		(e) => { change(e); },false);
 		document.getElementById('lang').childNodes[0].addEventListener('change',(e) => { select_lang(e); });
 	}
 
@@ -172,7 +173,7 @@ function click(e) {
 					if (difficulty) { difficulty_select(difficulty); }
 
 					if (parent.nodeName === 'LABEL' && parent_parent.nodeName === 'LI') {
-						setTimeout(function() { check_ghosts(); },10); // Give time for the checkbox to self-toggle
+						setTimeout(() => { check_ghosts(); },10); // Give time for the checkbox to self-toggle
 					}
 
 					if (parent_parent.id === 'sound') {
@@ -362,20 +363,22 @@ function keypress(e) {
 		} else {
 
 			// Structure: 'text','number','image','tick','cross'
-			let clues = document.getElementById('clues');
-			for (let x = 0; x < clues.childNodes.length; x++) {
+			let ul_clues = document.getElementById('clues');
+			for (let x = 0; x < ul_clues.childNodes.length; x++) {
 				let check = [];
-				let clue = clues.childNodes[x].childNodes[1];
-				if (clue.innerHTML === keycode) {
-					check[0] = clues.childNodes[x].childNodes[3].childNodes[0];
-					check[1] = clues.childNodes[x].childNodes[4].childNodes[0];
-					if (!check[0].checked && !check[1].checked) {
-						check[0].nextSibling.click();
-					} else if (check[0].checked && !check[1].checked) {
-						check[0].nextSibling.click(); setTimeout(function() { check[1].nextSibling.click(); },100);
-					} else if (!check[0].checked && check[1].checked) {
-						check[1].nextSibling.click();
-					}
+				let clue = ul_clues.childNodes[x].childNodes[1];
+				if (clue.innerHTML !== keycode) { continue; }
+
+				check[0] = ul_clues.childNodes[x].childNodes[3].childNodes[0];
+				check[1] = ul_clues.childNodes[x].childNodes[4].childNodes[0];
+
+				if (!check[0].checked && !check[1].checked) {
+					check[0].nextSibling.click();
+				} else if (check[0].checked && !check[1].checked) {
+					check[0].nextSibling.click();
+					setTimeout(() => { check[1].nextSibling.click(); },100);
+				} else if (!check[0].checked && check[1].checked) {
+					check[1].nextSibling.click();
 				}
 			}
 
@@ -383,15 +386,32 @@ function keypress(e) {
 
 		let timers = document.getElementById('timers').childNodes[5].childNodes;
 		let hotkey;
-		for (let x = 0; x < timers.length; x++) { if (timers[x].nodeName === 'INPUT') {
+		for (let x = 0; x < timers.length; x++) {
+			if (timers[x].nodeName !== 'INPUT') { continue; }
+
 			let timer = timers[x];
 			hotkey = timer.getAttribute('data-hotkey');
 			if (hotkey && keycode.toLowerCase() === hotkey.toLowerCase()) {
 				timer.click();
-			} }
+			}
 		}
 
 	}
+
+}
+
+/**
+ * TODO change this to work for individual events;
+ * Pressing clue key after on flags off and none
+ */
+
+function change(e) {
+	let target = e.target;
+
+	if (target.name === 'clue_y[]' && target.checked) { play_media(target.value + '_on'); }
+	if (target.name === 'clue_y[]' && !target.checked) { play_media(target.value + '_none'); }
+	if (target.name === 'clue_n[]' && target.checked) { play_media(target.value + '_off'); }
+	if (target.name === 'clue_n[]' && !target.checked) { play_media(target.value + '_none'); }
 
 }
 
@@ -693,10 +713,13 @@ function check_ghosts() {
 	// Determine current state
 	checked = []; // Clear global checklist
 	for (x = 0; x < ul_clues.childNodes.length; x++) {
-		let checkbox_y = ul_clues.childNodes[x].childNodes[3].childNodes[0];
-		let checkbox_n = ul_clues.childNodes[x].childNodes[4].childNodes[0];
 		let clue = ul_clues.childNodes[x];
-		if (!checkbox_y.checked) { clue.classList.remove('selected'); } else {
+		let checkbox_y = clue.childNodes[3].childNodes[0];
+		let checkbox_n = clue.childNodes[4].childNodes[0];
+
+		if (!checkbox_y.checked) {
+			clue.classList.remove('selected');
+		} else {
 			checked_y.push(checkbox_y.value);
 			checked.push(checkbox_y.value);
 			clue.classList.add('selected');
@@ -708,22 +731,28 @@ function check_ghosts() {
 	let possible = Object.assign({},ghosts);
 
 	// Eliminate ghosts based on positive selection
-	for (key in possible) { if (possible.hasOwnProperty(key)) {
+	for (key in possible) {
+		if (!possible.hasOwnProperty(key)) { continue; }
+
 		for (x = 0; x < checked_y.length; x++) {
 			if (!in_array(checked_y[x],possible[key]['clues'])) { delete possible[key]; break; }
 		}
-	} }
+	}
 
 	if (diff.hidden_clues === 0) {
 		// Eliminate ghosts based on negative selection
-		for (let key in possible) { if (possible.hasOwnProperty(key)) {
+		for (let key in possible) {
+			if (!possible.hasOwnProperty(key)) { continue; }
+
 			for (x = 0; x < checked_n.length; x++) {
 				if (in_array(checked_n[x],possible[key]['clues'])) { delete possible[key]; break; }
 			}
-		} }
+		}
 	} else if (diff.hidden_clues > 0) {
 		// Eliminate ghosts based on number of hidden clues and always clues
-		for (let key in possible) { if (possible.hasOwnProperty(key)) {
+		for (let key in possible) {
+			if (!possible.hasOwnProperty(key)) { continue; }
+
 			// Get the number of clues matched per ghost
 			let matched = 0;
 			for (let x = 0; x < checked_y.length; x++) {
@@ -773,7 +802,7 @@ function check_ghosts() {
 			if (to_delete) {
 				delete possible[key];
 			}
-		} }
+		}
 	}
 
 	show_ghosts(possible);
@@ -1194,4 +1223,8 @@ function do_storage(act,name,value = '') {
 		case 'del': localStorage.removeItem(name); break;
 	}
 	return result;
+}
+
+function play_media(name) {
+	console.log(name);
 }
