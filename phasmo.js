@@ -1,73 +1,95 @@
 
-for (let key in rolls) { if (rolls.hasOwnProperty(key)) {
-	for (let key2 in rolls[key].items) { if (rolls[key].items.hasOwnProperty(key2)) {
+// noinspection JSUnresolvedReference
+
+for (let key in rolls) {
+	if (!rolls.hasOwnProperty(key)) { continue; }
+
+	for (let key2 in rolls[key].items) {
+		if (!rolls[key].items.hasOwnProperty(key2)) { continue; }
+
 		let all = rolls[key].groups.all;
 		all.items.push(key2);
-	} }
-} }
+	}
+}
 
 let files = {};
 let media = {
-	"click":	{"type":"audio","file":"click.mp3"},
-	"tick":		{"type":"audio","file":"tick.mp3"},
-	"alarm":	{"type":"audio","file":"alarm.mp3"},
+	'click':	{'type':'audio','file':'click.mp3'},
+	'tick':		{'type':'audio','file':'tick.mp3'},
+	'alarm':	{'type':'audio','file':'alarm.mp3'},
 };
 
-let prefix		= "phasmo_";
+let prefix		= 'phasmo_';
 let fast			= false;
 let sound			= true;
-let use_map		= "";
-let use_diff	= "";
-let lang_use	= "en";
+let use_map		= '';
+let use_diff	= '';
+let lang_use	= 'en';
 
 let timings = {
-	"main":	{"start": 0,	"end": 0,	"current": 0},
-	"step":	null,
+	'main':	{'start': 0,	'end': 0,	'current': 0},
+	'step':	null,
 };
 let clocks = {
-	"hunt":		null,
-	"smudge":	null,
+	'hunt':		null,
+	'smudge':	null,
 };
 
-let gameplay = ["hotkeys","general","evidence","non_evidence","cursed_items","monkey_paw","hunts","nerd_info"];
-
-let checked = []; // Hold list of currently checked clues
+let gameplay		= ['hotkeys','general','evidence','non_evidence','cursed_items','monkey_paw','hunts','nerd_info'];
+let all_clues		= {}; // All evidence statuses: -1 = no | 0 = unknown | 1 = yes
+let prev_clues	= {}; // List of all clues in their previous state, for comparison
+let clue_states	= {
+	'-1': 'no',
+	'0':	'none',
+	'1':	'yes',
+};
+let state_flag	= false; // Whether a clue state change has been triggered. Use to avoid race conditions
 
 window.onload = load;
 function load() {
 
 	// Add event listeners
 	if (document.addEventListener) {
-		document.addEventListener('click',		(e) => { click(e); },false);
-		document.addEventListener('keydown',	(e) => { keydown(e); },false);
-		document.addEventListener('keypress',	(e) => { keypress(e); },false);
-		document.addEventListener('change',		(e) => { change(e); },false);
-		document.getElementById('lang').childNodes[0].addEventListener('change',(e) => { select_lang(e); });
+		document.addEventListener('click',click,false);
+		document.addEventListener('keydown',keydown,false);
+		document.addEventListener('keypress',keypress,false);
+
+		let lang_select = document.querySelector('select[name="lang"]');
+		lang_select.addEventListener('change',select_lang);
 	}
 
 	// Load languages
 	let lang_stored = do_storage('get','lang');
 	if (lang_stored) { lang_use = lang_stored; }
 
-	let lang_select = Object.assign(document.getElementById('lang').childNodes[0],{innerHTML:''});
-	for (let key in langs) { if (langs.hasOwnProperty(key)) {
+	let lang_select = Object.assign(document.querySelector('#lang').childNodes[0],{innerHTML:''});
+	for (let key in langs) {
+		if (!langs.hasOwnProperty(key)) { continue; }
+
 		let opt = Object.assign(document.createElement('OPTION'),{
 			value:			key,
 			innerHTML:	key,
 			selected:		(key === lang_stored),
 		});
 		lang_select.appendChild(opt);
-	} }
+	}
 
 	// Load clues and ghosts into page
-	if (parseInt(do_storage('get','dark'))) { toggle_dark(); }
-	if (parseInt(do_storage('get','compact'))) { toggle_compact(); }
-	if (parseInt(do_storage('get','fast'))) { toggle_fast(); }
-	if (parseInt(do_storage('get','mute'))) {
-		let sound = document.getElementById('sound').childNodes[1].childNodes[0];
+	if (parseInt(do_storage('get','dark')))			{ toggle_dark(); }
+	if (parseInt(do_storage('get','compact')))	{ toggle_compact(); }
+	if (parseInt(do_storage('get','fast')))			{ toggle_fast(); }
+	if (parseInt(do_storage('get','mute')))			{
+		let sound = document.querySelector('#sound').childNodes[1].childNodes[0];
 		sound.checked = false;
 		toggle_sound();
 	}
+
+	for (let x = 0; x < clues.length; x++) {
+		all_clues[clues[x]]		= 0;
+		prev_clues[clues[x]]	= 0;
+	}
+
+	setInterval(report_choice,200);
 
 	populate_phrases();
 	populate_clues();
@@ -78,8 +100,8 @@ function load() {
 	populate_roll();
 
 	// Populate maps
-	let map_div = Object.assign(document.getElementById('maps'),{innerHTML:''});
-	let count = 0;
+	let map_div	= Object.assign(document.querySelector('#maps'),{innerHTML:''});
+	let count		= 0;
 	for (let key in maps) { if (maps.hasOwnProperty(key)) {
 		let map = document.createElement('LI');
 		map.setAttribute('data-map',key);
@@ -129,12 +151,16 @@ function click(e) {
 			switch (target.nodeName) {
 				case 'H3':
 
+					// Clicking the "start timer" button
+					// Perform play or pause depending on the button caption
 					if (target.id === 'play') {
 						let timer_act;
 						if (target.innerHTML === '&gt;') {
-							target.innerHTML = 'II';		timer_act = 'start';
+							target.innerHTML	= 'II';
+							timer_act					= 'start';
 						} else {
-							target.innerHTML = '&gt;';	timer_act = 'stop';
+							target.innerHTML	= '&gt;';
+							timer_act					= 'stop';
 						}
 						do_timer(timer_act,'main');
 					}
@@ -142,44 +168,61 @@ function click(e) {
 				break;
 				case 'INPUT':
 
+					// Clicking a timer preset
 					if (target.type === 'button' && target.getAttribute('data-hotkey')) {
-						let timer = document.getElementById('timer');
-						let val = 0;
-						if (target.nodeName === 'INPUT' && !clocks['main']) {
-							for (let x = 0; x < parent.childNodes.length; x++) { if (parent.childNodes[x].nodeName === 'INPUT') {
-								let child = parent.childNodes[x];
-								child.classList.remove('current');
-							} }
-							val = parseInt(target.getAttribute('data-time'));
-							target.classList.add('current');
-							timer.innerHTML = val.toString();
+						let timer = document.querySelector('#timer');
+						if (target.nodeName !== 'INPUT' || clocks['main']) { return; }
+
+						for (let x = 0; x < parent.childNodes.length; x++) {
+							if (parent.childNodes[x].nodeName !== 'INPUT') { continue; }
+
+							let child = parent.childNodes[x];
+							child.classList.remove('current');
 						}
+						target.classList.add('current');
+						timer.innerHTML = target.getAttribute('data-time').toString();
 					}
 
 				break;
 				case 'DIV':
 
+					// Clicking a ghost's "exclude" button
 					if (in_array('exclude',target.classList)) {
 						parent.classList.toggle('excluded');
 					}
 
+					// Clicking a map name (not icon)
 					let map = parent.getAttribute('data-map');
 					if (map) { map_select(map); }
 
 				break;
 				case 'SPAN':
 
+					// Clicking a difficulty
 					let difficulty = parent.getAttribute('data-difficulty');
 					if (difficulty) { difficulty_select(difficulty); }
 
+					// Clicking an evidence's tick or cross
 					if (parent.nodeName === 'LABEL' && parent_parent.nodeName === 'LI') {
-						setTimeout(() => { check_ghosts(); },10); // Give time for the checkbox to self-toggle
+						// Give time for the checkbox to self-toggle
+						setTimeout(() => {
+							// Set the global clue state
+							let checkbox = target.previousSibling;
+							if (!checkbox.disabled) {
+								all_clues[checkbox.value] = (checkbox.checked ? parseInt(checkbox.getAttribute('data-state')) : 0);
+								state_flag = true;
+							}
+
+							check_ghosts();
+						},10);
 					}
 
+					// Clicking the mute icon
 					if (parent_parent.id === 'sound') {
 						setTimeout(() => { toggle_sound(); },50);
 					}
 
+					// Clicking a top link
 					let item;
 					if (parent_div.id === 'links') {
 						switch (target.parentNode.children[1].getAttribute('data-phrase')) {
@@ -197,7 +240,7 @@ function click(e) {
 							break;
 							case 'mute':
 								toggle_sound();
-								item = document.getElementById('sound').children[0].children[0];
+								item = document.querySelector('#sound').children[0].children[0];
 								item.click();
 							break;
 							case 'compact':
@@ -208,9 +251,6 @@ function click(e) {
 							break;
 						}
 					}
-
-				break;
-				default:
 
 				break;
 			}
@@ -224,57 +264,68 @@ function keydown(e) {
 	let current	= document.activeElement;
 	switch (keycode) {
 		case 'Enter':
-			if (current.id === 'ghostname') {
-				current.blur();
-			}
+			if (current.id === 'ghostname') { current.blur(); }
 		break;
 		case 'Escape':
 			current.blur();
 		break;
 	}
 
-	if (!in_array(current.type,['text'])) {
+	// No other actions will be monitored while user is in a text input
+	if (in_array(current.type,['text'])) { return; }
 
-		if (document.getElementById('photos_check').checked) {
+	if (document.querySelector('#photos_check').checked) {
 
-			let sliders = document.querySelectorAll('input[type=range]');
-			if (in_array(keycode,['ArrowUp','ArrowDown'])) {
-				let found = false;
-				for (let x = 0; x < sliders.length; x++) { if (sliders[x] === current) {
-					e.preventDefault();
-					found = true;
-					let item = x;
-					if (keycode === 'ArrowUp') { // Up arrow
-						item = (x ? x  : photo_count) - 1;
-					} else { // Down arrow
-						item = (x === (photo_count - 1) ? 0  : (x + 1));
-					}
-					sliders[item].focus();
-				} }
-				if (!found) { e.preventDefault(); sliders[(keycode === 'ArrowUp' ? photo_count - 1 : 0)].focus(); }
+		// If the photos pane is open
+
+		let sliders = document.querySelectorAll('input[type=range]');
+		if (in_array(keycode,['ArrowUp','ArrowDown'])) {
+			let found = false;
+			for (let x = 0; x < sliders.length; x++) { if (sliders[x] === current) {
+				e.preventDefault();
+				found = true;
+				let item = x;
+				if (keycode === 'ArrowUp') { // Up arrow
+					item = (x ? x  : photo_count) - 1;
+				} else { // Down arrow
+					item = (x === (photo_count - 1) ? 0  : (x + 1));
+				}
+				sliders[item].focus();
+			} }
+			if (!found) { e.preventDefault(); sliders[(keycode === 'ArrowUp' ? photo_count - 1 : 0)].focus(); }
+		}
+
+	} else {
+
+		// If the photos pane isn't open
+
+		let maps_div	= document.querySelector('#maps');
+		let len				= maps_div.childNodes.length;
+
+		// Using map selection keyboard shortcuts
+		if (in_array(keycode,['[',']'])) {
+			let found = false;
+			for (let x = 0; x < len; x++) {
+				if (maps_div.childNodes[x].childNodes[0] !== current) { continue; }
+
+				e.preventDefault();
+				found = true;
+				let item = x;
+				if (keycode === '[') {
+					item = (x ? x : len) - 1;
+				} else {
+					item = (x === (len - 1) ? 0 : (x + 1));
+				}
+				let map = maps_div.childNodes[item].childNodes[0];
+				map.focus();
 			}
 
-		} else {
-
-			let maps_div = document.getElementById('maps');
-			let len = maps_div.childNodes.length;
-			if (in_array(keycode,['[',']'])) {
-				let found = false;
-				for (let x = 0; x < len; x++) { if (maps_div.childNodes[x].childNodes[0] === current) {
-					e.preventDefault();
-					found = true;
-					let item = x;
-					if (keycode === '[') {
-						item = (x ? x : len) - 1;
-					} else {
-						item = (x === (len - 1) ? 0 : (x + 1));
-					}
-					let map = maps_div.childNodes[item].childNodes[0];
-					map.focus();
-				} }
-				if (!found) { e.preventDefault(); maps_div.childNodes[(keycode === '[' ? (len - 1) : 0)].childNodes[0].focus(); }
+			// If we've run out of nodes, either next or previous, wrap around
+			if (!found) {
+				e.preventDefault();
+				let node = maps_div.childNodes[(keycode === '[' ? (len - 1) : 0)];
+				node.childNodes[0].focus();
 			}
-
 		}
 
 	}
@@ -286,132 +337,124 @@ function keypress(e) {
 	let current	= document.activeElement;
 	let parent	= current.parentNode;
 
-	if (document.activeElement.getAttribute('type') !== 'text') {
+	// Do nothing while the user is in a text input
+	if (document.activeElement.getAttribute('type') === 'text') { return; }
 
-		let item;
-		switch (keycode.toLowerCase()) {
-			case '+': case '=':
-				difficulty_select_key(1);
+	let item;
+	switch (keycode.toLowerCase()) {
+		case '+': case '=':
+			difficulty_select_key(1);
+		break;
+		case '-':
+			difficulty_select_key(-1);
+		break;
+		case '#':
+			document.querySelector('#play').click();
+		break;
+		case ',':
+			toggle_fast();
+		break;
+		case '.':
+			toggle_steps();
+		break;
+		case 'a':
+			toggle_alone();
+		break;
+		case 'c':
+			toggle_compact(true);
+		break;
+		case 'd':
+			toggle_dark(true);
 			break;
-			case '-':
-				difficulty_select_key(-1);
-			break;
-			case '#':
-				document.getElementById('play').click();
-			break;
-			case ',':
-				toggle_fast();
-			break;
-			case '.':
-				toggle_steps();
-			break;
-			case 'a':
-				toggle_alone();
-			break;
-			case 'c':
-				toggle_compact(true);
-			break;
-			case 'd':
-				toggle_dark(true);
-				break;
-			case 'f':
-				toggle_fullscreen();
-			break;
-			case 'g':
-				item = document.getElementById('gameplay').childNodes[0];
-				item.click();
-				current.blur();
-			break;
-			case 'm':
-				toggle_sound();
-				item = document.getElementById('sound').childNodes[1].childNodes[0];
-				item.click();
-			break;
-			case 'n':
-				document.getElementById('ghostname').focus();
-				e.preventDefault();
-			break;
-			case 's':
-				item = document.getElementById('photos').childNodes[0];
-				item.click();
-				current.blur();
-			break;
-			case 'l':
-				item = document.getElementById('roll').childNodes[0];
-				item.click();
-				current.blur();
-			break;
-			case 'x':
-				reset();
-			break;
-			case ' ':
-				let map = parent.getAttribute('data-map');
-				if (map) { map_select(map); e.preventDefault(); }
-			break;
+		case 'f':
+			toggle_fullscreen();
+		break;
+		case 'g':
+			item = document.querySelector('#gameplay').childNodes[0];
+			item.click();
+			current.blur();
+		break;
+		case 'm':
+			toggle_sound();
+			item = document.querySelector('#sound').childNodes[1].childNodes[0];
+			item.click();
+		break;
+		case 'n':
+			document.querySelector('#ghostname').focus();
+			e.preventDefault();
+		break;
+		case 's':
+			item = document.querySelector('#photos').childNodes[0];
+			item.click();
+			current.blur();
+		break;
+		case 'l':
+			item = document.querySelector('#roll').childNodes[0];
+			item.click();
+			current.blur();
+		break;
+		case 'x':
+			reset();
+		break;
+		case ' ':
+			let map = parent.getAttribute('data-map');
+			if (map) { map_select(map); e.preventDefault(); }
+		break;
+	}
+
+	if (document.querySelector('#photos_check').checked) {
+
+		// If the photos pane is open
+
+		if (in_array(keycode,['1','2','3','4','5','6','7','8','9','0'])) {
+			let select = (parseInt(keycode) ? (keycode - 1) : 9);
+			select = document.getElementsByName('photo_' + select)[0];
+			let value = parseInt(select.value);
+			select.value = (value < (photos.length - 1) ? (value + 1) : '0');
+			select.onchange(null);
 		}
 
-		if (document.getElementById('photos_check').checked) {
+	} else {
 
-			if (in_array(keycode,['1','2','3','4','5','6','7','8','9','0'])) {
-				let select = (parseInt(keycode) ? (keycode - 1) : 9);
-				select = document.getElementsByName('photo_' + select)[0];
-				let value = parseInt(select.value);
-				select.value = (value < (photos.length - 1) ? (value + 1) : '0');
-				select.onchange(null);
-			}
+		// If the photos pane isn't open
 
-		} else {
+		// Toggle clues based on number key presses
+		let ul_clues = document.querySelector('#clues');
+		for (let x = 0; x < ul_clues.childNodes.length; x++) {
+			// Node structure: [text,number,image,tick,cross]
+			let clue	= ul_clues.childNodes[x].childNodes[1];
+			if (clue.innerHTML !== keycode) { continue; }
 
-			// Structure: 'text','number','image','tick','cross'
-			let ul_clues = document.getElementById('clues');
-			for (let x = 0; x < ul_clues.childNodes.length; x++) {
-				let check = [];
-				let clue = ul_clues.childNodes[x].childNodes[1];
-				if (clue.innerHTML !== keycode) { continue; }
+			let tick	= ul_clues.childNodes[x].childNodes[3].childNodes[0]; // Tick
+			let cross	= ul_clues.childNodes[x].childNodes[4].childNodes[0]; // Cross
 
-				check[0] = ul_clues.childNodes[x].childNodes[3].childNodes[0];
-				check[1] = ul_clues.childNodes[x].childNodes[4].childNodes[0];
-
-				if (!check[0].checked && !check[1].checked) {
-					check[0].nextSibling.click();
-				} else if (check[0].checked && !check[1].checked) {
-					check[0].nextSibling.click();
-					setTimeout(() => { check[1].nextSibling.click(); },100);
-				} else if (!check[0].checked && check[1].checked) {
-					check[1].nextSibling.click();
-				}
-			}
-
-		}
-
-		let timers = document.getElementById('timers').childNodes[5].childNodes;
-		let hotkey;
-		for (let x = 0; x < timers.length; x++) {
-			if (timers[x].nodeName !== 'INPUT') { continue; }
-
-			let timer = timers[x];
-			hotkey = timer.getAttribute('data-hotkey');
-			if (hotkey && keycode.toLowerCase() === hotkey.toLowerCase()) {
-				timer.click();
+			if (!tick.checked && !cross.checked) {
+				// If neither tick or cross are checked, uncheck the tick
+				tick.nextSibling.click();
+			} else if (tick.checked && !cross.checked) {
+				// If tick is checked and cross is not, uncheck the tick and check the cross
+				tick.nextSibling.click();
+				setTimeout(() => { cross.nextSibling.click(); },20);
+			} else if (!tick.checked && cross.checked) {
+				// If tick is not checked and cross is, uncheck the cross
+				cross.nextSibling.click();
 			}
 		}
 
 	}
 
-}
+	// Select timer based on hotkey presses
+	let timers = document.querySelector('#timers').childNodes[5].childNodes;
+	let hotkey;
+	for (let x = 0; x < timers.length; x++) {
+		if (timers[x].nodeName !== 'INPUT') { continue; }
 
-/**
- * TODO change this to work for individual events;
- * Pressing clue key after on flags off and none
- */
-
-function change(e) {
-	let target = e.target;
-
-	if (target.name === 'clue_y[]' && target.checked) { play_media(target.value + '_on'); }
-	if (target.name === 'clue_y[]' && !target.checked) { play_media(target.value + '_none'); }
-	if (target.name === 'clue_n[]' && target.checked) { play_media(target.value + '_off'); }
-	if (target.name === 'clue_n[]' && !target.checked) { play_media(target.value + '_none'); }
+		let timer = timers[x];
+		hotkey = timer.getAttribute('data-hotkey');
+		if (hotkey && keycode.toLowerCase() === hotkey.toLowerCase()) {
+			timer.click();
+		}
+	}
 
 }
 
@@ -432,7 +475,7 @@ function select_lang(e) {
 
 function map_select(map) {
 	use_map = map;
-	let maps_ul = document.getElementById('maps');
+	let maps_ul = document.querySelector('#maps');
 	for (let x = 0; x < maps_ul.childNodes.length; x++) {
 		let map_li = maps_ul.childNodes[x];
 		let span = map_li.childNodes[0];
@@ -444,7 +487,7 @@ function map_select(map) {
 
 function difficulty_select(difficulty) {
 	use_diff = difficulty;
-	let difficulties_ul = document.getElementById('difficulties');
+	let difficulties_ul = document.querySelector('#difficulties');
 	for (let x = 0; x < difficulties_ul.childNodes.length; x++) {
 		let difficulty_li = difficulties_ul.childNodes[x];
 		let span = difficulty_li.childNodes[0];
@@ -456,7 +499,7 @@ function difficulty_select(difficulty) {
 }
 
 function difficulty_select_key(val) {
-	let difficulties_ul = document.getElementById('difficulties');
+	let difficulties_ul = document.querySelector('#difficulties');
 	for (let x = 0; x < difficulties_ul.childNodes.length; x++) {
 		let difficulty_li = difficulties_ul.childNodes[x];
 		let span = difficulty_li.childNodes[0];
@@ -476,7 +519,7 @@ function set_timers() {
 	let diff	= difficulties[use_diff];
 
 	if (diff) {
-		let timers_div = document.getElementById('timer_list');
+		let timers_div = document.querySelector('#timer_list');
 		for (let x = 0; x < timers_div.childNodes.length; x++) {
 			let timer = timers_div.childNodes[x];
 			let index = timer.getAttribute('data-index');
@@ -506,7 +549,7 @@ function set_timers() {
 function do_timer(act,which) {
 	let timer = timings[which];
 	let modifier = (timer.start < timer.end ? 1 : -1); // Determine up or down counter
-	let element = document.getElementById('timer');
+	let element = document.querySelector('#timer');
 
 	switch (act) {
 		case 'start':
@@ -518,9 +561,18 @@ function do_timer(act,which) {
 					element.innerHTML = timer.current;
 
 					if (sound) {
-						if (timer.current === 30) { for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); } }
-						if (timer.current === 20) { for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); } }
-						if (timer.current === 10) { for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); } }
+						if (timer.current === 30) {
+							for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); }
+						}
+
+						if (timer.current === 20) {
+							for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); }
+						}
+
+						if (timer.current === 10) {
+							for (let x = 0; x < (timer.current / 10); x++) { setTimeout(() => { files['click'].play(); },200 * x); }
+						}
+
 						if (timer.current >= 1 && timer.current <= 5) { files['click'].play(); }
 					}
 
@@ -528,14 +580,14 @@ function do_timer(act,which) {
 						if (sound) { files['alarm'].play(); }
 						clearInterval(clocks[which]);
 						flicker('timers');
-						let timers_div = document.getElementById('timer_list');
+						let timers_div = document.querySelector('#timer_list');
 						for (let x = 0; x < timers_div.childNodes.length; x++) {
 							let timer = timers_div.childNodes[x];
 							if (in_array('current',timer.classList)) {
 								element.innerHTML = timer.getAttribute('data-time');
 							}
 						}
-						document.getElementById('play').click();
+						document.querySelector('#play').click();
 						setTimeout(() => { do_timer('stop',which); },2000);
 					}
 				},1000);
@@ -557,7 +609,7 @@ function flicker(elem) {
 	let limit = 6;
 	elem = document.getElementById(elem);
 	if (elem) {
-		timer = setInterval(function() {
+		timer = setInterval(() => {
 			elem.classList.toggle('flicker');
 			count++;
 			if (count === limit) { clearInterval(timer); }
@@ -618,9 +670,9 @@ function toggle_steps() {
 }
 
 function toggle_alone() {
-	let alone_0 = document.getElementById('ghost').childNodes[1].childNodes[0];
-	let alone_1 = document.getElementById('ghost').childNodes[2].childNodes[0];
-	let alone_2 = document.getElementById('ghost').childNodes[3].childNodes[0];
+	let alone_0 = document.querySelector('#ghost').childNodes[1].childNodes[0];
+	let alone_1 = document.querySelector('#ghost').childNodes[2].childNodes[0];
+	let alone_2 = document.querySelector('#ghost').childNodes[3].childNodes[0];
 	if (alone_0.checked) {
 		alone_1.click();
 	} else if (alone_1.checked) {
@@ -658,8 +710,8 @@ function count_points(slider) {
 
 function reset() {
 	let check			= [];
-	let clues_ul	= document.getElementById('clues');
-	let ghosts_ul	= document.getElementById('ghosts');
+	let clues_ul	= document.querySelector('#clues');
+	let ghosts_ul	= document.querySelector('#ghosts');
 
 	document.body.classList.toggle('hidden');
 	setTimeout(function() { document.body.classList.toggle('hidden'); },200);
@@ -669,8 +721,8 @@ function reset() {
 		ghost.classList = [];
 	}
 
-	document.getElementById('ghostname').value = '';
-	let ghost = document.getElementById('ghost').childNodes[1].childNodes[0];
+	document.querySelector('#ghostname').value = '';
+	let ghost = document.querySelector('#ghost').childNodes[1].childNodes[0];
 	ghost.click();
 
 	for (let x = 0; x < clues_ul.childNodes.length; x++) {
@@ -680,17 +732,25 @@ function reset() {
 		if (check[1].checked) { check[1].nextSibling.click(); }
 	}
 
-	if (clocks['main']) { document.getElementById('play').click(); }
-	let timers = document.getElementById('timers').childNodes[5];
+	if (clocks['main']) { document.querySelector('#play').click(); }
+	let timers = document.querySelector('#timers').childNodes[5];
 	for (let x = 0; x < timers.childNodes.length; x++) { if (timers.childNodes[x].nodeName === 'INPUT') {
 		let timer = timers.childNodes[x];
 		if (in_array('current',timer.classList)) { timer.click(); break; }
 	} }
 
 	for (let x = 0; x <= photos.length; x++) {
-		document.getElementsByName('photo_' + x)[0].value = 0;
-		document.getElementsByName('slider_' + x)[0].value = 0;
-		document.getElementsByName('slider_' + x)[0].parentNode.nextSibling.innerHTML = 0;
+		let photo		= document.getElementsByName('photo_' + x);
+		let slider	= document.getElementsByName('slider_' + x);
+
+		if (photo.length) {
+			photo[0].value = 0;
+		}
+
+		if (slider.length) {
+			slider[0].value = 0;
+			slider[0].parentNode.nextSibling.innerHTML = 0;
+		}
 		count_points();
 	}
 
@@ -702,39 +762,25 @@ function reset() {
 
 function check_ghosts() {
 	let diff			= difficulties[use_diff];
-	let checked_y = [];
-	let checked_n = [];
-	let ul_clues = document.getElementById('clues');
-	let x; // Counter
-	let key; // General key
-
-	// Structure: 'text','number','image','tick','cross'
+	let checked_y	= [];
+	let checked_n	= [];
 
 	// Determine current state
-	checked = []; // Clear global checklist
-	for (x = 0; x < ul_clues.childNodes.length; x++) {
-		let clue = ul_clues.childNodes[x];
-		let checkbox_y = clue.childNodes[3].childNodes[0];
-		let checkbox_n = clue.childNodes[4].childNodes[0];
+	for (let clue in all_clues) {
+		if (all_clues === 0) { continue; }
 
-		if (!checkbox_y.checked) {
-			clue.classList.remove('selected');
-		} else {
-			checked_y.push(checkbox_y.value);
-			checked.push(checkbox_y.value);
-			clue.classList.add('selected');
-		}
-		if (checkbox_n.checked) { checked_n.push(checkbox_n.value); }
+		if (all_clues[clue] === -1)	{ checked_n.push(clue); }
+		if (all_clues[clue] === 1)	{ checked_y.push(clue); }
 	}
 
 	// Take a copy of the ghost object for us to eliminate ghosts
 	let possible = Object.assign({},ghosts);
 
 	// Eliminate ghosts based on positive selection
-	for (key in possible) {
+	for (let key in possible) {
 		if (!possible.hasOwnProperty(key)) { continue; }
 
-		for (x = 0; x < checked_y.length; x++) {
+		for (let x = 0; x < checked_y.length; x++) {
 			if (!in_array(checked_y[x],possible[key]['clues'])) { delete possible[key]; break; }
 		}
 	}
@@ -744,7 +790,7 @@ function check_ghosts() {
 		for (let key in possible) {
 			if (!possible.hasOwnProperty(key)) { continue; }
 
-			for (x = 0; x < checked_n.length; x++) {
+			for (let x = 0; x < checked_n.length; x++) {
 				if (in_array(checked_n[x],possible[key]['clues'])) { delete possible[key]; break; }
 			}
 		}
@@ -824,7 +870,7 @@ function populate_phrases() {
 }
 
 function populate_clues() {
-	let clues_ul = Object.assign(document.getElementById('clues'),{innerHTML:''});
+	let clues_ul = Object.assign(document.querySelector('#clues'),{innerHTML:''});
 	let count = 0;
 	for (let x = 0; x < clues.length; x++) {
 		count++;
@@ -840,8 +886,8 @@ function populate_clues() {
 
 		li.setAttribute('data-clue',clues[x]);
 		li.innerHTML = langs[lang_use].phrases['clue_' + clues[x]];
-		check_y.name = 'clue_y[]'; check_y.type = 'checkbox'; check_y.value = clues[x];
-		check_n.name = 'clue_n[]'; check_n.type = 'checkbox'; check_n.value = clues[x];
+		check_y.name = 'clue_y[]'; check_y.type = 'checkbox'; check_y.value = clues[x]; check_y.setAttribute('data-state','1');
+		check_n.name = 'clue_n[]'; check_n.type = 'checkbox'; check_n.value = clues[x]; check_n.setAttribute('data-state','-1');
 
 		span_number.innerHTML = count.toString();
 
@@ -858,7 +904,7 @@ function populate_clues() {
 }
 
 function populate_timers() {
-	let timers_div = Object.assign(document.getElementById('timer_list'),{innerHTML:''});
+	let timers_div = Object.assign(document.querySelector('#timer_list'),{innerHTML:''});
 	let hotkeys = ['Q','W','E','R','T','Y','U','I','O','P'];
 	let count = 0;
 	for (let key in timers) { if (timers.hasOwnProperty(key)) {
@@ -874,7 +920,7 @@ function populate_timers() {
 		timer.setAttribute('value','[' + hotkeys[count] + '] ' + langs[lang_use].phrases['timer_' + key]);
 		if (timers[key].default) {
 			timer.classList.add('current');
-			document.getElementById('timer').innerHTML = timers[key].time.toString();
+			document.querySelector('#timer').innerHTML = timers[key].time.toString();
 		}
 		timers_div.appendChild(timer);
 		count++;
@@ -885,7 +931,7 @@ function populate_ghosts(ghosts) {
 	// Structure: 'text','number','image','tick','cross'
 
 	// Display descriptions of all applicable ghosts
-	let ghosts_ul = document.getElementById('ghosts');
+	let ghosts_ul = document.querySelector('#ghosts');
 
 	// Remove any entries for re-population
 	while (ghosts_ul.firstChild) { ghosts_ul.removeChild(ghosts_ul.lastChild); }
@@ -898,10 +944,14 @@ function populate_ghosts(ghosts) {
 
 		let icons = document.createElement('SPAN');
 		for (let x = 0; x < ghosts[key]['clues'].length; x++) {
+			let clue = ghosts[key]['clues'][x];
+
 			let icon = document.createElement('SPAN');
-			icon.setAttribute('data-type',ghosts[key]['clues'][x]);
-			if (in_array(ghosts[key]['clues'][x],checked)) { icon.classList.add('checked'); }
-			icon.title = langs[lang_use].phrases['clue_' + ghosts[key]['clues'][x]];
+			icon.setAttribute('data-type',clue);
+
+			if (all_clues[clue] === 1) { icon.classList.add('checked'); }
+
+			icon.title = langs[lang_use].phrases['clue_' + clue];
 			icons.appendChild(icon);
 		}
 		heading.appendChild(icons);
@@ -1024,7 +1074,7 @@ function populate_roll() {
 }
 
 function populate_difficulties() {
-	let difficulties_div = Object.assign(document.getElementById('difficulties'),{innerHTML:''});
+	let difficulties_div = Object.assign(document.querySelector('#difficulties'),{innerHTML:''});
 	let count = 0;
 	for (let key in difficulties) { if (difficulties.hasOwnProperty(key)) {
 		let difficulty = document.createElement('LI');
@@ -1045,7 +1095,7 @@ function populate_difficulties() {
 }
 
 function populate_gameplay() {
-	let gameplay_div = Object.assign(document.getElementById('gameplay'),{innerHTML:''});
+	let gameplay_div = Object.assign(document.querySelector('#gameplay'),{innerHTML:''});
 	for (let x = 0; x < gameplay.length; x++) {
 		if (langs[lang_use].phrases['gameplay_' + gameplay[x]]) {
 			let div = Object.assign(document.createElement('DIV'),{classList: ['body']});
@@ -1065,20 +1115,21 @@ function populate_gameplay() {
 
 function show_ghosts(ghosts) {
 	let available_clues = [];
-	let clue;
 
 	// Compile all clues from current ghosts, to prepare for disabling unmentioned clues
-	for (let key in ghosts) { if (ghosts.hasOwnProperty(key)) {
+	for (let key in ghosts) {
+		if (!ghosts.hasOwnProperty(key)) { continue; }
+
 		for (let x = 0; x < ghosts[key]['clues'].length; x++) {
-			clue = ghosts[key]['clues'][x];
+			let clue = ghosts[key]['clues'][x];
 			if (!in_array(clue,available_clues)) { available_clues.push(clue); }
 		}
-	} }
+	}
 
 	// Disable impossible clues
-	let clues_ul = document.getElementById('clues');
+	let clues_ul = document.querySelector('#clues');
 	for (let x = 0; x < clues_ul.childNodes.length; x++) {
-		clue = clues_ul.childNodes[x];
+		let clue = clues_ul.childNodes[x];
 		let choice_opt_y = clue.childNodes[3].childNodes[0];
 		let choice_opt_n = clue.childNodes[4].childNodes[0];
 		if (!in_array(clue.getAttribute('data-clue'),available_clues)) { // If this clue isn't applicable, disable it
@@ -1106,30 +1157,31 @@ function show_ghosts(ghosts) {
 		}
 	}
 
-	let ghosts_ul = document.getElementById('ghosts');
-	let ghost;
+	let ghosts_ul = document.querySelector('#ghosts');
 
 	for (let x = 0; x < ghosts_ul.childNodes.length; x++) {
-		ghost = ghosts_ul.childNodes[x];
+		let ghost	= ghosts_ul.childNodes[x];
+		let icons	= ghost.childNodes[1].childNodes[1].childNodes;
 
-		for (let y = 0; y < ghost.childNodes[1].childNodes[1].childNodes.length; y++) {
-			let ghost_child = ghost.childNodes[1].childNodes[1].childNodes[y];
+		for (let y = 0; y < icons.length; y++) {
+			let ghost_child = icons[y];
 			ghost_child.classList.remove('checked');
 		}
 
-		if (ghosts.hasOwnProperty(ghost.getAttribute('data-type'))) { // If this ghost is in the valid choices
-			for (let y = 0; y < ghost.childNodes[1].childNodes[1].childNodes.length; y++) {
-				clue = ghost.childNodes[1].childNodes[1].childNodes[y];
+		// Hide all ghosts and unhide all valid choices
+		ghost.classList.add('hidden');
+		if (ghosts.hasOwnProperty(ghost.getAttribute('data-type'))) {
+			for (let y = 0; y < icons.length; y++) {
+				let clue			= icons[y];
+				let clue_name	= ghosts[ghost.getAttribute('data-type')]['clues'][y];
 				clue.classList.remove('checked');
-				if (in_array(ghosts[ghost.getAttribute('data-type')]['clues'][y],checked)) { // EMF, etc. is selected
+				if (all_clues[clue_name] === 1) {
 					if (ghosts[ghost.getAttribute('data-type')]['clues'][y] === clue.getAttribute('data-type')) {
 						clue.classList.add('checked');
 					}
 				}
 			}
 			ghost.classList.remove('hidden');
-		} else {
-			ghost.classList.add('hidden');
 		}
 	}
 
@@ -1225,6 +1277,15 @@ function do_storage(act,name,value = '') {
 	return result;
 }
 
-function play_media(name) {
-	console.log(name);
+function report_choice() {
+	if (!state_flag) { return ; }
+	state_flag = false;
+
+	for (let clue in all_clues) {
+		let value = all_clues[clue];
+		if (value === prev_clues[clue]) { continue; }
+
+		prev_clues[clue] = value;
+		//console.log(clue + '_' + clue_states[value]);
+	}
 }
