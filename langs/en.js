@@ -45,6 +45,7 @@ langs.en = { // Property here should match this language name
 		map_tanglewood:						"Tanglewood",
 		map_willow:								"Willow",
 		map_woodwind:							"Woodwind",
+		map_diner:							"Nell's Diner",
 
 		// Difficulties
 		diff_ama:									"Amateur",

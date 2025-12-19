@@ -53,6 +53,7 @@ let maps = {
 	tanglewood:	{size:"sml",file:"map_tanglewood.png"},
 	willow:			{size:"sml",file:"map_willow.png"},
 	woodwind:		{size:"sml",file:"map_woodwind.png"},
+	diner:		{size:"sml",file:"map_diner.png"}
 };
 
 // Cursed hunts ignore the default grace period, so the cursed hunt grace period is added to the cursed hunt timer
