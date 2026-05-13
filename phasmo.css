@@ -3,43 +3,12 @@
    excluded/hidden/dark/compact/flicker/on/highlight) is still styled
    exactly where the JS expects it. */
 
+/* Dark is the default. The JS toggles `body.dark` on the D key —
+   in this stylesheet that class maps to LIGHT mode (the toggle name is
+   a vestige of the original code, kept so phasmo.js stays untouched). */
 :root {
-	color-scheme: light dark;
+	color-scheme: dark light;
 
-	/* Light tokens */
-	--bg:           #f3f5f8;
-	--surface:      #ffffff;
-	--surface-2:    #f0f3f7;
-	--surface-3:    #e6ebf2;
-	--border:       #d0d7de;
-	--border-soft:  #e3e8ee;
-	--text:         #1f2328;
-	--text-muted:   #5b6470;
-	--text-dim:     #8a939f;
-
-	--accent:       #2f7dd6;
-	--accent-soft:  rgba(47,125,214,0.14);
-	--success:      #2ea043;
-	--success-soft: rgba(46,160,67,0.18);
-	--danger:       #d23f3f;
-	--danger-soft:  rgba(210,63,63,0.18);
-	--ember:        #c47a17;
-
-	--radius-sm: 6px;
-	--radius:    10px;
-	--radius-lg: 14px;
-	--shadow-sm: 0 1px 2px rgba(15,20,30,0.06), 0 1px 1px rgba(15,20,30,0.04);
-	--shadow:    0 4px 14px rgba(15,20,30,0.08), 0 1px 2px rgba(15,20,30,0.05);
-	--shadow-lg: 0 16px 40px rgba(15,20,30,0.14), 0 2px 6px rgba(15,20,30,0.06);
-
-	--transition: 140ms cubic-bezier(.4,.0,.2,1);
-
-	--phasmo: url("inc/phasmo.png");
-	--icons:  url("inc/icons.png");
-}
-
-/* Dark tokens */
-body.dark {
 	--bg:           #0d1117;
 	--surface:      #161b22;
 	--surface-2:    #1c232d;
@@ -58,33 +27,42 @@ body.dark {
 	--danger-soft:  rgba(248,81,73,0.22);
 	--ember:        #e3b341;
 
+	--radius-sm: 6px;
+	--radius:    10px;
+	--radius-lg: 14px;
 	--shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
 	--shadow:    0 6px 20px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.3);
 	--shadow-lg: 0 20px 50px rgba(0,0,0,0.55), 0 4px 10px rgba(0,0,0,0.35);
+
+	--transition: 140ms cubic-bezier(.4,.0,.2,1);
+
+	--phasmo: url("inc/phasmo.png");
+	--icons:  url("inc/icons.png");
 }
 
-/* Auto dark on first load when system prefers it.
-   The D-key toggle still adds/removes `body.dark`, which overrides this. */
-@media (prefers-color-scheme: dark) {
-	body:not(.light) {
-		--bg:           #0d1117;
-		--surface:      #161b22;
-		--surface-2:    #1c232d;
-		--surface-3:    #232c38;
-		--border:       #2a3340;
-		--border-soft:  #1f2630;
-		--text:         #e6edf3;
-		--text-muted:   #9aa4b2;
-		--text-dim:     #6e7886;
+/* `body.dark` class = LIGHT mode (D toggles to this). */
+body.dark {
+	--bg:           #f3f5f8;
+	--surface:      #ffffff;
+	--surface-2:    #f0f3f7;
+	--surface-3:    #e6ebf2;
+	--border:       #d0d7de;
+	--border-soft:  #e3e8ee;
+	--text:         #1f2328;
+	--text-muted:   #5b6470;
+	--text-dim:     #8a939f;
 
-		--accent:       #58a6ff;
-		--accent-soft:  rgba(88,166,255,0.18);
-		--success:      #3fb950;
-		--success-soft: rgba(63,185,80,0.22);
-		--danger:       #f85149;
-		--danger-soft:  rgba(248,81,73,0.22);
-		--ember:        #e3b341;
-	}
+	--accent:       #2f7dd6;
+	--accent-soft:  rgba(47,125,214,0.14);
+	--success:      #2ea043;
+	--success-soft: rgba(46,160,67,0.18);
+	--danger:       #d23f3f;
+	--danger-soft:  rgba(210,63,63,0.18);
+	--ember:        #c47a17;
+
+	--shadow-sm: 0 1px 2px rgba(15,20,30,0.06), 0 1px 1px rgba(15,20,30,0.04);
+	--shadow:    0 4px 14px rgba(15,20,30,0.08), 0 1px 2px rgba(15,20,30,0.05);
+	--shadow-lg: 0 16px 40px rgba(15,20,30,0.14), 0 2px 6px rgba(15,20,30,0.06);
 }
 
 * { box-sizing: border-box; }
