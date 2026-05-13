@@ -510,14 +510,14 @@ div#photos > input + div, div#roll > input + div {
 }
 
 div#photos > input + div {
-	left: calc(-22em - 2px); width: 21em;
+	left: -21em; width: 21em;
 	border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 	border-left: none;
 }
 div#photos > input:checked + div { left: -1px; }
 
 div#roll > input + div {
-	right: calc(-24em - 2px); width: 23em;
+	right: -23em; width: 23em;
 	max-height: calc(100vh - 5.5em);
 	overflow-y: auto;
 	border-radius: var(--radius-lg) 0 0 var(--radius-lg);
@@ -646,7 +646,7 @@ div#gameplay > div > ol > li { margin: 0.5em 0; padding: 0; text-align: justify;
 
 /* Small landscape */
 @media all and (max-height: 600px) {
-	div#roll > input + div { right: calc(-47em - 2px); width: 46em; }
+	div#roll > input + div { right: -46em; width: 46em; }
 	div.roll_group { display: inline-block; vertical-align: top; }
 	div.roll_group:nth-of-type(1) { margin-right: 0.5em; padding-right: 0.5em; border-right: 1px solid var(--border); }
 	div.roll_group:nth-of-type(2) > div:nth-of-type(2) > input + label { width: calc(100% / 4 - 1em); }
