@@ -45,6 +45,7 @@ langs.en = { // Property here should match this language name
 		map_tanglewood:						"Tanglewood",
 		map_willow:								"Willow",
 		map_woodwind:							"Woodwind",
+		map_diner:							"Nell's Diner",
 
 		// Difficulties
 		diff_ama:									"Amateur",
@@ -307,6 +308,28 @@ langs.en = { // Property here should match this language name
 			"Prefers door interactions to other kinds",
 			"Chance to drop sanity by 15% within 3m (closes a nearby door)",
 			"Cannot roam while incensed",
+		],
+		ghost_obambo:							"Obambo",
+		ghost_obambo_useful:				[
+			"Changes states between calm and aggressive. The state affects the ghosts speed and hunt threshold/duration",
+			"Always starts in calm state. Goes aggressive one minute after exit door is opened for the first time",
+			"After first state-change, changes happen every 2 minutes",
+			"Hunt sanity threshold is 10% in calm state, 65% when aggressive",
+			"Hunt is 20% shorter when starting hunt in aggressive state"
+		],
+		ghost_dayan:							"Dayan",
+		ghost_dayan_useful:				[
+			"Ghost is more active when a player is moving nearby",
+			"Hunt threshold increases when nearby players are moving, decreases when standing still",
+			"Speeds up if a walking player is within 10 metres of the ghost. Slows down near standing players",
+			"Follows standard speeds if no player is within range"
+		],
+		ghost_gallu:							"Gallu",
+		ghost_gallu_useful:				[
+			"Changes states between normal, weakened and enraged. The state affects the hunt sanity threshold, crucifix range, hunt speed and incense effectiveness",
+			"Starts in normal state where it behaves like a regular ghost",
+			"Changes states after burning a crucifix, being affected by incense and after stepping in salt",
+			"Cannot walk through salt in the enraged state"
 		],
 
 		// Gameplay info
