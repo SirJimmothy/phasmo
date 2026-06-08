@@ -135,6 +135,13 @@ langs.en = { // Property here should match this language name
 			"Prefers singing during ghost events; these drain 15% sanity",
 			"May shriek through paramic",
 		],
+		ghost_dayan:							"Dayan",
+		ghost_dayan_useful:				[
+			"Ghost is more active when a player is moving nearby",
+			"Hunt threshold increases when nearby players are moving, decreases when standing still",
+			"Speeds up if a walking player is within 10 metres of the ghost. Slows down near standing players",
+			"Follows standard speeds if no player is within range"
+		],
 		ghost_demon:							"Demon",
 		ghost_demon_useful:				[
 			"Crucifixes have 50% increased range per tier",
@@ -155,6 +162,13 @@ langs.en = { // Property here should match this language name
 			"Nightmare mode: spirit box is guaranteed",
 			"When incensed, ghost retains current speed, unless moving at over 3m/s, where it slows to base player speed for incense duration",
 			"Visible for longer during hunts",
+		],
+		ghost_gallu:							"Gallu",
+		ghost_gallu_useful:				[
+			"Changes states between normal, weakened and enraged. The state affects the hunt sanity threshold, crucifix range, hunt speed and incense effectiveness",
+			"Starts in normal state where it behaves like a regular ghost",
+			"Changes states after burning a crucifix, being affected by incense and after stepping in salt",
+			"Cannot walk through salt in the enraged state"
 		],
 		ghost_goryo:							"Goryo",
 		ghost_goryo_useful:				[
@@ -177,6 +191,13 @@ langs.en = { // Property here should match this language name
 			"Will never turn off breaker",
 			"With breaker on, chance to drop sanity by 25% within 3m or same room; triggers EMF at breaker",
 			"During hunt with breaker on, will be 1.5x player speed (2.5m/s) when chasing, until within 2m of target",
+		],
+		ghost_kormos:								"Kormos",
+		ghost_kormos_useful:				[
+			"Cannot see at all beyond 5m, but can hear footsteps from long distance",
+			"Hunts at 70% if a player sprints in the same room as the ghost",
+			"Can kill players within 1.5m of investigation area, ignoring obstacles",
+			//"Can currently detect equipment during hunt grace period",
 		],
 		ghost_mare:								"Mare",
 		ghost_mare_useful:				[
@@ -216,6 +237,14 @@ langs.en = { // Property here should match this language name
 			"Ultraviolet can disappear after 50% of normal time",
       "During a hunt, has a 6.66% chance each time it flickers to shapeshift into a different ghost model, and then return back to its original form. Guaranteed to occur at least once per hunt",
 			"Nightmare mode: Ultraviolet are guaranteed",
+		],
+		ghost_obambo:							"Obambo",
+		ghost_obambo_useful:				[
+			"Changes states between calm and aggressive. The state affects the ghosts speed and hunt threshold/duration",
+			"Always starts in calm state. Goes aggressive one minute after exit door is opened for the first time",
+			"After first state-change, changes happen every 2 minutes",
+			"Hunt sanity threshold is 10% in calm state, 65% when aggressive",
+			"Hunt is 20% shorter when starting hunt in aggressive state"
 		],
 		ghost_oni:								"Oni",
 		ghost_oni_useful:					[
@@ -308,28 +337,6 @@ langs.en = { // Property here should match this language name
 			"Prefers door interactions to other kinds",
 			"Chance to drop sanity by 15% within 3m (closes a nearby door)",
 			"Cannot roam while incensed",
-		],
-		ghost_obambo:							"Obambo",
-		ghost_obambo_useful:				[
-			"Changes states between calm and aggressive. The state affects the ghosts speed and hunt threshold/duration",
-			"Always starts in calm state. Goes aggressive one minute after exit door is opened for the first time",
-			"After first state-change, changes happen every 2 minutes",
-			"Hunt sanity threshold is 10% in calm state, 65% when aggressive",
-			"Hunt is 20% shorter when starting hunt in aggressive state"
-		],
-		ghost_dayan:							"Dayan",
-		ghost_dayan_useful:				[
-			"Ghost is more active when a player is moving nearby",
-			"Hunt threshold increases when nearby players are moving, decreases when standing still",
-			"Speeds up if a walking player is within 10 metres of the ghost. Slows down near standing players",
-			"Follows standard speeds if no player is within range"
-		],
-		ghost_gallu:							"Gallu",
-		ghost_gallu_useful:				[
-			"Changes states between normal, weakened and enraged. The state affects the hunt sanity threshold, crucifix range, hunt speed and incense effectiveness",
-			"Starts in normal state where it behaves like a regular ghost",
-			"Changes states after burning a crucifix, being affected by incense and after stepping in salt",
-			"Cannot walk through salt in the enraged state"
 		],
 
 		// Gameplay info

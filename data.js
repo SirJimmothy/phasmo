@@ -1,16 +1,20 @@
 
 let ghosts = {
 	banshee:			{clues: ["dots","ultraviolet","orb"],					clues_always: [],								clues_fake: []},
+	dayan:				{clues: ["emf", "orb", "box"],								clues_always: [],								clues_fake: []},
 	demon:				{clues: ["ultraviolet","temps","writing"],		clues_always: [],								clues_fake: []},
 	deogen:				{clues: ["box","dots","writing"],							clues_always: ["box"],					clues_fake: []},
+	gallu:				{clues: ["emf", "ultraviolet", "box"],				clues_always: [],								clues_fake: []},
 	goryo:				{clues: ["emf","dots","ultraviolet"],					clues_always:	["dots"],					clues_fake: []},
 	hantu:				{clues: ["orb","ultraviolet","temps"],				clues_always: ["temps"],				clues_fake: []},
 	jinn:					{clues: ["emf","ultraviolet","temps"],				clues_always: [],								clues_fake: []},
+	kormos:				{clues: ["box","orb","ultraviolet"],					clues_always: [],								clues_fake: []},
 	mare: 				{clues: ["box","orb","writing"],							clues_always: [],								clues_fake: []},
 	mimic:				{clues: ["box","orb","ultraviolet","temps"],	clues_always: ["orb"],					clues_fake: ["orb"]},
 	moroi:				{clues: ["box","temps","writing"],						clues_always: ["box"],					clues_fake: []},
 	myling:				{clues: ["emf","ultraviolet","writing"],			clues_always: [],								clues_fake: []},
 	obake:				{clues: ["emf","orb","ultraviolet"],					clues_always: ["ultraviolet"],	clues_fake: []},
+	obambo:				{clues: ["writing", "ultraviolet", "dots"],		clues_always: [],								clues_fake: []},
 	oni:					{clues: ["emf","dots","temps"],								clues_always: [],								clues_fake: []},
 	onryo:				{clues: ["box","orb","temps"],								clues_always: [],								clues_fake: []},
 	phantom:			{clues: ["box","dots","ultraviolet"],					clues_always: [],								clues_fake: []},
@@ -24,9 +28,6 @@ let ghosts = {
 	wraith:				{clues: ["box","emf","dots"],									clues_always: [],								clues_fake: []},
 	yokai:				{clues: ["box","dots","orb"],									clues_always: [],								clues_fake: []},
 	yurei:				{clues: ["orb","dots","temps"],								clues_always: [],								clues_fake: []},
-	obambo:				{clues: ["writing", "ultraviolet", "dots"],		clues_always: [],								clues_fake: []},
-	dayan:				{clues: ["emf", "orb", "box"],								clues_always: [],								clues_fake: []},
-	gallu:				{clues: ["emf", "ultraviolet", "box"],				clues_always: [],								clues_fake: []},
 };
 
 let timers = {
