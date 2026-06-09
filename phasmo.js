@@ -75,10 +75,10 @@ function load() {
 	}
 
 	// Load clues and ghosts into page
-	if (parseInt(do_storage('get','dark')))			{ toggle_dark(); }
-	if (parseInt(do_storage('get','compact')))	{ toggle_compact(); }
-	if (parseInt(do_storage('get','fast')))			{ toggle_fast(); }
-	if (parseInt(do_storage('get','mute')))			{
+	if (parseInt(do_storage('get','dark')) != in_array('dark',document.body.classList))	{ toggle_dark(); }
+	if (parseInt(do_storage('get','compact')))																					{ toggle_compact(); }
+	if (parseInt(do_storage('get','fast')))																							{ toggle_fast(); }
+	if (parseInt(do_storage('get','mute')))																							{
 		let sound = document.querySelector('#sound').childNodes[1].childNodes[0];
 		sound.checked = false;
 		toggle_sound();

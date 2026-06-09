@@ -1,19 +1,25 @@
 
 /* var(--white); */
 :root {
-	--blackest:			#000000;
+	--blackest:			#0D1116;
 	--white:				#FFFFFF;
 	--black:				#333333;
+	--blue:					#4794ED;
+	--green:				#3FB950;
 	--grey:					#999999;
 	--grey2:				#EEEEEE;
 	--grey3:				#666666;
-	--green:				#009900;
 	--red:					#FF0000;
 	--pale:					#FFFFDE;
-	--green2:				#00FF00;
 
+	--dark_bg:			#161B22;
+	--dark_border:	#3C485B;
+	--dark_fill:		#1C232D;
+	--dark_text:		#929EB2;
+
+	--trans:				rgba(0,0,0,0);
 	--red_trans:		rgba(255,0,0,0.5);
-	--green2_trans:	rgba(0,255,0,0.5);
+	--blue_trans:		rgba(71,148,237,0.5);
 
 	--phasmo: 			url("inc/phasmo.png");
 	--icons:				url("inc/icons.png");
@@ -37,7 +43,7 @@ body.hidden { opacity: 0; filter: opacity(0%); }
 .b { font-weight: bold; }
 table { width: 100%; margin: 0; border-spacing: 0; }
 
-input[type="button"] { box-sizing: border-box; margin: 0 0 0.25em 0; padding: 0.5em 0.25em 0.4em 0.25em; border: 1px solid var(--white); font-family: "fixed", monospace; font-size: 12px; color: var(--white); background: var(--black); cursor: pointer; }
+input[type="button"] { box-sizing: border-box; margin: 0 0 0.25em 0; padding: 0.5em 0.25em 0.4em 0.25em; border: 1px solid var(--white); border-radius: 0.5em; font-family: "fixed", monospace; font-size: 12px; color: var(--white); background: var(--black); cursor: pointer; }
 input[type="button"].current { border-color: var(--black); color: var(--black); background-color: var(--grey2); }
 
 div.body { z-index: 0; box-sizing: border-box; position: relative; width: 100%; margin: 0 auto; padding: 0.5em 1em 1em 1em; border: 1px solid var(--black); background-color: var(--white); }
@@ -94,7 +100,7 @@ div#head > div:nth-of-type(2) > h2 { margin: 0; font-size: 20px; }
 div#head > div:nth-of-type(2) > h3 { display: inline-block; margin: 0.25em 0.1em; padding: 0.1em 0.25em 0 0.25em; border: 1px solid var(--black); vertical-align: bottom; line-height: 1em; font-size: 40px; text-shadow: 1px 1px var(--black); user-select: none; }
 
 div#head > div:nth-of-type(2) > div { font-size: 0; }
-div#head > div:nth-of-type(2) > div > input { width: 20%; margin-left: 0.25em; margin-right: 0.25em; }
+div#head > div:nth-of-type(2) > div > input { margin-left: 0.25em; margin-right: 0.25em; padding: 0.5em; }
 div#head > div:nth-of-type(2) > div > input:disabled { opacity: 0.5; filter: opacity(50%); }
 div#head > div:nth-of-type(2) > div > p { margin: 0; }
 
@@ -116,7 +122,7 @@ ul#maps > li > a { flex: 0 0 2em; border-right: 1px solid var(--black); border-r
 ul#maps > li > div { flex: 1 1 auto; padding: 0.5em; border-radius: 0 0.5em 0.5em 0; }
 
 ul#maps > li > a.selected { background-color: var(--grey3); }
-ul#maps > li > span:hover, ul#maps > li > a:focus + div { text-shadow: none; color: var(--black); background-color: var(--grey2); }
+ul#maps > li > span:hover, ul#maps > li > a:focus + div { text-shadow: none; color: var(--white); background-color: var(--grey3); }
 
 /* Clue Selection */
 ul#clues { list-style-type: none; display: flex; flex-flow: row; flex-wrap: wrap; margin: 0 0 0.5em 0; padding: 0 0 0.5em 0; border-bottom: 1px dashed var(--black); user-select: none; }
@@ -158,7 +164,7 @@ ul#clues > li.disabled:before { display: block; }
 
 /* Difficulties */
 ul#difficulties { display: flex; flex-flow: row; flex-wrap: wrap; list-style-type: none; margin: 0; padding: 0; }
-ul#difficulties > li { position: relative; display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; background-color: var(--grey2); cursor: pointer; user-select: none; }
+ul#difficulties > li { position: relative; display: inline-block; flex: 1 1 15%; margin: 0 0.25em 0.25em 0; border: 1px solid var(--black); border-radius: 0.5em; text-align: center; cursor: pointer; user-select: none; }
 ul#difficulties > li > span { display: block; }
 ul#difficulties > li > span:nth-of-type(1) { position: absolute; top: 0; left: 0; width: 2em; height: 100%; border-right: 1px solid var(--black); border-radius: 0.5em 0 0 0.5em; background-color: var(--white); }
 ul#difficulties > li > span:nth-of-type(2) { margin-left: calc(2em + 1px); padding: 0.5em 0; border-radius: 0 0.5em 0.5em 0; }
@@ -182,7 +188,7 @@ ul#ghosts > li > h3 > span > span:nth-of-type(1) { margin-left: 0; }
 
 ul#ghosts > li > ul { list-style-type: none; margin: 0.3em 0 0 0; padding: 0; }
 ul#ghosts > li > ul > li { position: relative; margin: 0.25em 0; padding: 0 0 0 0.75em; line-height: calc(1em + 2px); }
-ul#ghosts > li > ul > li::before { position: absolute; top: 0; left: 0; font-weight: bold; font-family: "fixed", monospace; line-height: calc(1em + 2px); content: '»'; }
+ul#ghosts > li > ul > li::before { position: absolute; top: 1px; left: 0; font-weight: bold; font-family: "fixed", monospace; line-height: calc(1em + 2px); content: '»'; color: var(--red); }
 
 body.compact ul#ghosts > li { padding-bottom: 0.25em; }
 body.compact ul#ghosts > li > ul { display: none; }
@@ -220,7 +226,7 @@ div#photos > div > table > tbody td { }
 div#photos > div > table > tbody td > select { width: 100%; height: 1.5em; background-color: var(--white); }
 div#photos > div > table > tbody td > input { box-sizing: border-box; width: 100%; height: 1em; }
 
-div#photos > div > h2 { margin-top: 0.25em; font-size: 24px; }
+div#photos > div > h2 { margin-top: 0.25em; font-size: 24px; color: var(--green); }
 
 /* Roll */
 div#roll { position: relative; z-index: 0; }
@@ -261,7 +267,8 @@ div.roll_group > div:nth-of-type(2) > label[data-name="edgefield"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="grafton"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="bleasdale"] > span,
 div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span,
-div.roll_group > div:nth-of-type(2) > label[data-name="maple"] > span
+div.roll_group > div:nth-of-type(2) > label[data-name="maple"] > span,
+div.roll_group > div:nth-of-type(2) > label[data-name="willow"] > span
 	{ height: 2em; }
 
 /* Gameplay */
@@ -274,55 +281,65 @@ div#gameplay > div > ol > li { margin: 0.5em; padding: 0; text-align: justify; }
 /**/
 
 /* Dark Mode */
-body.dark { color: var(--white); background-color: var(--blackest); }
-body.dark div.body { border-color: var(--white); background-color: var(--black); }
+body.dark { color: var(--dark_text); background-color: var(--blackest); }
+body.dark div.body { border-color: var(--dark_border); background-color: var(--dark_bg); }
 
-body.dark a { color: var(--green2); }
-body.dark a:hover { text-shadow: 0 0 0.5em var(--green2_trans); }
+body.dark a { color: var(--blue); }
+body.dark a:hover { text-shadow: 0 0 0.5em var(--blue_trans); }
+
+body.dark input[type="text"] { color: var(--dark_text); background-color: var(--dark_fill); }
+
+body.dark input[type="button"] { border-color: var(--dark_border); color: var(--dark_text); background-color: var(--dark_fill); }
+body.dark input[type="button"].current { background-color: var(--blackest); }
 
 /* Keyboard shortcuts */
 body.dark div#links > ul > li { border-color: var(--black); }
-body.dark div#links > ul > li > span:nth-of-type(1) { color: var(--black); background-color: var(--white); }
+body.dark div#links > ul > li.on { border-color: var(--dark_text); }
+body.dark div#links > ul > li > span:nth-of-type(1) { color: var(--black); background-color: var(--dark_text); }
 
 /* Keyboard shortcut: dark */
-body.dark div#links > ul > li:nth-of-type(1) { border: 1px solid var(--white); }
+body.dark div#links > ul > li:nth-of-type(1) { border: 1px solid var(--dark_text); }
 
 /* Keyboard shortcut: fullscreen */
 html:fullscreen body.dark div#links > ul > li:nth-of-type(2) { border-color: var(--white); }
 
 /* Top section */
-body.dark div#head > div { border-color: var(--white); }
-body.dark div#head > div:nth-of-type(2) { color: var(--black); }
+body.dark div#head > div { border-color: var(--dark_border); background-color: var(--dark_fill); }
+
+body.dark h3#timer { border-color: var(--dark_text); color: var(--dark_text); background-color: var(--dark_fill); }
+body.dark h3#play { background-color: var(--blue); }
+body.dark h3#sound input + span { filter: invert(50%); }
 
 /* Ghost name tooltip */
+body.dark div#ghost > input { border-color: var(--dark_border); }
 body.dark div#ghost > input:focus + label:before { color: var(--black); }
 
 /* Alone marker */
-body.dark div#ghost > label > span { border-color: var(--grey2); color: var(--black); background-color: var(--grey2); }
-body.dark div#ghost > label > input:checked + span { color: var(--white); background-color: var(--green); }
+body.dark div#ghost > label > span { border-color: var(--dark_border); color: var(--dark_text); background-color: var(--dark_fill); }
+body.dark div#ghost > label > input:checked + span { color: var(--white); background-color: var(--blue); }
+
+body.dark div#lang > select { color: var(--dark_text); background-color: var(--dark_fill); }
 
 /* Maps */
-body.dark ul#maps > li { border: 1px solid var(--white); }
-body.dark ul#maps > li > span { border-color: var(--white); }
+body.dark ul#maps > li { border: 1px solid var(--dark_border); background-color: var(--dark_fill); }
 body.dark ul#maps > li > a { }
-body.dark ul#maps > li > a:hover, body.dark ul#maps > li > a:focus { color: var(--white); background-color: var(--grey3); }
+body.dark ul#maps > li > a.selected { background-color: var(--blue); }
+body.dark ul#maps > li > span:hover, body.dark ul#maps > li > a:focus + div { color: var(--white); background-color: var(--blackest); }
 
 body.dark ul#maps > li > span.selected { background-color: var(--white); }
 
 /* Difficulties */
-body.dark ul#difficulties > li { border-color: var(--white); color: var(--white); }
-body.dark ul#difficulties > li > span:nth-of-type(1) { border-color: var(--white); background-color: var(--black); }
-body.dark ul#difficulties > li > span:nth-of-type(2) { background-color: var(--grey3); }
-body.dark ul#difficulties > li > span:nth-of-type(1).selected { background-color: var(--white); }
+body.dark ul#difficulties > li { border-color: var(--dark_border); color: var(--white); }
+body.dark ul#difficulties > li > span:nth-of-type(1) { border-color: var(--dark_border); background-color: var(--dark_bg); }
+body.dark ul#difficulties > li > span:nth-of-type(2) { background-color: var(--dark_fill); }
+body.dark ul#difficulties > li > span:nth-of-type(1).selected { background-color: var(--blue); }
 
 /* Clue Selection */
-body.dark ul#clues { border-color: var(--white); }
-body.dark ul#clues > li { border-color: var(--white); }
-body.dark ul#ghosts > li { border-color: var(--white); }
-body.dark ul#ghosts > li > div.exclude { border-color: var(--white); }
+body.dark ul#clues { border-color: var(--dark_border); }
+body.dark ul#clues > li { border-color: var(--dark_border); background-color: var(--dark_fill); }
 
 /* Clue hotkey */
-body.dark ul#clues > li > span:nth-of-type(1) { color: var(--black); text-shadow: 1px 1px 1px var(--white), 0 0 1px var(--white); }
+body.dark ul#clues > li > span:nth-of-type(1) { color: var(--dark_fill); text-shadow: 1px 1px 1px var(--white), 0 0 1px var(--white); }
 
 /* Disabled clue fade overlay */
 body.dark ul#clues > li:before { background-color: var(--black); }
@@ -331,14 +348,19 @@ body.dark ul#clues > li:before { background-color: var(--black); }
 body.dark ul#clues > li.selected { border-color: var(--green); }
 body.dark ul#clues > li.disabled { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.25); }
 
+/* Ghost results */
+body.dark ul#ghosts > li { border-color: var(--dark_border); background-color: var(--dark_fill); }
+body.dark ul#ghosts > li > div.exclude { border-color: var(--dark_border); }
+body.dark ul#ghosts > li > ul > li::before { color: var(--blue); }
+
 /* Photos */
-body.dark div#photos > input + div { border-color: var(--white); background-color: var(--black); }
-body.dark div#photos > input + div > label { border-color: var(--white); background-color: var(--black); }
-body.dark div#photos > div > table > tbody td > select { color: var(--white); background-color: var(--black); }
+body.dark div#photos > input + div { border-color: var(--white); background-color: var(--dark_fill); }
+body.dark div#photos > input + div > label { border-color: var(--dark_border); background-color: var(--dark_fill); }
+body.dark div#photos > div > table > tbody td > select { color: var(--white); background-color: var(--dark_fill); }
 
 /* Roll */
-body.dark div#roll > input + div { border-color: var(--white); background-color: var(--black); }
-body.dark div#roll > input + div > label { border-color: var(--white); background-color: var(--black); }
+body.dark div#roll > input + div { border-color: var(--dark_border); background-color: var(--dark_fill); }
+body.dark div#roll > input + div > label { border-color: var(--dark_border); background-color: var(--dark_fill); }
 body.dark div#roll > input + div > input[type="button"] { color: var(--black); background-color: var(--grey2); }
 
 /* Roll Types */
@@ -359,11 +381,14 @@ body.dark div.roll_group > div:nth-of-type(2) > input:checked + label { border-c
 
 	div.roll_group:nth-of-type(1) > div:nth-of-type(2) > input + label { height: 3em; }
 
-	div.roll_group > div:nth-of-type(2) > label[data-name="ridgeview"] > span
+	div.roll_group > div:nth-of-type(2) > label[data-name="diner"] > span,
+	div.roll_group > div:nth-of-type(2) > label[data-name="woodwind"] > span
 	{ height: 2em; }
 
 	div.roll_group > div:nth-of-type(2) > label[data-name="brownstone"] > span,
-	div.roll_group > div:nth-of-type(2) > label[data-name="maple"] > span
+	div.roll_group > div:nth-of-type(2) > label[data-name="maple"] > span,
+	div.roll_group > div:nth-of-type(2) > label[data-name="ridgeview"] > span,
+	div.roll_group > div:nth-of-type(2) > label[data-name="tanglewood"] > span
 	{ height: 3em; }
 
 	div.roll_group > div:nth-of-type(2) > label[data-name="mos"] > span,

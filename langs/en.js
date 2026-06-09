@@ -35,6 +35,7 @@ langs.en = { // Property here should match this language name
 		map_training:							"Training",
 		map_bleasdale:						"Bleasdale",
 		map_brownstone:						"High School",
+		map_diner:								"Nell's Diner",
 		map_edgefield:						"Edgefield",
 		map_grafton:							"Grafton",
 		map_maple:								"Maple Lodge",
@@ -45,7 +46,6 @@ langs.en = { // Property here should match this language name
 		map_tanglewood:						"Tanglewood",
 		map_willow:								"Willow",
 		map_woodwind:							"Woodwind",
-		map_diner:							"Nell's Diner",
 
 		// Difficulties
 		diff_ama:									"Amateur",
@@ -88,9 +88,11 @@ langs.en = { // Property here should match this language name
 		// Rolls tab
 		roll_bleasdale:						"Bleasdale Farmhouse",
 		roll_brownstone:					"Brownstone High School",
+		roll_diner:								"Nell's Diner",
 		roll_edgefield:						"Edgefield Street",
 		roll_grafton:							"Grafton Farmhouse",
 		roll_maple:								"Maple Lodge Campsite",
+		roll_pointhope:						"Point Hope",
 		roll_prison:							"Prison",
 		roll_ridgeview:						"10 Ridgeview Court",
 		roll_sunny:								"Sunny Meadows",

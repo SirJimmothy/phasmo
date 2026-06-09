@@ -89,7 +89,7 @@ let star_count = 3;
 
 let rolls = {
 	maps:{
-		items:["bleasdale","brownstone","edgefield","grafton","pointhope","maple","prison","ridgeview","sunny","tanglewood","willow","woodwind"],
+		items:["bleasdale","brownstone","diner","edgefield","grafton","pointhope","maple","prison","ridgeview","sunny","tanglewood","willow","woodwind"],
 		groups:{
 			clear:	{items:[]},
 			all:		{items:[]},
