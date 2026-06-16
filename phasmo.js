@@ -1103,7 +1103,16 @@ function populate_gameplay() {
 
 			let phrases = langs[lang_use].phrases['gameplay_' + gameplay[x] + '_items'];
 			for (let x = 0 ; x < phrases.length; x++) {
-				list.appendChild(Object.assign(document.createElement('LI'),{innerHTML: phrases[x]}));
+				let li = document.createElement('LI');
+
+				let split = phrases[x].split("\t");
+				if (split.length > 1) {
+					li.appendChild(Object.assign(document.createElement('SPAN'),{innerHTML: split[0]}));
+					li.innerHTML += split[1];
+				} else {
+					li.innerHTML += split[0];
+				}
+				list.appendChild(li);
 			}
 
 			div.appendChild(Object.assign(document.createElement('H3'),{innerHTML: langs[lang_use].phrases['gameplay_' + gameplay[x]] + ':'}));

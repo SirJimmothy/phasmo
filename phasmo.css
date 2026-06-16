@@ -16,6 +16,7 @@
 	--dark_border:	#3C485B;
 	--dark_fill:		#1C232D;
 	--dark_text:		#929EB2;
+	--alternate:		#DDDDDD;
 
 	--trans:				rgba(0,0,0,0);
 	--red_trans:		rgba(255,0,0,0.5);
@@ -23,6 +24,10 @@
 
 	--phasmo: 			url("inc/phasmo.png");
 	--icons:				url("inc/icons.png");
+}
+
+body.dark {
+	--alternate: #3C485B;
 }
 
 @font-face { font-family: "arial"; src: url("inc/arial.ttf"); }
@@ -275,8 +280,10 @@ div.roll_group > div:nth-of-type(2) > label[data-name="willow"] > span
 div#gameplay { display: flex; flex-wrap: wrap; margin: 0.5em -0.5em -0.5em -0.5em; }
 div#gameplay > div { flex: 1 0 calc(25% - 1em); margin: 0.5em; }
 div#gameplay > div > h3 { font-weight: bold; }
-div#gameplay > div > ol { margin: 0; padding: 0 0 0 0.5em; }
-div#gameplay > div > ol > li { margin: 0.5em; padding: 0; text-align: justify; }
+div#gameplay > div > ol { list-style-type: none; margin: 0; padding: 0; }
+div#gameplay > div > ol > li { margin: 0; padding: 0.25em 0.5em; text-align: justify; }
+div#gameplay > div > ol > li:nth-of-type(even) { background-color: var(--alternate); }
+div#gameplay > div > ol > li > span { margin-right: 0.5em; font-weight: bold; }
 
 /**/
 
