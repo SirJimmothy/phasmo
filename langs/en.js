@@ -130,6 +130,13 @@ langs.en = { // Property here should match this language name
 		clue_box:									"Spirit Box",
 
 		// Ghost useful info
+		ghost_aswang:						"Aswang",
+		ghost_aswang_useful:			[
+			"Moves slower by default; just under player non-sprint speed",
+			"Gets to its top speed almost twice as fast as other ghosts",
+			"Hunt ends if it finds a player in an intended hiding spot; can't die while hiding",
+			"If hunt ended by finding hiding player, will start the next hunt by going straight to that spot, even during grace period",
+		],
 		ghost_banshee:						"Banshee",
 		ghost_banshee_useful:			[
 			"Hunts are based on target sanity; will only hunt its target unless target is outside",
