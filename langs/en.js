@@ -207,7 +207,6 @@ langs.en = { // Property here should match this language name
 			"Hunts at 70% if a player sprints in the same room as the ghost",
 			"Can kill players within 1.5m of investigation area, ignoring obstacles",
 			"Cannot perform targeted ghost events, e.g. mist ball, walk to player",
-			"Can currently detect equipment during hunt grace period - bug?",
 		],
 		ghost_mare:								"Mare",
 		ghost_mare_useful:				[
