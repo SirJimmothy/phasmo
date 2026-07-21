@@ -2,7 +2,8 @@
 let ghosts = {
 	aswang:				{clues: ["dots","temps","writing"],						clues_always: [],								clues_fake: []},
 	banshee:			{clues: ["dots","ultraviolet","orb"],					clues_always: [],								clues_fake: []},
-	dayan:				{clues: ["emf", "orb", "box"],								clues_always: [],								clues_fake: []},
+	dayan:				{clues: ["emf","orb","box"],									clues_always: [],								clues_fake: []},
+	deildegast:		{clues: ["dots","emf","writing"],							clues_always: [],								clues_fake: []},
 	demon:				{clues: ["ultraviolet","temps","writing"],		clues_always: [],								clues_fake: []},
 	deogen:				{clues: ["box","dots","writing"],							clues_always: ["box"],					clues_fake: []},
 	gallu:				{clues: ["emf", "ultraviolet", "box"],				clues_always: [],								clues_fake: []},

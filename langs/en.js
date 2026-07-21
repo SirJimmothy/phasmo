@@ -151,6 +151,11 @@ langs.en = { // Property here should match this language name
 			"Speeds up if a walking player is within 10 metres of the ghost. Slows down near standing players",
 			"Follows standard speeds if no player is within range"
 		],
+		ghost_deildegast:					"Deildegast",
+		ghost_deildegast_useful:	[
+			"Moving room items reduces ghost hunting speed; resets between hunts. Items thrown during hunts do not count",
+			"Moving at least 15 items reduces the ghost to a manageable speed",
+		],
 		ghost_demon:							"Demon",
 		ghost_demon_useful:				[
 			"Crucifixes have 50% increased range per tier",
