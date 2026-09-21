@@ -492,7 +492,6 @@ langs.en = { // Property here should match this language name
 			"If a ghost sees a player enter a closet or locker, they will attempt to open them, even if the doors are held. Keep pulling them closed to survive",
 			"Making sound or activating electronics inside a locker will cause the ghost to force open the doors; this is rarely survivable",
 			"Incense may be used within 6m of a ghost to cause the ghost to wander randomly and forget all targets for 6s",
-			"Incense may also be used by a non-chased player, even in the truck, if the ghost is chasing another player",
 		],
 		gameplay_nerd_info:						"Nerd Info",
 		gameplay_nerd_info_items:			[
