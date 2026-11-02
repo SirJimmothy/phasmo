@@ -348,7 +348,7 @@ langs.en = { // Property here should match this language name
 		],
 		ghost_yurei:							"Yurei",
 		ghost_yurei_useful:				[
-			"Prefers door interactions to other kinds",
+			"Prefers door interactions to other kinds; always full opens or closes (non-hunts only)",
 			"Chance to drop sanity by 15% within 3m (closes a nearby door)",
 			"Cannot roam while incensed",
 		],
